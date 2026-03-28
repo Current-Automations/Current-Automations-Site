@@ -55,7 +55,7 @@ export default function CTASection({
               {siteContact.walkthroughNote}
             </div>
             <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] px-4 py-4 text-sm text-white/[0.72]">
-              {siteContact.responseExpectation}
+              Prefer to reach out directly? You can email or call any time.
             </div>
             <a
               href={`mailto:${siteContact.email}`}

@@ -7,8 +7,10 @@ export const siteContact = {
   email: "CurrentAutomations@Outlook.com",
   phoneDisplay: "+1 365 601 7474",
   phoneHref: "+13656017474",
-  responseExpectation: "Typical reply within 1 business day",
-  walkthroughNote: "No-pressure walkthrough tailored to your workflow",
+  responseExpectation: "Most inquiries receive a reply within 1 business day",
+  walkthroughNote: "A no-pressure walkthrough tailored to your workflow",
+  directContactNote:
+    "You can email or call directly and most inquiries receive a reply within 1 business day.",
 };
 
 export const faqItems: FAQItem[] = [

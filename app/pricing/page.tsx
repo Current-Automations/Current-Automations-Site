@@ -8,7 +8,7 @@ import { faqItems } from "@/data/siteContent";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Explore Current Automations pricing for setup, missed-call automation, and custom service business workflows.",
+    "Explore Current Automations pricing for launch-stage missed-call workflows built for service businesses.",
 };
 
 export default function PricingPage() {
@@ -25,8 +25,9 @@ export default function PricingPage() {
               Premium automation support without a bloated pricing page.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Start with the core missed-call workflow, get launched cleanly,
-              and expand into custom automations when your business is ready.
+              Start with a focused missed-call workflow, get launched cleanly,
+              and expand into more advanced automations only when your business
+              is ready.
             </p>
           </div>
 
@@ -38,7 +39,7 @@ export default function PricingPage() {
               {[
                 "Clear implementation guidance",
                 "A workflow matched to your business model",
-                "Room to extend into deeper automations later",
+                "No bloated software stack required",
               ].map((item) => (
                 <div
                   key={item}
@@ -111,7 +112,7 @@ export default function PricingPage() {
       <Section
         eyebrow="Why teams choose this"
         title="Built to be credible, simple, and easy to grow."
-        description="You do not need a complicated rollout to fix a missed-call problem. You need something that starts creating leverage quickly."
+        description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."
         tone="muted"
       >
         <div className="grid gap-6 md:grid-cols-3">

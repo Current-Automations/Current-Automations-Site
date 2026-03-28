@@ -27,8 +27,8 @@ export default function Footer() {
               Contact & Response
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/[0.68]">
-              Questions and demo requests are reviewed personally. Most
-              inquiries receive a reply within 1 business day.
+              Prefer to reach out directly? You can email or call directly and
+              most inquiries receive a reply within 1 business day.
             </p>
           </div>
 
@@ -71,9 +71,8 @@ export default function Footer() {
               Helping service businesses capture missed opportunities.
             </p>
             <p className="mt-3 text-sm leading-7 text-white/[0.48]">
-              Current Automations helps local service teams respond faster,
-              recover more missed-call leads, and build a more professional
-              first customer experience.
+              Serving local service businesses with practical missed-call
+              automation systems.
             </p>
           </div>
 

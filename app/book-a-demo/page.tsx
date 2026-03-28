@@ -5,7 +5,7 @@ import { siteContact } from "@/data/siteContent";
 export const metadata: Metadata = {
   title: "Request a Demo",
   description:
-    "Request a Current Automations walkthrough and see how missed-call automation can help your service business recover more leads.",
+    "Request a Current Automations demo and see how missed-call automation can fit your service business workflow.",
 };
 
 export default function BookADemoPage() {
@@ -15,7 +15,7 @@ export default function BookADemoPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-end">
           <div>
             <p className="pill-label bg-white/[0.08] text-white/70">
-              Request a walkthrough
+              Request a Demo
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               See how the missed-call workflow would look for your business.
@@ -33,10 +33,9 @@ export default function BookADemoPage() {
             </p>
             <div className="mt-6 space-y-4">
               {[
-                "See how the system works",
-                "Ask questions about your business",
-                "Find out if it fits your workflow",
-                siteContact.responseExpectation,
+                "A no-pressure walkthrough tailored to your workflow",
+                "A chance to ask questions about fit and setup",
+                "Clear next steps if it makes sense for your business",
               ].map((item) => (
                 <div
                   key={item}
@@ -54,7 +53,7 @@ export default function BookADemoPage() {
         id="demo-request"
         eyebrow="Demo request"
         title="A no-pressure walkthrough for service business owners."
-        description="This is a frontend-only version of the form for now, so there is no live submission yet. The UI is ready to connect to your preferred CRM or form flow later."
+        description="This launch-stage demo flow is intentionally simple. It gives you a direct way to reach out without needing extra software or scheduling tools."
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div className="grid gap-6">
@@ -75,13 +74,13 @@ export default function BookADemoPage() {
 
             <article className="dark-card rounded-[2rem] p-8">
               <p className="text-sm uppercase tracking-[0.24em] text-white/[0.45]">
-                Reasons to book
+                What to expect
               </p>
               <div className="mt-6 space-y-4">
                 {[
-                  "Get a walkthrough based on how your team already handles calls.",
-                  "Understand where lead recovery happens and where jobs may be leaking today.",
-                  "Leave with a clearer sense of whether the workflow fits your business.",
+                  "A no-pressure walkthrough tailored to your workflow",
+                  "A chance to ask questions about fit and setup",
+                  "Clear next steps if it makes sense for your business",
                 ].map((item) => (
                   <div
                     key={item}
@@ -98,6 +97,10 @@ export default function BookADemoPage() {
               <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
                 Prefer to reach out directly?
               </p>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                You can email or call directly and most inquiries receive a
+                reply within 1 business day.
+              </p>
               <div className="mt-5 grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
                 <a
                   href={`mailto:${siteContact.email}`}
@@ -111,7 +114,6 @@ export default function BookADemoPage() {
                 >
                   {siteContact.phoneDisplay}
                 </a>
-                <p>{siteContact.responseExpectation}</p>
               </div>
             </article>
           </div>
@@ -123,8 +125,9 @@ export default function BookADemoPage() {
                 walkthrough around your workflow.
               </p>
               <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-                Placeholder experience for now. This can be connected to a real
-                form, CRM, or calendar flow later.
+                This direct-contact form is built for launch. It keeps the
+                process simple now and can be upgraded to a fuller submission
+                flow later.
               </p>
             </div>
 
@@ -202,10 +205,9 @@ export default function BookADemoPage() {
 
               <div className="flex flex-col gap-4 border-t border-[var(--color-line)] pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-                  Clicking submit opens your default email app and drafts a
-                  message to {siteContact.email} with the form details. If you
-                  prefer, you can also email or call directly.{" "}
-                  {siteContact.responseExpectation}.
+                  Submitting this form opens your default email app and drafts a
+                  message with your details. If you prefer, you can also email
+                  or call directly.
                 </p>
                 <button type="submit" className="btn-primary">
                   Request a Demo

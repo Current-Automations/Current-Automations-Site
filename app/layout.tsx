@@ -16,23 +16,23 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Current Automations - Never Miss Another Job",
+    default: "Current Automations | Missed-Call Automation for Service Businesses",
     template: "%s | Current Automations",
   },
   description:
-    "Current Automations helps service businesses recover missed leads with instant follow-up and missed-call automation.",
+    "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
   openGraph: {
-    title: "Current Automations - Never Miss Another Job",
+    title: "Current Automations | Missed-Call Automation for Service Businesses",
     description:
-      "Current Automations helps service businesses recover missed leads with instant follow-up and missed-call automation.",
+      "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
     type: "website",
     siteName: "Current Automations",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Current Automations - Never Miss Another Job",
+    title: "Current Automations | Missed-Call Automation for Service Businesses",
     description:
-      "Current Automations helps service businesses recover missed leads with instant follow-up and missed-call automation.",
+      "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
   },
 };
 

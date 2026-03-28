@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "See how Current Automations responds to missed calls, captures lead details, and follows up automatically.",
+    "See how Current Automations helps service businesses respond faster after missed calls and keep new opportunities moving.",
 };
 
 const steps = [
@@ -55,9 +55,9 @@ export default function HowItWorksPage() {
               Five simple steps from a missed call to a recovered opportunity.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              The goal is simple: keep the lead engaged immediately, capture the
-              context your team needs, and make sure the opportunity does not go
-              cold while your business is busy.
+              The goal is simple: keep the lead engaged quickly, capture the
+              context your team needs, and help the opportunity stay warm while
+              your business is busy.
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
       <Section
         eyebrow="Behind the scenes"
         title="The whole experience is meant to feel seamless, not robotic."
-        description="This is not about replacing your team. It is about making sure every inbound lead gets fast attention before someone else wins the job."
+        description="This is not about replacing your team. It is about making sure every inbound lead gets fast attention in a workflow that feels natural and dependable."
         tone="dark"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

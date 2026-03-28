@@ -161,27 +161,21 @@ const outcomes = [
 const testimonials = [
   {
     quote:
-      "We were missing calls almost every day and didn't realize how many jobs we were losing. After setting this up, customers started getting responses immediately and we've already recovered a few jobs we would've missed.",
-    name: "Mike R.",
-    role: "Owner",
-    business: "Northline Plumbing",
-    initials: "MR",
+      "A plumbing team can be on-site, driving, or in the middle of a job when the next lead calls. Fast missed-call follow-up helps keep that opportunity from quietly slipping away.",
+    title: "Plumbing owner scenario",
+    context: "Busy schedule, inbound call missed during active work",
   },
   {
     quote:
-      "Most of our leads come from calls, so missing even a few hurts. This makes sure every missed call gets a response, which takes a lot of pressure off during busy hours.",
-    name: "Sarah L.",
-    role: "Owner",
-    business: "Harbor House Cleaning",
-    initials: "SL",
+      "Cleaning companies often rely on inbound calls during the exact hours their team is busiest. A quick reply gives the customer a next step instead of silence.",
+    title: "Cleaning company scenario",
+    context: "Peak-hour lead capture when no one is free to answer",
   },
   {
     quote:
-      "We're often on-site and can't answer the phone. This helps bridge that gap so customers don't just move on to the next company.",
-    name: "Jason K.",
-    role: "Lead Technician",
-    business: "Summit Air & Heat",
-    initials: "JK",
+      "When HVAC crews are already on-site, missed calls need a fast acknowledgment so the customer does not simply move on to the next company.",
+    title: "HVAC field-team scenario",
+    context: "Crews on-site, inbound calls still coming in",
   },
 ];
 
@@ -190,7 +184,7 @@ export default function Home() {
     <>
       <Hero
         id="overview"
-        eyebrow="Missed-call automation for service businesses"
+        eyebrow="Launch-stage workflows built for local service teams"
         title={
           <>
             Never Miss Another Job Because of a{" "}
@@ -199,12 +193,12 @@ export default function Home() {
             </span>
           </>
         }
-        description="Current Automations instantly responds to missed calls, captures lead details, and follows up so customers hear back fast instead of calling the next company."
+        description="Current Automations helps service businesses respond faster after missed calls, capture lead details, and keep new opportunities from going cold."
         primaryCta={{
           href: "/book-a-demo#demo-request",
-          label: "Start Capturing Missed Jobs",
+          label: "Request a Demo",
         }}
-        secondaryCta={{ href: "/how-it-works", label: "See How It Works" }}
+        secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         stats={[
           { value: "<60s", label: "typical instant reply experience" },
           { value: "24/7", label: "coverage even when your team is busy" },
@@ -288,7 +282,7 @@ export default function Home() {
       </Hero>
 
       <TrustBar
-        title="Built for local service businesses"
+        title="Designed for service businesses that rely on inbound calls"
         items={trustIndustries}
       />
 
@@ -298,7 +292,7 @@ export default function Home() {
         id="problem"
         eyebrow="The leak"
         title="When the phone goes unanswered, the revenue usually disappears with it."
-        description="Busy owners are often on-site, in transit, or handling another customer. That is exactly when leads are most likely to keep moving."
+        description="Busy owners are often on-site, in transit, or helping another customer. That is exactly when new leads are most likely to keep moving."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-3">
@@ -325,7 +319,7 @@ export default function Home() {
         id="workflow"
         eyebrow="The fix"
         title="Current Automations turns one missed call into a repeatable recovery workflow."
-        description="Instead of relying on someone to remember every callback, the system keeps the lead engaged automatically until your team is ready to step in."
+        description="Instead of relying on someone to remember every callback, the workflow helps keep the lead engaged until your team can step in."
         tone="dark"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
@@ -365,7 +359,7 @@ export default function Home() {
               {[
                 "Automatic acknowledgment the moment a call is missed",
                 "Cleaner handoff to your team when they are available",
-                "Better lead context before the next human touchpoint",
+                "Built to fit real-world workflows, not idealized ones",
               ].map((item) => (
                 <div
                   key={item}
@@ -383,7 +377,7 @@ export default function Home() {
       <Section
         eyebrow="Why this works"
         title="Why This Works"
-        description="The real-world advantage is simple: faster follow-up protects opportunities before they quietly disappear."
+        description="The advantage is practical: faster follow-up helps protect opportunities before they quietly disappear."
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {whyThisWorksPoints.map((item, index) => (
@@ -406,7 +400,7 @@ export default function Home() {
         id="why-current"
         eyebrow="About"
         title="Why Current Automations"
-        description="We built Current Automations to solve a simple but expensive problem: service businesses lose jobs every day from missed calls. Our goal is to make sure every opportunity is captured and followed up instantly, so busy teams do not lose work just because they could not answer the phone in time."
+        description="Current Automations was built to solve a practical problem for service businesses that rely on inbound calls: important opportunities can be lost before anyone has time to respond."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
@@ -444,9 +438,9 @@ export default function Home() {
                   "The customer experience is meant to feel fast, polished, and professional rather than robotic or generic.",
               },
               {
-                title: "Built to grow with you",
+                title: "Built for real-world workflows",
                 description:
-                  "Start with missed-call recovery, then extend the workflow later if your business needs deeper customization.",
+                  "Start with a focused missed-call workflow, without a bloated software stack or unnecessary complexity.",
               },
             ].map((item) => (
               <article
@@ -504,18 +498,16 @@ export default function Home() {
       <Section
         id="testimonials"
         eyebrow="Representative examples"
-        title="Common service-business situations this workflow is built for."
+        title="Common service-business situations this workflow is built for"
         description="These launch-stage examples reflect the real missed-call moments local service teams deal with: busy phones, crews on-site, and no one free to respond right away."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <TestimonialCard
-              key={testimonial.name}
+              key={testimonial.title}
               quote={testimonial.quote}
-              name={testimonial.name}
-              role={testimonial.role}
-              business={testimonial.business}
-              initials={testimonial.initials}
+              title={testimonial.title}
+              context={testimonial.context}
             />
           ))}
         </div>
