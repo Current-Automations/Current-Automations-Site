@@ -1,65 +1,541 @@
-import Image from "next/image";
+import Link from "next/link";
+import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
+import Hero from "@/components/Hero";
+import HomeSectionTabs from "@/components/HomeSectionTabs";
+import OutcomeCard from "@/components/OutcomeCard";
+import Section from "@/components/Section";
+import TestimonialCard from "@/components/TestimonialCard";
+import TrustBar from "@/components/TrustBar";
+import {
+  faqItems,
+  serviceIndustries,
+  whyThisWorksPoints,
+} from "@/data/siteContent";
+
+const problemPoints = [
+  {
+    title: "Missed calls turn into missed revenue",
+    description:
+      "When a lead hears voicemail or gets no response, they usually call the next company on their list instead of waiting around.",
+  },
+  {
+    title: "Speed matters more than most owners expect",
+    description:
+      "Local service customers are often ready to book right now. The first business to respond usually earns the conversation.",
+  },
+  {
+    title: "Leakage hides in plain sight",
+    description:
+      "Many teams track ad spend and close rates, but never see how many opportunities disappeared because nobody followed up quickly enough.",
+  },
+];
+
+const solutionSteps = [
+  {
+    step: "Instant text-back",
+    description:
+      "Every missed call gets an immediate response so the lead knows they were seen and can keep engaging.",
+  },
+  {
+    step: "Voicemail capture",
+    description:
+      "Voicemail details are surfaced quickly so your team knows who called, what they needed, and how urgent it sounds.",
+  },
+  {
+    step: "Lead detail collection",
+    description:
+      "The workflow can prompt for the key information you need to qualify the opportunity before you even call back.",
+  },
+  {
+    step: "Follow-up automation",
+    description:
+      "If the prospect does not reply right away, the system keeps the conversation warm instead of letting the lead fade out.",
+  },
+];
+
+const trustIndustries = serviceIndustries.slice(0, 5);
+
+const outcomes = [
+  {
+    title: "Respond to customers faster",
+    description:
+      "Give every inbound caller a quicker acknowledgment so your business feels responsive even during busy hours.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path
+          d="M12 3v4m0 10v4m9-9h-4M7 12H3m15.36 6.36-2.83-2.83M8.47 8.47 5.64 5.64m12.72 0-2.83 2.83M8.47 15.53l-2.83 2.83"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Recover leads you would have lost",
+    description:
+      "Turn missed calls into active conversations before that customer moves on to the next company.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path
+          d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="m7 10.5 3.2 2.4a3.1 3.1 0 0 0 3.6 0L17 10.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Book more jobs without extra manual effort",
+    description:
+      "Keep the follow-up moving automatically so your team can stay focused on the work already in front of them.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path
+          d="M7 4v3m10-3v3M4 9h16M5.5 6.5h13A1.5 1.5 0 0 1 20 8v10.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5V8a1.5 1.5 0 0 1 1.5-1.5Z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="m9.5 14 1.5 1.5 3.5-4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Deliver a better customer experience",
+    description:
+      "A fast, clear first response makes your business feel more organized, attentive, and trustworthy from the start.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path
+          d="M12 21s7-3.8 7-10.2V5.8L12 3 5 5.8v5C5 17.2 12 21 12 21Z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="m9.5 12.5 1.7 1.7 3.3-3.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "We were missing calls almost every day and didn't realize how many jobs we were losing. After setting this up, customers started getting responses immediately and we've already recovered a few jobs we would've missed.",
+    name: "Mike R.",
+    role: "Owner",
+    business: "Northline Plumbing",
+    initials: "MR",
+  },
+  {
+    quote:
+      "Most of our leads come from calls, so missing even a few hurts. This makes sure every missed call gets a response, which takes a lot of pressure off during busy hours.",
+    name: "Sarah L.",
+    role: "Owner",
+    business: "Harbor House Cleaning",
+    initials: "SL",
+  },
+  {
+    quote:
+      "We're often on-site and can't answer the phone. This helps bridge that gap so customers don't just move on to the next company.",
+    name: "Jason K.",
+    role: "Lead Technician",
+    business: "Summit Air & Heat",
+    initials: "JK",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero
+        id="overview"
+        eyebrow="Missed-call automation for service businesses"
+        title={
+          <>
+            Never Miss Another Job Because of a{" "}
+            <span className="font-display text-[var(--color-accent)]">
+              Missed Call
+            </span>
+          </>
+        }
+        description="Current Automations instantly responds to missed calls, captures lead details, and follows up so customers hear back fast instead of calling the next company."
+        primaryCta={{
+          href: "/book-a-demo#demo-request",
+          label: "Start Capturing Missed Jobs",
+        }}
+        secondaryCta={{ href: "/how-it-works", label: "See How It Works" }}
+        stats={[
+          { value: "<60s", label: "typical instant reply experience" },
+          { value: "24/7", label: "coverage even when your team is busy" },
+          { value: "1 flow", label: "from missed call to qualified lead" },
+        ]}
+      >
+        <div className="relative mx-auto w-full max-w-xl">
+          <div className="dark-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
+            <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+                  Live lead recovery
+                </p>
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  One missed call, one saved job
+                </p>
+              </div>
+              <div className="rounded-full border border-emerald-300/[0.30] bg-emerald-300/[0.10] px-3 py-1 text-xs font-semibold text-emerald-200">
+                Active
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold text-white">
+                      Incoming call missed
+                    </p>
+                    <p className="mt-1 text-sm text-white/[0.60]">
+                      New homeowner looking for same-day plumbing help.
+                    </p>
+                  </div>
+                  <div className="rounded-full bg-white/[0.08] px-3 py-1 text-xs text-white/[0.65]">
+                    11:42 AM
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 px-2">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--color-brand)] to-[#0d7e67]" />
+                <div className="h-px flex-1 bg-gradient-to-r from-emerald-300/60 via-white/15 to-transparent" />
+                <div className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/[0.55]">
+                  Automation
+                </div>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-emerald-300/[0.20] bg-emerald-300/[0.08] p-4">
+                <p className="text-sm font-semibold text-white">
+                  Instant text sent
+                </p>
+                <p className="mt-2 text-sm leading-7 text-white/70">
+                  &quot;Thanks for calling. We missed you, but we can help.
+                  Reply with your address and service needed and we&apos;ll
+                  follow up quickly.&quot;
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-white/[0.45]">
+                    Captured
+                  </p>
+                  <p className="mt-3 text-lg font-semibold text-white">
+                    Name, phone, address, issue type
+                  </p>
+                </div>
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-white/[0.45]">
+                    Next step
+                  </p>
+                  <p className="mt-3 text-lg font-semibold text-white">
+                    Follow-up queued for your team
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </Hero>
+
+      <TrustBar
+        title="Built for local service businesses"
+        items={trustIndustries}
+      />
+
+      <HomeSectionTabs />
+
+      <Section
+        id="problem"
+        eyebrow="The leak"
+        title="When the phone goes unanswered, the revenue usually disappears with it."
+        description="Busy owners are often on-site, in transit, or handling another customer. That is exactly when leads are most likely to keep moving."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {problemPoints.map((point, index) => (
+            <article
+              key={point.title}
+              className="surface-card rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1"
+            >
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
+                0{index + 1}
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                {point.title}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                {point.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="workflow"
+        eyebrow="The fix"
+        title="Current Automations turns one missed call into a repeatable recovery workflow."
+        description="Instead of relying on someone to remember every callback, the system keeps the lead engaged automatically until your team is ready to step in."
+        tone="dark"
+      >
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
+          <div className="grid gap-6 sm:grid-cols-2">
+            {solutionSteps.map((item, index) => (
+              <article
+                key={item.step}
+                className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
+              >
+                <p className="text-sm uppercase tracking-[0.24em] text-white/[0.45]">
+                  Step {index + 1}
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
+                  {item.step}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-white/[0.68]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <aside className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.10] to-white/[0.05] p-8">
+            <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+              Why it matters
+            </p>
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white">
+              A fast first response makes your business feel more established
+              before anyone on your team even picks up the phone.
+            </h3>
+            <p className="mt-5 text-base leading-8 text-white/[0.68]">
+              Customers do not need to see your backend to trust your business.
+              They just need to feel acknowledged quickly and given a clear next
+              step.
+            </p>
+            <div className="mt-8 space-y-4">
+              {[
+                "Automatic acknowledgment the moment a call is missed",
+                "Cleaner handoff to your team when they are available",
+                "Better lead context before the next human touchpoint",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-2xl border border-white/[0.08] bg-black/10 px-4 py-4"
+                >
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]" />
+                  <p className="text-sm leading-7 text-white/[0.72]">{item}</p>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Why this works"
+        title="Why This Works"
+        description="The real-world advantage is simple: faster follow-up protects opportunities before they quietly disappear."
+      >
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {whyThisWorksPoints.map((item, index) => (
+            <article
+              key={item}
+              className="surface-card rounded-[1.8rem] p-7"
+            >
+              <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-brand-strong)]">
+                Point {index + 1}
+              </p>
+              <p className="mt-4 text-xl font-semibold leading-8 tracking-tight text-[var(--color-ink)]">
+                {item}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="why-current"
+        eyebrow="About"
+        title="Why Current Automations"
+        description="We built Current Automations to solve a simple but expensive problem: service businesses lose jobs every day from missed calls. Our goal is to make sure every opportunity is captured and followed up instantly, so busy teams do not lose work just because they could not answer the phone in time."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
+          <article className="surface-card rounded-[2rem] p-8">
+            <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              Built for real operators
+            </p>
+            <h3 className="mt-5 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">
+              Clear systems, real business value, and a more professional first
+              customer experience.
+            </h3>
+            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
+              Current Automations is designed for service businesses that do not
+              have time to babysit every missed call, but also cannot afford to
+              let opportunities slip away just because the team was already in
+              the middle of the work.
+            </p>
+            <div className="mt-8">
+              <Link href="/about" className="btn-secondary bg-white">
+                Learn More About Us
+              </Link>
+            </div>
+          </article>
+
+          <div className="grid gap-5">
+            {[
+              {
+                title: "Focused on one expensive problem",
+                description:
+                  "The offer is clear because the problem is clear: missed calls quietly cost service businesses real jobs.",
+              },
+              {
+                title: "Designed to feel dependable",
+                description:
+                  "The customer experience is meant to feel fast, polished, and professional rather than robotic or generic.",
+              },
+              {
+                title: "Built to grow with you",
+                description:
+                  "Start with missed-call recovery, then extend the workflow later if your business needs deeper customization.",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+              >
+                <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Industries served"
+        title="Built for service businesses like:"
+        description="Especially useful for businesses that rely on inbound phone calls and need to stay responsive while already on-site, in transit, or handling another customer."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {serviceIndustries.map((industry) => (
+            <article
+              key={industry}
+              className="rounded-[1.5rem] border border-[var(--color-line)] bg-white px-5 py-5 text-lg font-semibold tracking-tight text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+            >
+              {industry}
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="results"
+        eyebrow="Business impact"
+        title="What This Means For Your Business"
+        description="The value is not just automation. It is what happens when more inbound opportunities get a fast, consistent response."
+        tone="muted"
+      >
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {outcomes.map((outcome) => (
+            <OutcomeCard
+              key={outcome.title}
+              title={outcome.title}
+              description={outcome.description}
+              icon={outcome.icon}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <Section
+        id="testimonials"
+        eyebrow="Representative examples"
+        title="Common service-business situations this workflow is built for."
+        description="These launch-stage examples reflect the real missed-call moments local service teams deal with: busy phones, crews on-site, and no one free to respond right away."
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard
+              key={testimonial.name}
+              quote={testimonial.quote}
+              name={testimonial.name}
+              role={testimonial.role}
+              business={testimonial.business}
+              initials={testimonial.initials}
+            />
+          ))}
+        </div>
+      </Section>
+
+      <FAQSection
+        items={faqItems}
+        tone="muted"
+        description="Clear answers to the practical questions most owners ask before deciding whether the system fits their workflow."
+      />
+
+      <CTASection
+        eyebrow="Ready to see it with your own call flow?"
+        title="Stop Losing Jobs From Missed Calls"
+        description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
+        primaryHref="/book-a-demo#demo-request"
+        primaryLabel="Request a Demo"
+        secondaryHref="/pricing"
+        secondaryLabel="See Pricing"
+      />
+    </>
   );
 }

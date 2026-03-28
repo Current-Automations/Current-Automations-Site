@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #07111d;
+  --color-ink-soft: #0f1d31;
+  --color-canvas: #f4f7fb;
+  --color-panel: #ffffff;
+  --color-panel-muted: #ecf1f8;
+  --color-copy: #132235;
+  --color-muted: #62748b;
+  --color-line: rgba(15, 27, 44, 0.12);
+  --color-brand: #4fd0ad;
+  --color-brand-strong: #149676;
+  --color-accent: #f4d6a5;
+  --shadow-soft: 0 30px 90px rgba(7, 17, 29, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-copy);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7.25rem;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--color-canvas);
+    color: var(--color-copy);
+    font-family: var(--font-manrope), sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(79, 208, 173, 0.24);
+    color: var(--color-ink);
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid rgba(79, 208, 173, 0.8);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .site-shell {
+    @apply relative flex min-h-screen flex-col overflow-x-clip;
+  }
+
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-spacing {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .font-display {
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .pill-label {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.24em];
+    border-color: rgba(79, 208, 173, 0.22);
+    background: rgba(79, 208, 173, 0.08);
+    color: var(--color-brand-strong);
+  }
+
+  .surface-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 24px 72px rgba(7, 17, 29, 0.1);
+    backdrop-filter: blur(16px);
+  }
+
+  .dark-card {
+    background:
+      radial-gradient(circle at top left, rgba(79, 208, 173, 0.14), transparent 32%),
+      linear-gradient(145deg, rgba(14, 25, 42, 0.98), rgba(8, 17, 29, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 36px 100px rgba(2, 6, 23, 0.34);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
+    background: linear-gradient(
+      135deg,
+      var(--color-brand),
+      var(--color-brand-strong)
+    );
+    color: var(--color-ink);
+    box-shadow: 0 14px 36px rgba(79, 208, 173, 0.28);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 42px rgba(79, 208, 173, 0.34);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--color-copy);
+    border-color: rgba(15, 27, 44, 0.12);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(15, 27, 44, 0.18);
+  }
+
+  .form-input {
+    @apply w-full rounded-[1.15rem] border bg-white px-4 py-3.5 text-sm text-[var(--color-copy)] outline-none;
+    border-color: rgba(15, 27, 44, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .form-input::placeholder {
+    color: #7c8da3;
+  }
+
+  .form-input:focus {
+    border-color: rgba(79, 208, 173, 0.6);
+    box-shadow:
+      0 0 0 4px rgba(79, 208, 173, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
 }
