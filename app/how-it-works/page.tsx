@@ -156,24 +156,30 @@ export default function HowItWorksPage() {
                 It is mid-morning on a hot day. The technician on duty is already on-site at another job. The call rings out. No one answers.
               </p>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                Without automation in place, the caller hears voicemail, hangs up, and calls the next HVAC company on their search results.
+                The caller leaves a voicemail and the system captures it immediately.
               </p>
+              <div className="mt-5 rounded-[1.4rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] p-5">
+                <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-muted)] mb-3">Voicemail transcript</p>
+                <p className="text-sm leading-7 text-[var(--color-copy)]">
+                  &quot;Hi, calling about my AC on Oak Street — it stopped blowing cold this morning. It&apos;s getting really hot and I&apos;ve got two young kids here. Please call back when you can.&quot;
+                </p>
+              </div>
             </div>
 
             <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_100%)] p-7">
               <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
-                10:14 AM — Automatic response sent
+                10:14 AM — AI-generated response sent
               </p>
               <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
-                Within seconds, the caller gets a text.
+                Within seconds, the caller gets a tailored text.
               </h3>
               <div className="mt-5 rounded-[1.4rem] border border-white/10 bg-white/[0.07] p-5">
                 <p className="text-sm leading-7 text-white/[0.78]">
-                  &quot;Hi, this is Riverside HVAC. We just missed your call and want to help. Reply with your address and a quick description of the issue and we will get back to you shortly.&quot;
+                  &quot;Hi — this is ABC HVAC. We just missed your call and caught your voicemail about the AC at Oak Street not blowing cold. That sounds urgent, especially with kids at home in this heat. We&apos;re finishing up another job and will call you back shortly. Reply here anytime if anything changes.&quot;
                 </p>
               </div>
               <p className="mt-5 text-sm leading-7 text-white/[0.62]">
-                The customer now knows they were seen. They stay in the conversation instead of moving on.
+                The message is generated from the voicemail transcript — specific to their issue, not a generic auto-reply.
               </p>
             </div>
 
@@ -182,15 +188,15 @@ export default function HowItWorksPage() {
                 10:16 AM — Lead replies
               </p>
               <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-                The homeowner responds with their details.
+                The homeowner stays in the conversation.
               </h3>
               <div className="mt-5 rounded-[1.4rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] p-5">
                 <p className="text-sm leading-7 text-[var(--color-copy)]">
-                  &quot;Hi, it&apos;s 47 Elmwood Drive. AC stopped blowing cold this morning. House is getting hot fast. We have two young kids at home.&quot;
+                  &quot;Thanks, appreciate the quick response. Yes please call back, it&apos;s getting hot in here.&quot;
                 </p>
               </div>
               <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-                Name, address, issue description, and urgency — captured automatically before anyone on your team lifts a phone.
+                Because the first message felt personal and acknowledged the real issue, they waited instead of calling the next company.
               </p>
             </div>
           </div>
@@ -202,9 +208,10 @@ export default function HowItWorksPage() {
               </p>
               <div className="mt-5 space-y-3">
                 {[
-                  { label: "Address", value: "47 Elmwood Drive" },
+                  { label: "Address", value: "Oak Street" },
                   { label: "Issue", value: "AC not blowing cold" },
                   { label: "Urgency", value: "High — family with kids" },
+                  { label: "Voicemail", value: "Transcribed + actioned" },
                   { label: "Response time", value: "Under 2 minutes" },
                 ].map((row) => (
                   <div
@@ -223,7 +230,7 @@ export default function HowItWorksPage() {
                 10:48 AM — Technician calls back
               </p>
               <p className="mt-4 text-base leading-8 text-white/[0.78]">
-                When the technician finishes the first job and checks their phone, the lead details are already there. They call back knowing the address, the issue, and that it is urgent. The booking takes under three minutes.
+                When the technician finishes the first job and checks their phone, the lead details are already there. They call back knowing it is Oak Street, it is an AC issue, and it is urgent. The booking takes under three minutes.
               </p>
               <div className="mt-5 flex items-center gap-3 rounded-[1.3rem] border border-emerald-300/[0.20] bg-emerald-300/[0.08] px-4 py-4">
                 <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]" />
