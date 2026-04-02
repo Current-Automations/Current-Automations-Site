@@ -10,6 +10,7 @@ type PricingCardProps = {
   ctaLabel: string;
   featured?: boolean;
   badge?: string;
+  paymentLinkHref?: string;
 };
 
 export default function PricingCard({
@@ -22,6 +23,7 @@ export default function PricingCard({
   ctaLabel,
   featured = false,
   badge,
+  paymentLinkHref,
 }: PricingCardProps) {
   return (
     <article
@@ -106,7 +108,7 @@ export default function PricingCard({
         ))}
       </ul>
 
-      <div className="mt-auto pt-8">
+      <div className="mt-auto pt-8 space-y-3">
         <Link
           href={ctaHref}
           className={
@@ -117,6 +119,20 @@ export default function PricingCard({
         >
           {ctaLabel}
         </Link>
+        {paymentLinkHref ? (
+          <a
+            href={paymentLinkHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              featured
+                ? "flex items-center justify-center gap-1 text-sm font-medium text-emerald-300 hover:text-white"
+                : "flex items-center justify-center gap-1 text-sm font-medium text-[var(--color-brand-strong)] hover:text-[var(--color-ink)]"
+            }
+          >
+            Get Started →
+          </a>
+        ) : null}
       </div>
     </article>
   );

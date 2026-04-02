@@ -71,6 +71,7 @@ export default function PricingPage() {
             ]}
             ctaLabel="Request a Demo"
             ctaHref="/book-a-demo#demo-request"
+            paymentLinkHref="https://buy.stripe.com/4gM5kDegj06peOedB18ww03"
           />
           <PricingCard
             name="Missed Call & Voicemail Automation"
@@ -86,6 +87,7 @@ export default function PricingPage() {
             ctaHref="/book-a-demo#demo-request"
             featured
             badge="Most Popular"
+            paymentLinkHref="https://buy.stripe.com/eVq9ATfkn1at9tUfJ98ww04"
           />
           <PricingCard
             name="Custom"

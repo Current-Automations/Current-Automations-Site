@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Placeholder privacy policy for the Current Automations marketing site.",
+    "Privacy policy for Current Automations. Learn how we handle information received through this website.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -18,8 +18,8 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-            This is a placeholder privacy policy for the current marketing site
-            and can be replaced with final legal copy later.
+            This policy describes how Current Automations handles information
+            received through this website.
           </p>
         </div>
       </section>
@@ -44,9 +44,9 @@ export default function PrivacyPolicyPage() {
                 How Information Is Used
               </h2>
               <p className="mt-3">
-                Placeholder use cases include responding to inquiries,
-                providing demos, improving the website, and communicating about
-                services that may be relevant to your business.
+                Information you share is used to respond to inquiries, provide
+                demos, improve the website, and communicate about services that
+                may be relevant to your business.
               </p>
             </div>
 

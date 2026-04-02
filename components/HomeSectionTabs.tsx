@@ -11,7 +11,7 @@ const sectionLinks = [
 
 export default function HomeSectionTabs() {
   return (
-    <section className="border-b border-[var(--color-line)] bg-white/82 py-3.5 backdrop-blur-sm">
+    <section className="border-b border-[var(--color-line)] bg-white/[0.82] py-3.5 backdrop-blur-sm">
       <div className="container-shell overflow-x-auto">
         <nav className="flex min-w-max gap-2.5">
           {sectionLinks.map((link) => (

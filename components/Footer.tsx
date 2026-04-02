@@ -133,7 +133,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.08] pt-6 text-sm text-white/[0.42] sm:flex-row sm:items-center sm:justify-between">
-          <p>{year} Current Automations. All rights reserved.</p>
+          <p>© {year} Current Automations. All rights reserved.</p>
           <p>Helping service businesses capture missed opportunities.</p>
         </div>
       </div>

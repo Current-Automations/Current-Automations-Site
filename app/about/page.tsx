@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div>
             <p className="pill-label bg-white/[0.08] text-white/70">
-              About Current Automations
+              Who We Are
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               About Current Automations

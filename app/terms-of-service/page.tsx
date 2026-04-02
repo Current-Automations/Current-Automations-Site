@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Placeholder terms of service for the Current Automations marketing site.",
+    "Terms of service for Current Automations. These terms govern your use of this website and any services discussed through it.",
 };
 
 export default function TermsOfServicePage() {
@@ -18,8 +18,8 @@ export default function TermsOfServicePage() {
             Terms of Service
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-            This is placeholder legal copy for the current marketing site and
-            should be replaced with final terms later.
+            These terms govern your use of the Current Automations website and
+            any services discussed through it.
           </p>
         </div>
       </section>
@@ -33,9 +33,8 @@ export default function TermsOfServicePage() {
               </h2>
               <p className="mt-3">
                 This website is provided for informational and marketing
-                purposes. Placeholder terms may be updated as Current
-                Automations finalizes its operating policies and service
-                agreements.
+                purposes. These terms may be updated as Current Automations
+                expands its operating policies and service agreements.
               </p>
             </div>
 
