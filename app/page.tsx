@@ -7,11 +7,7 @@ import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
 import TestimonialCard from "@/components/TestimonialCard";
 import TrustBar from "@/components/TrustBar";
-import {
-  faqItems,
-  serviceIndustries,
-  whyThisWorksPoints,
-} from "@/data/siteContent";
+import { faqItems, serviceIndustries } from "@/data/siteContent";
 
 const problemPoints = [
   {
@@ -371,28 +367,6 @@ export default function Home() {
               ))}
             </div>
           </aside>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Why this works"
-        title="Why This Works"
-        description="The advantage is practical: faster follow-up helps protect opportunities before they quietly disappear."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {whyThisWorksPoints.map((item, index) => (
-            <article
-              key={item}
-              className="surface-card rounded-[1.8rem] p-7"
-            >
-              <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-brand-strong)]">
-                Point {index + 1}
-              </p>
-              <p className="mt-4 text-xl font-semibold leading-8 tracking-tight text-[var(--color-ink)]">
-                {item}
-              </p>
-            </article>
-          ))}
         </div>
       </Section>
 

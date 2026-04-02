@@ -3,7 +3,40 @@ import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
-import { faqItems } from "@/data/siteContent";
+import type { FAQItem } from "@/data/siteContent";
+
+const pricingFaqItems: FAQItem[] = [
+  {
+    question: "Is there a contract or minimum commitment?",
+    answer:
+      "The monthly automation plan runs month-to-month with no long-term contract required. You can cancel at any time.",
+  },
+  {
+    question: "What exactly is included in the setup fee?",
+    answer:
+      "The $149 CAD one-time setup fee covers configuration of your missed-call workflow, phone number setup, voicemail flow, testing, and go-live support so everything is working correctly from day one.",
+  },
+  {
+    question: "Do I need to pay the setup fee and the monthly fee?",
+    answer:
+      "Yes. The setup fee is a one-time charge to get your automation configured and launched. The monthly fee covers ongoing operation, monitoring, and support.",
+  },
+  {
+    question: "Can the pricing change after I sign up?",
+    answer:
+      "Current pricing is locked in for active subscribers. Any future pricing changes would be communicated in advance and would not apply retroactively.",
+  },
+  {
+    question: "What happens if I cancel?",
+    answer:
+      "You can cancel your monthly plan at any time. Your automation will remain active through the end of the billing period you have already paid for.",
+  },
+  {
+    question: "What does the Custom plan include?",
+    answer:
+      "Custom plans are scoped based on your specific needs and may include advanced workflows, multi-location support, CRM integrations, or other automation beyond the core missed-call system. Pricing is discussed directly after a demo.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -151,9 +184,10 @@ export default function PricingPage() {
       </Section>
 
       <FAQSection
-        items={faqItems}
+        items={pricingFaqItems}
         tone="light"
-        description="These are the practical questions most owners ask before deciding whether the workflow is a fit."
+        title="Common questions about pricing and contracts."
+        description="Straightforward answers to what most owners want to know before committing."
       />
 
       <CTASection

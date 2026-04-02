@@ -65,10 +65,6 @@ export default function AboutPage() {
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              For many service businesses, the phone is the primary source of
-              new work.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
               But in reality, it is not always possible to answer every call.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">

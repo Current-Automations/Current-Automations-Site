@@ -138,6 +138,114 @@ export default function HowItWorksPage() {
         </div>
       </Section>
 
+      <Section
+        eyebrow="Real example"
+        title="Here is what this looks like for an HVAC company on a busy Tuesday."
+        description="This is a representative scenario based on the kind of situation local service teams deal with every week."
+      >
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.88fr)] lg:items-start">
+          <div className="space-y-4">
+            <div className="surface-card rounded-[2rem] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                10:14 AM — Incoming call
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                A homeowner calls about a broken AC unit.
+              </h3>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                It is mid-morning on a hot day. The technician on duty is already on-site at another job. The call rings out. No one answers.
+              </p>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                Without automation in place, the caller hears voicemail, hangs up, and calls the next HVAC company on their search results.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_100%)] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+                10:14 AM — Automatic response sent
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
+                Within seconds, the caller gets a text.
+              </h3>
+              <div className="mt-5 rounded-[1.4rem] border border-white/10 bg-white/[0.07] p-5">
+                <p className="text-sm leading-7 text-white/[0.78]">
+                  &quot;Hi, this is Riverside HVAC. We just missed your call and want to help. Reply with your address and a quick description of the issue and we will get back to you shortly.&quot;
+                </p>
+              </div>
+              <p className="mt-5 text-sm leading-7 text-white/[0.62]">
+                The customer now knows they were seen. They stay in the conversation instead of moving on.
+              </p>
+            </div>
+
+            <div className="surface-card rounded-[2rem] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                10:16 AM — Lead replies
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                The homeowner responds with their details.
+              </h3>
+              <div className="mt-5 rounded-[1.4rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] p-5">
+                <p className="text-sm leading-7 text-[var(--color-copy)]">
+                  &quot;Hi, it&apos;s 47 Elmwood Drive. AC stopped blowing cold this morning. House is getting hot fast. We have two young kids at home.&quot;
+                </p>
+              </div>
+              <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
+                Name, address, issue description, and urgency — captured automatically before anyone on your team lifts a phone.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4 lg:sticky lg:top-28">
+            <div className="surface-card rounded-[2rem] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                What was captured
+              </p>
+              <div className="mt-5 space-y-3">
+                {[
+                  { label: "Address", value: "47 Elmwood Drive" },
+                  { label: "Issue", value: "AC not blowing cold" },
+                  { label: "Urgency", value: "High — family with kids" },
+                  { label: "Response time", value: "Under 2 minutes" },
+                ].map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex items-center justify-between gap-4 rounded-[1.1rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
+                  >
+                    <span className="text-sm text-[var(--color-muted)]">{row.label}</span>
+                    <span className="text-sm font-semibold text-[var(--color-ink)]">{row.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_100%)] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+                10:48 AM — Technician calls back
+              </p>
+              <p className="mt-4 text-base leading-8 text-white/[0.78]">
+                When the technician finishes the first job and checks their phone, the lead details are already there. They call back knowing the address, the issue, and that it is urgent. The booking takes under three minutes.
+              </p>
+              <div className="mt-5 flex items-center gap-3 rounded-[1.3rem] border border-emerald-300/[0.20] bg-emerald-300/[0.08] px-4 py-4">
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]" />
+                <p className="text-sm font-semibold text-emerald-200">Job booked. Lead recovered.</p>
+              </div>
+              <p className="mt-5 text-sm leading-7 text-white/[0.56]">
+                Without automation, that caller was gone within two minutes of the missed call. With it, they waited because they felt acknowledged.
+              </p>
+            </div>
+
+            <div className="surface-card rounded-[2rem] p-7">
+              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                Follow-up if they go quiet
+              </p>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                If the homeowner had not replied, the workflow can send a follow-up nudge after a set interval — keeping the opportunity warm without anyone on your team having to remember to check.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <CTASection
         eyebrow="Want to see the workflow with your own business details?"
         title="Stop Losing Jobs From Missed Calls"
