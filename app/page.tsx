@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import HomeSectionTabs from "@/components/HomeSectionTabs";
 import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
+import TestimonialCard from "@/components/TestimonialCard";
 import TrustBar from "@/components/TrustBar";
 import { faqItems, serviceIndustries } from "@/data/siteContent";
 
@@ -81,6 +82,10 @@ const industryItems = [
   { name: "Landscaping", tagline: "Outdoor work means phones go unanswered for hours." },
   { name: "Other local service businesses", tagline: "If your business runs on inbound calls, this fits." },
 ];
+
+// Add testimonials here when ready — the Reviews tab and section will appear automatically.
+// Each entry: { quote: string; title: string; context: string }
+const testimonials: Array<{ quote: string; title: string; context: string }> = [];
 
 const trustIndustries = serviceIndustries.slice(0, 5);
 
@@ -295,7 +300,7 @@ export default function Home() {
         items={trustIndustries}
       />
 
-      <HomeSectionTabs />
+      <HomeSectionTabs showReviews={testimonials.length > 0} />
 
       <Section
         id="problem"
@@ -576,7 +581,7 @@ export default function Home() {
       </Section>
 
       <Section
-        id="testimonials"
+        id="math"
         eyebrow="The real cost"
         title="The Math on Missed Calls"
         description="The numbers behind why missed calls are the most expensive problem most service businesses are not tracking."
@@ -604,6 +609,26 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      {testimonials.length > 0 ? (
+        <Section
+          id="testimonials"
+          eyebrow="What clients say"
+          title="Real Results From Real Businesses"
+          description="Businesses that rely on inbound calls and started catching the ones they were losing."
+        >
+          <div className="grid gap-6 lg:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.title}
+                quote={testimonial.quote}
+                title={testimonial.title}
+                context={testimonial.context}
+              />
+            ))}
+          </div>
+        </Section>
+      ) : null}
 
       <FAQSection
         items={faqItems}
