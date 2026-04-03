@@ -182,6 +182,9 @@ export default function AboutPage() {
             <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--color-ink)]">
               Jarrett Goodwin
             </p>
+            <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-brand-strong)]">
+              B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
+            </p>
             <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
               Automation and AI systems for trades and service businesses
             </p>
@@ -189,8 +192,10 @@ export default function AboutPage() {
 
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was founded by Jarrett Goodwin, based in
-              Ottawa, Ontario. Jarrett built Current Automations after seeing
+              Current Automations was founded by Jarrett Goodwin, a double degree
+              graduate in Chemical Engineering and Computer Technology from the
+              University of Ottawa. Jarrett
+              built Current Automations after seeing
               the same pattern across dozens of service businesses: marketing
               was generating calls, but the calls were not being answered, and
               nobody had a system to recover them.

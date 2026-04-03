@@ -173,7 +173,6 @@ export default function Home() {
           label: "Request a Demo",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
-        locationBadge="Based in Ottawa, ON"
         stats={[
           { value: "<60s", label: "automatic text back, every missed call" },
           { value: "24/7", label: "coverage, nights, weekends, holidays included" },
