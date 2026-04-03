@@ -4,8 +4,10 @@ type PricingCardProps = {
   name: string;
   price: string;
   billing: string;
+  priceNote?: string;
   description: string;
   features: string[];
+  footnote?: string;
   ctaHref: string;
   ctaLabel: string;
   featured?: boolean;
@@ -17,8 +19,10 @@ export default function PricingCard({
   name,
   price,
   billing,
+  priceNote,
   description,
   features,
+  footnote,
   ctaHref,
   ctaLabel,
   featured = false,
@@ -54,6 +58,17 @@ export default function PricingCard({
           >
             {billing}
           </p>
+          {priceNote ? (
+            <p
+              className={
+                featured
+                  ? "mt-2 text-sm font-medium text-emerald-300"
+                  : "mt-2 text-sm font-medium text-[var(--color-brand-strong)]"
+              }
+            >
+              {priceNote}
+            </p>
+          ) : null}
         </div>
 
         {badge ? (
@@ -107,6 +122,18 @@ export default function PricingCard({
           </li>
         ))}
       </ul>
+
+      {footnote ? (
+        <p
+          className={
+            featured
+              ? "mt-5 text-sm leading-7 text-white/[0.55]"
+              : "mt-5 text-sm leading-7 text-[var(--color-muted)]"
+          }
+        >
+          {footnote}
+        </p>
+      ) : null}
 
       <div className="mt-auto pt-8 space-y-3">
         <Link

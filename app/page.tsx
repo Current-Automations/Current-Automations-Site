@@ -24,6 +24,11 @@ const problemPoints = [
     description:
       "After five minutes, the odds of reaching that lead drop by 100x. Manual follow up cannot keep pace with how fast intent decays.",
   },
+  {
+    title: "The first business to respond usually wins the job",
+    description:
+      "Local service customers are often ready to book immediately. Studies show the first company to respond has a significant advantage over every competitor who calls back an hour later.",
+  },
 ];
 
 const solutionSteps = [
@@ -47,6 +52,34 @@ const solutionSteps = [
     description:
       "If the prospect does not reply right away, the system sends a follow up sequence over the next 24 to 48 hours. The lead stays warm without anyone on your team lifting a finger.",
   },
+];
+
+const whyThisWorks = [
+  {
+    heading: "Plumbers, HVAC techs, and electricians miss calls every day",
+    body: "You are on a job, in transit, or dealing with a customer. The phone rings and nobody picks up. That is normal. What happens next does not have to be.",
+  },
+  {
+    heading: "The customer does not wait",
+    body: "A homeowner with a burst pipe or a broken furnace calls the next number on the list within minutes. If you are not fast, you are invisible.",
+  },
+  {
+    heading: "Speed is the only advantage that matters at first contact",
+    body: "Before price, before reputation, before reviews. A fast response signals that your business is organized, responsive, and worth calling back.",
+  },
+  {
+    heading: "One recovered job covers months of cost",
+    body: "At $299/month, recovering a single job you would have lost pays for the system many times over. Most businesses see that in the first week.",
+  },
+];
+
+const industryItems = [
+  { name: "Plumbing", tagline: "On-site all day, calls missed, leads gone." },
+  { name: "HVAC", tagline: "Peak season demand you cannot always answer." },
+  { name: "Electrical", tagline: "Jobs running back to back with no time to call back." },
+  { name: "Cleaning", tagline: "High inbound volume during your busiest hours." },
+  { name: "Landscaping", tagline: "Outdoor work means phones go unanswered for hours." },
+  { name: "Other local service businesses", tagline: "If your business runs on inbound calls, this fits." },
 ];
 
 const trustIndustries = serviceIndustries.slice(0, 5);
@@ -167,16 +200,18 @@ export default function Home() {
             </span>
           </>
         }
-        description="When you miss a call, we text back in under 60 seconds, capture the lead, and keep them warm until your team is ready. No new software. No extra work. Just fewer lost jobs."
+        description="Every missed call is a potential job gone to your competitor. Current Automations automatically texts back missed callers, captures their details, and keeps the lead warm until your team can close it."
         primaryCta={{
           href: "/book-a-demo#demo-request",
-          label: "Request a Demo",
+          label: "Book a Free 15-Min Call",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
+        ctaNote="Small businesses lose up to 30% of inbound leads from slow or missed follow-up."
         stats={[
           { value: "<60s", label: "automatic text back, every missed call" },
           { value: "24/7", label: "coverage, nights, weekends, holidays included" },
           { value: "80%", label: "of callers hang up on voicemail. We catch them instead." },
+          { value: "$299/mo", label: "Pays for itself with one recovered job" },
         ]}
       >
         <div className="relative mx-auto w-full max-w-xl">
@@ -269,7 +304,7 @@ export default function Home() {
         description="Busy owners are often on-site, in transit, or helping another customer. That is exactly when new leads are most likely to keep moving."
         tone="muted"
       >
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {problemPoints.map((point, index) => (
             <article
               key={point.title}
@@ -345,6 +380,59 @@ export default function Home() {
               ))}
             </div>
           </aside>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="See it in action"
+        title="See It In Action"
+        description="Watch a missed call turn into a captured lead in under 60 seconds."
+        tone="muted"
+      >
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-10 text-center shadow-[0_18px_45px_rgba(7,17,29,0.08)]">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)]">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-8 w-8 text-[var(--color-brand-strong)]"
+                fill="currentColor"
+              >
+                <path d="M8 5.14v14l11-7-11-7z" />
+              </svg>
+            </div>
+            <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
+              Demo video coming soon. In the meantime, book a walkthrough and we will show you live.
+            </p>
+            <div className="mt-8">
+              <Link href="/book-a-demo#demo-request" className="btn-primary">
+                Book a Free 15-Min Call
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Why this works"
+        title="Why This Works"
+        description="The missed-call problem is not new. The solution is."
+        tone="dark"
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          {whyThisWorks.map((point) => (
+            <article
+              key={point.heading}
+              className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
+            >
+              <h3 className="text-xl font-semibold tracking-tight text-white">
+                {point.heading}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-white/[0.68]">
+                {point.body}
+              </p>
+            </article>
+          ))}
         </div>
       </Section>
 
@@ -443,12 +531,17 @@ export default function Home() {
         description="Especially useful for businesses that rely on inbound phone calls and need to stay responsive while already on-site, in transit, or handling another customer."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {serviceIndustries.map((industry) => (
+          {industryItems.map((industry) => (
             <article
-              key={industry}
-              className="rounded-[1.5rem] border border-[var(--color-line)] bg-white px-5 py-5 text-lg font-semibold tracking-tight text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+              key={industry.name}
+              className="rounded-[1.5rem] border border-[var(--color-line)] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
             >
-              {industry}
+              <p className="text-lg font-semibold tracking-tight text-[var(--color-ink)]">
+                {industry.name}
+              </p>
+              <p className="mt-1.5 text-sm leading-7 text-[var(--color-muted)]">
+                {industry.tagline}
+              </p>
             </article>
           ))}
         </div>
@@ -470,6 +563,15 @@ export default function Home() {
               icon={outcome.icon}
             />
           ))}
+        </div>
+
+        <div className="mt-6 rounded-[1.75rem] border border-[var(--color-brand-strong)]/20 bg-[var(--color-brand)]/[0.04] p-7">
+          <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
+            What does $299/month actually cost you?
+          </h3>
+          <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
+            A single plumbing service call in Ottawa averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
+          </p>
         </div>
       </Section>
 
@@ -514,7 +616,7 @@ export default function Home() {
         title="Stop Losing Jobs From Missed Calls"
         description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
         primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Request a Demo"
+        primaryLabel="Book a Free 15-Min Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

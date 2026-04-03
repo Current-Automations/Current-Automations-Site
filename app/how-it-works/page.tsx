@@ -257,7 +257,7 @@ export default function HowItWorksPage() {
         title="Stop Losing Jobs From Missed Calls"
         description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
         primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Request a Demo"
+        primaryLabel="Book a Free 15-Min Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

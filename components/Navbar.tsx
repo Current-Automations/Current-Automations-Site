@@ -69,7 +69,7 @@ export default function Navbar() {
 
             <div className="hidden lg:block">
               <Link href="/book-a-demo#demo-request" className="btn-primary">
-                Request a Demo
+                Book a Free 15-Min Call
               </Link>
             </div>
 
@@ -110,7 +110,7 @@ export default function Navbar() {
                 className="btn-primary mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Request a Demo
+                Book a Free 15-Min Call
               </Link>
             </div>
           ) : null}

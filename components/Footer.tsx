@@ -7,7 +7,7 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/book-a-demo#demo-request", label: "Request a Demo" },
+  { href: "/book-a-demo#demo-request", label: "Book a Free 15-Min Call" },
 ];
 
 const legalLinks = [

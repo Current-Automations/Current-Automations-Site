@@ -14,6 +14,7 @@ type HeroProps = {
     href: string;
     label: string;
   };
+  ctaNote?: string;
   locationBadge?: string;
   stats?: Array<{
     value: string;
@@ -29,6 +30,7 @@ export default function Hero({
   description,
   primaryCta,
   secondaryCta,
+  ctaNote,
   locationBadge,
   stats = [],
   children,
@@ -66,8 +68,12 @@ export default function Hero({
             ) : null}
           </div>
 
+          {ctaNote ? (
+            <p className="mt-3 text-xs text-white/[0.48]">{ctaNote}</p>
+          ) : null}
+
           {stats.length > 0 ? (
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}

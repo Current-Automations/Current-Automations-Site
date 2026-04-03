@@ -17,32 +17,32 @@ export const faqItems: FAQItem[] = [
   {
     question: "Do I need to change my phone system?",
     answer:
-      "No. Your phone rings exactly the same as it does now. This system only activates on calls you already missed. Nothing changes for your team or your customers on answered calls.",
+      "No. Nothing changes with your existing number. Your phone rings exactly as it does now. This only activates when a call is already missed.",
   },
   {
     question: "What happens when I miss a call?",
     answer:
-      "The caller gets an instant text back within seconds. If they left a voicemail, it gets transcribed and sent to you immediately. The system collects their name, job details, and availability so your team can call back prepared. If they do not reply, automated follow ups keep the conversation going.",
+      "An automatic text goes out within seconds. The customer knows you received their call and is given a clear next step. You get a notification with their details so your team can follow up.",
   },
   {
     question: "How long does setup take?",
     answer:
-      "Most businesses are fully live within 48 hours. We handle the technical configuration. You just need to forward your missed calls to the system, which takes about 2 minutes.",
+      "Most clients are live within 48 hours. Setup is handled for you.",
   },
   {
     question: "Is this only for certain industries?",
     answer:
-      "It works best for local service businesses that rely heavily on phone calls, including plumbing, HVAC, electrical, cleaning, and similar trades.",
+      "It is built for trades and service businesses that rely on inbound calls. Plumbing, HVAC, electrical, cleaning, and landscaping are the most common fits.",
   },
   {
     question: "Do I need technical knowledge?",
     answer:
-      "No. The goal is to make the system easy to use without requiring technical experience.",
+      "None. You will never touch the backend. If something needs adjusting, you contact us and it gets fixed.",
   },
   {
     question: "Can this be customized for my business?",
     answer:
-      "Yes. More advanced workflows and customization can be discussed for businesses with specific needs.",
+      "Yes. The core system is the same but messaging, follow-up timing, and lead capture questions can all be adjusted to match how your business works.",
   },
 ];
 

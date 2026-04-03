@@ -192,24 +192,15 @@ export default function AboutPage() {
 
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was founded by Jarrett Goodwin, a double degree
-              graduate in Chemical Engineering and Computer Technology from the
-              University of Ottawa. Jarrett
-              built Current Automations after seeing
-              the same pattern across dozens of service businesses: marketing
-              was generating calls, but the calls were not being answered, and
-              nobody had a system to recover them.
+              Current Automations was built by Jarrett Goodwin, a founder with
+              a technical background in engineering and computer systems. After
+              seeing how many local service businesses lose real jobs simply
+              because they could not answer every call, he built a practical
+              system to fix that specific problem.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              The technical foundation combines automation engineering with AI
-              systems, focused specifically on the high stakes, time sensitive
-              intake process that drives revenue for trades and service
-              companies.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              The philosophy is simple: build systems that work reliably in the
-              background, so business owners can focus on the work that actually
-              makes them money.
+              The focus has always been on systems that are reliable, easy to
+              run, and built around how trades businesses actually operate.
             </p>
           </article>
         </div>
@@ -283,7 +274,7 @@ export default function AboutPage() {
         title="See how Current Automations would work for your business."
         description="Request a walkthrough to see how missed-call follow-up, lead capture, and customer response could fit into your current process."
         primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Request a Demo"
+        primaryLabel="Book a Free 15-Min Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

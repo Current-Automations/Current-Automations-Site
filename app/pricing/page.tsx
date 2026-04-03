@@ -96,13 +96,14 @@ export default function PricingPage() {
             name="Setup & Onboarding"
             price="$149 CAD"
             billing="one-time"
+            priceNote="Included free when you sign up this month."
             description="A clean launch so your automation is configured properly from day one."
             features={[
               "Full system configuration and phone line connection",
               "Voicemail transcription setup and live testing",
               "Walkthrough and training, live within 48 hours",
             ]}
-            ctaLabel="Request a Demo"
+            ctaLabel="Book a Free 15-Min Call"
             ctaHref="/book-a-demo#demo-request"
             paymentLinkHref="https://buy.stripe.com/4gM5kDegj06peOedB18ww03"
           />
@@ -117,7 +118,8 @@ export default function PricingPage() {
               "Automated lead capture and follow up sequences",
               "Unlimited missed calls covered",
             ]}
-            ctaLabel="Request a Demo"
+            footnote="If this recovers one missed job, it pays for itself. Most trades businesses recover multiple jobs in the first 30 days."
+            ctaLabel="Book a Free 15-Min Call"
             ctaHref="/book-a-demo#demo-request"
             featured
             badge="Most Popular"
@@ -133,7 +135,7 @@ export default function PricingPage() {
               "Multi-location support",
               "CRM integrations",
             ]}
-            ctaLabel="Request a Demo"
+            ctaLabel="Book a Free 15-Min Call"
             ctaHref="/book-a-demo#demo-request"
           />
         </div>
@@ -141,7 +143,7 @@ export default function PricingPage() {
         <div className="mt-8 rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-5 text-sm leading-7 text-[var(--color-muted)] shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
           Every conversation starts with a quick fit check so you can see what
           makes sense for your workflow before committing to anything more
-          involved.
+          involved. Most clients are live within 48 hours of signing up.
         </div>
 
         <p className="mt-8 text-center text-base leading-8 text-[var(--color-copy)]">
@@ -202,7 +204,7 @@ export default function PricingPage() {
         title="Stop Losing Jobs From Missed Calls"
         description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
         primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Request a Demo"
+        primaryLabel="Book a Free 15-Min Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
