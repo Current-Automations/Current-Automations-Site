@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const differentiators = [
   "Built specifically for service businesses",
   "Focused on simple, practical workflows",
-  "Designed to work alongside existing systems",
+  "Works alongside existing systems",
   "Prioritizes speed and reliability",
 ];
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4">
               {[
                 "Built around a real missed-call problem service businesses deal with every week.",
-                "Designed to help teams respond quickly without adding extra workload.",
+                "Helps teams respond quickly without adding extra workload.",
                 "Focused on practical systems that feel professional and dependable.",
               ].map((item) => (
                 <div
@@ -114,7 +114,7 @@ export default function AboutPage() {
       <Section
         eyebrow="The solution"
         title="Current Automations was built so missed calls do not turn into missed opportunities."
-        description="The goal is to keep follow-up fast, consistent, and practical without depending entirely on manual callbacks."
+        description="The system keeps follow-up fast, consistent, and practical without depending entirely on manual callbacks."
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
           <article className="surface-card rounded-[2rem] p-8">
@@ -124,12 +124,11 @@ export default function AboutPage() {
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
               The system automatically responds when a call is missed, captures
-              lead details, and helps maintain engagement with potential
-              customers.
+              lead details, and maintains engagement with potential customers.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Instead of relying on manual follow-up, businesses can ensure
-              every opportunity is handled quickly and consistently.
+              Instead of relying on manual follow-up, every opportunity is
+              handled quickly and consistently.
             </p>
           </article>
 
@@ -141,7 +140,7 @@ export default function AboutPage() {
               {[
                 "Responds quickly when a call is missed",
                 "Captures lead details while interest is still high",
-                "Helps businesses follow up without extra manual strain",
+                "Follows up automatically without extra manual strain",
               ].map((item) => (
                 <div
                   key={item}
@@ -158,7 +157,7 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Founder"
-        title="Built by the Founder"
+        title="Built by a Technical Operator"
         description="Current Automations was shaped by a practical technical background and a real business problem."
         tone="muted"
       >
@@ -181,37 +180,31 @@ export default function AboutPage() {
               </svg>
             </div>
             <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--color-ink)]">
-              Founder
+              Jarrett Goodwin
             </p>
             <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-              Practical technical background with a focus on real-world automation systems
+              Automation and AI systems for trades and service businesses
             </p>
           </div>
 
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was founded by a student pursuing a combined
-              background in engineering and computer technology, with a focus on
-              building practical systems using automation and AI.
+              Current Automations was founded by Jarrett Goodwin, based in
+              Ottawa, Ontario. Jarrett built Current Automations after seeing
+              the same pattern across dozens of service businesses: marketing
+              was generating calls, but the calls were not being answered, and
+              nobody had a system to recover them.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              While studying technical systems and how businesses operate, one
-              problem stood out clearly: service businesses lose opportunities
-              every day simply because they cannot answer every call.
+              The technical foundation combines automation engineering with AI
+              systems, focused specifically on the high stakes, time sensitive
+              intake process that drives revenue for trades and service
+              companies.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              In industries where speed matters, a missed call often means a
-              lost job.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was built to solve that gap by creating a
-              system that helps businesses respond instantly, capture lead
-              information, and follow up without adding extra workload.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              The goal is simple: help service businesses operate more
-              efficiently, reduce missed opportunities, and turn more incoming
-              calls into actual jobs.
+              The philosophy is simple: build systems that work reliably in the
+              background, so business owners can focus on the work that actually
+              makes them money.
             </p>
           </article>
         </div>
@@ -225,8 +218,8 @@ export default function AboutPage() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             "Customers often contact multiple businesses, and the first to respond usually has the advantage.",
-            "By improving response time, businesses can stay in the conversation while customer intent is still high.",
-            "By capturing missed leads, businesses increase their chances of converting inquiries into actual jobs.",
+            "Improving response time keeps the business in the conversation while customer intent is still high.",
+            "Capturing missed leads increases the chances of converting inquiries into actual jobs.",
           ].map((item, index) => (
             <article
               key={item}
@@ -245,7 +238,7 @@ export default function AboutPage() {
 
       <Section
         eyebrow="What makes it different"
-        title="Designed to stay practical, fast, and dependable."
+        title="Practical, fast, and dependable."
         description="The system is built around simple workflows that fit how service businesses already operate."
         tone="muted"
       >
@@ -275,7 +268,7 @@ export default function AboutPage() {
           <p className="text-base leading-8 text-[var(--color-muted)]">
             The focus is not on hype. It is on building something dependable
             enough to support real businesses, real calls, and real missed
-            opportunities that can be recovered with the right system in place.
+            opportunities that get recovered with the right system in place.
           </p>
         </div>
       </Section>

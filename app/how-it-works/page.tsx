@@ -25,19 +25,19 @@ const steps = [
     number: "03",
     title: "Automatic response is sent",
     description:
-      "Current Automations immediately acknowledges the missed call so the prospect knows they are not being ignored.",
+      "Within seconds, the caller receives an SMS: 'Hey, sorry we missed you. What can we help with? Reply here and we will get back to you right away.' The lead knows they have been heard.",
   },
   {
     number: "04",
     title: "Lead info is captured",
     description:
-      "The workflow helps gather the details your team needs to understand the job and prepare the callback.",
+      "The text conversation collects name, address, job type, and availability. When your team calls back, they already know what the customer needs and where they are.",
   },
   {
     number: "05",
     title: "Follow-up helps recover the job",
     description:
-      "If the lead does not respond right away, follow-up keeps the opportunity warm until your team can step in.",
+      "If the lead does not reply within a set window, the system sends a follow up. Then another. The conversation stays warm for 24 to 48 hours without your team doing anything manually.",
   },
 ];
 
@@ -55,9 +55,8 @@ export default function HowItWorksPage() {
               Five simple steps from a missed call to a recovered opportunity.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              The goal is simple: keep the lead engaged quickly, capture the
-              context your team needs, and help the opportunity stay warm while
-              your business is busy.
+              Keep the lead engaged quickly, capture the context your team
+              needs, and keep the opportunity warm while your business is busy.
             </p>
           </div>
 
@@ -114,7 +113,7 @@ export default function HowItWorksPage() {
 
       <Section
         eyebrow="Behind the scenes"
-        title="The whole experience is meant to feel seamless, not robotic."
+        title="The whole experience feels seamless, not robotic."
         description="This is not about replacing your team. It is about making sure every inbound lead gets fast attention in a workflow that feels natural and dependable."
         tone="dark"
       >
@@ -246,7 +245,7 @@ export default function HowItWorksPage() {
                 Follow-up if they go quiet
               </p>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                If the homeowner had not replied, the workflow can send a follow-up nudge after a set interval — keeping the opportunity warm without anyone on your team having to remember to check.
+                If the homeowner had not replied, the workflow sends a follow-up nudge after a set interval, keeping the opportunity warm without anyone on your team having to remember to check.
               </p>
             </div>
           </div>

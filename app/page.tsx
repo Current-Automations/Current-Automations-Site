@@ -5,25 +5,24 @@ import Hero from "@/components/Hero";
 import HomeSectionTabs from "@/components/HomeSectionTabs";
 import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
-import TestimonialCard from "@/components/TestimonialCard";
 import TrustBar from "@/components/TrustBar";
 import { faqItems, serviceIndustries } from "@/data/siteContent";
 
 const problemPoints = [
   {
-    title: "Missed calls turn into missed revenue",
+    title: "80% of callers never leave a voicemail",
     description:
-      "When a lead hears voicemail or gets no response, they usually call the next company on their list instead of waiting around.",
+      "They hang up and call the next company on Google. Your marketing dollars brought them in, and silence sent them away.",
   },
   {
-    title: "Speed matters more than most owners expect",
+    title: "62% switch to a competitor after one missed call",
     description:
-      "Local service customers are often ready to book right now. The first business to respond usually earns the conversation.",
+      "They are not waiting for a callback. In trades and home services, the first business to respond wins the job.",
   },
   {
-    title: "Leakage hides in plain sight",
+    title: "Responding in under 60 seconds boosts conversions by 391%",
     description:
-      "Many teams track ad spend and close rates, but never see how many opportunities disappeared because nobody followed up quickly enough.",
+      "After five minutes, the odds of reaching that lead drop by 100x. Manual follow up cannot keep pace with how fast intent decays.",
   },
 ];
 
@@ -31,22 +30,22 @@ const solutionSteps = [
   {
     step: "Instant text-back",
     description:
-      "Every missed call gets an immediate response so the lead knows they were seen and can keep engaging.",
+      "The moment a call goes unanswered, the caller gets an SMS: 'Hey, sorry we missed your call. What can we help with? Reply here or we will call you right back.' No delay. No voicemail. No lost lead.",
   },
   {
     step: "Voicemail capture",
     description:
-      "Voicemail details are surfaced quickly so your team knows who called, what they needed, and how urgent it sounds.",
+      "If they leave a voicemail, it gets transcribed and sent to you as a text and email summary. You see the caller's name, number, what they need, and how urgent it sounds, all within seconds.",
   },
   {
     step: "Lead detail collection",
     description:
-      "The workflow can prompt for the key information you need to qualify the opportunity before you even call back.",
+      "The text conversation collects the details your team needs before the callback: name, address, job type, and availability. Your team calls back prepared, not guessing.",
   },
   {
     step: "Follow-up automation",
     description:
-      "If the prospect does not reply right away, the system keeps the conversation warm instead of letting the lead fade out.",
+      "If the prospect does not reply right away, the system sends a follow up sequence over the next 24 to 48 hours. The lead stays warm without anyone on your team lifting a finger.",
   },
 ];
 
@@ -154,27 +153,6 @@ const outcomes = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "A plumbing team can be on-site, driving, or in the middle of a job when the next lead calls. Fast missed-call follow-up helps keep that opportunity from quietly slipping away.",
-    title: "Plumbing owner scenario",
-    context: "Busy schedule, inbound call missed during active work",
-  },
-  {
-    quote:
-      "Cleaning companies often rely on inbound calls during the exact hours their team is busiest. A quick reply gives the customer a next step instead of silence.",
-    title: "Cleaning company scenario",
-    context: "Peak-hour lead capture when no one is free to answer",
-  },
-  {
-    quote:
-      "When HVAC crews are already on-site, missed calls need a fast acknowledgment so the customer does not simply move on to the next company.",
-    title: "HVAC field-team scenario",
-    context: "Crews on-site, inbound calls still coming in",
-  },
-];
-
 export default function Home() {
   return (
     <>
@@ -189,16 +167,17 @@ export default function Home() {
             </span>
           </>
         }
-        description="Current Automations helps service businesses respond faster after missed calls, capture lead details, and keep new opportunities from going cold."
+        description="When you miss a call, we text back in under 60 seconds, capture the lead, and keep them warm until your team is ready. No new software. No extra work. Just fewer lost jobs."
         primaryCta={{
           href: "/book-a-demo#demo-request",
           label: "Request a Demo",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
+        locationBadge="Based in Ottawa, ON"
         stats={[
-          { value: "<60s", label: "typical instant reply experience" },
-          { value: "24/7", label: "coverage even when your team is busy" },
-          { value: "1 flow", label: "from missed call to qualified lead" },
+          { value: "<60s", label: "automatic text back, every missed call" },
+          { value: "24/7", label: "coverage, nights, weekends, holidays included" },
+          { value: "80%", label: "of callers hang up on voicemail. We catch them instead." },
         ]}
       >
         <div className="relative mx-auto w-full max-w-xl">
@@ -278,7 +257,7 @@ export default function Home() {
       </Hero>
 
       <TrustBar
-        title="Designed for service businesses that rely on inbound calls"
+        title="Built for service businesses that rely on inbound calls"
         items={trustIndustries}
       />
 
@@ -315,7 +294,7 @@ export default function Home() {
         id="workflow"
         eyebrow="The fix"
         title="Current Automations turns one missed call into a repeatable recovery workflow."
-        description="Instead of relying on someone to remember every callback, the workflow helps keep the lead engaged until your team can step in."
+        description="Instead of relying on someone to remember every callback, the workflow keeps the lead engaged until your team can step in."
         tone="dark"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
@@ -371,10 +350,36 @@ export default function Home() {
       </Section>
 
       <Section
+        eyebrow="Try it yourself"
+        title="Try It Right Now"
+        description="Call our demo line and experience what your customers will feel when they reach your business after hours."
+        tone="muted"
+      >
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-[2rem] border border-[var(--color-brand-strong)]/20 bg-white p-10 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)]">
+            <p className="text-5xl font-semibold tracking-tight text-[var(--color-ink)]">
+              +1 365 601 7474
+            </p>
+            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+              Call the number above and experience the system firsthand.
+            </p>
+            <div className="mt-8">
+              <a href="tel:+13656017474" className="btn-primary">
+                Call the Demo Line
+              </a>
+            </div>
+            <p className="mt-5 text-sm text-[var(--color-muted)]">
+              Takes 30 seconds. No signup required.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section
         id="why-current"
         eyebrow="About"
         title="Why Current Automations"
-        description="Current Automations was built to solve a practical problem for service businesses that rely on inbound calls: important opportunities can be lost before anyone has time to respond."
+        description="Current Automations was built to solve a practical problem for service businesses that rely on inbound calls: important opportunities disappear before anyone has time to respond."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
@@ -387,7 +392,7 @@ export default function Home() {
               customer experience.
             </h3>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Current Automations is designed for service businesses that do not
+              Current Automations is built for service businesses that do not
               have time to babysit every missed call, but also cannot afford to
               let opportunities slip away just because the team was already in
               the middle of the work.
@@ -407,9 +412,9 @@ export default function Home() {
                   "The offer is clear because the problem is clear: missed calls quietly cost service businesses real jobs.",
               },
               {
-                title: "Designed to feel dependable",
+                title: "Dependable by design",
                 description:
-                  "The customer experience is meant to feel fast, polished, and professional rather than robotic or generic.",
+                  "The customer experience feels fast, polished, and professional rather than robotic or generic.",
               },
               {
                 title: "Built for real-world workflows",
@@ -454,7 +459,7 @@ export default function Home() {
         id="results"
         eyebrow="Business impact"
         title="What This Means For Your Business"
-        description="The value is not just automation. It is what happens when more inbound opportunities get a fast, consistent response."
+        description="The value is not just automation. It is what happens when more inbound opportunities get a fair chance to convert."
         tone="muted"
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -471,19 +476,31 @@ export default function Home() {
 
       <Section
         id="testimonials"
-        eyebrow="Representative examples"
-        title="Common service-business situations this workflow is built for"
-        description="These launch-stage examples reflect the real missed-call moments local service teams deal with: busy phones, crews on-site, and no one free to respond right away."
+        eyebrow="The real cost"
+        title="The Math on Missed Calls"
+        description="The numbers behind why missed calls are the most expensive problem most service businesses are not tracking."
       >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard
-              key={testimonial.title}
-              quote={testimonial.quote}
-              title={testimonial.title}
-              context={testimonial.context}
-            />
-          ))}
+        <div className="mx-auto max-w-3xl">
+          <div className="surface-card rounded-[2rem] p-8 sm:p-10">
+            <p className="text-base leading-9 text-[var(--color-copy)]">
+              The average service call is worth{" "}
+              <strong className="text-[var(--color-ink)]">$300 to $500</strong>.
+              If your team misses just{" "}
+              <strong className="text-[var(--color-ink)]">5 calls per week</strong>,
+              and 62% of those callers go to a competitor, that is 3 lost jobs
+              every single week.
+            </p>
+            <p className="mt-6 text-base leading-9 text-[var(--color-copy)]">
+              At $400 per job, that adds up to{" "}
+              <strong className="text-2xl text-[var(--color-ink)]">$62,400 per year</strong>{" "}
+              walking straight to your competition.
+            </p>
+            <p className="mt-6 text-base leading-9 text-[var(--color-copy)]">
+              Current Automations costs{" "}
+              <strong className="text-[var(--color-ink)]">$299 per month</strong>.
+              It pays for itself the first time it saves a single job.
+            </p>
+          </div>
         </div>
       </Section>
 

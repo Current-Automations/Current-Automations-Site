@@ -14,6 +14,7 @@ type HeroProps = {
     href: string;
     label: string;
   };
+  locationBadge?: string;
   stats?: Array<{
     value: string;
     label: string;
@@ -28,6 +29,7 @@ export default function Hero({
   description,
   primaryCta,
   secondaryCta,
+  locationBadge,
   stats = [],
   children,
 }: HeroProps) {
@@ -49,7 +51,7 @@ export default function Hero({
             {description}
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link href={primaryCta.href} className="btn-primary">
               {primaryCta.label}
             </Link>
@@ -59,6 +61,9 @@ export default function Hero({
             >
               {secondaryCta.label}
             </Link>
+            {locationBadge ? (
+              <span className="text-sm text-white/[0.48]">{locationBadge}</span>
+            ) : null}
           </div>
 
           {stats.length > 0 ? (

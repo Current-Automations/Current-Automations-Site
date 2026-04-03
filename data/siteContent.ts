@@ -17,17 +17,17 @@ export const faqItems: FAQItem[] = [
   {
     question: "Do I need to change my phone system?",
     answer:
-      "No. Current Automations is designed to work alongside your existing process and make missed-call follow-up easier.",
+      "No. Your phone rings exactly the same as it does now. This system only activates on calls you already missed. Nothing changes for your team or your customers on answered calls.",
   },
   {
     question: "What happens when I miss a call?",
     answer:
-      "An automatic response is sent quickly, lead details can be captured, and the customer is less likely to move on to the next company.",
+      "The caller gets an instant text back within seconds. If they left a voicemail, it gets transcribed and sent to you immediately. The system collects their name, job details, and availability so your team can call back prepared. If they do not reply, automated follow ups keep the conversation going.",
   },
   {
     question: "How long does setup take?",
     answer:
-      "Setup is designed to be simple and straightforward, with onboarding support included.",
+      "Most businesses are fully live within 48 hours. We handle the technical configuration. You just need to forward your missed calls to the system, which takes about 2 minutes.",
   },
   {
     question: "Is this only for certain industries?",

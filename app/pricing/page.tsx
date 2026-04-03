@@ -89,7 +89,7 @@ export default function PricingPage() {
       <Section
         eyebrow="Plans"
         title="Choose the right starting point for your team."
-        description="These plans are designed to keep the buying decision simple while giving you room to scale into more advanced workflows later."
+        description="These plans keep the buying decision simple while giving you room to scale into more advanced workflows later."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <PricingCard
@@ -98,9 +98,9 @@ export default function PricingPage() {
             billing="one-time"
             description="A clean launch so your automation is configured properly from day one."
             features={[
-              "Setup support",
-              "Configuration",
-              "Launch assistance",
+              "Full system configuration and phone line connection",
+              "Voicemail transcription setup and live testing",
+              "Walkthrough and training, live within 48 hours",
             ]}
             ctaLabel="Request a Demo"
             ctaHref="/book-a-demo#demo-request"
@@ -112,9 +112,10 @@ export default function PricingPage() {
             billing="per month"
             description="The core missed-call recovery system built to keep new leads from going cold."
             features={[
-              "Instant missed-call text-back",
-              "Voicemail transcription alerts",
-              "Lead capture + follow-up",
+              "Instant text back on every unanswered call",
+              "Voicemail transcription by text and email",
+              "Automated lead capture and follow up sequences",
+              "Unlimited missed calls covered",
             ]}
             ctaLabel="Request a Demo"
             ctaHref="/book-a-demo#demo-request"
@@ -142,6 +143,12 @@ export default function PricingPage() {
           makes sense for your workflow before committing to anything more
           involved.
         </div>
+
+        <p className="mt-8 text-center text-base leading-8 text-[var(--color-copy)]">
+          The average service call is worth{" "}
+          <strong className="text-[var(--color-ink)]">$300 to $500</strong>.
+          This system pays for itself the first time it saves a single job.
+        </p>
       </Section>
 
       <Section
@@ -160,7 +167,7 @@ export default function PricingPage() {
             {
               title: "Fast to launch",
               description:
-                "Setup and onboarding are designed to move you from idea to live workflow without unnecessary drag.",
+                "Setup and onboarding move you from idea to live workflow without unnecessary drag.",
             },
             {
               title: "Easy to extend",

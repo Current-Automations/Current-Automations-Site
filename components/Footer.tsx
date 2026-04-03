@@ -71,8 +71,7 @@ export default function Footer() {
               Helping service businesses capture missed opportunities.
             </p>
             <p className="mt-3 text-sm leading-7 text-white/[0.48]">
-              Serving local service businesses with practical missed-call
-              automation systems.
+              Serving trades and service businesses in Ottawa, Ontario, and across Canada.
             </p>
           </div>
 
