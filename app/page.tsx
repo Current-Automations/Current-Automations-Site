@@ -6,6 +6,7 @@ import HomeSectionTabs from "@/components/HomeSectionTabs";
 import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
 import TestimonialCard from "@/components/TestimonialCard";
+import TestimonialTicker from "@/components/TestimonialTicker";
 import TrustBar from "@/components/TrustBar";
 import { faqItems, serviceIndustries } from "@/data/siteContent";
 
@@ -433,6 +434,8 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      <TestimonialTicker />
 
       <Section
         eyebrow="Try it yourself"
