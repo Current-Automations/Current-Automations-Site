@@ -16,13 +16,13 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Current Automations | Missed-Call Automation for Service Businesses",
+    default: "Current Automations | Speed to Lead Automation for Service Businesses",
     template: "%s | Current Automations",
   },
   description:
     "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
   openGraph: {
-    title: "Current Automations | Missed-Call Automation for Service Businesses",
+    title: "Current Automations | Speed to Lead Automation for Service Businesses",
     description:
       "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Current Automations | Missed-Call Automation for Service Businesses",
+    title: "Current Automations | Speed to Lead Automation for Service Businesses",
     description:
       "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
   },

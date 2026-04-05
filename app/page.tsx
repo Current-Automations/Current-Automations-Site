@@ -197,15 +197,8 @@ export default function Home() {
       <Hero
         id="overview"
         eyebrow="Launch-stage workflows built for local service teams"
-        title={
-          <>
-            Never Miss Another Job Because of a{" "}
-            <span className="font-display text-[var(--color-accent)]">
-              Missed Call
-            </span>
-          </>
-        }
-        description="Every missed call is a potential job gone to your competitor. Current Automations automatically texts back missed callers, captures their details, and keeps the lead warm until your team can close it."
+        title="The First Business to Respond Wins the Job"
+        description="Every lead that comes in, whether by phone, web form, or online inquiry, expects a response in under 60 seconds. Current Automations makes sure you are always first."
         primaryCta={{
           href: "/book-a-demo#demo-request",
           label: "Book a Free 15-Min Call",
@@ -213,7 +206,7 @@ export default function Home() {
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote="Small businesses lose up to 30% of inbound leads from slow or missed follow-up."
         stats={[
-          { value: "<60s", label: "automatic text back, every missed call" },
+          { value: "<60s", label: "automatic response, every inbound lead" },
           { value: "24/7", label: "coverage, nights, weekends, holidays included" },
           { value: "80%", label: "of callers hang up on voicemail. We catch them instead." },
           { value: "$299/mo", label: "Pays for itself with one recovered job" },

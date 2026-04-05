@@ -63,7 +63,7 @@ export default function Footer() {
                   CURRENT AUTOMATIONS
                 </p>
                 <p className="text-xs text-white/[0.46]">
-                  Missed-call automation for service businesses
+                  Speed to Lead automation for service businesses
                 </p>
               </div>
             </Link>
