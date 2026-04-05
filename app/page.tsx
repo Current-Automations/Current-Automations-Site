@@ -435,8 +435,6 @@ export default function Home() {
         </div>
       </Section>
 
-      <TestimonialTicker />
-
       <Section
         eyebrow="Try it yourself"
         title="Try It Right Now"
@@ -547,6 +545,8 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      <TestimonialTicker />
 
       <Section
         id="results"
