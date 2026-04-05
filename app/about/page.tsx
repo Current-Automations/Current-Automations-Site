@@ -182,11 +182,8 @@ export default function AboutPage() {
             <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--color-ink)]">
               Jarrett Goodwin
             </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-brand-strong)]">
-              B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
-            </p>
             <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-              Automation and AI systems for trades and service businesses
+              B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
             </p>
           </div>
 
