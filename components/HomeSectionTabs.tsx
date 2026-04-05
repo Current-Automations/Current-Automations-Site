@@ -1,13 +1,16 @@
-const baseSectionLinks = [
+const beforeReviews = [
   { href: "#overview", label: "Overview" },
-  { href: "#problem", label: "Problem" },
+  { href: "#problem", label: "The Problem" },
   { href: "#workflow", label: "How It Works" },
   { href: "#why-current", label: "Why Us" },
-  { href: "#results", label: "Results" },
-  { href: "#math", label: "The Math" },
 ];
 
 const reviewsLink = { href: "#testimonials", label: "Reviews" };
+
+const afterReviews = [
+  { href: "#results", label: "Results" },
+  { href: "#math", label: "The Math" },
+];
 
 type HomeSectionTabsProps = {
   showReviews?: boolean;
@@ -15,8 +18,8 @@ type HomeSectionTabsProps = {
 
 export default function HomeSectionTabs({ showReviews = false }: HomeSectionTabsProps) {
   const sectionLinks = showReviews
-    ? [...baseSectionLinks, reviewsLink]
-    : baseSectionLinks;
+    ? [...beforeReviews, reviewsLink, ...afterReviews]
+    : [...beforeReviews, ...afterReviews];
 
   return (
     <section className="border-b border-[var(--color-line)] bg-white/[0.82] py-3.5 backdrop-blur-sm">
