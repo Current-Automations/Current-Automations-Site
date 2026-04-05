@@ -2,6 +2,7 @@ const beforeReviews = [
   { href: "#overview", label: "Overview" },
   { href: "#problem", label: "The Problem" },
   { href: "#workflow", label: "How It Works" },
+  { href: "#demo", label: "Try It" },
   { href: "#why-current", label: "Why Us" },
 ];
 

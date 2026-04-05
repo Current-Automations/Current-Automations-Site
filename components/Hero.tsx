@@ -14,7 +14,7 @@ type HeroProps = {
     href: string;
     label: string;
   };
-  ctaNote?: string;
+  ctaNote?: ReactNode;
   locationBadge?: string;
   stats?: Array<{
     value: string;

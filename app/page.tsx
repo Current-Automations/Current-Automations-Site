@@ -205,7 +205,18 @@ export default function Home() {
           label: "Book a Free 15-Min Call",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
-        ctaNote="Small businesses lose up to 30% of inbound leads from slow or missed follow-up."
+        ctaNote={
+          <span>
+            Small businesses lose up to 30% of inbound leads from slow or missed follow-up.{" "}
+            <a
+              href="tel:+13656017474"
+              className="font-medium text-[var(--color-brand)] underline-offset-2 hover:underline"
+            >
+              Call +1 365 601 7474
+            </a>{" "}
+            to try the demo line now.
+          </span>
+        }
         stats={[
           { value: "<60s", label: "automatic response, every inbound lead" },
           { value: "24/7", label: "coverage, nights, weekends, holidays included" },
@@ -383,13 +394,54 @@ export default function Home() {
       </Section>
 
       <Section
-        eyebrow="See it in action"
-        title="See It In Action"
-        description="Watch a missed call turn into a captured lead in under 60 seconds."
+        id="demo"
+        eyebrow="Try it yourself"
+        title="See It and Try It"
+        description="Call the demo line and hear exactly what your customers will experience when they reach your business after hours. Takes 30 seconds."
         tone="muted"
       >
-        <div className="mx-auto max-w-2xl">
-          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-10 text-center shadow-[0_18px_45px_rgba(7,17,29,0.08)]">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Demo phone */}
+          <div className="rounded-[2rem] border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
+            <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+              Live demo line
+            </p>
+            <a
+              href="tel:+13656017474"
+              className="mt-4 block text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand-strong)] sm:text-5xl"
+            >
+              +1 365 601 7474
+            </a>
+            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+              Call and let it go to voicemail. You will receive a text within seconds — that is the system working.
+            </p>
+            <div className="mt-8">
+              <a href="tel:+13656017474" className="btn-primary">
+                Call the Demo Line
+              </a>
+            </div>
+            <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
+            <div className="mt-6 grid gap-3 text-left">
+              {[
+                "Call the number and let it ring",
+                "Watch for a text within 60 seconds",
+                "That is what your customers will experience",
+              ].map((step, i) => (
+                <div
+                  key={step}
+                  className="flex items-start gap-3 rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <p className="text-sm leading-7 text-[var(--color-copy)]">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Video placeholder */}
+          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 text-center shadow-[0_18px_45px_rgba(7,17,29,0.08)] sm:p-10">
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)]">
               <svg
                 aria-hidden="true"
@@ -400,14 +452,27 @@ export default function Home() {
                 <path d="M8 5.14v14l11-7-11-7z" />
               </svg>
             </div>
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
-              Demo video coming soon. In the meantime, book a walkthrough and we will show you live.
+            <p className="mt-4 text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              Demo video
+            </p>
+            <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+              Watch a missed call turn into a saved lead
+            </p>
+            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+              Demo video coming soon. Book a 15-minute walkthrough and we will show you live with your own call flow.
             </p>
             <div className="mt-8">
               <Link href="/book-a-demo#demo-request" className="btn-primary">
                 Book a Free 15-Min Call
               </Link>
             </div>
+            <p className="mt-4 text-sm text-[var(--color-muted)]">
+              Or visit the{" "}
+              <Link href="/demo" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+                full demo page
+              </Link>{" "}
+              for more details.
+            </p>
           </div>
         </div>
       </Section>
@@ -435,31 +500,6 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section
-        eyebrow="Try it yourself"
-        title="Try It Right Now"
-        description="Call our demo line and experience what your customers will feel when they reach your business after hours."
-        tone="muted"
-      >
-        <div className="mx-auto max-w-2xl">
-          <div className="rounded-[2rem] border border-[var(--color-brand-strong)]/20 bg-white p-10 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)]">
-            <p className="text-5xl font-semibold tracking-tight text-[var(--color-ink)]">
-              +1 365 601 7474
-            </p>
-            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Call the number above and experience the system firsthand.
-            </p>
-            <div className="mt-8">
-              <a href="tel:+13656017474" className="btn-primary">
-                Call the Demo Line
-              </a>
-            </div>
-            <p className="mt-5 text-sm text-[var(--color-muted)]">
-              Takes 30 seconds. No signup required.
-            </p>
-          </div>
-        </div>
-      </Section>
 
       <Section
         id="why-current"
