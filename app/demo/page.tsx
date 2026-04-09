@@ -104,31 +104,27 @@ export default function DemoPage() {
       <Section
         eyebrow="Demo video"
         title="Watch It In Action"
-        description="A full walkthrough showing a missed call turning into a captured lead."
+        description="A full walkthrough showing a missed call turning into a captured lead in under 60 seconds."
         tone="muted"
       >
-        <div className="mx-auto max-w-2xl">
-          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-10 text-center shadow-[0_18px_45px_rgba(7,17,29,0.08)]">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)]">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-8 w-8 text-[var(--color-brand-strong)]"
-                fill="currentColor"
-              >
-                <path d="M8 5.14v14l11-7-11-7z" />
-              </svg>
+        <div className="mx-auto max-w-3xl">
+          <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_24px_64px_rgba(7,17,29,0.14)]">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1181405333?badge=0&autopause=0&player_id=0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowFullScreen
+                title="Current Automations — demo"
+                className="absolute inset-0 h-full w-full"
+              />
             </div>
-            <p className="mt-6 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-              Video coming soon
-            </p>
-            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              In the meantime, the demo line above is the fastest way to see the system. Or book a free walkthrough and we will show you live using your own number.
-            </p>
-            <div className="mt-8">
-              <Link href="/book-a-demo#demo-request" className="btn-primary">
-                Book a Free 15-Min Call
-              </Link>
+            <div className="p-6 text-center">
+              <p className="text-sm text-white/[0.55]">
+                Want to see it with your own call flow?{" "}
+                <Link href="/book-a-demo#demo-request" className="font-medium text-[var(--color-brand)] hover:underline">
+                  Book a free 15-minute walkthrough.
+                </Link>
+              </p>
             </div>
           </div>
         </div>

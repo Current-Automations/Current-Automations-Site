@@ -440,39 +440,28 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Video placeholder */}
-          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 text-center shadow-[0_18px_45px_rgba(7,17,29,0.08)] sm:p-10">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)]">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-8 w-8 text-[var(--color-brand-strong)]"
-                fill="currentColor"
-              >
-                <path d="M8 5.14v14l11-7-11-7z" />
-              </svg>
+          {/* Video */}
+          <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1181405333?badge=0&autopause=0&player_id=0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowFullScreen
+                title="Current Automations — demo"
+                className="absolute inset-0 h-full w-full"
+              />
             </div>
-            <p className="mt-4 text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Demo video
-            </p>
-            <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-              Watch a missed call turn into a saved lead
-            </p>
-            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Demo video coming soon. Book a 15-minute walkthrough and we will show you live with your own call flow.
-            </p>
-            <div className="mt-8">
-              <Link href="/book-a-demo#demo-request" className="btn-primary">
-                Book a Free 15-Min Call
-              </Link>
+            <div className="p-6 text-center">
+              <p className="text-sm text-white/[0.55]">
+                Watch a missed call turn into a captured lead in under 60 seconds.
+              </p>
+              <p className="mt-3 text-sm text-white/[0.45]">
+                Want to see it with your own call flow?{" "}
+                <Link href="/book-a-demo#demo-request" className="font-medium text-[var(--color-brand)] hover:underline">
+                  Book a free walkthrough.
+                </Link>
+              </p>
             </div>
-            <p className="mt-4 text-sm text-[var(--color-muted)]">
-              Or visit the{" "}
-              <Link href="/demo" className="font-medium text-[var(--color-brand-strong)] hover:underline">
-                full demo page
-              </Link>{" "}
-              for more details.
-            </p>
           </div>
         </div>
       </Section>
