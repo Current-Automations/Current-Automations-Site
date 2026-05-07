@@ -91,65 +91,54 @@ export default function PricingPage() {
         title="Choose the right starting point for your team."
         description="These plans keep the buying decision simple while giving you room to scale into more advanced workflows later."
       >
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-4">
           <PricingCard
-            name="Setup & Onboarding"
-            price="$149 CAD"
-            billing="one-time"
-            priceNote="Included free when you sign up this month."
-            description="A clean launch so your automation is configured properly from day one."
-            features={[
-              "Full system configuration and phone line connection",
-              "Voicemail transcription setup and live testing",
-              "Walkthrough and training, live within 48 hours",
-            ]}
-            ctaLabel="Book a Free 15-Min Call"
-            ctaHref="/book-a-demo#demo-request"
-            paymentLinkHref="https://buy.stripe.com/4gM5kDegj06peOedB18ww03"
+            name="Speed to Lead Starter"
+            price="$97 CAD"
+            billing="per month"
+            description="A focused entry plan to recover missed calls with fast SMS notification."
+            features={["Missed call SMS notification to caller"]}
+            ctaLabel="Get Started"
+            ctaHref="https://buy.stripe.com/8x200j3BFf1jbC21Sj8ww08"
           />
           <PricingCard
-            name="Missed Call & Voicemail Automation"
-            price="$299 CAD"
+            name="Speed to Lead Pro"
+            price="$197 CAD"
             billing="per month"
-            description="The core missed-call recovery system built to keep new leads from going cold."
+            description="The most popular package for speedy missed-call recovery and lead qualification."
             features={[
-              "Instant text back on every unanswered call",
-              "Voicemail transcription by text and email",
-              "Automated lead capture and follow up sequences",
-              "Unlimited missed calls covered",
+              "Missed call SMS with booking link",
+              "Voicemail transcription",
+              "AI urgency tagging",
+              "Owner alert notifications",
             ]}
-            footnote="If this recovers one missed job, it pays for itself. Most trades businesses recover multiple jobs in the first 30 days."
-            ctaLabel="Book a Free 15-Min Call"
-            ctaHref="/book-a-demo#demo-request"
+            ctaLabel="Get Started"
+            ctaHref="https://buy.stripe.com/7sYcN5dcf8CVgWm40r8ww07"
             featured
             badge="Most Popular"
-            paymentLinkHref="https://buy.stripe.com/eVq9ATfkn1at9tUfJ98ww04"
           />
           <PricingCard
-            name="Custom"
-            price="Custom pricing"
-            billing="tailored scope"
-            description="For businesses that need deeper automation, more locations, or connected systems."
-            features={[
-              "Advanced workflows",
-              "Multi-location support",
-              "CRM integrations",
-            ]}
-            ctaLabel="Book a Free 15-Min Call"
-            ctaHref="/book-a-demo#demo-request"
+            name="Speed to Lead Premium"
+            price="$297 CAD"
+            billing="per month"
+            description="Everything in Pro plus an AI voicemail agent that responds intelligently."
+            features={["Everything in Pro plus AI voicemail agent with intelligent response"]}
+            ctaLabel="Get Started"
+            ctaHref="https://buy.stripe.com/9B600j4FJ9GZdKagNd8ww06"
+          />
+          <PricingCard
+            name="Speed to Lead Elite"
+            price="$497 CAD"
+            billing="per month"
+            description="The full live AI voice agent experience with real-time booking built in."
+            features={["Everything in Premium plus live AI voice agent with real-time booking"]}
+            ctaLabel="Get Started"
+            ctaHref="https://buy.stripe.com/3cI9AT8VZ7yRcG6fJ98ww05"
           />
         </div>
 
-        <div className="mt-8 rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-5 text-sm leading-7 text-[var(--color-muted)] shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
-          Every conversation starts with a quick fit check so you can see what
-          makes sense for your workflow before committing to anything more
-          involved. Most clients are live within 48 hours of signing up.
-        </div>
-
-        <p className="mt-8 text-center text-base leading-8 text-[var(--color-copy)]">
-          The average service call is worth{" "}
-          <strong className="text-[var(--color-ink)]">$300 to $500</strong>.
-          This system pays for itself the first time it saves a single job.
+        <p className="mt-8 text-center text-sm leading-7 text-[var(--color-muted)]">
+          Already spoken with us? Ask about our pilot program.
         </p>
       </Section>
 

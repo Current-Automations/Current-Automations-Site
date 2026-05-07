@@ -12,7 +12,7 @@ const companyLinks = [
 
 const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
+  { href: "/terms", label: "Terms of Service" },
 ];
 
 export default function Footer() {

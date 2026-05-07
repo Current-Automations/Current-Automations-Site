@@ -201,7 +201,7 @@ export default function Home() {
         title="The First Business to Respond Wins the Job"
         description="Every lead that comes in, whether by phone, web form, or online inquiry, expects a response in under 60 seconds. Current Automations makes sure you are always first."
         primaryCta={{
-          href: "/book-a-demo#demo-request",
+          href: "https://buy.stripe.com/7sYcN5dcf8CVgWm40r8ww07",
           label: "Book a Free 15-Min Call",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
