@@ -90,6 +90,7 @@ export default function PricingPage() {
         eyebrow="Plans"
         title="Choose the right starting point for your team."
         description="These plans keep the buying decision simple while giving you room to scale into more advanced workflows later."
+        align="center"
       >
         <div className="grid gap-6 lg:grid-cols-4">
           <PricingCard

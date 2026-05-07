@@ -31,83 +31,76 @@ export default function PricingCard({
 }: PricingCardProps) {
   return (
     <article
-      className={
-        featured
-          ? "dark-card flex h-full flex-col rounded-[2rem] p-8 text-white"
-          : "surface-card flex h-full flex-col rounded-[2rem] p-8 text-[var(--color-copy)]"
-      }
+      className={[
+        "relative flex h-full flex-col rounded-[2rem] p-8",
+        featured ? "dark-card text-white" : "surface-card text-[var(--color-copy)]",
+      ].join(" ")}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p
-            className={
-              featured
-                ? "text-sm uppercase tracking-[0.24em] text-white/[0.52]"
-                : "text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]"
-            }
-          >
-            {name}
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight">{price}</h2>
-          <p
-            className={
-              featured
-                ? "mt-2 text-white/[0.62]"
-                : "mt-2 text-[var(--color-muted)]"
-            }
-          >
-            {billing}
-          </p>
-          {priceNote ? (
-            <p
-              className={
-                featured
-                  ? "mt-2 text-sm font-medium text-emerald-300"
-                  : "mt-2 text-sm font-medium text-[var(--color-brand-strong)]"
-              }
-            >
-              {priceNote}
-            </p>
-          ) : null}
-        </div>
-
-        {badge ? (
-          <span
-            className={
-              featured
-                ? "rounded-full border border-emerald-300/[0.24] bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200"
-                : "rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-strong)]"
-            }
-          >
-            {badge}
-          </span>
-        ) : null}
-      </div>
+      {badge ? (
+        <span
+          className={
+            featured
+              ? "absolute right-6 top-6 rounded-full border border-emerald-300/[0.24] bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200"
+              : "absolute right-6 top-6 rounded-full border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-strong)]"
+          }
+        >
+          {badge}
+        </span>
+      ) : null}
 
       <p
         className={
           featured
-            ? "mt-6 text-base leading-8 text-white/[0.68]"
-            : "mt-6 text-base leading-8 text-[var(--color-muted)]"
+            ? "text-sm uppercase tracking-[0.24em] text-white/[0.52]"
+            : "text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]"
         }
+      >
+        {name}
+      </p>
+
+      <h2 className="mt-4 text-4xl font-semibold tracking-tight">{price}</h2>
+
+      <p
+        className={
+          featured ? "mt-2 text-sm text-white/[0.62]" : "mt-2 text-sm text-[var(--color-muted)]"
+        }
+      >
+        {billing}
+      </p>
+
+      {priceNote ? (
+        <p
+          className={
+            featured
+              ? "mt-2 text-sm font-medium text-emerald-300"
+              : "mt-2 text-sm font-medium text-[var(--color-brand-strong)]"
+          }
+        >
+          {priceNote}
+        </p>
+      ) : null}
+
+      <p
+        className={[
+          "mt-6 text-sm leading-7",
+          featured ? "text-white/[0.68]" : "text-[var(--color-muted)]",
+        ].join(" ")}
       >
         {description}
       </p>
 
       <div
-        className={
-          featured ? "my-8 h-px bg-white/10" : "my-8 h-px bg-[var(--color-line)]"
-        }
+        className={featured ? "my-7 h-px bg-white/10" : "my-7 h-px bg-[var(--color-line)]"}
       />
 
-      <ul className="space-y-4">
+      <ul className="flex-1 space-y-3">
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <span
               className={
                 featured
-                  ? "mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]"
-                  : "mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-brand-strong)]"
+                  ? "mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand)]"
+                  : "mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand-strong)]"
               }
             />
             <span
@@ -135,11 +128,11 @@ export default function PricingCard({
         </p>
       ) : null}
 
-      <div className="mt-auto pt-8 space-y-3">
+      <div className="mt-auto space-y-3 pt-8">
         <Link
           href={ctaHref}
           className={
-              featured
+            featured
               ? "btn-primary w-full"
               : "btn-secondary w-full bg-white text-[var(--color-copy)]"
           }
