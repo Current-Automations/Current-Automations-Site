@@ -7,7 +7,7 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "https://calendly.com/currentautomations/30min", label: "Get Started For Free" },
+  { href: "https://calendly.com/currentautomations/30min", label: "Book Your Free Revenue Leak Audit" },
 ];
 
 const legalLinks = [

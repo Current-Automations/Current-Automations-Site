@@ -2,74 +2,74 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import Hero from "@/components/Hero";
-import HomeSectionTabs from "@/components/HomeSectionTabs";
-import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
-import TrustBar from "@/components/TrustBar";
-import { faqItems, serviceIndustries } from "@/data/siteContent";
+import { faqItems } from "@/data/siteContent";
 
-const problemPoints = [
+const problemCards = [
   {
-    title: "80% of callers never leave a voicemail",
-    description:
-      "They hang up and call the next company on Google. Your marketing dollars brought them in, and silence sent them away.",
+    heading: "Missed calls going to competitors",
+    body: "Most callers will not wait around or leave a voicemail. If no one responds quickly, they move on to the next business on the list.",
   },
   {
-    title: "62% switch to a competitor after one missed call",
-    description:
-      "They are not waiting for a callback. In trades and home services, the first business to respond wins the job.",
+    heading: "Slow follow-up losing jobs",
+    body: "The longer a lead waits for a response, the lower the chance you win the work. Manual follow-up cannot keep pace with how fast intent fades.",
   },
   {
-    title: "Responding in under 60 seconds boosts conversions by 391%",
-    description:
-      "After five minutes, the odds of reaching that lead drop by 100x. Manual follow up cannot keep pace with how fast intent decays.",
+    heading: "Evenings lost to admin",
+    body: "Quotes, scheduling, reminders, follow-ups, inbox cleanup. These tasks eat hours every day that should not require the owner every single time.",
   },
   {
-    title: "The first business to respond usually wins the job",
-    description:
-      "Local service customers are often ready to book immediately. Studies show the first company to respond has a significant advantage over every competitor who calls back an hour later.",
+    heading: "Leads falling through the cracks",
+    body: "No reminder, no follow-up, no system. A potential job comes in, life gets busy, and the opportunity quietly disappears without anyone noticing.",
+  },
+  {
+    heading: "Inconsistent customer communication",
+    body: "Customers expect fast, clear responses. When the day gets busy, manual processes break down and the customer experience suffers.",
   },
 ];
 
-const solutionSteps = [
+const auditSteps = [
   {
-    step: "Instant text-back",
-    description:
-      "The moment a call goes unanswered, the caller gets an SMS: 'Hey, sorry we missed your call. What can we help with? Reply here or we will call you right back.' No delay. No voicemail. No lost lead.",
+    number: "01",
+    heading: "We ask about your business",
+    body: "Where does your day break down? Where do leads come from and where do they disappear? What tasks eat your evenings? We listen first and ask the right questions.",
   },
   {
-    step: "Voicemail capture",
-    description:
-      "If they leave a voicemail, it gets transcribed and sent to you as a text and email summary. You see the caller's name, number, what they need, and how urgent it sounds, all within seconds.",
+    number: "02",
+    heading: "We map your biggest opportunities",
+    body: "Based on what you tell us, we identify one or two concrete systems that would have the highest impact for your specific business. No generic recommendations. No upsell pressure.",
   },
   {
-    step: "Lead detail collection",
-    description:
-      "The text conversation collects the details your team needs before the callback: name, address, job type, and availability. Your team calls back prepared, not guessing.",
-  },
-  {
-    step: "Follow-up automation",
-    description:
-      "If the prospect does not reply right away, the system sends a follow up sequence over the next 24 to 48 hours. The lead stays warm without anyone on your team lifting a finger.",
+    number: "03",
+    heading: "You leave with clarity",
+    body: "Even if you do not move forward with us, you will leave the call knowing exactly where AI can help your business and what it would take to fix it. Most owners find that useful on its own.",
   },
 ];
 
-const whyThisWorks = [
+const systemCards = [
   {
-    heading: "Plumbers, HVAC techs, and electricians miss calls every day",
-    body: "You are on a job, in transit, or dealing with a customer. The phone rings and nobody picks up. That is normal. What happens next does not have to be.",
+    badge: "Most common",
+    heading: "Speed to Lead",
+    body: "The moment a call is missed, an automatic text goes out. The lead is captured, details are collected, and follow-up runs on its own. Your team gets a clean handoff with everything they need to close the job.",
+    link: { label: "See how it works", href: "/how-it-works" },
   },
   {
-    heading: "The customer does not wait",
-    body: "A homeowner with a burst pipe or a broken furnace calls the next number on the list within minutes. If you are not fast, you are invisible.",
+    badge: null,
+    heading: "Follow-Up Automation",
+    body: "Quotes sent with no response. Jobs discussed but never booked. We build follow-up sequences that run automatically and keep prospects moving toward a decision without anyone on your team chasing them.",
+    link: null,
   },
   {
-    heading: "Speed is the only advantage that matters at first contact",
-    body: "Before price, before reputation, before reviews. A fast response signals that your business is organized, responsive, and worth calling back.",
+    badge: null,
+    heading: "AI Voicemail and Urgency Routing",
+    body: "Voicemails get transcribed, summarized, and tagged by urgency so your team knows immediately what needs attention. No more listening to a full inbox at the end of the day.",
+    link: null,
   },
   {
-    heading: "One recovered job covers months of cost",
-    body: "At $299/month, recovering a single job you would have lost pays for the system many times over. Most businesses see that in the first week.",
+    badge: null,
+    heading: "Intake and Booking Workflows",
+    body: "Stop losing time to back and forth scheduling. We build intake systems that collect the right information upfront and move the customer toward a confirmed booking without manual coordination.",
+    link: null,
   },
 ];
 
@@ -82,113 +82,10 @@ const industryItems = [
   { name: "Other local service businesses", tagline: "If your business runs on inbound calls, this fits." },
 ];
 
-const trustIndustries = serviceIndustries.slice(0, 5);
-
-const outcomes = [
-  {
-    title: "Respond to customers faster",
-    description:
-      "Give every inbound caller a quicker acknowledgment so your business feels responsive even during busy hours.",
-    icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <path
-          d="M12 3v4m0 10v4m9-9h-4M7 12H3m15.36 6.36-2.83-2.83M8.47 8.47 5.64 5.64m12.72 0-2.83 2.83M8.47 15.53l-2.83 2.83"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Recover leads you would have lost",
-    description:
-      "Turn missed calls into active conversations before that customer moves on to the next company.",
-    icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <path
-          d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="m7 10.5 3.2 2.4a3.1 3.1 0 0 0 3.6 0L17 10.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Book more jobs without extra manual effort",
-    description:
-      "Keep the follow-up moving automatically so your team can stay focused on the work already in front of them.",
-    icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <path
-          d="M7 4v3m10-3v3M4 9h16M5.5 6.5h13A1.5 1.5 0 0 1 20 8v10.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5V8a1.5 1.5 0 0 1 1.5-1.5Z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="m9.5 14 1.5 1.5 3.5-4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Deliver a better customer experience",
-    description:
-      "A fast, clear first response makes your business feel more organized, attentive, and trustworthy from the start.",
-    icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <path
-          d="M12 21s7-3.8 7-10.2V5.8L12 3 5 5.8v5C5 17.2 12 21 12 21Z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="m9.5 12.5 1.7 1.7 3.3-3.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-];
-
 export default function Home() {
   return (
     <>
+      {/* Hero — keep copy/layout, update CTA label only */}
       <Hero
         id="overview"
         title={
@@ -201,7 +98,7 @@ export default function Home() {
         description="We audit your business, identify exactly where AI will have the biggest impact, then build and run the systems for you. No technical knowledge required on your end. Ever."
         primaryCta={{
           href: "https://calendly.com/currentautomations/30min",
-          label: "Get Started For Free",
+          label: "Book Your Free Revenue Leak Audit",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote="Every business we audit has money sitting uncaptured. We find it, then we build the system that recovers it."
@@ -288,99 +185,135 @@ export default function Home() {
         </div>
       </Hero>
 
-      <TrustBar
-        title="Built for service businesses that rely on inbound calls"
-        items={trustIndustries}
-      />
-
-      <HomeSectionTabs showReviews={false} />
-
+      {/* Section 2: Problems We Fix */}
       <Section
         id="problem"
-        eyebrow="The leak"
-        title="When the phone goes unanswered, the revenue usually disappears with it."
-        description="Busy owners are often on-site, in transit, or helping another customer. That is exactly when new leads are most likely to keep moving."
+        eyebrow="Where businesses leak money"
+        title="Most owners already know something is off. They just do not know what to fix first."
         tone="muted"
       >
-        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
-          {problemPoints.map((point, index) => (
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+          {problemCards.map((card, index) => (
             <article
-              key={point.title}
+              key={card.heading}
               className="surface-card rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
                 0{index + 1}
               </div>
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {point.title}
+                {card.heading}
               </h3>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                {point.description}
+                {card.body}
               </p>
             </article>
           ))}
         </div>
       </Section>
 
+      {/* Section 3: How the Audit Works */}
       <Section
-        id="workflow"
-        eyebrow="The fix"
-        title="Current Automations turns one missed call into a repeatable recovery workflow."
-        description="Instead of relying on someone to remember every callback, the workflow keeps the lead engaged until your team can step in."
+        id="audit"
+        eyebrow="The free audit"
+        title="30 minutes. No jargon. You leave with a clear picture of where your business is losing money."
         tone="dark"
       >
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-          <div className="grid gap-6 sm:grid-cols-2">
-            {solutionSteps.map((item, index) => (
-              <article
-                key={item.step}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
-              >
-                <p className="text-sm uppercase tracking-[0.24em] text-white/[0.45]">
-                  Step {index + 1}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
-                  {item.step}
-                </h3>
-                <p className="mt-4 text-base leading-8 text-white/[0.68]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {auditSteps.map((step) => (
+            <article
+              key={step.number}
+              className="relative rounded-[1.9rem] border border-white/10 bg-white/[0.06] p-7"
+            >
+              <div className="mb-8 flex items-center justify-between">
+                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
+                  {step.number}
+                </span>
+                <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-white">
+                {step.heading}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-white/[0.68]">
+                {step.body}
+              </p>
+            </article>
+          ))}
+        </div>
 
-          <aside className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.10] to-white/[0.05] p-8">
-            <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
-              Why it matters
-            </p>
-            <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-              A fast first response makes your business feel more established
-              before anyone on your team even picks up the phone.
-            </h3>
-            <p className="mt-5 text-base leading-8 text-white/[0.68]">
-              Customers do not need to see your backend to trust your business.
-              They just need to feel acknowledged quickly and given a clear next
-              step.
-            </p>
-            <div className="mt-8 space-y-4">
-              {[
-                "Automatic acknowledgment the moment a call is missed",
-                "Cleaner handoff to your team when they are available",
-                "Built to fit real-world workflows, not idealized ones",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-white/[0.08] bg-black/10 px-4 py-4"
-                >
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]" />
-                  <p className="text-sm leading-7 text-white/[0.72]">{item}</p>
-                </div>
-              ))}
-            </div>
-          </aside>
+        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <Link
+            href="https://calendly.com/currentautomations/30min"
+            className="btn-primary"
+          >
+            Book Your Free Revenue Leak Audit
+          </Link>
+          <p className="text-sm text-white/[0.48]">30 minutes. No pitch. No obligation.</p>
         </div>
       </Section>
 
+      {/* Section 4: Systems We Build */}
+      <Section
+        id="workflow"
+        eyebrow="What we implement"
+        title="Common systems we build for service businesses."
+        description="Every business is different. These are the systems that come up most often after an audit."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          {systemCards.map((card) => (
+            <article
+              key={card.heading}
+              className="surface-card rounded-[1.75rem] p-7"
+            >
+              {card.badge ? (
+                <span className="mb-4 inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold text-[var(--color-brand-strong)]">
+                  {card.badge}
+                </span>
+              ) : null}
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                {card.heading}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                {card.body}
+              </p>
+              {card.link ? (
+                <Link
+                  href={card.link.href}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
+                >
+                  {card.link.label}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <path
+                      d="M3 8h10m-4-4 4 4-4 4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* Section 5: Speed to Lead Spotlight heading */}
+      <Section
+        eyebrow="Our most common starting point"
+        title="Speed to Lead: catch every missed call before they call your competitor."
+        description="For most service businesses, missed calls are the single biggest revenue leak. Here is exactly what happens when the system is running."
+      >
+        {null}
+      </Section>
+
+      {/* Demo section — content unchanged, link updated per global rules */}
       <Section
         id="demo"
         eyebrow="Try it yourself"
@@ -445,8 +378,11 @@ export default function Home() {
               </p>
               <p className="mt-3 text-sm text-white/[0.45]">
                 Want to see it with your own call flow?{" "}
-                <Link href="/book-a-demo#demo-request" className="font-medium text-[var(--color-brand)] hover:underline">
-                  Book a free walkthrough.
+                <Link
+                  href="https://calendly.com/currentautomations/30min"
+                  className="font-medium text-[var(--color-brand)] hover:underline"
+                >
+                  Book Your Free Revenue Leak Audit.
                 </Link>
               </p>
             </div>
@@ -454,51 +390,48 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Section 6: Why Speed Matters */}
       <Section
-        eyebrow="Why this works"
-        title="Why This Works"
-        description="The missed-call problem is not new. The solution is."
+        eyebrow="Why speed matters"
+        title="The data on lead response is clear."
         tone="dark"
       >
         <div className="grid gap-6 md:grid-cols-2">
-          {whyThisWorks.map((point) => (
-            <article
-              key={point.heading}
-              className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7"
-            >
-              <h3 className="text-xl font-semibold tracking-tight text-white">
-                {point.heading}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-white/[0.68]">
-                {point.body}
-              </p>
-            </article>
-          ))}
+          <article className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7">
+            <p className="text-5xl font-semibold tracking-tight text-white">21x</p>
+            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-strong)]">
+              more likely to qualify
+            </p>
+            <p className="mt-4 text-base leading-8 text-white/[0.68]">
+              Research from MIT and InsideSales found that businesses responding to inbound leads within 5 minutes were 21 times more likely to qualify them than businesses that waited 30 minutes.
+            </p>
+          </article>
+          <article className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7">
+            <p className="text-5xl font-semibold tracking-tight text-white">Every minute</p>
+            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-strong)]">
+              the lead gets colder
+            </p>
+            <p className="mt-4 text-base leading-8 text-white/[0.68]">
+              In plain English: the longer a lead waits, the colder it gets. When a business misses the first touchpoint, the next company on Google often gets the job.
+            </p>
+          </article>
         </div>
+        <p className="mt-8 max-w-3xl text-base leading-8 text-white/[0.68]">
+          Most callers will not wait around. If they hit voicemail and do not get a quick response, they move on. Speed to Lead fixes that automatically.
+        </p>
       </Section>
 
-
+      {/* Section 7: Why Current Automations */}
       <Section
         id="why-current"
         eyebrow="About"
-        title="Why Current Automations"
-        description="Current Automations was built to solve a practical problem for service businesses that rely on inbound calls: important opportunities disappear before anyone has time to respond."
+        title="Why service businesses choose us"
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
           <article className="surface-card rounded-[2rem] p-8">
-            <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Built for real operators
-            </p>
-            <h3 className="mt-5 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">
-              Clear systems, real business value, and a more professional first
-              customer experience.
-            </h3>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Current Automations is built for service businesses that do not
-              have time to babysit every missed call, but also cannot afford to
-              let opportunities slip away just because the team was already in
-              the middle of the work.
+            <p className="text-base leading-8 text-[var(--color-muted)]">
+              Most business owners do not need more software. They need someone who can look at how their business actually runs, explain what AI can realistically improve, and then quietly implement the right system without adding complexity. That is exactly what Current Automations does.
             </p>
             <div className="mt-8">
               <Link href="/about" className="btn-secondary bg-white">
@@ -510,19 +443,19 @@ export default function Home() {
           <div className="grid gap-5">
             {[
               {
-                title: "Focused on one expensive problem",
+                title: "We start with your problem, not a product",
                 description:
-                  "The offer is clear because the problem is clear: service businesses lose time and money to problems AI can quietly fix.",
+                  "Every engagement starts with a free Revenue Leak Audit. We find what will actually move the needle for your specific business before recommending anything.",
               },
               {
-                title: "Dependable by design",
+                title: "We build and maintain everything",
                 description:
-                  "The customer experience feels fast, polished, and professional rather than robotic or generic.",
+                  "You never touch the technology. We configure, deploy, and maintain every system we build. If something needs adjusting, you contact us and it gets fixed.",
               },
               {
-                title: "Built for real-world workflows",
+                title: "The relationship is ongoing",
                 description:
-                  "Start with a focused missed-call workflow, without a bloated software stack or unnecessary complexity.",
+                  "We are not here to sell you a tool and disappear. We grow with your business and add more systems as the right opportunities emerge.",
               },
             ].map((item) => (
               <article
@@ -541,6 +474,7 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Section 8: Industries — unchanged */}
       <Section
         eyebrow="Industries served"
         title="Built for service businesses like:"
@@ -563,6 +497,7 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Section 9: Results */}
       <Section
         title="Results"
         description="Currently working with our first clients in Ontario. Case studies and results coming soon."
@@ -572,34 +507,7 @@ export default function Home() {
         {null}
       </Section>
 
-      <Section
-        id="results"
-        eyebrow="Business impact"
-        title="What This Means For Your Business"
-        description="The value is not just automation. It is what happens when more inbound opportunities get a fair chance to convert."
-        tone="muted"
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {outcomes.map((outcome) => (
-            <OutcomeCard
-              key={outcome.title}
-              title={outcome.title}
-              description={outcome.description}
-              icon={outcome.icon}
-            />
-          ))}
-        </div>
-
-        <div className="mt-6 rounded-[1.75rem] border border-[var(--color-brand-strong)]/20 bg-[var(--color-brand)]/[0.04] p-7">
-          <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
-            What does $299/month actually cost you?
-          </h3>
-          <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
-            A single plumbing service call averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
-          </p>
-        </div>
-      </Section>
-
+      {/* Section 10: The Math — unchanged */}
       <Section
         id="math"
         eyebrow="The real cost"
@@ -630,18 +538,20 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Section 11: FAQ — unchanged */}
       <FAQSection
         items={faqItems}
         tone="muted"
         description="Clear answers to the practical questions most owners ask before deciding whether the system fits their workflow."
       />
 
+      {/* Section 12: Bottom CTA */}
       <CTASection
         eyebrow="Ready to see it with your own call flow?"
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Get Started For Free"
+        primaryLabel="Book Your Free Revenue Leak Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
