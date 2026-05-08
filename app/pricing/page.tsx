@@ -1,7 +1,7 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
-import PricingCard from "@/components/PricingCard";
 import Section from "@/components/Section";
 import type { FAQItem } from "@/data/siteContent";
 
@@ -41,7 +41,7 @@ const pricingFaqItems: FAQItem[] = [
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Explore Current Automations pricing for launch-stage missed-call workflows built for service businesses.",
+    "Simple, transparent pricing for service businesses. Start with Speed to Lead or book a free consultation for custom AI systems.",
 };
 
 export default function PricingPage() {
@@ -55,23 +55,23 @@ export default function PricingPage() {
               Straightforward pricing
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Simple pricing. Real results. No technical knowledge needed.
+              Simple pricing for service businesses.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Every engagement starts with a free consultation. We find your highest-impact opportunity first, then recommend the right system. Most service businesses start with Speed to Lead.
+              Start with our most common system, or book a consultation for custom automation needs.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.07] p-6">
             <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
-              Included in every conversation
+              What is always included
             </p>
             <div className="mt-6 space-y-4">
               {[
                 "A free consultation to find your biggest opportunity",
-                "A recommended system matched to your specific business",
                 "Full build and configuration handled by us",
                 "Ongoing maintenance with no technical work on your end",
+                "Support when you need it",
               ].map((item) => (
                 <div
                   key={item}
@@ -86,59 +86,72 @@ export default function PricingPage() {
       </section>
 
       <Section
-        eyebrow="Plans"
-        title="Choose your starting point."
-        description="These plans keep the buying decision simple while giving you room to scale into more advanced workflows later."
-        align="center"
+        eyebrow="Pricing"
+        title="Two clear paths forward."
+        description="Start with the highest-impact fix first. Expand only when it makes sense."
       >
-        <div className="grid gap-6 lg:grid-cols-4">
-          <PricingCard
-            name="Speed to Lead Starter"
-            price="$97 CAD"
-            billing="per month"
-            description="A focused entry plan to recover missed calls with fast SMS notification."
-            features={["Missed call SMS notification to caller"]}
-            ctaLabel="Get Started"
-            ctaHref="https://buy.stripe.com/8x200j3BFf1jbC21Sj8ww08"
-          />
-          <PricingCard
-            name="Speed to Lead Pro"
-            price="$197 CAD"
-            billing="per month"
-            description="The most popular package for speedy missed-call recovery and lead qualification."
-            features={[
-              "Missed call SMS with booking link",
-              "Voicemail transcription",
-              "AI urgency tagging",
-              "Owner alert notifications",
-            ]}
-            ctaLabel="Get Started"
-            ctaHref="https://buy.stripe.com/7sYcN5dcf8CVgWm40r8ww07"
-            featured
-            badge="Most Popular"
-          />
-          <PricingCard
-            name="Speed to Lead Premium"
-            price="$297 CAD"
-            billing="per month"
-            description="Everything in Pro plus an AI voicemail agent that responds intelligently."
-            features={["Everything in Pro plus AI voicemail agent with intelligent response"]}
-            ctaLabel="Get Started"
-            ctaHref="https://buy.stripe.com/9B600j4FJ9GZdKagNd8ww06"
-          />
-          <PricingCard
-            name="Speed to Lead Elite"
-            price="$497 CAD"
-            billing="per month"
-            description="The full live AI voice agent experience with real-time booking built in."
-            features={["Everything in Premium plus live AI voice agent with real-time booking"]}
-            ctaLabel="Get Started"
-            ctaHref="https://buy.stripe.com/3cI9AT8VZ7yRcG6fJ98ww05"
-          />
+        <div className="grid gap-6 lg:grid-cols-2 items-start">
+          <article className="surface-card rounded-[2rem] p-8">
+            <span className="inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-strong)]">
+              Most common starting point
+            </span>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+              Speed to Lead
+            </h2>
+            <p className="mt-4 text-4xl font-semibold tracking-tight text-[var(--color-ink)]">
+              Starts at $299/month
+            </p>
+            <p className="mt-2 text-sm text-[var(--color-muted)]">
+              per month, no long-term contract
+            </p>
+            <div className="my-7 h-px bg-[var(--color-line)]" />
+            <ul className="space-y-3">
+              {[
+                "Instant text-back to every missed call",
+                "Voicemail transcription and alerting",
+                "Lead detail capture",
+                "Follow-up automation",
+                "Setup and ongoing support included",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand-strong)]" />
+                  <span className="text-sm leading-7 text-[var(--color-copy)]">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="https://calendly.com/currentautomations/30min"
+              className="btn-primary w-full mt-8"
+            >
+              Book Your Free Consultation
+            </Link>
+          </article>
+
+          <article className="dark-card rounded-[2rem] p-8">
+            <p className="text-sm uppercase tracking-[0.24em] text-white/[0.52]">
+              Need something custom?
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white">
+              Custom AI Systems
+            </h2>
+            <p className="mt-2 text-sm text-white/[0.62]">
+              Scoped after your free consultation.
+            </p>
+            <div className="my-7 h-px bg-white/10" />
+            <p className="text-base leading-8 text-white/[0.68]">
+              For follow-up automation, intake and booking workflows, voicemail routing, admin systems, and other custom automations beyond missed calls.
+            </p>
+            <Link
+              href="https://calendly.com/currentautomations/30min"
+              className="btn-primary w-full mt-8"
+            >
+              Book Your Free Consultation
+            </Link>
+          </article>
         </div>
 
-        <p className="mt-8 text-center text-sm leading-7 text-[var(--color-muted)]">
-          Already spoken with us? Ask about our pilot program.
+        <p className="text-center text-sm text-[var(--color-muted)] mt-8">
+          We start with the highest-impact fix first, then expand only when it makes sense.
         </p>
       </Section>
 
@@ -189,9 +202,9 @@ export default function PricingPage() {
       />
 
       <CTASection
-        eyebrow="Need help choosing the right starting point?"
-        title="Find Out Where Your Business Is Leaving Money Behind"
-        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        eyebrow="Not sure where to start?"
+        title="Book a free consultation and we will figure it out together."
+        description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref="https://calendly.com/currentautomations/30min"
         primaryLabel="Book Your Free Consultation"
         secondaryHref="/pricing"
