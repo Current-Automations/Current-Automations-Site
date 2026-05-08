@@ -98,7 +98,7 @@ export default function Home() {
         description="We audit your business, identify exactly where AI will have the biggest impact, then build and run the systems for you. No technical knowledge required on your end. Ever."
         primaryCta={{
           href: "https://calendly.com/currentautomations/30min",
-          label: "Book Your Free Revenue Leak Audit",
+          label: "Book Your Free Consultation",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote="Every business we audit has money sitting uncaptured. We find it, then we build the system that recovers it."
@@ -165,7 +165,7 @@ export default function Home() {
             href="https://calendly.com/currentautomations/30min"
             className="btn-primary"
           >
-            Book Your Free Revenue Leak Audit
+            Book Your Free Consultation
           </Link>
           <p className="text-sm text-white/[0.48]">30 minutes. No pitch. No obligation.</p>
         </div>
@@ -292,7 +292,7 @@ export default function Home() {
                   href="https://calendly.com/currentautomations/30min"
                   className="font-medium text-[var(--color-brand)] hover:underline"
                 >
-                  Book Your Free Revenue Leak Audit.
+                  Book Your Free Consultation.
                 </Link>
               </p>
             </div>
@@ -453,7 +453,7 @@ export default function Home() {
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Free Revenue Leak Audit"
+        primaryLabel="Book Your Free Consultation"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

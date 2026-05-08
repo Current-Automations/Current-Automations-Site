@@ -70,7 +70,7 @@ export default function Navbar() {
 
             <div className="hidden lg:block">
               <Link href="https://calendly.com/currentautomations/30min" className="btn-primary">
-                Book Your Free Revenue Leak Audit
+                Book Your Free Consultation
               </Link>
             </div>
 
@@ -111,7 +111,7 @@ export default function Navbar() {
                 className="btn-primary mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Book Your Free Revenue Leak Audit
+                Book Your Free Consultation
               </Link>
             </div>
           ) : null}

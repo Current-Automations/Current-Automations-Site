@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Stripe__get_stripe_account_info",
+      "mcp__claude_ai_Stripe__list_products",
+      "mcp__claude_ai_Stripe__list_prices",
+      "mcp__claude_ai_Stripe__create_payment_link",
+      "Bash(npm run:*)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git -C \"c:/Users/Jarre/OneDrive/Desktop/Current Automations/current-automations-site\" push origin main)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Jarre\\\\OneDrive\\\\Desktop\\\\Current Automations\\\\current-automations-site\" -Name \"tailwind.config.*\" -File)",
+      "Bash(git -C \"c:/Users/Jarre/OneDrive/Desktop/Current Automations/current-automations-site\" diff --stat)",
+      "Bash(git -C \"c:/Users/Jarre/OneDrive/Desktop/Current Automations/current-automations-site\" status --short)",
+      "Bash(git push *)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); npm --version)",
+      "Bash(cmd /c \"cd /d \\\\\"c:\\\\Users\\\\Jarre\\\\OneDrive\\\\Desktop\\\\Current Automations\\\\current-automations-site\\\\\" && npm run build 2>&1\")",
+      "Bash(cmd /c \"cd /d \\\\\"c:\\\\Users\\\\Jarre\\\\OneDrive\\\\Desktop\\\\Current Automations\\\\current-automations-site\\\\\" && npx vercel --prod 2>&1\")",
+      "Bash(cmd /c \"npx vercel --version 2>&1\")",
+      "Bash(cmd /c \"cd /d \\\\\"c:\\\\Users\\\\Jarre\\\\OneDrive\\\\Desktop\\\\Current Automations\\\\current-automations-site\\\\\" && npx vercel --prod > %TEMP%\\\\vercel_out.txt 2>&1 & type %TEMP%\\\\vercel_out.txt\")"
+    ]
+  }
+}
