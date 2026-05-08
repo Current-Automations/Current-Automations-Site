@@ -11,33 +11,33 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: "01",
-    title: "Customer calls",
+    title: "Free Consultation",
     description:
-      "A potential customer reaches out when they need help and expects a quick response.",
+      "We start with a 30-minute conversation. No pitch. We ask about your day, where time gets lost, where leads fall through, and what would make the biggest difference. You leave with clarity even if you do not move forward.",
   },
   {
     number: "02",
-    title: "You miss the call",
+    title: "AI Opportunity Audit",
     description:
-      "Your team might be on-site, driving, with another customer, or simply unavailable in that moment.",
+      "We map exactly where AI will have the highest impact in your business. For most service businesses this is missed call recovery. For others it is follow-up, admin, scheduling, or something else entirely.",
   },
   {
     number: "03",
-    title: "Automatic response is sent",
+    title: "We Build It For You",
     description:
-      "Within seconds, the caller receives an SMS: 'Hey, sorry we missed you. What can we help with? Reply here and we will get back to you right away.' The lead knows they have been heard.",
+      "Once we agree on the right system, we build and configure everything. You do not touch the technology. Most clients are live within 48 hours.",
   },
   {
     number: "04",
-    title: "Lead info is captured",
+    title: "It Runs In The Background",
     description:
-      "The text conversation collects name, address, job type, and availability. When your team calls back, they already know what the customer needs and where they are.",
+      "The system runs automatically from day one. Missed calls get caught. Follow-ups go out. Leads get captured. Your team gets notified. No manual work required.",
   },
   {
     number: "05",
-    title: "Follow-up helps recover the job",
+    title: "We Maintain Everything",
     description:
-      "If the lead does not reply within a set window, the system sends a follow up. Then another. The conversation stays warm for 24 to 48 hours without your team doing anything manually.",
+      "We monitor and maintain the system on our end. If something needs adjusting, we handle it. You focus on the work. We keep the system working.",
   },
 ];
 
@@ -52,24 +52,23 @@ export default function HowItWorksPage() {
               How the workflow works
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Five simple steps from a missed call to a recovered opportunity.
+              From first conversation to running system. Here is how we work.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Keep the lead engaged quickly, capture the context your team
-              needs, and keep the opportunity warm while your business is busy.
+              Every engagement starts with a free consultation where we find where your business is losing time and money. Then we build and run the systems that fix it. You never touch the technology.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.07] p-6">
             <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
-              What the customer feels
+              What you get
             </p>
             <div className="mt-6 space-y-4">
               {[
-                "Fast acknowledgment",
-                "A clear next step",
-                "Confidence that help is coming",
-                "A more professional first impression",
+                "A clear picture of where your business leaks revenue",
+                "A recommended system built for your specific situation",
+                "Fast implementation with no disruption to how you work",
+                "Ongoing maintenance so nothing breaks on you",
               ].map((item) => (
                 <div
                   key={item}
@@ -85,7 +84,7 @@ export default function HowItWorksPage() {
 
       <Section
         eyebrow="Step-by-step"
-        title="A visual workflow built for busy local service teams."
+        title="How every engagement works."
         description="Each stage is designed to shorten the time between an unanswered call and a real conversation with your next customer."
       >
         <div className="grid gap-6 lg:grid-cols-5">
@@ -113,16 +112,16 @@ export default function HowItWorksPage() {
 
       <Section
         eyebrow="Behind the scenes"
-        title="The whole experience feels seamless, not robotic."
+        title="Built to run without you having to think about it."
         description="This is not about replacing your team. It is about making sure every inbound lead gets fast attention in a workflow that feels natural and dependable."
         tone="dark"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
-            "Your business stays responsive even during busy hours.",
-            "Leads receive context instead of silence.",
-            "Your team gets cleaner handoff information.",
-            "More inbound demand gets a fair chance to convert.",
+            "No technical knowledge required at any stage",
+            "Systems are maintained and monitored on our end",
+            "Most clients see measurable impact within 30 days",
+            "The relationship is ongoing, not a one-time install",
           ].map((item, index) => (
             <div
               key={item}
@@ -254,10 +253,10 @@ export default function HowItWorksPage() {
 
       <CTASection
         eyebrow="Want to see the workflow with your own business details?"
-        title="Stop Losing Jobs From Missed Calls"
-        description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
-        primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Book a Free 15-Min Call"
+        title="Find Out Where Your Business Is Leaving Money Behind"
+        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        primaryHref="https://calendly.com/currentautomations/30min"
+        primaryLabel="Get Started For Free"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

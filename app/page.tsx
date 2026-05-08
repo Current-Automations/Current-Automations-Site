@@ -512,7 +512,7 @@ export default function Home() {
               {
                 title: "Focused on one expensive problem",
                 description:
-                  "The offer is clear because the problem is clear: missed calls quietly cost service businesses real jobs.",
+                  "The offer is clear because the problem is clear: service businesses lose time and money to problems AI can quietly fix.",
               },
               {
                 title: "Dependable by design",
@@ -595,7 +595,7 @@ export default function Home() {
             What does $299/month actually cost you?
           </h3>
           <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
-            A single plumbing service call in Ontario averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
+            A single plumbing service call averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
           </p>
         </div>
       </Section>

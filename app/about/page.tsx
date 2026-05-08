@@ -3,9 +3,11 @@ import CTASection from "@/components/CTASection";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: {
+    absolute: "About | Current Automations | AI Systems for Service Businesses",
+  },
   description:
-    "Learn how Current Automations helps service businesses capture more opportunities by responding faster and reducing missed calls.",
+    "Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.",
 };
 
 const differentiators = [
@@ -26,11 +28,10 @@ export default function AboutPage() {
               Who We Are
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              About Current Automations
+              We find where your business is losing money. Then we fix it.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Helping service businesses capture more opportunities by
-              responding faster and reducing missed calls.
+              Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.
             </p>
           </div>
 
@@ -40,9 +41,9 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 space-y-4">
               {[
-                "Built around a real missed-call problem service businesses deal with every week.",
-                "Helps teams respond quickly without adding extra workload.",
-                "Focused on practical systems that feel professional and dependable.",
+                "Built for business owners who are great at their craft and do not have time to figure out technology.",
+                "Designed to find where time and money are leaking, then fix it with AI.",
+                "Focused on practical systems that run quietly and reliably without adding complexity.",
               ].map((item) => (
                 <div
                   key={item}
@@ -157,7 +158,7 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Founder"
-        title="Built by a Technical Operator"
+        title="Built by the Founder"
         description="Current Automations was shaped by a practical technical background and a real business problem."
         tone="muted"
       >
@@ -189,15 +190,7 @@ export default function AboutPage() {
 
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was built by Jarrett Goodwin, a founder with
-              a technical background in engineering and computer systems. After
-              seeing how many local service businesses lose real jobs simply
-              because they could not answer every call, he built a practical
-              system to fix that specific problem.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              The focus has always been on systems that are reliable, easy to
-              run, and built around how trades businesses actually operate.
+              Current Automations was founded by Jarrett Goodwin, an engineer and builder with a background in industrial operations and applied AI systems. After seeing how consistently trades and service businesses lose revenue to missed calls, slow follow-ups, and manual admin, he built Current Automations to fix it. The approach is hands-on and practical: find the highest-value problem first, build the system that solves it, and maintain everything so the owner never has to think about it. No jargon. No bloated software. Just systems that work.
             </p>
           </article>
         </div>
@@ -270,8 +263,8 @@ export default function AboutPage() {
         eyebrow="Ready to see if it fits your workflow?"
         title="See how Current Automations would work for your business."
         description="Request a walkthrough to see how missed-call follow-up, lead capture, and customer response could fit into your current process."
-        primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Book a Free 15-Min Call"
+        primaryHref="https://calendly.com/currentautomations/30min"
+        primaryLabel="Get Started For Free"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

@@ -71,7 +71,7 @@ export default function Footer() {
               Helping service businesses maximize every dollar they earn.
             </p>
             <p className="mt-3 text-sm leading-7 text-white/[0.48]">
-              Serving trades and service businesses across Canada.
+              Serving trades and service businesses across Ontario.
             </p>
           </div>
 

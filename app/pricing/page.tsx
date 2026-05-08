@@ -55,12 +55,10 @@ export default function PricingPage() {
               Straightforward pricing
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Premium automation support without a bloated pricing page.
+              Simple pricing. Real results. No technical knowledge needed.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Start with a focused missed-call workflow, get launched cleanly,
-              and expand into more advanced automations only when your business
-              is ready.
+              Every engagement starts with a free consultation. We find your highest-impact opportunity first, then recommend the right system. Most service businesses start with Speed to Lead.
             </p>
           </div>
 
@@ -70,9 +68,10 @@ export default function PricingPage() {
             </p>
             <div className="mt-6 space-y-4">
               {[
-                "Clear implementation guidance",
-                "A workflow matched to your business model",
-                "No bloated software stack required",
+                "A free consultation to find your biggest opportunity",
+                "A recommended system matched to your specific business",
+                "Full build and configuration handled by us",
+                "Ongoing maintenance with no technical work on your end",
               ].map((item) => (
                 <div
                   key={item}
@@ -88,7 +87,7 @@ export default function PricingPage() {
 
       <Section
         eyebrow="Plans"
-        title="Choose the right starting point for your team."
+        title="Choose your starting point."
         description="These plans keep the buying decision simple while giving you room to scale into more advanced workflows later."
         align="center"
       >
@@ -145,26 +144,26 @@ export default function PricingPage() {
 
       <Section
         eyebrow="Why teams choose this"
-        title="Built to be credible, simple, and easy to grow."
+        title="Why service businesses choose Current Automations."
         description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."
         tone="muted"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              title: "Clear value",
+              title: "No technical barrier",
               description:
-                "The offer is focused on a specific revenue problem service businesses already understand.",
+                "You will never need to touch the backend. We build it, run it, and maintain it. You just see the results.",
             },
             {
               title: "Fast to launch",
               description:
-                "Setup and onboarding move you from idea to live workflow without unnecessary drag.",
+                "Most clients are live within 48 hours of signing. No long onboarding. No complicated setup calls.",
             },
             {
-              title: "Easy to extend",
+              title: "Built to grow with you",
               description:
-                "As you grow, custom automations and integrations can be layered in without rethinking the whole system.",
+                "Start with one system. As your business grows, we layer in more. The relationship is ongoing, not transactional.",
             },
           ].map((item) => (
             <article
@@ -191,10 +190,10 @@ export default function PricingPage() {
 
       <CTASection
         eyebrow="Need help choosing the right starting point?"
-        title="Stop Losing Jobs From Missed Calls"
-        description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
-        primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Book a Free 15-Min Call"
+        title="Find Out Where Your Business Is Leaving Money Behind"
+        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        primaryHref="https://calendly.com/currentautomations/30min"
+        primaryLabel="Get Started For Free"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
