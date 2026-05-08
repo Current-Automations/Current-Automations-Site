@@ -198,25 +198,20 @@ export default function Home() {
       <Hero
         id="overview"
         eyebrow="Launch-stage workflows built for local service teams"
-        title="The First Business to Respond Wins the Job"
-        description="Every lead that comes in, whether by phone, web form, or online inquiry, expects a response in under 60 seconds. Current Automations makes sure you are always first."
+        title={
+          <>
+            You built a great business.
+            <br />
+            We use AI to maximize every dollar it makes.
+          </>
+        }
+        description="We audit your business, identify exactly where AI will have the biggest impact, then build and run the systems for you. No technical knowledge required on your end. Ever."
         primaryCta={{
-          href: "https://buy.stripe.com/7sYcN5dcf8CVgWm40r8ww07",
-          label: "Book a Free 15-Min Call",
+          href: "https://calendly.com/currentautomations/30min",
+          label: "Get Started For Free",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
-        ctaNote={
-          <span>
-            Small businesses lose up to 30% of inbound leads from slow or missed follow-up.{" "}
-            <a
-              href="tel:+13656017474"
-              className="font-medium text-[var(--color-brand)] underline-offset-2 hover:underline"
-            >
-              Call +1 365 601 7474
-            </a>{" "}
-            to try the demo line now.
-          </span>
-        }
+        ctaNote="Every business we audit has money sitting uncaptured. We find it, then we build the system that recovers it."
         stats={[
           { value: "<60s", label: "automatic response, every inbound lead" },
           { value: "24/7", label: "coverage, nights, weekends, holidays included" },
