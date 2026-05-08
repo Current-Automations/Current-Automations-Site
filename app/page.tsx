@@ -427,14 +427,8 @@ export default function Home() {
         <div className="mx-auto max-w-3xl">
           <div className="surface-card rounded-[2rem] p-8 sm:p-10">
             <p className="text-base leading-9 text-[var(--color-copy)]">
-              Most service calls are worth several hundred dollars. When a lead
-              calls and does not hear back quickly, they move on. Over the
-              course of a week, a month, a year, those missed opportunities add
-              up to real money walking to a competitor. Current Automations
-              costs{" "}
-              <strong className="text-[var(--color-ink)]">$299 per month</strong>.
-              For most service businesses, a single recovered job covers that
-              cost entirely.
+              Most service businesses start with Speed to Lead at $299/month. A
+              single recovered job typically covers the full cost.
             </p>
           </div>
         </div>
@@ -449,9 +443,9 @@ export default function Home() {
 
       {/* Section 12: Bottom CTA */}
       <CTASection
-        eyebrow="Ready to see it with your own call flow?"
-        title="Find Out Where Your Business Is Leaving Money Behind"
-        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        eyebrow="Not sure where to start?"
+        title="Book a free consultation and we will figure it out together."
+        description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref="https://calendly.com/currentautomations/30min"
         primaryLabel="Book Your Free Consultation"
         secondaryHref="/pricing"
