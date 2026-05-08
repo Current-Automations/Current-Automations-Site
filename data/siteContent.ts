@@ -4,7 +4,7 @@ export type FAQItem = {
 };
 
 export const siteContact = {
-  email: "CurrentAutomations@Outlook.com",
+  email: "admin@currentautomations.ca",
   phoneDisplay: "+1 365 601 7474",
   phoneHref: "+13656017474",
   responseExpectation: "Most inquiries receive a reply within 1 business day",

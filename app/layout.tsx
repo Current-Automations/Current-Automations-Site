@@ -16,23 +16,23 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Current Automations | Speed to Lead Automation for Service Businesses",
+    default: "Current Automations | AI Systems for Service Businesses",
     template: "%s | Current Automations",
   },
   description:
-    "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
+    "Current Automations finds where your business is losing time and money, then builds the AI systems that fix it. Serving trades and service businesses across Ontario.",
   openGraph: {
-    title: "Current Automations | Speed to Lead Automation for Service Businesses",
+    title: "Current Automations | AI Systems for Service Businesses",
     description:
-      "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
+      "Current Automations finds where your business is losing time and money, then builds the AI systems that fix it. Serving trades and service businesses across Ontario.",
     type: "website",
     siteName: "Current Automations",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Current Automations | Speed to Lead Automation for Service Businesses",
+    title: "Current Automations | AI Systems for Service Businesses",
     description:
-      "Current Automations helps service businesses respond faster, capture more opportunities, and reduce missed calls with practical automation.",
+      "Current Automations finds where your business is losing time and money, then builds the AI systems that fix it. Serving trades and service businesses across Ontario.",
   },
 };
 

@@ -69,8 +69,8 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden lg:block">
-              <Link href="/book-a-demo#demo-request" className="btn-primary">
-                Book a Free 15-Min Call
+              <Link href="https://calendly.com/currentautomations/30min" className="btn-primary">
+                Get Started For Free
               </Link>
             </div>
 
@@ -107,11 +107,11 @@ export default function Navbar() {
               })}
 
               <Link
-                href="/book-a-demo#demo-request"
+                href="https://calendly.com/currentautomations/30min"
                 className="btn-primary mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Book a Free 15-Min Call
+                Get Started For Free
               </Link>
             </div>
           ) : null}

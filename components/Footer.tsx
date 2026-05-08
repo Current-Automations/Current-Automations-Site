@@ -7,7 +7,7 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/book-a-demo#demo-request", label: "Book a Free 15-Min Call" },
+  { href: "https://calendly.com/currentautomations/30min", label: "Get Started For Free" },
 ];
 
 const legalLinks = [
@@ -63,12 +63,12 @@ export default function Footer() {
                   CURRENT AUTOMATIONS
                 </p>
                 <p className="text-xs text-white/[0.46]">
-                  Speed to Lead automation for service businesses
+                  AI systems for trades and service businesses across Ontario
                 </p>
               </div>
             </Link>
             <p className="mt-5 text-base leading-8 text-white/[0.64]">
-              Helping service businesses capture missed opportunities.
+              Helping service businesses maximize every dollar they earn.
             </p>
             <p className="mt-3 text-sm leading-7 text-white/[0.48]">
               Serving trades and service businesses across Canada.
@@ -133,7 +133,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.08] pt-6 text-sm text-white/[0.42] sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Current Automations. All rights reserved.</p>
-          <p>Helping service businesses capture missed opportunities.</p>
+          <p>Helping service businesses maximize every dollar they earn.</p>
         </div>
       </div>
     </footer>

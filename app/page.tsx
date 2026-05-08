@@ -5,8 +5,6 @@ import Hero from "@/components/Hero";
 import HomeSectionTabs from "@/components/HomeSectionTabs";
 import OutcomeCard from "@/components/OutcomeCard";
 import Section from "@/components/Section";
-import TestimonialCard from "@/components/TestimonialCard";
-import TestimonialTicker from "@/components/TestimonialTicker";
 import TrustBar from "@/components/TrustBar";
 import { faqItems, serviceIndustries } from "@/data/siteContent";
 
@@ -83,10 +81,6 @@ const industryItems = [
   { name: "Landscaping", tagline: "Outdoor work means phones go unanswered for hours." },
   { name: "Other local service businesses", tagline: "If your business runs on inbound calls, this fits." },
 ];
-
-// Add testimonials here when ready — the Reviews tab and section will appear automatically.
-// Each entry: { quote: string; title: string; context: string }
-const testimonials: Array<{ quote: string; title: string; context: string }> = [];
 
 const trustIndustries = serviceIndustries.slice(0, 5);
 
@@ -197,7 +191,6 @@ export default function Home() {
     <>
       <Hero
         id="overview"
-        eyebrow="Launch-stage workflows built for local service teams"
         title={
           <>
             You built a great business.
@@ -300,7 +293,7 @@ export default function Home() {
         items={trustIndustries}
       />
 
-      <HomeSectionTabs showReviews={testimonials.length > 0} />
+      <HomeSectionTabs showReviews={false} />
 
       <Section
         id="problem"
@@ -570,7 +563,14 @@ export default function Home() {
         </div>
       </Section>
 
-      <TestimonialTicker />
+      <Section
+        title="Results"
+        description="Currently working with our first clients in Ontario. Case studies and results coming soon."
+        align="center"
+        tone="muted"
+      >
+        {null}
+      </Section>
 
       <Section
         id="results"
@@ -595,7 +595,7 @@ export default function Home() {
             What does $299/month actually cost you?
           </h3>
           <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
-            A single plumbing service call in Ottawa averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
+            A single plumbing service call in Ontario averages $150 to $400. An HVAC repair averages $200 to $600. If this system recovers one job per month that you would have lost to a missed call, it pays for itself. Most businesses recover more than one.
           </p>
         </div>
       </Section>
@@ -630,26 +630,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {testimonials.length > 0 ? (
-        <Section
-          id="testimonials"
-          eyebrow="What clients say"
-          title="Real Results From Real Businesses"
-          description="Businesses that rely on inbound calls and started catching the ones they were losing."
-        >
-          <div className="grid gap-6 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.title}
-                quote={testimonial.quote}
-                title={testimonial.title}
-                context={testimonial.context}
-              />
-            ))}
-          </div>
-        </Section>
-      ) : null}
-
       <FAQSection
         items={faqItems}
         tone="muted"
@@ -658,10 +638,10 @@ export default function Home() {
 
       <CTASection
         eyebrow="Ready to see it with your own call flow?"
-        title="Stop Losing Jobs From Missed Calls"
-        description="Current Automations helps service businesses respond faster, capture more leads, and reduce lost opportunities."
-        primaryHref="/book-a-demo#demo-request"
-        primaryLabel="Book a Free 15-Min Call"
+        title="Find Out Where Your Business Is Leaving Money Behind"
+        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        primaryHref="https://calendly.com/currentautomations/30min"
+        primaryLabel="Get Started For Free"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
