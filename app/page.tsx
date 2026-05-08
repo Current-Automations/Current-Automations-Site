@@ -417,24 +417,7 @@ export default function Home() {
         {null}
       </Section>
 
-      {/* Section 10: The Math — unchanged */}
-      <Section
-        id="math"
-        eyebrow="The real cost"
-        title="The Math on Missed Calls"
-        description="The numbers behind why missed calls are the most expensive problem most service businesses are not tracking."
-      >
-        <div className="mx-auto max-w-3xl">
-          <div className="surface-card rounded-[2rem] p-8 sm:p-10">
-            <p className="text-base leading-9 text-[var(--color-copy)]">
-              Most service businesses start with Speed to Lead at $299/month. A
-              single recovered job typically covers the full cost.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Section 11: FAQ — unchanged */}
+      {/* FAQ */}
       <FAQSection
         items={faqItems}
         tone="muted"
