@@ -43,7 +43,13 @@ export default function Hero({
       <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
       <div className="pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(244,214,165,0.2),_transparent_62%)] blur-3xl" />
 
-      <div className="container-shell grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center">
+      <div
+        className={
+          children
+            ? "container-shell grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center"
+            : "container-shell"
+        }
+      >
         <div className="relative">
           {eyebrow ? (
             <p className="pill-label bg-white/[0.08] text-white/70">{eyebrow}</p>
@@ -93,7 +99,7 @@ export default function Hero({
           ) : null}
         </div>
 
-        <div>{children}</div>
+        {children ? <div>{children}</div> : null}
       </div>
     </section>
   );
