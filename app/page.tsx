@@ -102,88 +102,7 @@ export default function Home() {
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote="Every business we audit has money sitting uncaptured. We find it, then we build the system that recovers it."
-        stats={[
-          { value: "<60s", label: "automatic response, every inbound lead" },
-          { value: "24/7", label: "coverage, nights, weekends, holidays included" },
-          { value: "80%", label: "of callers hang up on voicemail. We catch them instead." },
-          { value: "$299/mo", label: "Pays for itself with one recovered job" },
-        ]}
-      >
-        <div className="relative mx-auto w-full max-w-xl">
-          <div className="dark-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-            <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
-                  Live lead recovery
-                </p>
-                <p className="mt-2 text-2xl font-semibold text-white">
-                  One missed call, one saved job
-                </p>
-              </div>
-              <div className="rounded-full border border-emerald-300/[0.30] bg-emerald-300/[0.10] px-3 py-1 text-xs font-semibold text-emerald-200">
-                Active
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-sm font-semibold text-white">
-                      Incoming call missed
-                    </p>
-                    <p className="mt-1 text-sm text-white/[0.60]">
-                      New homeowner looking for same-day plumbing help.
-                    </p>
-                  </div>
-                  <div className="rounded-full bg-white/[0.08] px-3 py-1 text-xs text-white/[0.65]">
-                    11:42 AM
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 px-2">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--color-brand)] to-[#0d7e67]" />
-                <div className="h-px flex-1 bg-gradient-to-r from-emerald-300/60 via-white/15 to-transparent" />
-                <div className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/[0.55]">
-                  Automation
-                </div>
-              </div>
-
-              <div className="rounded-[1.5rem] border border-emerald-300/[0.20] bg-emerald-300/[0.08] p-4">
-                <p className="text-sm font-semibold text-white">
-                  Instant text sent
-                </p>
-                <p className="mt-2 text-sm leading-7 text-white/70">
-                  &quot;Thanks for calling. We missed you, but we can help.
-                  Reply with your address and service needed and we&apos;ll
-                  follow up quickly.&quot;
-                </p>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-white/[0.45]">
-                    Captured
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-white">
-                    Name, phone, address, issue type
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-white/[0.45]">
-                    Next step
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-white">
-                    Follow-up queued for your team
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Hero>
+      />
 
       {/* Section 2: Problems We Fix */}
       <Section
@@ -517,22 +436,14 @@ export default function Home() {
         <div className="mx-auto max-w-3xl">
           <div className="surface-card rounded-[2rem] p-8 sm:p-10">
             <p className="text-base leading-9 text-[var(--color-copy)]">
-              The average service call is worth{" "}
-              <strong className="text-[var(--color-ink)]">$300 to $500</strong>.
-              If your team misses just{" "}
-              <strong className="text-[var(--color-ink)]">5 calls per week</strong>,
-              and 62% of those callers go to a competitor, that is 3 lost jobs
-              every single week.
-            </p>
-            <p className="mt-6 text-base leading-9 text-[var(--color-copy)]">
-              At $400 per job, that adds up to{" "}
-              <strong className="text-2xl text-[var(--color-ink)]">$62,400 per year</strong>{" "}
-              walking straight to your competition.
-            </p>
-            <p className="mt-6 text-base leading-9 text-[var(--color-copy)]">
-              Current Automations costs{" "}
+              Most service calls are worth several hundred dollars. When a lead
+              calls and does not hear back quickly, they move on. Over the
+              course of a week, a month, a year, those missed opportunities add
+              up to real money walking to a competitor. Current Automations
+              costs{" "}
               <strong className="text-[var(--color-ink)]">$299 per month</strong>.
-              It pays for itself the first time it saves a single job.
+              For most service businesses, a single recovered job covers that
+              cost entirely.
             </p>
           </div>
         </div>
