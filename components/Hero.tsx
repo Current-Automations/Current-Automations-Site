@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 type HeroProps = {
   id?: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   description: string;
   primaryCta: {
@@ -45,7 +45,9 @@ export default function Hero({
 
       <div className="container-shell grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center">
         <div className="relative">
-          <p className="pill-label bg-white/[0.08] text-white/70">{eyebrow}</p>
+          {eyebrow ? (
+            <p className="pill-label bg-white/[0.08] text-white/70">{eyebrow}</p>
+          ) : null}
           <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[4.35rem] lg:leading-[1.02]">
             {title}
           </h1>
