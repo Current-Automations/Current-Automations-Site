@@ -57,10 +57,10 @@ export default function PrivacyPolicyPage() {
               <p className="mt-3">
                 For privacy-related questions, contact{" "}
                 <a
-                  href="mailto:CurrentAutomations@Outlook.com"
+                  href="mailto:admin@currentautomations.ca"
                   className="font-medium text-[var(--color-brand-strong)]"
                 >
-                  CurrentAutomations@Outlook.com
+                  admin@currentautomations.ca
                 </a>
                 .
               </p>

@@ -63,10 +63,10 @@ export default function DemoPage() {
                 Call Now
               </a>
               <Link
-                href="/book-a-demo#demo-request"
+                href="https://calendly.com/currentautomations/30min"
                 className="btn-secondary w-full border-white/[0.16] text-white sm:w-auto"
               >
-                Book a Walkthrough Instead
+                Book Your Free Revenue Leak Audit
               </Link>
             </div>
             <p className="mt-5 text-sm text-white/[0.48]">
@@ -121,8 +121,8 @@ export default function DemoPage() {
             <div className="p-6 text-center">
               <p className="text-sm text-white/[0.55]">
                 Want to see it with your own call flow?{" "}
-                <Link href="/book-a-demo#demo-request" className="font-medium text-[var(--color-brand)] hover:underline">
-                  Book a free 15-minute walkthrough.
+                <Link href="https://calendly.com/currentautomations/30min" className="font-medium text-[var(--color-brand)] hover:underline">
+                  Book Your Free Revenue Leak Audit.
                 </Link>
               </p>
             </div>
@@ -138,8 +138,8 @@ export default function DemoPage() {
       >
         <div className="mx-auto max-w-xl text-center">
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/book-a-demo#demo-request" className="btn-primary">
-              Book a Free 15-Min Call
+            <Link href="https://calendly.com/currentautomations/30min" className="btn-primary">
+              Book Your Free Revenue Leak Audit
             </Link>
             <Link
               href="/pricing"

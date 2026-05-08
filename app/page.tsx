@@ -223,20 +223,11 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 5: Speed to Lead Spotlight heading */}
-      <Section
-        eyebrow="Our most common starting point"
-        title="Speed to Lead: catch every missed call before they call your competitor."
-        description="For most service businesses, missed calls are the single biggest revenue leak. Here is exactly what happens when the system is running."
-      >
-        {null}
-      </Section>
-
-      {/* Demo section — content unchanged, link updated per global rules */}
+      {/* Demo section */}
       <Section
         id="demo"
-        eyebrow="Try it yourself"
-        title="See It and Try It"
+        eyebrow="Our most common starting point"
+        title="Speed to Lead: catch every missed call before they call your competitor."
         description="Call the demo line and hear exactly what your customers will experience when they reach your business after hours. Takes 30 seconds."
         tone="muted"
       >

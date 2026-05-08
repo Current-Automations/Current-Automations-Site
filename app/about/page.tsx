@@ -10,13 +10,6 @@ export const metadata: Metadata = {
     "Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.",
 };
 
-const differentiators = [
-  "Built specifically for service businesses",
-  "Focused on simple, practical workflows",
-  "Works alongside existing systems",
-  "Prioritizes speed and reliability",
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -58,90 +51,66 @@ export default function AboutPage() {
       </section>
 
       <Section
-        eyebrow="The problem"
-        title="A small number of missed calls can quietly become a large number of lost jobs."
-        description="For many service businesses, the phone is still the main source of new work."
+        eyebrow="Where the money leaks"
+        title="Most service businesses are losing revenue in the same three places."
         tone="muted"
       >
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
-          <article className="surface-card rounded-[2rem] p-8">
-            <p className="text-base leading-8 text-[var(--color-muted)]">
-              But in reality, it is not always possible to answer every call.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              When a call is missed, customers often move on quickly to the next
-              company, and those missed calls quietly turn into lost revenue.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Even a small number of missed calls each week can represent a
-              significant number of lost jobs over time.
-            </p>
-          </article>
-
-          <div className="grid gap-5">
-            {[
-              {
-                title: "Phone calls drive real revenue",
-                description:
-                  "For many local service businesses, the phone is still the fastest path from inquiry to booked job.",
-              },
-              {
-                title: "Busy teams cannot answer everything",
-                description:
-                  "Being on-site, driving, or handling another customer makes missed calls unavoidable.",
-              },
-              {
-                title: "Lost calls are often invisible",
-                description:
-                  "The business sees the ringing phone, but not always the jobs that quietly went elsewhere.",
-              },
-            ].map((item) => (
-              <article
-                key={item.title}
-                className="rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
-              >
-                <h2 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
-                  {item.title}
-                </h2>
-                <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "Missed calls",
+              description:
+                "Most callers will not leave a voicemail or wait for a callback. If no one responds within minutes, they move on to the next business on the list.",
+            },
+            {
+              title: "Slow follow-up",
+              description:
+                "The longer a lead waits for a response, the colder it gets. Manual follow-up cannot keep pace with how fast buying intent fades.",
+            },
+            {
+              title: "Manual admin",
+              description:
+                "Quotes, scheduling, reminders, and inbox cleanup eat hours every week that should not require the owner every single time.",
+            },
+          ].map((item) => (
+            <article
+              key={item.title}
+              className="surface-card rounded-[1.75rem] p-7"
+            >
+              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                {item.title}
+              </h2>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                {item.description}
+              </p>
+            </article>
+          ))}
         </div>
       </Section>
 
       <Section
-        eyebrow="The solution"
-        title="Current Automations was built so missed calls do not turn into missed opportunities."
-        description="The system keeps follow-up fast, consistent, and practical without depending entirely on manual callbacks."
+        eyebrow="How we fix it"
+        title="We audit your business, find the highest-impact opportunity, then build the system that solves it."
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
           <article className="surface-card rounded-[2rem] p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was built to ensure missed calls do not turn
-              into missed opportunities.
+              Every engagement starts with a free Revenue Leak Audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              The system automatically responds when a call is missed, captures
-              lead details, and maintains engagement with potential customers.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Instead of relying on manual follow-up, every opportunity is
-              handled quickly and consistently.
+              Then we build it, configure it, and maintain it — so you never have to think about the technology. You just see the results.
             </p>
           </article>
 
           <aside className="dark-card rounded-[2rem] p-8">
             <p className="text-sm uppercase tracking-[0.24em] text-white/[0.45]">
-              What the system does
+              What we handle
             </p>
             <div className="mt-6 space-y-4">
               {[
-                "Responds quickly when a call is missed",
-                "Captures lead details while interest is still high",
-                "Follows up automatically without extra manual strain",
+                "A free audit to find your highest-impact opportunity",
+                "Full build and configuration — no technical work on your end",
+                "Ongoing maintenance so the system keeps running reliably",
               ].map((item) => (
                 <div
                   key={item}
@@ -197,74 +166,22 @@ export default function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="Why it matters"
-        title="In service industries, timing plays a major role in winning new work."
-        description="Fast response is not just a nice extra. It often decides who gets the next conversation."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            "Customers often contact multiple businesses, and the first to respond usually has the advantage.",
-            "Improving response time keeps the business in the conversation while customer intent is still high.",
-            "Capturing missed leads increases the chances of converting inquiries into actual jobs.",
-          ].map((item, index) => (
-            <article
-              key={item}
-              className="surface-card rounded-[1.8rem] p-7"
-            >
-              <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-brand-strong)]">
-                Benefit {index + 1}
-              </p>
-              <p className="mt-4 text-lg leading-8 text-[var(--color-copy)]">
-                {item}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="What makes it different"
-        title="Practical, fast, and dependable."
-        description="The system is built around simple workflows that fit how service businesses already operate."
-        tone="muted"
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {differentiators.map((item) => (
-            <article
-              key={item}
-              className="rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
-            >
-              <div className="flex items-start gap-3">
-                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-brand-strong)]" />
-                <p className="text-base font-medium leading-8 text-[var(--color-copy)]">
-                  {item}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Final note"
-        title="Built to be useful, effective, and easy to fit into everyday operations."
-        description="Current Automations is built with a clear goal: help businesses respond faster, capture more opportunities, and reduce lost revenue without adding unnecessary complexity."
+        eyebrow="The relationship"
+        title="We are not here to sell you a tool and disappear."
       >
         <div className="surface-card max-w-4xl rounded-[2rem] p-8">
           <p className="text-base leading-8 text-[var(--color-muted)]">
-            The focus is not on hype. It is on building something dependable
-            enough to support real businesses, real calls, and real missed
-            opportunities that get recovered with the right system in place.
+            Most software companies hand you a login and leave you to figure it out. We work differently. Every system we build is maintained on our end. If something needs adjusting, you contact us and it gets handled. As your business grows, we identify the next opportunity and build the next system. The relationship is ongoing, not transactional.
           </p>
         </div>
       </Section>
 
       <CTASection
-        eyebrow="Ready to see if it fits your workflow?"
-        title="See how Current Automations would work for your business."
-        description="Request a walkthrough to see how missed-call follow-up, lead capture, and customer response could fit into your current process."
+        eyebrow="Ready to find your revenue leaks?"
+        title="Find Out Where Your Business Is Leaving Money Behind"
+        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Get Started For Free"
+        primaryLabel="Book Your Free Revenue Leak Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

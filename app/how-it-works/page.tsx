@@ -256,7 +256,7 @@ export default function HowItWorksPage() {
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Get Started For Free"
+        primaryLabel="Book Your Free Revenue Leak Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
