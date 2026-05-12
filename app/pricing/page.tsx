@@ -12,14 +12,14 @@ const pricingFaqItems: FAQItem[] = [
       "The monthly automation plan runs month-to-month with no long-term contract required. You can cancel at any time.",
   },
   {
-    question: "What exactly is included in the setup fee?",
+    question: "What is included in the $299 monthly price?",
     answer:
-      "The $149 CAD one-time setup fee covers configuration of your missed-call workflow, phone number setup, voicemail flow, testing, and go-live support so everything is working correctly from day one.",
+      "Setup, configuration, ongoing operation, monitoring, and support. No additional fees.",
   },
   {
-    question: "Do I need to pay the setup fee and the monthly fee?",
+    question: "How long does it take to go live?",
     answer:
-      "Yes. The setup fee is a one-time charge to get your automation configured and launched. The monthly fee covers ongoing operation, monitoring, and support.",
+      "Most clients are live within 48 hours of signing. No long onboarding or complicated setup calls.",
   },
   {
     question: "Can the pricing change after I sign up?",
@@ -32,9 +32,9 @@ const pricingFaqItems: FAQItem[] = [
       "You can cancel your monthly plan at any time. Your automation will remain active through the end of the billing period you have already paid for.",
   },
   {
-    question: "What does the Custom plan include?",
+    question: "What is included in Custom AI Systems?",
     answer:
-      "Custom plans are scoped based on your specific needs and may include advanced workflows, multi-location support, CRM integrations, or other automation beyond the core missed-call system. Pricing is discussed directly after a demo.",
+      "Custom AI Systems are scoped based on your specific needs and may include advanced workflows, multi-location support, CRM integrations, or other automation beyond the core missed-call system. Pricing is discussed directly after your free Revenue Leak Audit.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function PricingPage() {
               Simple pricing for service businesses.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-              Start with our most common system, or book a consultation for custom automation needs.
+              Start with our most common system, or book a free Revenue Leak Audit for custom automation needs.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function PricingPage() {
               Speed to Lead
             </h2>
             <p className="mt-4 text-4xl font-semibold tracking-tight text-[var(--color-ink)]">
-              Starts at $299/month
+              $299/month
             </p>
             <p className="mt-2 text-sm text-[var(--color-muted)]">
               per month, no long-term contract
@@ -123,7 +123,7 @@ export default function PricingPage() {
               href="https://calendly.com/currentautomations/30min"
               className="btn-primary w-full mt-8"
             >
-              Book Your Free Consultation
+              Book Your Revenue Leak Audit
             </Link>
           </article>
 
@@ -135,7 +135,7 @@ export default function PricingPage() {
               Custom AI Systems
             </h2>
             <p className="mt-2 text-sm text-white/[0.62]">
-              Scoped after your free consultation.
+              Scoped after your free Revenue Leak Audit.
             </p>
             <div className="my-7 h-px bg-white/10" />
             <p className="text-base leading-8 text-white/[0.68]">
@@ -145,7 +145,7 @@ export default function PricingPage() {
               href="https://calendly.com/currentautomations/30min"
               className="btn-primary w-full mt-8"
             >
-              Book Your Free Consultation
+              Book Your Revenue Leak Audit
             </Link>
           </article>
         </div>
@@ -203,10 +203,10 @@ export default function PricingPage() {
 
       <CTASection
         eyebrow="Not sure where to start?"
-        title="Book a free consultation and we will figure it out together."
+        title="Book a free Revenue Leak Audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Free Consultation"
+        primaryLabel="Book Your Revenue Leak Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

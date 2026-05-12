@@ -5,8 +5,8 @@ export type FAQItem = {
 
 export const siteContact = {
   email: "admin@currentautomations.ca",
-  phoneDisplay: "+1 365 601 7474",
-  phoneHref: "+13656017474",
+  phoneDisplay: "416-509-7474",
+  phoneHref: "+14165097474",
   responseExpectation: "Most inquiries receive a reply within 1 business day",
   walkthroughNote: "A no-pressure walkthrough tailored to your workflow",
   directContactNote:
@@ -15,14 +15,14 @@ export const siteContact = {
 
 export const faqItems: FAQItem[] = [
   {
-    question: "Do I need to change my phone system?",
+    question: "How do you decide what to automate first?",
     answer:
-      "No. Nothing changes with your existing number. Your phone rings exactly as it does now. This only activates when a call is already missed.",
+      "We start every engagement with a Revenue Leak Audit — a 30-minute conversation where we map exactly where your business is losing time and money. From there, we recommend the one or two systems with the highest impact. Speed to Lead is the most common starting point, but it is not always the first fix.",
   },
   {
-    question: "What happens when I miss a call?",
+    question: "What if my main problem is not missed calls?",
     answer:
-      "An automatic text goes out within seconds. The customer knows you received their call and is given a clear next step. You get a notification with their details so your team can follow up.",
+      "That is exactly why we audit first. Missed calls are common, but some businesses lose more to slow follow-up, manual admin, or intake bottlenecks. We will figure out where your biggest opportunity is during the free Revenue Leak Audit and build around that.",
   },
   {
     question: "How long does setup take?",

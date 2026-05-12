@@ -7,7 +7,7 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "https://calendly.com/currentautomations/30min", label: "Book Your Free Consultation" },
+  { href: "https://calendly.com/currentautomations/30min", label: "Book Your Revenue Leak Audit" },
 ];
 
 const legalLinks = [
@@ -71,7 +71,7 @@ export default function Footer() {
               Helping service businesses maximize every dollar they earn.
             </p>
             <p className="mt-3 text-sm leading-7 text-white/[0.48]">
-              Serving trades and service businesses across Ontario.
+              Serving Durham Region and the Greater Toronto Area, with remote setup available across Ontario.
             </p>
           </div>
 

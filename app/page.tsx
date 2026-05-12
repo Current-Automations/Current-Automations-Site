@@ -79,7 +79,7 @@ const industryItems = [
   { name: "Electrical", tagline: "Jobs running back to back with no time to call back." },
   { name: "Cleaning", tagline: "High inbound volume during your busiest hours." },
   { name: "Landscaping", tagline: "Outdoor work means phones go unanswered for hours." },
-  { name: "Other local service businesses", tagline: "If your business runs on inbound calls, this fits." },
+  { name: "Other local service businesses", tagline: "If your business runs on inbound calls or depends on fast follow-up, this fits." },
 ];
 
 export default function Home() {
@@ -98,10 +98,10 @@ export default function Home() {
         description="We audit your business, identify exactly where AI will have the biggest impact, then build and run the systems for you. No technical knowledge required on your end. Ever."
         primaryCta={{
           href: "https://calendly.com/currentautomations/30min",
-          label: "Book Your Free Consultation",
+          label: "Book Your Revenue Leak Audit",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
-        ctaNote="Every business we audit has money sitting uncaptured. We find it, then we build the system that recovers it."
+        ctaNote="Most service businesses have money quietly leaking through calls, follow-up, and admin. We find the biggest leaks first and build the systems that fix them."
       />
 
       {/* Section 2: Problems We Fix */}
@@ -165,7 +165,7 @@ export default function Home() {
             href="https://calendly.com/currentautomations/30min"
             className="btn-primary"
           >
-            Book Your Free Consultation
+            Book Your Revenue Leak Audit
           </Link>
           <p className="text-sm text-white/[0.48]">30 minutes. No pitch. No obligation.</p>
         </div>
@@ -292,7 +292,7 @@ export default function Home() {
                   href="https://calendly.com/currentautomations/30min"
                   className="font-medium text-[var(--color-brand)] hover:underline"
                 >
-                  Book Your Free Consultation.
+                  Book Your Revenue Leak Audit.
                 </Link>
               </p>
             </div>
@@ -390,6 +390,9 @@ export default function Home() {
         title="Built for service businesses like:"
         description="Especially useful for businesses that rely on inbound phone calls and need to stay responsive while already on-site, in transit, or handling another customer."
       >
+        <p className="mb-6 text-sm leading-7 text-[var(--color-muted)]">
+          Currently serving businesses in Ajax, Whitby, Oshawa, Pickering, and the surrounding GTA.
+        </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industryItems.map((industry) => (
             <article
@@ -427,10 +430,10 @@ export default function Home() {
       {/* Section 12: Bottom CTA */}
       <CTASection
         eyebrow="Not sure where to start?"
-        title="Book a free consultation and we will figure it out together."
+        title="Book a free Revenue Leak Audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Free Consultation"
+        primaryLabel="Book Your Revenue Leak Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />
