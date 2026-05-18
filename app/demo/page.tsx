@@ -111,9 +111,7 @@ export default function DemoPage() {
           <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_24px_64px_rgba(7,17,29,0.14)]">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
-                src="https://player.vimeo.com/video/1181405333?badge=0&autopause=0&player_id=0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowFullScreen
+                src="/demo-video.html"
                 title="Current Automations — demo"
                 className="absolute inset-0 h-full w-full"
               />
