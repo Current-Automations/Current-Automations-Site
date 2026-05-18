@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Automations — Logo Lockup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #07111d;
+      --navy2:  #0d1b30;
+      --teal:   #4fd0ad;
+      --teal2:  #149676;
+      --blue:   #2a90d6;
+      --white:  #ffffff;
+    }
+
+    body {
+      background: #111;
+      font-family: 'Manrope', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 0;
+    }
+
+    /* ── Label ── */
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      padding: 40px 0 14px;
+    }
+
+    /* ── Lockup container ── */
+    .lockup-wrap {
+      padding: 48px 64px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 520px;
+    }
+
+    /* Subtle radial teal glow behind icon */
+    .lockup-wrap::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,208,173,0.13) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* ── Icon ── */
+    .icon {
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      /* subtle glow ring */
+      filter: drop-shadow(0 0 12px rgba(79,208,173,0.22));
+    }
+
+    /* ── Divider ── */
+    .sep {
+      width: 1px;
+      height: 44px;
+      margin: 0 22px;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(79,208,173,0.35),
+        transparent);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    .wordmark-top {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .wordmark-bottom {
+      display: block;
+      margin-top: 5px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+    }
+
+    /* ── Compact variant ── */
+    .lockup-wrap.compact {
+      width: 360px;
+      padding: 32px 44px;
+    }
+    .lockup-wrap.compact .icon   { width: 52px; height: 52px; }
+    .lockup-wrap.compact .sep    { height: 32px; margin: 0 16px; }
+    .lockup-wrap.compact .wordmark-top    { font-size: 15px; }
+    .lockup-wrap.compact .wordmark-bottom { font-size: 7.5px; }
+
+    /* ── Light variant ── */
+    .lockup-wrap.on-light {
+      background: #f4f7fb;
+    }
+    .lockup-wrap.on-light .wordmark-top    { color: var(--navy); }
+    .lockup-wrap.on-light .wordmark-bottom { color: rgba(7,17,29,0.45); }
+    .lockup-wrap.on-light .sep {
+      background: linear-gradient(to bottom, transparent, rgba(20,150,118,0.35), transparent);
+    }
+    .lockup-wrap.on-light::before {
+      background: radial-gradient(circle, rgba(79,208,173,0.08) 0%, transparent 68%);
+    }
+
+    /* Separator between samples */
+    .rule {
+      width: 100%;
+      max-width: 600px;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Label -->
+  <p class="label">Primary lockup — dark background</p>
+
+  <!-- LARGE dark -->
+  <div class="lockup-wrap">
+    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <div class="sep"></div>
+    <div class="wordmark">
+      <span class="wordmark-top">CURRENT</span>
+      <span class="wordmark-bottom">Automations</span>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="label">Compact lockup — navbar scale</p>
+
+  <!-- COMPACT dark (navbar scale) -->
+  <div class="lockup-wrap compact">
+    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <div class="sep"></div>
+    <div class="wordmark">
+      <span class="wordmark-top">CURRENT</span>
+      <span class="wordmark-bottom">Automations</span>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="label">Primary lockup — light background</p>
+
+  <!-- LARGE light -->
+  <div class="lockup-wrap on-light">
+    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <div class="sep"></div>
+    <div class="wordmark">
+      <span class="wordmark-top">CURRENT</span>
+      <span class="wordmark-bottom">Automations</span>
+    </div>
+  </div>
+
+  <p class="label" style="padding-bottom:40px;">Current Automations · currentautomations.ca</p>
+
+</body>
+</html>

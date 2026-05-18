@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Current Automations — LinkedIn Banner 1584×396</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #07111d;
+      --navy2: #0d1b30;
+      --navy3: #16334e;
+      --teal:  #4fd0ad;
+      --teal2: #149676;
+      --blue:  #2a90d6;
+      --white: #ffffff;
+    }
+
+    html, body {
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    /* ─────────────────────────────────────────
+       BANNER CANVAS
+    ───────────────────────────────────────── */
+    .banner {
+      width: 1584px;
+      height: 396px;
+      position: relative;
+      overflow: hidden;
+
+      /* layered background: dark navy base + subtle gradient sweep */
+      background:
+        radial-gradient(ellipse 560px 560px at 18% 50%, rgba(79,208,173,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 380px 380px at 88% 30%, rgba(42,144,214,0.09) 0%, transparent 55%),
+        linear-gradient(118deg, var(--navy) 0%, #0b1929 45%, #091521 100%);
+
+      display: flex;
+      align-items: center;
+    }
+
+    /* ─────────────────────────────────────────
+       BACKGROUND WAVE DECORATION (SVG full-bleed)
+    ───────────────────────────────────────── */
+    .bg-waves {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Noise grain overlay for texture */
+    .grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    /* Right-edge teal stripe */
+    .edge-stripe {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        var(--teal) 35%,
+        var(--blue) 65%,
+        transparent 100%);
+      opacity: 0.7;
+    }
+
+    /* ─────────────────────────────────────────
+       LEFT — ICON SECTION
+    ───────────────────────────────────────── */
+    .left {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      width: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .icon-glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,208,173,0.18) 0%, transparent 65%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .icon {
+      width: 210px;
+      height: 210px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter:
+        drop-shadow(0 0 28px rgba(79,208,173,0.30))
+        drop-shadow(0 0 8px  rgba(42,144,214,0.20));
+    }
+
+    /* ─────────────────────────────────────────
+       VERTICAL DIVIDER
+    ───────────────────────────────────────── */
+    .vdivider {
+      width: 1px;
+      height: 200px;
+      flex-shrink: 0;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(79,208,173,0.40) 30%,
+        rgba(79,208,173,0.40) 70%,
+        transparent);
+      position: relative;
+      z-index: 2;
+      margin: 0 4px;
+    }
+
+    /* ─────────────────────────────────────────
+       CENTER — WORDMARK + TAGLINE
+    ───────────────────────────────────────── */
+    .center {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 0 52px 0 56px;
+    }
+
+    .wordmark {
+      line-height: 1;
+    }
+
+    .word-current {
+      display: block;
+      font-size: 96px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      line-height: 0.94;
+
+      /* teal-to-white gradient on the text */
+      background: linear-gradient(135deg,
+        #ffffff    0%,
+        #e8f9f5   40%,
+        #a8edd8   70%,
+        var(--teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .word-automations {
+      display: block;
+      margin-top: 4px;
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.52);
+      line-height: 1;
+    }
+
+    /* Teal accent bar under wordmark */
+    .accent-bar {
+      margin-top: 22px;
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal), transparent);
+    }
+
+    .tagline {
+      margin-top: 14px;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.5;
+    }
+
+    .tagline em {
+      font-style: normal;
+      color: rgba(255,255,255,0.82);
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────────
+       RIGHT — URL + SERVICE AREA
+    ───────────────────────────────────────── */
+    .right {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      width: 240px;
+      padding-right: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .right-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .right-url {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+    }
+
+    .right-area {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      color: rgba(255,255,255,0.28);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* Small teal dot separator */
+    .dot-sep {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: 0.5;
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="banner">
+
+  <!-- Grain texture -->
+  <div class="grain"></div>
+
+  <!-- Background wave SVG -->
+  <svg class="bg-waves" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#4fd0ad" stop-opacity="0"/>
+        <stop offset="30%"  stop-color="#4fd0ad" stop-opacity="0.07"/>
+        <stop offset="70%"  stop-color="#2a90d6" stop-opacity="0.05"/>
+        <stop offset="100%" stop-color="#2a90d6" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="wg2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#4fd0ad" stop-opacity="0"/>
+        <stop offset="25%"  stop-color="#4fd0ad" stop-opacity="0.06"/>
+        <stop offset="65%"  stop-color="#2a90d6" stop-opacity="0.04"/>
+        <stop offset="100%" stop-color="#2a90d6" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="wg3" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#4fd0ad" stop-opacity="0"/>
+        <stop offset="20%"  stop-color="#4fd0ad" stop-opacity="0.05"/>
+        <stop offset="60%"  stop-color="#2a90d6" stop-opacity="0.03"/>
+        <stop offset="100%" stop-color="#2a90d6" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Three large wave arcs echoing the icon motif -->
+    <path
+      d="M -200,88  C 200,88  350,148 600,148 C 850,148 1000,88  1350,88  C 1500,88  1550,108 1784,88"
+      stroke="url(#wg1)" stroke-width="72" fill="none" stroke-linecap="round"/>
+
+    <path
+      d="M -200,198 C 180,198 320,258 580,258 C 840,258 980,198 1330,198 C 1480,198 1540,218 1784,198"
+      stroke="url(#wg2)" stroke-width="72" fill="none" stroke-linecap="round"/>
+
+    <path
+      d="M -200,308 C 160,308 310,368 570,368 C 830,368 960,308 1310,308 C 1460,308 1530,328 1784,308"
+      stroke="url(#wg3)" stroke-width="72" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Right edge stripe -->
+  <div class="edge-stripe"></div>
+
+  <!-- LEFT: Icon -->
+  <div class="left">
+    <div class="icon-glow"></div>
+    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+  </div>
+
+  <!-- Divider -->
+  <div class="vdivider"></div>
+
+  <!-- CENTER: Wordmark + tagline -->
+  <div class="center">
+    <div class="wordmark">
+      <span class="word-current">CURRENT</span>
+      <span class="word-automations">Automations</span>
+    </div>
+    <div class="accent-bar"></div>
+    <p class="tagline">
+      <em>Catch every missed call.</em>
+      <span class="dot-sep"></span>
+      Win every job.
+      <br>Automation for HVAC &bull; Plumbing &bull; Electrical &bull; Service Businesses
+    </p>
+  </div>
+
+  <!-- RIGHT: URL + service area -->
+  <div class="right">
+    <span class="right-label">Find us online</span>
+    <span class="right-url">currentautomations.ca</span>
+    <span class="right-area">
+      Durham Region<br>
+      Greater Toronto Area<br>
+      Ontario, Canada
+    </span>
+  </div>
+
+</div>
+
+</body>
+</html>

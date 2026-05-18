@@ -44,9 +44,12 @@ export default function Navbar() {
                 priority
                 className="h-[3.9rem] w-[3.9rem] rounded-full sm:h-[4.2rem] sm:w-[4.2rem]"
               />
-              <div className="hidden min-w-0 sm:-ml-4 sm:block">
-                <p className="truncate text-base font-semibold leading-none tracking-[0.11em] text-white sm:text-[1.08rem]">
-                  CURRENT AUTOMATIONS
+              <div className="hidden min-w-0 sm:-ml-2 sm:block">
+                <p className="font-display text-[1rem] font-bold leading-none tracking-[0.18em] text-white">
+                  CURRENT
+                </p>
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-white/55">
+                  Automations
                 </p>
               </div>
             </Link>
