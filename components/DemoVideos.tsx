@@ -75,20 +75,6 @@ export default function DemoVideos() {
             0 0 64px rgba(79,208,173,0.14),
             0 32px 80px rgba(4,9,26,0.6);
         }
-        .duration-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          background: rgba(79,208,173,0.1);
-          border: 1px solid rgba(79,208,173,0.2);
-          color: #4fd0ad;
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          padding: 5px 10px;
-          border-radius: 999px;
-        }
       `}</style>
 
       {/* Featured video */}
@@ -97,11 +83,10 @@ export default function DemoVideos() {
           className="fade-up"
           style={{ transitionDelay: "0s" }}
         >
-          <div className="mb-4 flex flex-wrap items-center gap-3">
+          <div className="mb-4">
             <span className="pill-label bg-white/[0.06] text-[#4fd0ad]">
               Featured
             </span>
-            <span className="duration-pill">{featured.duration}</span>
           </div>
           <h2 className="mb-2 font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             {featured.title}
@@ -134,18 +119,17 @@ export default function DemoVideos() {
           {secondary.map((v, i) => (
             <div
               key={v.src}
-              className="fade-up"
+              className="fade-up flex flex-col"
               style={{ transitionDelay: `${(i + 1) * 0.12}s` }}
             >
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span className="duration-pill">{v.duration}</span>
+              <div className="mb-5 flex-1">
+                <h3 className="mb-1.5 font-display text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                  {v.title}
+                </h3>
+                <p className="text-sm leading-7 text-white/55">
+                  {v.description}
+                </p>
               </div>
-              <h3 className="mb-1.5 font-display text-xl font-semibold tracking-tight text-white sm:text-2xl">
-                {v.title}
-              </h3>
-              <p className="mb-5 text-sm leading-7 text-white/55">
-                {v.description}
-              </p>
               <div className="demo-glow overflow-hidden rounded-[1.25rem]">
                 <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
                   <iframe
