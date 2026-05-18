@@ -54,7 +54,7 @@ export default function Hero({
           {eyebrow ? (
             <p className="pill-label bg-white/[0.08] text-white/70">{eyebrow}</p>
           ) : null}
-          <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[4.35rem] lg:leading-[1.02]">
+          <h1 className="font-display mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[4.35rem] lg:leading-[1.02]">
             {title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">

@@ -40,7 +40,7 @@ export default function Section({
     .join(" ");
 
   const titleClasses = [
-    "mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl",
+    "font-display mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl",
     tone === "dark" ? "text-white" : "text-[var(--color-ink)]",
   ].join(" ");
 

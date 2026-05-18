@@ -117,7 +117,7 @@ export default function Home() {
               key={card.heading}
               className="surface-card rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-brand)]/[0.12] text-sm font-semibold text-[var(--color-brand-strong)]">
                 0{index + 1}
               </div>
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
@@ -408,16 +408,6 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </Section>
-
-      {/* Section 9: Results */}
-      <Section
-        title="Results"
-        description="Currently working with our first clients in Ontario. Case studies and results coming soon."
-        align="center"
-        tone="muted"
-      >
-        {null}
       </Section>
 
       {/* FAQ */}
