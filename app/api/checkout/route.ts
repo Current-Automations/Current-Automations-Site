@@ -1,13 +1,17 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 const SETUP_FEE_PRICE_ID = "price_1TYDaJFbHh7D2pR6LF1A1ovY";
 const BASE_URL = "https://currentautomations.ca";
 // TODO: To support staging environments, replace BASE_URL with process.env.NEXT_PUBLIC_SITE_URL
 
+// Lazy-initialize so the key is read at request time, not build time.
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
+
 export async function POST(request: Request) {
+  const stripe = getStripe();
   try {
     const body = await request.json();
     const { priceIds, hasSetupFee } = body as {
@@ -36,9 +40,12 @@ export async function POST(request: Request) {
       // TODO: Future enhancement — look up customer by email in Stripe before creating the
       // session; if they have an existing subscription, omit the setup fee to avoid
       // double-charging returning clients.
+      //
+      // Cast required: add_invoice_items is a valid Stripe Checkout API parameter but is
+      // absent from SessionCreateParams.SubscriptionData in stripe-node v21 types.
       sessionParams.subscription_data = {
         add_invoice_items: [{ price: SETUP_FEE_PRICE_ID, quantity: 1 }],
-      };
+      } as unknown as Stripe.Checkout.SessionCreateParams.SubscriptionData;
     }
 
     const session = await stripe.checkout.sessions.create(sessionParams);
