@@ -10,9 +10,10 @@
   --color-muted: #62748b;
   --color-line: rgba(4, 9, 26, 0.12);
   --color-brand: #5dd6cb;
-  --color-brand-mid: #2e8fd6;
-  --color-brand-strong: #1652a8;
+  --color-brand-strong: #149676;
   --color-brand-crest: #8cf0e0;
+  --color-blue-current: #2e8fd6;
+  --color-blue-deep: #1652a8;
   --color-accent: #f4d6a5;
   --shadow-soft: 0 30px 90px rgba(4, 9, 26, 0.12);
 }
@@ -113,8 +114,9 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
     background: linear-gradient(
       135deg,
+      var(--color-brand-crest),
       var(--color-brand),
-      var(--color-brand-mid)
+      var(--color-blue-current)
     );
     color: var(--color-ink);
     box-shadow: 0 14px 36px rgba(93, 214, 203, 0.28);
