@@ -46,7 +46,7 @@ export default function Navbar() {
               />
               <div className="hidden min-w-0 sm:-ml-4 sm:block">
                 <p className="truncate text-base font-semibold leading-none tracking-[0.11em] text-white sm:text-[1.08rem]">
-                  CURRENT AUTOMATIONS &amp; SYSTEMS
+                  CURRENT AUTOMATIONS
                 </p>
               </div>
             </Link>

@@ -72,12 +72,12 @@ export default function Hero({
               {secondaryCta.label}
             </Link>
             {locationBadge ? (
-              <span className="text-sm text-white/[0.48]">{locationBadge}</span>
+              <span className="text-sm text-white/70">{locationBadge}</span>
             ) : null}
           </div>
 
           {ctaNote ? (
-            <p className="mt-3 text-xs text-white/[0.48]">{ctaNote}</p>
+            <p className="mt-3 text-sm text-white/[0.64]">{ctaNote}</p>
           ) : null}
 
           {stats.length > 0 ? (

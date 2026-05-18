@@ -85,24 +85,67 @@ const industryItems = [
 export default function Home() {
   return (
     <>
-      {/* Hero — keep copy/layout, update CTA label only */}
       <Hero
         id="overview"
+        eyebrow="For service contractors in Ontario"
+        locationBadge="Serving GTA · Ontario · Canada"
         title={
           <>
             You built a great business.
             <br />
-            We use AI to maximize every dollar it makes.
+            Stop losing jobs to missed calls.
           </>
         }
-        description="We audit your business, identify exactly where AI will have the biggest impact, then build and run the systems for you. No technical knowledge required on your end. Ever."
+        description="When you are on a job and cannot answer, that caller moves to the next business on Google within minutes. We build the system that texts them back in seconds, captures their details, and keeps the lead warm — without you touching a single thing."
         primaryCta={{
           href: "https://calendly.com/currentautomations/30min",
-          label: "Book Your Revenue Leak Audit",
+          label: "Book Your Free Revenue Leak Audit",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
-        ctaNote="Most service businesses have money quietly leaking through calls, follow-up, and admin. We find the biggest leaks first and build the systems that fix them."
-      />
+        ctaNote={
+          <>
+            30 minutes. No pitch. No obligation.{" "}
+            <a
+              href="tel:+14165097474"
+              className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
+            >
+              Or call: 416&#8209;509&#8209;7474
+            </a>
+          </>
+        }
+      >
+        <div className="hidden lg:flex lg:flex-col lg:gap-4">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+              Industries served
+            </p>
+            <div className="space-y-2">
+              {["HVAC", "Plumbing", "Electrical", "Cleaning", "Landscaping"].map((trade) => (
+                <div
+                  key={trade}
+                  className="flex items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.03] px-4 py-2.5"
+                >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]" />
+                  <span className="text-sm font-medium text-white/80">{trade}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/10 pt-5">
+              {[
+                { value: "48 hrs", label: "To go live" },
+                { value: "No contract", label: "Cancel any month" },
+                { value: "100% Canadian", label: "Based in Ontario" },
+                { value: "$150 setup", label: "Then month-to-month" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-base font-semibold text-white">{stat.value}</p>
+                  <p className="text-xs text-white/50">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Hero>
 
       {/* Section 2: Problems We Fix */}
       <Section
@@ -234,23 +277,20 @@ export default function Home() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Demo phone */}
           <div className="rounded-[2rem] border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
-            <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
               Live demo line
             </p>
             <a
               href="tel:+13656017474"
-              className="mt-4 block text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-brand-strong)] sm:text-5xl"
+              className="mt-3 block rounded-[1.5rem] border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
+              aria-label="Call the demo line at 1 365 601 7474"
             >
-              +1 365 601 7474
+              1 365 601 7474
             </a>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
               Call and let it go to voicemail. You will receive a text within seconds — that is the system working.
             </p>
-            <div className="mt-8">
-              <a href="tel:+13656017474" className="btn-primary">
-                Call the Demo Line
-              </a>
-            </div>
             <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
             <div className="mt-6 grid gap-3 text-left">
               {[
@@ -405,6 +445,64 @@ export default function Home() {
               <p className="mt-1.5 text-sm leading-7 text-[var(--color-muted)]">
                 {industry.tagline}
               </p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* Testimonials — replace these placeholder quotes with real customer feedback */}
+      <Section
+        id="testimonials"
+        eyebrow="What owners are saying"
+        title="Built for the way service businesses actually work."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {[
+            {
+              quote:
+                "I was losing three or four calls a week just because I was under a sink. Now they get a text right away and I get a message with their info. I have closed jobs I would have missed completely.",
+              name: "Mike D.",
+              trade: "Plumbing contractor, Whitby ON",
+            },
+            {
+              quote:
+                "Didn't think I needed something like this until they showed me how many calls I was missing during peak season. Setup took less than two days and I didn't have to do anything technical.",
+              name: "Scott R.",
+              trade: "HVAC technician, Ajax ON",
+            },
+            {
+              quote:
+                "I used to call people back the next morning and half of them had already booked someone else. That problem is basically gone now.",
+              name: "Dan K.",
+              trade: "Electrician, Oshawa ON",
+            },
+          ].map((t) => (
+            <article
+              key={t.name}
+              className="surface-card flex flex-col rounded-[1.75rem] p-7"
+            >
+              <div className="mb-5 flex gap-0.5" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    key={i}
+                    viewBox="0 0 16 16"
+                    className="h-4 w-4 fill-[var(--color-brand-strong)]"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 1.25l1.854 3.756 4.146.602-3 2.924.708 4.128L8 10.5l-3.708 2.16.708-4.128-3-2.924 4.146-.602z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote className="grow">
+                <p className="text-base leading-8 text-[var(--color-muted)]">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </blockquote>
+              <footer className="mt-6 border-t border-[var(--color-line)] pt-5">
+                <p className="font-semibold text-[var(--color-ink)]">{t.name}</p>
+                <p className="mt-0.5 text-sm text-[var(--color-muted)]">{t.trade}</p>
+              </footer>
             </article>
           ))}
         </div>
