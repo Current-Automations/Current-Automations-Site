@@ -83,6 +83,7 @@
 
   .font-display {
     font-family: var(--font-fraunces), serif;
+    font-variation-settings: "WONK" 0;
   }
 
   .pill-label {
