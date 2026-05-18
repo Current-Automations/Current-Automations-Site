@@ -482,6 +482,12 @@
   @keyframes progress{from{width:0}to{width:100%}}
 
   /* Responsive scaling handled by JS */
+  #stage.paused *{animation-play-state:paused!important}
+  .playbar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:4px;padding:6px 10px;background:rgba(7,17,29,.82);border:1px solid rgba(79,208,173,.28);border-radius:999px;backdrop-filter:blur(10px);opacity:.55;transition:opacity .2s}
+  .playbar:hover{opacity:1}
+  .pb-btn{width:30px;height:30px;border-radius:50%;background:none;border:none;color:rgba(255,255,255,.72);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s,background .15s}
+  .pb-btn:hover{color:#4fd0ad;background:rgba(79,208,173,.12)}
+  .pb-sep{width:1px;height:16px;background:rgba(255,255,255,.12);margin:0 2px}
 </style>
 </head>
 <body>
@@ -703,7 +709,20 @@
   </div>
 </div>
 
+<div class="playbar">
+  <button class="pb-btn" id="pb-playpause" aria-label="Pause" title="Pause / Resume">
+    <svg id="pb-pause-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    <svg id="pb-play-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5 3 19 12 5 21"/></svg>
+  </button>
+  <div class="pb-sep"></div>
+  <button class="pb-btn" id="pb-restart" aria-label="Restart" title="Restart from beginning">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.45"/></svg>
+  </button>
+</div>
+
 <script>
+  var _paused = false;
+
   // ---- Scale stage to viewport (letterboxed) ----
   function fitStage(el){
     const sw = el.offsetWidth, sh = el.offsetHeight;
@@ -716,15 +735,35 @@
   })();
 
   // ---- Loop the entire timeline (~82s) ----
-  (function loop(){
-    const TOTAL_MS = 82_000;
-    function restart(){
-      const stage = document.getElementById('stage');
-      const fresh = stage.cloneNode(true);
-      stage.parentNode.replaceChild(fresh, stage);
-      fitStage(fresh);
+  function restartStage(){
+    const stage = document.getElementById('stage');
+    const fresh = stage.cloneNode(true);
+    if (_paused) fresh.classList.add('paused');
+    stage.parentNode.replaceChild(fresh, stage);
+    fitStage(fresh);
+  }
+  setInterval(restartStage, 82000);
+
+  // ---- Playback controls ----
+  (function(){
+    const btn = document.getElementById('pb-playpause');
+    const pauseIco = document.getElementById('pb-pause-icon');
+    const playIco = document.getElementById('pb-play-icon');
+    function syncIcon(){
+      pauseIco.style.display = _paused ? 'none' : 'block';
+      playIco.style.display  = _paused ? 'block' : 'none';
+      btn.setAttribute('aria-label', _paused ? 'Resume' : 'Pause');
     }
-    setInterval(restart, TOTAL_MS);
+    btn.addEventListener('click', function(){
+      _paused = !_paused;
+      document.getElementById('stage').classList.toggle('paused', _paused);
+      syncIcon();
+    });
+    document.getElementById('pb-restart').addEventListener('click', function(){
+      _paused = false;
+      restartStage();
+      syncIcon();
+    });
   })();
 </script>
 
