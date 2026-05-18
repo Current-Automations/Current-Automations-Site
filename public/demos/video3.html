@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Current Automations — Keep The Deal Alive</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{
+    --teal:#4fd0ad;
+    --teal-soft: rgba(79,208,173,.18);
+    --teal-line: rgba(79,208,173,.35);
+    --red:#ff5247;
+    --red-soft: rgba(255,82,71,.18);
+    --navy:#07111d;
+    --ink:#ffffff;
+    --muted:rgba(255,255,255,.62);
+    --dim:rgba(255,255,255,.38);
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--navy);color:var(--ink);font-family:var(--sans);overflow:hidden}
+  body{-webkit-font-smoothing:antialiased}
+  #viewport{position:fixed;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%, #0a1726 0%, #07111d 60%, #050c15 100%)}
+  #stage{width:1600px;height:900px;position:absolute;left:50%;top:50%;overflow:hidden;transform-origin:center center;transform:translate(-50%,-50%) scale(1)}
+  #stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:50;background:radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%),repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px)}
+  .sigil{position:absolute;top:36px;left:40px;display:flex;align-items:center;gap:10px;font:600 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);z-index:40}
+  .sigil .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal)}
+  .frame{position:absolute;inset:0;display:grid;place-items:center;opacity:0;padding:80px}
+  @keyframes sceneIn{0%{opacity:0}6%{opacity:1}94%{opacity:1}100%{opacity:0}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes fadeOut{to{opacity:0}}
+  @keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+  @keyframes slideRight{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+  @keyframes slideLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+  @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes slam{0%{opacity:0;transform:scale(1.4);filter:blur(8px)}55%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
+  /* Scene 1 */
+  #s1{animation: sceneIn 5s 0s both}
+  #s1 .stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:1200px}
+  #s1 .l{font:500 78px/1.05 var(--serif);letter-spacing:-.01em;opacity:0;color:#fff}
+  #s1 .l1{animation: fadeUp .85s .3s ease-out both, fadeOut .5s 4.5s ease both}
+  #s1 .l2{animation: fadeUp .85s 1.3s ease-out both, fadeOut .5s 4.5s ease both}
+  #s1 .l3{animation: fadeUp .85s 2.3s ease-out both, fadeOut .5s 4.5s ease both}
+  #s1 .slam{font:500 104px/1.05 var(--serif);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation: slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both, fadeOut .5s 4.6s ease both}
+  /* Scene 2 */
+  #s2{animation: sceneIn 18s 5s both}
+  #s2 .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;height:100%;position:relative}
+  #s2 h1{font:500 60px/1 var(--serif);color:var(--teal);letter-spacing:-.02em;opacity:0;animation: fadeUp .8s 5.3s ease-out both}
+  #s2 .sub{font:400 20px/1.4 var(--sans);color:var(--muted);letter-spacing:.005em;opacity:0;animation: fadeUp .8s 6.0s ease-out both}
+  #s2 .demo{margin-top:22px;display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:start;width:1240px}
+  .quotecard{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;box-shadow:0 20px 50px rgba(0,0,0,.4);animation: pop .55s 6.8s ease-out both, redPulse 1s 7.5s 1 ease both}
+  .quotecard::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation: borderRed .3s 7.5s ease forwards, borderTeal .5s 8.6s ease forwards}
+  @keyframes borderRed{to{background:var(--red);box-shadow:0 0 16px var(--red)}}
+  @keyframes borderTeal{to{background:var(--teal);box-shadow:0 0 16px var(--teal)}}
+  @keyframes redPulse{0%,100%{box-shadow:0 20px 50px rgba(0,0,0,.4)}50%{box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 0 6px var(--red-soft)}}
+  .quotecard .ttl{font:600 12px/1 var(--sans);color:var(--dim);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+  .quotecard .biz{font:600 24px/1.2 var(--serif);color:#fff;margin-bottom:18px;letter-spacing:-.005em}
+  .quotecard .row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-top:1px dashed rgba(255,255,255,.08)}
+  .quotecard .row .k{font:600 11px/1 var(--sans);color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+  .quotecard .row .v{font:600 22px/1 var(--serif);color:#fff}
+  .quotecard .row .v.amt{color:var(--teal)}
+  .quotecard .status{position:relative;display:flex;justify-content:space-between;align-items:center;padding:14px 0 4px;border-top:1px dashed rgba(255,255,255,.08);margin-top:6px}
+  .quotecard .status .k{font:600 11px/1 var(--sans);color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+  .quotecard .status .pill{font:700 14px/1 var(--sans);letter-spacing:.04em;padding:8px 12px;border-radius:8px;background:var(--red-soft);color:var(--red);display:flex;align-items:center;gap:8px;animation: pillFlip .4s 15.0s ease forwards}
+  @keyframes pillFlip{0%{transform:rotateX(0deg)}50%{transform:rotateX(90deg)}51%{background:rgba(79,208,173,.18);color:var(--teal)}100%{transform:rotateX(0deg);background:rgba(79,208,173,.18);color:var(--teal)}}
+  .quotecard .status .pill .txt::before{content:"NO REPLY \00B7 3 Days";animation: textFlip 0s 15.2s forwards}
+  @keyframes textFlip{to{content:"BOOKED"}}
+  .quotecard .status .pill .ch{width:14px;height:14px;border-radius:50%;background:var(--teal);display:none;align-items:center;justify-content:center;color:#07111d;font:700 10px/1 var(--sans);animation: checkIn 0s 15.2s forwards}
+  @keyframes checkIn{to{display:inline-flex}}
+  .quotecard .meta{margin-top:14px;font:400 12px/1.3 var(--mono);color:var(--dim);letter-spacing:.04em}
+  #s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font:700 12px/1 var(--sans);color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation: fadeUp .5s 8.5s ease-out both}
+  #s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation: blink 1.2s 8.6s infinite ease-in-out}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  #s2 .thread{grid-column:2;display:flex;flex-direction:column;gap:12px;margin-top:12px;width:760px}
+  .smsline{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:start;opacity:0}
+  .smsline .day{font:700 11px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;background:var(--teal-soft);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
+  .smsline .bubble{background:#1a2638;border-radius:16px;padding:13px 17px;font:400 17px/1.4 var(--sans);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04);position:relative;max-width:560px}
+  .smsline .bubble::before{content:"";position:absolute;left:-6px;top:16px;width:12px;height:12px;background:#1a2638;transform:rotate(45deg);border-radius:3px}
+  #s2 .d0{animation: slideRight .55s 9.5s cubic-bezier(.2,.9,.2,1) both}
+  #s2 .d2{animation: slideRight .55s 10.7s cubic-bezier(.2,.9,.2,1) both}
+  #s2 .d5{animation: slideRight .55s 11.9s cubic-bezier(.2,.9,.2,1) both}
+  .smsreply{display:grid;grid-template-columns:1fr 74px;gap:14px;align-items:start;opacity:0;animation: slideLeft .6s 13.4s cubic-bezier(.2,.9,.2,1) both}
+  .smsreply .day{font:700 11px/1 var(--sans);color:#07111d;letter-spacing:.14em;text-transform:uppercase;background:var(--teal);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
+  .smsreply .bubble{background:var(--teal);color:#07111d;border-radius:16px;padding:13px 17px;font:600 18px/1.4 var(--sans);box-shadow:0 16px 36px rgba(79,208,173,.25);position:relative;justify-self:end;max-width:480px}
+  .smsreply .bubble::before{content:"";position:absolute;right:-6px;top:16px;width:12px;height:12px;background:var(--teal);transform:rotate(45deg);border-radius:3px}
+  #s2 .caption{position:absolute;bottom:-44px;left:0;right:0;text-align:center;font:500 22px/1.3 var(--serif);color:#fff;letter-spacing:.005em;opacity:0;animation: fadeUp .8s 16.6s ease-out both}
+  #s2 .caption em{font-style:normal;color:var(--teal)}
+  /* Scene 3 */
+  #s3{animation: sceneIn 7s 23s both}
+  #s3 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+  #s3 .l1{font:500 60px/1.15 var(--serif);color:#fff;letter-spacing:-.01em;opacity:0;animation: fadeUp .9s 23.5s ease-out both}
+  #s3 .l2{font:500 88px/1.05 var(--serif);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation: fadeUp .9s 24.6s ease-out both}
+  #s3 .logo{margin-top:48px;font:500 64px/1 var(--serif);color:#fff;letter-spacing:-.02em;opacity:0;animation: fadeUp .9s 26.4s ease-out both}
+  #s3 .logo .amp{color:var(--teal);font-style:italic;font-weight:400;margin:0 .12em;opacity:.85}
+  #s3 .url{font:500 22px/1 var(--mono);color:var(--teal);letter-spacing:-.005em;margin-top:8px;opacity:0;animation: fadeUp .9s 27.6s ease-out both}
+  #s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation: barIn 1.0s 28.4s cubic-bezier(.2,.9,.2,1) both}
+  @keyframes barIn{from{width:0;opacity:0}to{width:300px;opacity:1}}
+  .progressbar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:60}
+  .progressbar::after{content:"";position:absolute;left:0;top:0;height:100%;background:var(--teal);width:0;animation: progress 33s linear both}
+  @keyframes progress{from{width:0}to{width:100%}}
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <div class="sigil"><span class="dot"></span>Current Automations</div>
+    <section class="frame" id="s1">
+      <div class="stack">
+        <div class="l l1">You sent the quote.</div>
+        <div class="l l2">They didn't reply.</div>
+        <div class="l l3">So you moved on.</div>
+        <div class="slam">That job was still available.</div>
+      </div>
+    </section>
+    <section class="frame" id="s2">
+      <div class="wrap">
+        <h1>Keep The Deal Alive</h1>
+        <div class="sub">Automated follow up. No manual chasing.</div>
+        <div class="demo">
+          <div class="quotecard">
+            <div class="ttl">Quote Sent</div>
+            <div class="biz">Ajax Plumbing Co.</div>
+            <div class="row"><div class="k">Amount</div><div class="v amt">$1,400</div></div>
+            <div class="status">
+              <div class="k">Status</div>
+              <div class="pill"><span class="ch">&#x2713;</span><span class="txt"></span></div>
+            </div>
+            <div class="meta">Q-2041 &middot; sent 3d ago &middot; 1 view</div>
+          </div>
+          <div class="actlbl"><span class="pip"></span>Automated sequence activated</div>
+          <div class="thread">
+            <div class="smsline d0">
+              <div class="day">Day 0</div>
+              <div class="bubble">Hi, just wanted to make sure you received our quote. Happy to answer any questions.</div>
+            </div>
+            <div class="smsline d2">
+              <div class="day">Day 2</div>
+              <div class="bubble">Still available if the timing works &mdash; let us know and we can get started.</div>
+            </div>
+            <div class="smsline d5">
+              <div class="day">Day 5</div>
+              <div class="bubble">Last follow up from us. Quote is still open whenever you're ready.</div>
+            </div>
+            <div class="smsreply">
+              <div class="bubble">Actually yes &mdash; can we book this week?</div>
+              <div class="day">Reply</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">Deals you thought were dead. <em>Recovered automatically.</em></div>
+      </div>
+    </section>
+    <section class="frame" id="s3">
+      <div class="wrap">
+        <div class="l1">Revenue leaks later in the funnel too.</div>
+        <div class="l2">We seal those.</div>
+        <div class="logo">Current<span class="amp">/</span>Automations</div>
+        <div class="url">currentautomations.ca</div>
+        <div class="bar"></div>
+      </div>
+    </section>
+    <div class="progressbar"></div>
+  </div>
+</div>
+<script>
+  function fitStage(el){var sw=el.offsetWidth,sh=el.offsetHeight,k=Math.min(window.innerWidth/sw,window.innerHeight/sh);el.style.transform='translate(-50%,-50%) scale('+k+')'}
+  (function(){fitStage(document.getElementById('stage'));window.addEventListener('resize',function(){fitStage(document.getElementById('stage'))})})();
+  (function(){setInterval(function(){var s=document.getElementById('stage'),f=s.cloneNode(true);s.parentNode.replaceChild(f,s);fitStage(f)},33000)})();
+</script>
+</body>
+</html>

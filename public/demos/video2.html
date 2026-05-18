@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Current Automations — Capture Everywhere</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{
+    --teal:#4fd0ad;
+    --teal-soft: rgba(79,208,173,.18);
+    --teal-line: rgba(79,208,173,.35);
+    --teal-glow: 0 0 0 1px rgba(79,208,173,.6), 0 16px 50px rgba(79,208,173,.18);
+    --navy:#07111d;
+    --navy-2:#0d1a29;
+    --navy-3:#142235;
+    --ink:#ffffff;
+    --muted:rgba(255,255,255,.62);
+    --dim:rgba(255,255,255,.38);
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--navy);color:var(--ink);font-family:var(--sans);overflow:hidden}
+  body{-webkit-font-smoothing:antialiased}
+  #viewport{position:fixed;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%, #0a1726 0%, #07111d 60%, #050c15 100%)}
+  #stage{width:1600px;height:900px;position:absolute;left:50%;top:50%;overflow:hidden;transform-origin:center center;transform:translate(-50%,-50%) scale(1)}
+  #stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:50;background:radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%),repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px)}
+  .sigil{position:absolute;top:36px;left:40px;display:flex;align-items:center;gap:10px;font:600 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);z-index:40}
+  .sigil .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal)}
+  .frame{position:absolute;inset:0;display:grid;place-items:center;opacity:0;padding:80px}
+  @keyframes sceneIn{0%{opacity:0}8%{opacity:1}92%{opacity:1}100%{opacity:0}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes fadeOut{to{opacity:0}}
+  @keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+  @keyframes slideUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+  @keyframes slideRight{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+  @keyframes slideLeft{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+  @keyframes pingOut{0%{opacity:0;transform:scale(.3)}20%{opacity:1}100%{opacity:0;transform:scale(2.4)}}
+  @keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(79,208,173,.55)}100%{box-shadow:0 0 0 28px rgba(79,208,173,0)}}
+  /* Scene 1 */
+  #s1{animation: sceneIn 5s 0s both}
+  #s1 .stack{display:flex;flex-direction:column;gap:24px;max-width:1100px}
+  #s1 .l{font:500 88px/1.05 var(--serif);letter-spacing:-.015em;opacity:0}
+  #s1 .l em{font-style:normal;color:var(--teal)}
+  #s1 .l1{animation: fadeUp .9s .5s ease-out both, fadeOut .5s 4.5s ease both}
+  #s1 .l2{animation: fadeUp .9s 1.8s ease-out both, fadeOut .5s 4.5s ease both}
+  /* Scene 2 */
+  #s2{animation: sceneIn 38s 5s both}
+  #s2 .wrap{display:flex;flex-direction:column;align-items:center;gap:36px;width:100%}
+  #s2 h2{font:500 60px/1.05 var(--serif);color:#fff;letter-spacing:-.015em;text-align:center;opacity:0;animation: fadeUp .8s 5.2s ease-out both}
+  #s2 h2 em{font-style:normal;color:var(--teal)}
+  #s2 .grid{display:grid;grid-template-columns:repeat(2, 540px);grid-template-rows:repeat(2, 320px);gap:28px}
+  .tile{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:22px;overflow:hidden;opacity:0}
+  .tile .tlbl{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .tile .tlbl .ic{width:38px;height:38px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center}
+  .tile .tlbl .ic svg{width:20px;height:20px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .tile .tlbl .name{font:600 20px/1.1 var(--sans);color:#fff}
+  .tile .tlbl .code{font:500 10px/1 var(--mono);color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-left:auto;border:1px solid rgba(255,255,255,.08);padding:5px 8px;border-radius:6px}
+  .tile .stage{position:relative;width:100%;height:230px}
+  #t1{animation: pop .5s 5.8s ease-out both, activate .3s 5.8s ease both, dim .4s 11.6s ease both}
+  #t2{animation: pop .5s 12.0s ease-out both, activate .3s 12.0s ease both, dim .4s 17.8s ease both}
+  #t3{animation: pop .5s 18.2s ease-out both, activate .3s 18.2s ease both, dim .4s 24.0s ease both}
+  #t4{animation: pop .5s 24.4s ease-out both, activate .3s 24.4s ease both, dim .4s 31.2s ease both}
+  @keyframes activate{0%{filter:brightness(.6) saturate(.6);box-shadow:none;border-color:rgba(255,255,255,.06)}100%{filter:brightness(1) saturate(1);box-shadow:var(--teal-glow);border-color:transparent}}
+  @keyframes dim{0%{filter:brightness(1);box-shadow:var(--teal-glow);border-color:transparent}100%{filter:brightness(.45) saturate(.55);box-shadow:none;border-color:rgba(255,255,255,.06)}}
+  #s2 .subtext{font:400 18px/1.4 var(--serif);color:var(--muted);text-align:center;font-style:italic;opacity:0;animation: fadeUp .8s 31.5s ease-out both}
+  /* T1 - Missed Calls */
+  .t1stage .miniphone{position:absolute;left:14px;top:0;width:130px;height:230px;border-radius:22px;background:linear-gradient(180deg,#1a2638,#0f1a28);box-shadow: inset 0 0 0 2px rgba(255,255,255,.06), inset 0 0 0 5px #0a131e, 0 12px 28px rgba(0,0,0,.4);padding:6px}
+  .t1stage .miniphone .scr{position:absolute;inset:6px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#0b1422 0%, #142035 100%);display:flex;flex-direction:column;align-items:center;padding-top:24px}
+  .t1stage .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:38px;height:10px;border-radius:6px;background:#05080d;z-index:5}
+  .t1stage .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2b4256,#142235);margin-top:18px;animation: ringPulse 1.2s 6.1s 2 ease-in-out}
+  .t1stage .nm{font:600 11px/1.2 var(--sans);color:#fff;margin-top:10px}
+  .t1stage .nu{font:500 9px/1 var(--mono);color:rgba(255,255,255,.6);margin-top:3px}
+  .t1stage .missedband{position:absolute;top:32px;left:8px;right:8px;border-radius:8px;background:rgba(255,59,48,.95);color:#fff;padding:6px 8px;font:600 9px/1.2 var(--sans);display:flex;align-items:center;gap:6px;opacity:0;animation: slideDown .35s 7.4s ease-out both}
+  .t1stage .missedband .x{width:13px;height:13px;border-radius:50%;background:rgba(0,0,0,.25);display:grid;place-items:center;font-size:8px}
+  .t1stage .sms{position:absolute;left:160px;top:18px;width:260px;background:#1a2638;border-radius:12px;padding:9px 12px;font:400 12px/1.35 var(--sans);color:#fff;opacity:0;box-shadow:0 12px 24px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.04);animation: slideRight .5s 7.9s cubic-bezier(.2,.9,.2,1) both}
+  .t1stage .sms::before{content:"";position:absolute;left:-6px;top:14px;width:10px;height:10px;background:#1a2638;transform:rotate(45deg);border-radius:2px}
+  .t1stage .sms .ttl{font:600 9px/1 var(--sans);color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .t1stage .sms .lnk{color:var(--teal)}
+  .t1stage .own{position:absolute;right:8px;bottom:0;width:280px;background:#0d1a29;border-left:3px solid var(--teal);border-radius:8px;padding:10px 12px;opacity:0;box-shadow:0 12px 24px rgba(0,0,0,.45);animation: slideUp .45s 8.4s cubic-bezier(.2,.9,.2,1) both}
+  .t1stage .own .ot{font:700 9px/1 var(--sans);color:var(--teal);letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
+  .t1stage .own .ob{font:600 12px/1.25 var(--sans);color:#fff}
+  .t1stage .own .om{font:400 10px/1.3 var(--sans);color:var(--muted);margin-top:3px}
+  /* T2 - Web Form */
+  .t2stage{position:relative;width:100%;height:230px}
+  .t2stage .form{position:absolute;left:14px;top:6px;width:260px;background:#0a1422;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px}
+  .t2stage .form .fl{font:600 9px/1 var(--sans);color:var(--dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+  .t2stage .form .fi{background:#0e1a2a;border:1px solid rgba(255,255,255,.06);border-radius:7px;height:24px;padding:0 8px;display:flex;align-items:center;font:500 11px/1 var(--mono);color:#fff;margin-bottom:9px;position:relative;overflow:hidden}
+  .t2stage .form .fi span{display:inline-block;opacity:0}
+  .t2stage .form .fi.f1 span{animation: type .4s 12.4s ease-out both}
+  .t2stage .form .fi.f2 span{animation: type .4s 12.8s ease-out both}
+  .t2stage .form .fi.f3 span{animation: type .4s 13.2s ease-out both}
+  @keyframes type{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+  .t2stage .form .sbm{background:var(--teal);color:#07111d;font:700 11px/1 var(--sans);letter-spacing:.04em;border-radius:7px;height:28px;display:grid;place-items:center;margin-top:4px;animation: btnFlash .5s 13.7s ease both}
+  @keyframes btnFlash{0%,100%{box-shadow:0 0 0 0 rgba(79,208,173,0)}50%{box-shadow:0 0 0 8px rgba(79,208,173,.35), 0 0 20px rgba(79,208,173,.5)}}
+  .t2stage .ping{position:absolute;left:155px;top:108px;width:16px;height:16px;border-radius:50%;border:2px solid var(--teal);opacity:0;animation: pingOut .8s 13.8s ease-out both}
+  .t2stage .ping.p2{animation-delay:14.0s}
+  .t2stage .leadnote{position:absolute;right:12px;top:14px;width:230px;background:#1a2638;border-radius:10px;padding:9px 12px;box-shadow:0 12px 24px rgba(0,0,0,.4);opacity:0;animation: slideLeft .5s 14.2s cubic-bezier(.2,.9,.2,1) both}
+  .t2stage .leadnote .h{display:flex;align-items:center;gap:6px;font:600 9px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+  .t2stage .leadnote .h .pip{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+  .t2stage .leadnote .b{font:500 11px/1.35 var(--sans);color:#fff}
+  .t2stage .leadnote .b small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+  .t2stage .ownernote{position:absolute;right:12px;bottom:14px;width:230px;background:#0d1a29;border-left:3px solid var(--teal);border-radius:8px;padding:9px 12px;opacity:0;box-shadow:0 12px 24px rgba(0,0,0,.45);animation: slideLeft .5s 14.2s cubic-bezier(.2,.9,.2,1) both}
+  .t2stage .ownernote .h{font:700 9px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+  .t2stage .ownernote .h .ml{display:inline-grid;place-items:center;width:14px;height:11px;border:1.2px solid var(--teal);border-radius:2px;position:relative}
+  .t2stage .ownernote .h .ml::after{content:"";position:absolute;top:1px;left:1px;right:1px;border-top:1.2px solid var(--teal);height:0;transform-origin:left;transform:rotate(28deg)}
+  .t2stage .ownernote .b{font:500 11px/1.3 var(--sans);color:#fff}
+  .t2stage .ownernote .b small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+  /* T3 - GBP */
+  .t3stage{position:relative;width:100%;height:230px}
+  .t3stage .gbp{position:absolute;left:14px;top:6px;width:280px;background:#0a1422;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px}
+  .t3stage .gbp .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .t3stage .gbp .pin{width:30px;height:30px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center}
+  .t3stage .gbp .pin svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .t3stage .gbp .biz{font:600 12px/1.2 var(--sans);color:#fff}
+  .t3stage .gbp .biz small{display:block;font-weight:400;color:var(--muted);font-size:9px;margin-top:2px;letter-spacing:.08em;text-transform:uppercase}
+  .t3stage .gbp .src{margin-left:auto;font:600 8px/1 var(--mono);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--teal-line);padding:4px 6px;border-radius:5px}
+  .t3stage .gbp .msg{background:#0e1a2a;border-radius:9px;padding:9px 11px;font:400 11px/1.4 var(--sans);color:#fff;opacity:0;animation: slideUp .5s 18.6s ease-out both;position:relative}
+  .t3stage .gbp .msg::before{content:"NEW MESSAGE";position:absolute;top:-6px;left:9px;background:#0a1422;padding:0 5px;font:700 8px/1 var(--sans);color:var(--teal);letter-spacing:.16em}
+  .t3stage .gbp .msg small{display:block;color:var(--muted);font-weight:400;margin-top:3px;font-size:9px}
+  .t3stage .sms{position:absolute;right:14px;top:14px;width:220px;background:#1a2638;border-radius:10px;padding:9px 12px;box-shadow:0 12px 24px rgba(0,0,0,.4);opacity:0;animation: slideLeft .5s 19.6s cubic-bezier(.2,.9,.2,1) both}
+  .t3stage .sms .h{display:flex;align-items:center;gap:6px;font:600 9px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+  .t3stage .sms .h .av{width:14px;height:14px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#07111d;font:700 8px/1 var(--sans)}
+  .t3stage .sms .b{font:400 11px/1.35 var(--sans);color:#fff}
+  .t3stage .em{position:absolute;right:14px;bottom:14px;width:220px;background:#0d1a29;border-left:3px solid var(--teal);border-radius:8px;padding:9px 12px;opacity:0;box-shadow:0 12px 24px rgba(0,0,0,.45);animation: slideLeft .5s 20.2s cubic-bezier(.2,.9,.2,1) both}
+  .t3stage .em .h{font:700 9px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+  .t3stage .em .ln{display:flex;justify-content:space-between;font:500 10px/1.35 var(--sans);color:#fff;margin-bottom:2px}
+  .t3stage .em .ln .k{color:var(--dim);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:9px}
+  .t3stage .em .src{color:var(--teal);font-weight:600}
+  /* T4 - AI Call */
+  .t4stage{position:relative;width:100%;height:230px}
+  .t4stage .callstrip{position:absolute;left:14px;top:8px;right:14px;height:88px;background:#0a1422;border:1px solid rgba(255,255,255,.06);border-radius:12px;display:flex;align-items:center;padding:0 14px;gap:14px}
+  .t4stage .callstrip .ai{width:46px;height:46px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center;color:var(--teal);font:700 14px/1 var(--sans);animation: aiPulse 1.6s 24.7s 3 ease-in-out}
+  @keyframes aiPulse{0%,100%{box-shadow:0 0 0 0 rgba(79,208,173,.6)}50%{box-shadow:0 0 0 14px rgba(79,208,173,0)}}
+  .t4stage .callstrip .info{flex:1}
+  .t4stage .callstrip .info .l{font:600 12px/1.1 var(--sans);color:#fff}
+  .t4stage .callstrip .info .s{font:500 10px/1 var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .t4stage .callstrip .info .s b{color:var(--teal)}
+  .t4stage .callstrip .wf{display:flex;align-items:center;gap:3px;height:30px}
+  .t4stage .callstrip .wf span{width:3px;background:var(--teal);border-radius:2px;animation: wf 1s infinite ease-in-out}
+  .t4stage .callstrip .wf span:nth-child(1){height:30%;animation-delay:.0s}
+  .t4stage .callstrip .wf span:nth-child(2){height:60%;animation-delay:.15s}
+  .t4stage .callstrip .wf span:nth-child(3){height:80%;animation-delay:.3s}
+  .t4stage .callstrip .wf span:nth-child(4){height:55%;animation-delay:.45s}
+  .t4stage .callstrip .wf span:nth-child(5){height:35%;animation-delay:.6s}
+  .t4stage .callstrip .wf span:nth-child(6){height:70%;animation-delay:.75s}
+  @keyframes wf{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1.2)}}
+  .t4stage .callstrip{animation: callEnd 0s 27.4s forwards}
+  @keyframes callEnd{to{filter:grayscale(.6) brightness(.7)}}
+  .t4stage .summary{position:absolute;left:14px;right:14px;bottom:8px;background:#0d1a29;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 14px;box-shadow:0 16px 32px rgba(0,0,0,.45);opacity:0;animation: slideUp .55s 27.6s cubic-bezier(.2,.9,.2,1) both}
+  .t4stage .summary .h{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .t4stage .summary .h .tg{font:700 9px/1 var(--sans);color:var(--teal);letter-spacing:.14em;text-transform:uppercase}
+  .t4stage .summary .h .ch{background:rgba(255,59,48,.18);color:#ff8a82;font:700 8px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:5px}
+  .t4stage .summary .grid{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font:500 10px/1.35 var(--sans)}
+  .t4stage .summary .grid .k{color:var(--dim);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:9px;align-self:center}
+  .t4stage .summary .grid .v{color:#fff}
+  .t4stage .summary .grid .v.next{color:var(--teal);font-weight:600}
+  /* Scene 3 */
+  #s3{animation: sceneIn 7s 43s both}
+  #s3 .wrap{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+  #s3 .closer{font:500 84px/1.1 var(--serif);color:#fff;letter-spacing:-.015em;opacity:0;animation: fadeUp .9s 43.5s ease-out both;max-width:1200px}
+  #s3 .closer em{font-style:normal;color:var(--teal)}
+  #s3 .logo{margin-top:48px;font:500 92px/1 var(--serif);color:var(--teal);letter-spacing:-.025em;text-shadow:0 0 80px rgba(79,208,173,.35);opacity:0;animation: fadeUp .9s 45.4s ease-out both}
+  #s3 .url{font:500 24px/1 var(--mono);color:var(--teal);letter-spacing:-.005em;margin-top:6px;opacity:0;animation: fadeUp .9s 46.8s ease-out both}
+  #s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:10px;animation: barIn 1.0s 47.6s cubic-bezier(.2,.9,.2,1) both}
+  @keyframes barIn{from{width:0;opacity:0}to{width:300px;opacity:1}}
+  .progressbar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:60}
+  .progressbar::after{content:"";position:absolute;left:0;top:0;height:100%;background:var(--teal);width:0;animation: progress 50s linear both}
+  @keyframes progress{from{width:0}to{width:100%}}
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <div class="sigil"><span class="dot"></span>Current Automations</div>
+    <section class="frame" id="s1">
+      <div class="stack">
+        <div class="l l1">Leads come from <em>everywhere.</em></div>
+        <div class="l l2">Most businesses only catch <em>some</em> of them.</div>
+      </div>
+    </section>
+    <section class="frame" id="s2">
+      <div class="wrap">
+        <h2>Every Lead Channel. <em>Covered.</em></h2>
+        <div class="grid">
+          <div class="tile" id="t1">
+            <div class="tlbl">
+              <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="name">Missed Calls</div>
+              <div class="code">T01</div>
+            </div>
+            <div class="stage t1stage">
+              <div class="miniphone">
+                <div class="notch"></div>
+                <div class="scr">
+                  <div class="av"></div>
+                  <div class="nm">Unknown</div>
+                  <div class="nu">416-555-0192</div>
+                  <div class="missedband"><div class="x">&#x2715;</div>Missed call</div>
+                </div>
+              </div>
+              <div class="sms">
+                <div class="ttl">Mike's Plumbing &mdash; caller</div>
+                Hi, sorry we missed you. Book here: <span class="lnk">calendly.com/mp</span>
+              </div>
+              <div class="own">
+                <div class="ot">Owner alert</div>
+                <div class="ob">New missed call</div>
+                <div class="om">416-555-0192 &middot; Reply sent &middot; <b style="color:var(--teal)">9s</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="tile" id="t2">
+            <div class="tlbl">
+              <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+              <div class="name">Web Form Leads</div>
+              <div class="code">T02</div>
+            </div>
+            <div class="stage t2stage">
+              <div class="form">
+                <div class="fl">Name</div>
+                <div class="fi f1"><span>Sarah Patel</span></div>
+                <div class="fl">Phone</div>
+                <div class="fi f2"><span>647-555-0144</span></div>
+                <div class="fl">Job</div>
+                <div class="fi f3"><span>Leaky kitchen tap</span></div>
+                <div class="sbm">Submit Request</div>
+              </div>
+              <div class="ping"></div>
+              <div class="ping p2"></div>
+              <div class="leadnote">
+                <div class="h"><span class="pip"></span>SMS sent to lead</div>
+                <div class="b">Thanks Sarah &mdash; we got your request.<small>Reply ETA &middot; within 2 min</small></div>
+              </div>
+              <div class="ownernote">
+                <div class="h"><span class="ml"></span>Email &mdash; Owner</div>
+                <div class="b">New web lead &mdash; Sarah Patel<small>Leaky kitchen tap &middot; 647-555-0144</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="tile" id="t3">
+            <div class="tlbl">
+              <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s-7-7.58-7-12a7 7 0 0 1 14 0c0 4.42-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div class="name">Google Business Profile</div>
+              <div class="code">T06</div>
+            </div>
+            <div class="stage t3stage">
+              <div class="gbp">
+                <div class="hd">
+                  <div class="pin"><svg viewBox="0 0 24 24"><path d="M12 22s-7-7.58-7-12a7 7 0 0 1 14 0c0 4.42-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+                  <div class="biz">Mike's Plumbing<small>Profile &middot; Toronto</small></div>
+                  <div class="src">GBP</div>
+                </div>
+                <div class="msg">"Hi, do you do same-day water heater swaps?"<small>&mdash; D. Tran &middot; just now</small></div>
+              </div>
+              <div class="sms">
+                <div class="h"><span class="av">M</span>SMS &mdash; D. Tran</div>
+                <div class="b">Yes &mdash; we can be out by 4pm. Want to book?</div>
+              </div>
+              <div class="em">
+                <div class="h">Email &mdash; Owner</div>
+                <div class="ln"><span class="k">Source</span><span class="src">GBP Message</span></div>
+                <div class="ln"><span class="k">Lead</span><span>D. Tran</span></div>
+                <div class="ln"><span class="k">Intent</span><span>Water heater &middot; same day</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tile" id="t4">
+            <div class="tlbl">
+              <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0v6a2 2 0 0 1-2 2h-1v-7h3M3 12v6a2 2 0 0 0 2 2h1v-7H3"/></svg></div>
+              <div class="name">Inbound AI Call Handling</div>
+              <div class="code">T05</div>
+            </div>
+            <div class="stage t4stage">
+              <div class="callstrip">
+                <div class="ai">AI</div>
+                <div class="info">
+                  <div class="l">Call &middot; 905-555-0177</div>
+                  <div class="s">Connected &middot; <b>02:14</b></div>
+                </div>
+                <div class="wf"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="summary">
+                <div class="h">
+                  <span class="tg">Call summary</span>
+                  <span class="ch">HIGH urgency</span>
+                </div>
+                <div class="grid">
+                  <span class="k">Intent</span><span class="v">Booking &middot; clogged main line</span>
+                  <span class="k">Address</span><span class="v">23 Maple St, Mississauga</span>
+                  <span class="k">Next</span><span class="v next">Dispatch tech &middot; 30 min window</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subtext">No matter where the lead lands &mdash; it's already in motion.</div>
+      </div>
+    </section>
+    <section class="frame" id="s3">
+      <div class="wrap">
+        <div class="closer">One system. Every channel. <em>Nothing missed.</em></div>
+        <div class="logo">Current Automations</div>
+        <div class="url">currentautomations.ca</div>
+        <div class="bar"></div>
+      </div>
+    </section>
+    <div class="progressbar"></div>
+  </div>
+</div>
+<script>
+  function fitStage(el){var sw=el.offsetWidth,sh=el.offsetHeight,k=Math.min(window.innerWidth/sw,window.innerHeight/sh);el.style.transform='translate(-50%,-50%) scale('+k+')'}
+  (function(){fitStage(document.getElementById('stage'));window.addEventListener('resize',function(){fitStage(document.getElementById('stage'))})})();
+  (function(){setInterval(function(){var s=document.getElementById('stage'),f=s.cloneNode(true);s.parentNode.replaceChild(f,s);fitStage(f)},50000)})();
+</script>
+</body>
+</html>

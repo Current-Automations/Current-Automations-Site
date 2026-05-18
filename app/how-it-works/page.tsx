@@ -255,8 +255,8 @@ export default function HowItWorksPage() {
         eyebrow="Want to see the workflow with your own business details?"
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
-        primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Free Consultation"
+        primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
+        primaryLabel="Book a Free Discovery Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

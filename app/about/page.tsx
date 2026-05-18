@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About | Current Automations | AI Systems for Service Businesses",
+    absolute: "About | Current Automations",
   },
   description:
     "Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.",
@@ -180,8 +180,8 @@ export default function AboutPage() {
         eyebrow="Ready to find your revenue leaks?"
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
-        primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Free Consultation"
+        primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
+        primaryLabel="Book a Free Discovery Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

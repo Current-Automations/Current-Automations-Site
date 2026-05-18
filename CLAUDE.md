@@ -55,7 +55,7 @@ There is **no test suite**.
 - **`Hero`** — dark-gradient hero. Accepts `primaryCta`, `secondaryCta`, optional `children` (right column). When `children` is omitted the layout collapses to single-column — the grid and right `<div>` are conditionally rendered.
 - **`CTASection`** — full-width dark CTA band. All copy (eyebrow, title, description, button labels) is passed as props — nothing is hardcoded in the component.
 - **`FAQSection`** — accordion FAQ. Takes `items: FAQItem[]`, `tone`, `title`, `description`.
-- **`Navbar`** / **`Footer`** — site-wide chrome. CTA links point to `https://calendly.com/currentautomations/30min`.
+- **`Navbar`** / **`Footer`** — site-wide chrome. CTA links point to the Google Calendar booking URL (see CTA convention below).
 - **`PricingCard`** — currently imported but not used in any active page. Keep the file; don't delete.
 
 ### Design tokens (globals.css)
@@ -90,4 +90,10 @@ Import `siteContact` anywhere contact details appear rather than hardcoding them
 
 ### CTA convention
 
-All primary CTAs across the site link to `https://calendly.com/currentautomations/30min` with the label **"Book Your Free Consultation"**. Maintain this consistency when adding or editing CTA buttons.
+All primary CTAs across the site link to:
+
+```
+https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb
+```
+
+with the label **"Book a Free Discovery Call"**. Always add `target="_blank" rel="noopener noreferrer"` since it opens an external page. Maintain this consistency when adding or editing CTA buttons.

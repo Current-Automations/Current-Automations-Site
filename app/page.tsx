@@ -98,8 +98,8 @@ export default function Home() {
         }
         description="When you are on a job and cannot answer, that caller moves to the next business on Google within minutes. We build the system that texts them back in seconds, captures their details, and keeps the lead warm — without you touching a single thing."
         primaryCta={{
-          href: "https://calendly.com/currentautomations/30min",
-          label: "Book Your Free Revenue Leak Audit",
+          href: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb",
+          label: "Book a Free Discovery Call",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote={
@@ -205,10 +205,12 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
           <Link
-            href="https://calendly.com/currentautomations/30min"
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
             className="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Book Your Revenue Leak Audit
+            Book a Free Discovery Call
           </Link>
           <p className="text-sm text-white/[0.48]">30 minutes. No pitch. No obligation.</p>
         </div>
@@ -329,10 +331,12 @@ export default function Home() {
               <p className="mt-3 text-sm text-white/[0.45]">
                 Want to see it with your own call flow?{" "}
                 <Link
-                  href="https://calendly.com/currentautomations/30min"
+                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
                   className="font-medium text-[var(--color-brand)] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Book Your Revenue Leak Audit.
+                  Book a Free Discovery Call.
                 </Link>
               </p>
             </div>
@@ -450,64 +454,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Testimonials — replace these placeholder quotes with real customer feedback */}
-      <Section
-        id="testimonials"
-        eyebrow="What owners are saying"
-        title="Built for the way service businesses actually work."
-        tone="muted"
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {[
-            {
-              quote:
-                "I was losing three or four calls a week just because I was under a sink. Now they get a text right away and I get a message with their info. I have closed jobs I would have missed completely.",
-              name: "Mike D.",
-              trade: "Plumbing contractor, Whitby ON",
-            },
-            {
-              quote:
-                "Didn't think I needed something like this until they showed me how many calls I was missing during peak season. Setup took less than two days and I didn't have to do anything technical.",
-              name: "Scott R.",
-              trade: "HVAC technician, Ajax ON",
-            },
-            {
-              quote:
-                "I used to call people back the next morning and half of them had already booked someone else. That problem is basically gone now.",
-              name: "Dan K.",
-              trade: "Electrician, Oshawa ON",
-            },
-          ].map((t) => (
-            <article
-              key={t.name}
-              className="surface-card flex flex-col rounded-[1.75rem] p-7"
-            >
-              <div className="mb-5 flex gap-0.5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg
-                    key={i}
-                    viewBox="0 0 16 16"
-                    className="h-4 w-4 fill-[var(--color-brand-strong)]"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 1.25l1.854 3.756 4.146.602-3 2.924.708 4.128L8 10.5l-3.708 2.16.708-4.128-3-2.924 4.146-.602z" />
-                  </svg>
-                ))}
-              </div>
-              <blockquote className="grow">
-                <p className="text-base leading-8 text-[var(--color-muted)]">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-              </blockquote>
-              <footer className="mt-6 border-t border-[var(--color-line)] pt-5">
-                <p className="font-semibold text-[var(--color-ink)]">{t.name}</p>
-                <p className="mt-0.5 text-sm text-[var(--color-muted)]">{t.trade}</p>
-              </footer>
-            </article>
-          ))}
-        </div>
-      </Section>
-
       {/* FAQ */}
       <FAQSection
         items={faqItems}
@@ -520,8 +466,8 @@ export default function Home() {
         eyebrow="Not sure where to start?"
         title="Book a free Revenue Leak Audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
-        primaryHref="https://calendly.com/currentautomations/30min"
-        primaryLabel="Book Your Revenue Leak Audit"
+        primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
+        primaryLabel="Book a Free Discovery Call"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

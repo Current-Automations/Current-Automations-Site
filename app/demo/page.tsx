@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
+import DemoVideos from "@/components/DemoVideos";
+
+const GC_BOOKING =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
-  title: "Try the Demo | Current Automations",
+  title: "See It In Action | Current Automations",
   description:
-    "Call the Current Automations demo line and experience firsthand what your customers will hear when they reach your business after hours.",
+    "Three demos. Under three minutes. Watch how Current Automations captures missed calls, covers every lead channel, and keeps deals alive — automatically.",
 };
 
 const steps = [
@@ -34,22 +38,35 @@ const steps = [
 export default function DemoPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(140deg,#07111d_0%,#0c182a_58%,#13314c_100%)] pb-20 pt-24 sm:pb-28 sm:pt-32">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(140deg,#07111d_0%,#0c182a_58%,#13314c_100%)] pb-16 pt-24 sm:pb-20 sm:pt-32">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
         <div className="container-shell text-center">
           <p className="pill-label mx-auto bg-white/[0.08] text-white/70">
-            Try it before you buy it
+            Live demos
           </p>
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Call the Demo Line Right Now
+          <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            See It In Action
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-            Experience the missed-call automation firsthand. Call, let it go to voicemail, and watch what happens next.
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/[0.62] sm:text-lg">
+            Three demos. Under three minutes. You&apos;ll know exactly what we do.
           </p>
+        </div>
+      </section>
 
-          {/* Big phone number */}
-          <div className="mx-auto mt-10 max-w-lg rounded-[2rem] border border-white/10 bg-white/[0.07] p-8">
-            <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+      {/* Three demo videos */}
+      <DemoVideos />
+
+      {/* Live demo line */}
+      <Section
+        eyebrow="Try it yourself"
+        title="Call the Demo Line Right Now"
+        description="Experience the missed-call automation firsthand. Call, let it go to voicemail, and watch what happens next."
+        tone="muted"
+      >
+        <div className="mx-auto max-w-lg">
+          <div className="rounded-[2rem] border border-white/10 bg-[var(--color-ink)] p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.18)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/[0.45]">
               Live demo line
             </p>
             <a
@@ -63,10 +80,12 @@ export default function DemoPage() {
                 Call Now
               </a>
               <Link
-                href="https://calendly.com/currentautomations/30min"
+                href={GC_BOOKING}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary w-full border-white/[0.16] text-white sm:w-auto"
               >
-                Book Your Free Consultation
+                Book a Free Discovery Call
               </Link>
             </div>
             <p className="mt-5 text-sm text-white/[0.48]">
@@ -74,84 +93,26 @@ export default function DemoPage() {
             </p>
           </div>
         </div>
-      </section>
 
-      <Section
-        eyebrow="How it works"
-        title="What Happens When You Call"
-        description="Here is exactly what you will experience — and what your customers will experience when they reach your business after hours."
-      >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((item, index) => (
-            <article
-              key={item.step}
-              className="surface-card rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
-                0{index + 1}
-              </div>
-              <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {item.step}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Demo video"
-        title="Watch It In Action"
-        description="A full walkthrough showing a missed call turning into a captured lead in under 60 seconds."
-        tone="muted"
-      >
-        <div className="mx-auto max-w-3xl">
-          <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_24px_64px_rgba(7,17,29,0.14)]">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <iframe
-                src="/demo-video.html"
-                title="Current Automations — demo"
-                className="absolute inset-0 h-full w-full"
-              />
-            </div>
-            <div className="p-6 text-center">
-              <p className="text-sm text-white/[0.55]">
-                Want to see it with your own call flow?{" "}
-                <Link href="https://calendly.com/currentautomations/30min" className="font-medium text-[var(--color-brand)] hover:underline">
-                  Book Your Free Consultation.
-                </Link>
-              </p>
-            </div>
+        <div className="mx-auto mt-10 max-w-3xl">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((item, index) => (
+              <article
+                key={item.step}
+                className="surface-card rounded-[1.75rem] p-6 transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
+                  0{index + 1}
+                </div>
+                <h3 className="text-base font-semibold tracking-tight text-[var(--color-ink)]">
+                  {item.step}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </div>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Ready to get set up?"
-        title="See How It Fits Your Business"
-        description="Book a no-pressure 15-minute walkthrough. We will tailor it around your call flow and answer any questions about fit and setup."
-        tone="dark"
-      >
-        <div className="mx-auto max-w-xl text-center">
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="https://calendly.com/currentautomations/30min" className="btn-primary">
-              Book Your Free Consultation
-            </Link>
-            <Link
-              href="/pricing"
-              className="btn-secondary border-white/[0.16] text-white"
-            >
-              See Pricing
-            </Link>
-          </div>
-          <p className="mt-6 text-sm text-white/[0.48]">
-            Or call the demo line again: {" "}
-            <a href="tel:+13656017474" className="font-medium text-[var(--color-brand)] hover:underline">
-              +1 365 601 7474
-            </a>
-          </p>
         </div>
       </Section>
     </>
