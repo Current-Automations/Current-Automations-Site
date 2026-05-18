@@ -114,9 +114,9 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
     background: linear-gradient(
       135deg,
-      var(--color-brand-crest),
-      var(--color-brand),
-      var(--color-blue-current)
+      var(--color-brand-crest) 0%,
+      var(--color-brand) 65%,
+      var(--color-blue-current) 100%
     );
     color: var(--color-ink);
     box-shadow: 0 14px 36px rgba(93, 214, 203, 0.28);
