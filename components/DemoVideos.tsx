@@ -83,11 +83,6 @@ export default function DemoVideos() {
           className="fade-up"
           style={{ transitionDelay: "0s" }}
         >
-          <div className="mb-4">
-            <span className="pill-label bg-white/[0.06] text-[#4fd0ad]">
-              Featured
-            </span>
-          </div>
           <h2 className="mb-2 font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             {featured.title}
           </h2>
