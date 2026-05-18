@@ -277,7 +277,11 @@ export default function PricingPage() {
                   <BuyNowButton priceId={tier.priceId} />
                   <Link
                     href={CALENDLY}
-                    className="btn-secondary w-full text-center text-sm"
+                    className={
+                      dark
+                        ? "inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/[0.08] px-5 py-3.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/[0.15]"
+                        : "btn-secondary w-full text-center text-sm"
+                    }
                   >
                     Book a Call Instead
                   </Link>
