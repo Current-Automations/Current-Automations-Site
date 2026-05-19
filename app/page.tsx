@@ -317,11 +317,11 @@ export default function Home() {
           <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
-                src="https://player.vimeo.com/video/1181405333?badge=0&autopause=0&player_id=0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowFullScreen
+                src="/demos/video1.html"
+                allow="autoplay"
+                scrolling="no"
                 title="Current Automations — demo"
-                className="absolute inset-0 h-full w-full"
+                className="absolute inset-0 h-full w-full border-0"
               />
             </div>
             <div className="p-6 text-center">
