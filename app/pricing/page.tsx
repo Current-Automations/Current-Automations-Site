@@ -250,11 +250,6 @@ export default function PricingPage() {
                     /mo
                   </span>
                 </p>
-                <p
-                  className={`mt-1 text-xs font-medium ${dark ? "text-[var(--color-brand)]" : "text-[var(--color-brand-strong)]"}`}
-                >
-                  Saves ${tier.savings}/mo vs a la carte
-                </p>
                 <div
                   className={`my-5 h-px ${dark ? "bg-white/10" : "bg-[var(--color-line)]"}`}
                 />
