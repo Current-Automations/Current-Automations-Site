@@ -17,7 +17,7 @@ const steps = [
   },
   {
     number: "02",
-    title: "Your Opportunity Map",
+    title: "Opportunity Map",
     description:
       "Based on what we hear, we identify exactly where your business is leaking the most revenue. For most service businesses this is missed call recovery. For others it is follow-up, admin, or scheduling. You get a clear recommendation, not a list of software options.",
   },

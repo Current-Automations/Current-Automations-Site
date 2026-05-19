@@ -170,9 +170,18 @@ export default function AboutPage() {
         eyebrow="The relationship"
         title="I am not here to sell you a tool and disappear."
       >
-        <div className="surface-card rounded-[2rem] p-8">
+        <div className="surface-card rounded-[2rem] p-8 space-y-6">
           <p className="text-base leading-8 text-[var(--color-muted)]">
-            Most software companies hand you a login and leave you to figure it out. I work differently. Every system I build is maintained on my end — if something needs adjusting, you reach out and it gets handled. As your business grows, I find the next opportunity and build the next system. The relationship is ongoing, not a one-time transaction.
+            Most software companies hand you a login and leave you to figure it out. I work differently.
+          </p>
+          <p className="text-base leading-8 text-[var(--color-muted)]">
+            Before I build anything, I spend time understanding how your business actually runs day to day: the calls, the estimates, and the spots where work falls through the cracks. From there, we design a system that fits into your existing process instead of forcing you into a generic software workflow.
+          </p>
+          <p className="text-base leading-8 text-[var(--color-muted)]">
+            Every system I build is maintained on my side. If something needs adjusting, you reach out and it gets handled. As your business changes, I review performance with you, spot new bottlenecks, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
+          </p>
+          <p className="text-base leading-8 text-[var(--color-muted)]">
+            The relationship is ongoing, not a one-time transaction.
           </p>
         </div>
       </Section>
