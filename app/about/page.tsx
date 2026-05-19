@@ -127,7 +127,7 @@ export default function AboutPage() {
 
       <Section
         eyebrow="Founder"
-        title="Built by the Founder"
+        title="Jarrett Goodwin"
         description="Current Automations was shaped by a practical technical background and a real business problem."
         tone="muted"
       >
