@@ -326,9 +326,9 @@ export default function PricingPage() {
               key={item.title}
               className="rounded-[1.75rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
             >
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
-              </h2>
+              </h3>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
                 {item.description}
               </p>

@@ -77,9 +77,9 @@ export default function AboutPage() {
               key={item.title}
               className="surface-card rounded-[1.75rem] p-7"
             >
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
-              </h2>
+              </h3>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
                 {item.description}
               </p>

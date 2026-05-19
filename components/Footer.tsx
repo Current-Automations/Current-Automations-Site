@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,0.6fr))]">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_repeat(2,minmax(0,0.6fr))]">
           <div className="max-w-2xl">
             <Link href="/" className="inline-flex items-center gap-4">
               <Image
@@ -67,10 +67,7 @@ export default function Footer() {
                 </p>
               </div>
             </Link>
-            <p className="mt-5 text-base leading-8 text-white/[0.64]">
-              Helping service businesses maximize every dollar they earn.
-            </p>
-            <p className="mt-3 text-sm leading-7 text-white/[0.48]">
+            <p className="mt-5 text-sm leading-7 text-white/[0.48]">
               Serving Durham Region and the Greater Toronto Area, with remote setup available across Ontario.
             </p>
           </div>
@@ -108,32 +105,10 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/[0.42]">
-              Contact
-            </p>
-            <div className="mt-5 grid gap-3 text-sm text-white/[0.7]">
-              <a
-                href={`mailto:${siteContact.email}`}
-                className="hover:text-white"
-              >
-                {siteContact.email}
-              </a>
-              <a
-                href={`tel:${siteContact.phoneHref}`}
-                className="hover:text-white"
-              >
-                {siteContact.phoneDisplay}
-              </a>
-              <p className="text-white/[0.48]">{siteContact.responseExpectation}</p>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.08] pt-6 text-sm text-white/[0.42] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-white/[0.08] pt-6 text-sm text-white/[0.42]">
           <p>© {year} Current Automations. All rights reserved.</p>
-          <p>Helping service businesses maximize every dollar they earn.</p>
         </div>
       </div>
     </footer>

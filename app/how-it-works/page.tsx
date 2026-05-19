@@ -99,9 +99,9 @@ export default function HowItWorksPage() {
                 </span>
                 <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
               </div>
-              <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {step.title}
-              </h2>
+              </h3>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
                 {step.description}
               </p>

@@ -62,7 +62,7 @@ export default function Hero({
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link href={primaryCta.href} className="btn-primary">
+            <Link href={primaryCta.href} className="btn-primary" target="_blank" rel="noopener noreferrer">
               {primaryCta.label}
             </Link>
             <Link

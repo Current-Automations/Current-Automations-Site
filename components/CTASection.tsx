@@ -38,7 +38,7 @@ export default function CTASection({
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-stretch">
-              <Link href={primaryHref} className="btn-primary">
+              <Link href={primaryHref} className="btn-primary" target="_blank" rel="noopener noreferrer">
                 {primaryLabel}
               </Link>
               <Link
