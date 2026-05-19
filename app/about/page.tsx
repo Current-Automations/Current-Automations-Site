@@ -126,21 +126,44 @@ export default function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="Founder"
-        title="Jarrett Goodwin"
+        title="About the Founder"
         tone="muted"
       >
-        <article className="surface-card rounded-[2rem] p-8 sm:p-10">
-          <p className="text-base leading-8 text-[var(--color-muted)]">
-            I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
-          </p>
-          <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
-            My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards&#8202;&#8212;&#8202;just lean systems that pay for themselves in saved time and recovered jobs.
-          </p>
-          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]/60">
-            B.Eng. Chemical Engineering &amp; Computer Technology &middot; University of Ottawa
-          </p>
-        </article>
+        <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
+          <div className="surface-card flex flex-col items-center rounded-[2rem] p-8 text-center">
+            <div className="flex h-32 w-32 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(79,208,173,0.18),rgba(20,150,118,0.28))] text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-10 w-10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+              >
+                <path
+                  d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-6 7.5a6 6 0 0 1 12 0"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--color-ink)]">
+              Jarrett Goodwin
+            </p>
+            <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
+              B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
+            </p>
+          </div>
+
+          <article className="surface-card rounded-[2rem] p-8">
+            <p className="text-base leading-8 text-[var(--color-muted)]">
+              I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
+            </p>
+            <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
+              My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards&#8202;&#8212;&#8202;just lean systems that pay for themselves in saved time and recovered jobs.
+            </p>
+          </article>
+        </div>
       </Section>
 
       <Section
