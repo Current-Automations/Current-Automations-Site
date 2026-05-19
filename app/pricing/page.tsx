@@ -215,19 +215,21 @@ export default function PricingPage() {
         title="Start with a bundle. Save every month."
         description="Each tier stacks on the last. The more automations you run, the more you save versus a la carte pricing."
       >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-start">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {tiers.map((tier) => {
             const dark = !!tier.badge;
             return (
+              <div key={tier.id} className="flex flex-col">
+                <div className="mb-3 h-7 flex items-center">
+                  {tier.badge && (
+                    <span className="inline-block rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+                      {tier.badge}
+                    </span>
+                  )}
+                </div>
               <article
-                key={tier.id}
-                className={`flex flex-col rounded-[2rem] p-7 ${dark ? "dark-card" : "surface-card"}`}
+                className={`flex flex-col flex-1 rounded-[2rem] p-7 ${dark ? "dark-card" : "surface-card"}`}
               >
-                {tier.badge && (
-                  <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-                    {tier.badge}
-                  </span>
-                )}
                 <h2
                   className={`text-xl font-semibold tracking-tight ${dark ? "text-white" : "text-[var(--color-ink)]"}`}
                 >
@@ -287,6 +289,7 @@ export default function PricingPage() {
                   </Link>
                 </div>
               </article>
+              </div>
             );
           })}
         </div>
