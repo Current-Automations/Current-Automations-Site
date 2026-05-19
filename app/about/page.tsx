@@ -129,8 +129,8 @@ export default function AboutPage() {
         title="About the Founder"
         tone="muted"
       >
-        <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
-          <div className="surface-card flex flex-col items-center rounded-[2rem] p-8 text-center">
+        <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-stretch">
+          <div className="surface-card flex flex-col items-center justify-center rounded-[2rem] p-8 text-center">
             <div className="flex h-32 w-32 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(79,208,173,0.18),rgba(20,150,118,0.28))] text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
               <svg
                 aria-hidden="true"
@@ -168,11 +168,11 @@ export default function AboutPage() {
 
       <Section
         eyebrow="The relationship"
-        title="We are not here to sell you a tool and disappear."
+        title="I am not here to sell you a tool and disappear."
       >
-        <div className="surface-card max-w-4xl rounded-[2rem] p-8">
+        <div className="surface-card rounded-[2rem] p-8">
           <p className="text-base leading-8 text-[var(--color-muted)]">
-            Most software companies hand you a login and leave you to figure it out. We work differently. Every system we build is maintained on our end. If something needs adjusting, you contact us and it gets handled. As your business grows, we identify the next opportunity and build the next system. The relationship is ongoing, not transactional.
+            Most software companies hand you a login and leave you to figure it out. I work differently. Every system I build is maintained on my end — if something needs adjusting, you reach out and it gets handled. As your business grows, I find the next opportunity and build the next system. The relationship is ongoing, not a one-time transaction.
           </p>
         </div>
       </Section>
