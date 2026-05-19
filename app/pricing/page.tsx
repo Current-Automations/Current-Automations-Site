@@ -222,7 +222,7 @@ export default function PricingPage() {
               <div key={tier.id} className="flex flex-col">
                 <div className="mb-3 h-7 flex items-center">
                   {tier.badge && (
-                    <span className="inline-block rounded-full bg-[var(--color-brand)]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+                    <span className="inline-block rounded-full bg-[var(--color-brand)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)]">
                       {tier.badge}
                     </span>
                   )}
