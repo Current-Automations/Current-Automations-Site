@@ -130,12 +130,11 @@ export default function AboutPage() {
         title="Jarrett Goodwin"
         tone="muted"
       >
-        <article className="surface-card max-w-3xl rounded-[2rem] p-8 sm:p-10">
-          <p className="text-lg font-medium leading-9 tracking-tight text-[var(--color-ink)] sm:text-xl">
+        <article className="surface-card rounded-[2rem] p-8 sm:p-10">
+          <p className="text-base leading-8 text-[var(--color-muted)]">
             I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
           </p>
-          <div className="my-7 h-px bg-gradient-to-r from-[var(--color-brand)]/30 via-[var(--color-line)] to-transparent" />
-          <p className="text-base leading-8 text-[var(--color-muted)]">
+          <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
             My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards&#8202;&#8212;&#8202;just lean systems that pay for themselves in saved time and recovered jobs.
           </p>
           <p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]/60">
