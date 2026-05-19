@@ -348,10 +348,10 @@ export default function PricingPage() {
 
       <CTASection
         eyebrow="Not sure where to start?"
-        title="Book a free consultation and we will figure it out together."
+        title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={CALENDLY}
-        primaryLabel="Book Your Free Consultation"
+        primaryLabel="Book a Free Discovery Call"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"
       />

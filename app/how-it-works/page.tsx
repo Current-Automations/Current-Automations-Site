@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: "01",
-    title: "Free Consultation",
+    title: "Discovery Call",
     description:
-      "We start with a 30-minute conversation. No pitch. We ask about your day, where time gets lost, where leads fall through, and what would make the biggest difference. You leave with clarity even if you do not move forward.",
+      "We start with a free 30-minute conversation. No pitch. We ask about your day, where time gets lost, where leads fall through, and what would make the biggest difference.",
   },
   {
     number: "02",
-    title: "AI Opportunity Audit",
+    title: "Your Opportunity Map",
     description:
-      "We map exactly where AI will have the highest impact in your business. For most service businesses this is missed call recovery. For others it is follow-up, admin, scheduling, or something else entirely.",
+      "Based on what we hear, we identify exactly where your business is leaking the most revenue. For most service businesses this is missed call recovery. For others it is follow-up, admin, or scheduling. You get a clear recommendation, not a list of software options.",
   },
   {
     number: "03",
