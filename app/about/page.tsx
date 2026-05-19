@@ -126,43 +126,16 @@ export default function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="Founder"
+        eyebrow="B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa"
         title="Jarrett Goodwin"
         description="Current Automations was shaped by a practical technical background and a real business problem."
         tone="muted"
       >
-        <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
-          <div className="surface-card flex flex-col items-center rounded-[2rem] p-8 text-center">
-            <div className="flex h-32 w-32 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(79,208,173,0.18),rgba(20,150,118,0.28))] text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-10 w-10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-              >
-                <path
-                  d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-6 7.5a6 6 0 0 1 12 0"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--color-ink)]">
-              Jarrett Goodwin
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--color-muted)]">
-              B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
-            </p>
-          </div>
-
-          <article className="surface-card rounded-[2rem] p-8">
-            <p className="text-base leading-8 text-[var(--color-muted)]">
-              Current Automations was founded by Jarrett Goodwin, an engineer and builder with a background in industrial operations and applied AI systems. After seeing how consistently trades and service businesses lose revenue to missed calls, slow follow-ups, and manual admin, he built Current Automations to fix it. The approach is hands-on and practical: find the highest-value problem first, build the system that solves it, and maintain everything so the owner never has to think about it. No jargon. No bloated software. Just systems that work.
-            </p>
-          </article>
-        </div>
+        <article className="surface-card max-w-4xl rounded-[2rem] p-8">
+          <p className="text-base leading-8 text-[var(--color-muted)]">
+            An engineer and builder with a background in industrial operations and applied AI systems. After seeing how consistently trades and service businesses lose revenue to missed calls, slow follow-ups, and manual admin, he built Current Automations to fix it. The approach is hands-on and practical: find the highest-value problem first, build the system that solves it, and maintain everything so the owner never has to think about it. No jargon. No bloated software. Just systems that work.
+          </p>
+        </article>
       </Section>
 
       <Section
