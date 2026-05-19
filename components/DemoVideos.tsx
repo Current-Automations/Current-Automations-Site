@@ -170,7 +170,7 @@ export default function DemoVideos() {
           <p className="mb-6 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
             {featured.description}
           </p>
-          <div className="demo-glow overflow-hidden rounded-[1.5rem]">
+          <div className="demo-glow relative overflow-hidden rounded-[1.5rem]">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src={featured.src}
@@ -180,6 +180,20 @@ export default function DemoVideos() {
                 className="absolute inset-0 h-full w-full border-0"
               />
             </div>
+            <button
+              type="button"
+              className="expand-btn sm:hidden"
+              onClick={() => setExpanded(featured)}
+              aria-label={`Expand ${featured.title}`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="15 3 21 3 21 9" />
+                <polyline points="9 21 3 21 3 15" />
+                <line x1="21" y1="3" x2="14" y2="10" />
+                <line x1="3" y1="21" x2="10" y2="14" />
+              </svg>
+              Expand
+            </button>
           </div>
         </div>
       </div>
