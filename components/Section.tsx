@@ -46,7 +46,7 @@ export default function Section({
 
   const descriptionClasses = [
     "mt-5 text-base leading-8 sm:text-lg",
-    tone === "dark" ? "text-white/[0.68]" : "text-[var(--color-muted)]",
+    tone === "dark" ? "text-on-dark" : "text-[var(--color-muted)]",
   ].join(" ");
 
   return (
@@ -58,7 +58,7 @@ export default function Section({
               <p
                 className={
                   tone === "dark"
-                    ? "pill-label bg-white/[0.08] text-white/70"
+                    ? "pill-label bg-surface-dark-2 text-white/70"
                     : "pill-label"
                 }
               >

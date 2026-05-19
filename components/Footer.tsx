@@ -19,14 +19,14 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.08] bg-[var(--color-ink)] text-white">
+    <footer className="border-t border-line-dark bg-[var(--color-ink)] text-white">
       <div className="container-shell py-12 sm:py-14">
-        <div className="mb-10 grid gap-5 rounded-[1.9rem] border border-white/[0.08] bg-white/[0.04] p-5 shadow-[0_18px_48px_rgba(2,6,23,0.16)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:p-6">
+        <div className="mb-10 grid gap-5 rounded-card-lg border border-line-dark bg-surface-dark-1 p-5 shadow-[0_18px_48px_rgba(2,6,23,0.16)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:p-6">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/[0.42]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-on-dark-faint">
               Contact & Response
             </p>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/[0.68]">
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-on-dark">
               Prefer to reach out directly? You can email or call directly and
               most inquiries receive a reply within 1 business day.
             </p>
@@ -35,13 +35,13 @@ export default function Footer() {
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
             <a
               href={`mailto:${siteContact.email}`}
-              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-4 py-2 text-sm text-white/[0.76] hover:text-white"
+              className="rounded-full border border-line-dark bg-surface-dark-2 px-4 py-2 text-sm text-on-dark-strong hover:text-white"
             >
               {siteContact.email}
             </a>
             <a
               href={`tel:${siteContact.phoneHref}`}
-              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-4 py-2 text-sm text-white/[0.76] hover:text-white"
+              className="rounded-full border border-line-dark bg-surface-dark-2 px-4 py-2 text-sm text-on-dark-strong hover:text-white"
             >
               {siteContact.phoneDisplay}
             </a>
@@ -62,18 +62,18 @@ export default function Footer() {
                 <p className="text-sm font-semibold tracking-[0.18em] text-white">
                   CURRENT AUTOMATIONS
                 </p>
-                <p className="text-xs text-white/[0.46]">
+                <p className="text-xs text-on-dark-muted">
                   AI systems for trades and service businesses across Ontario
                 </p>
               </div>
             </Link>
-            <p className="mt-5 text-sm leading-7 text-white/[0.48]">
+            <p className="mt-5 text-sm leading-7 text-on-dark-muted">
               Serving Durham Region and the Greater Toronto Area, with remote setup available across Ontario.
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/[0.42]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-on-dark-faint">
               Company
             </p>
             <div className="mt-5 grid gap-3">
@@ -81,7 +81,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-white/[0.7] hover:text-white"
+                  className="text-sm text-on-dark hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/[0.42]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-on-dark-faint">
               Legal
             </p>
             <div className="mt-5 grid gap-3">
@@ -98,7 +98,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-white/[0.7] hover:text-white"
+                  className="text-sm text-on-dark hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/[0.08] pt-6 text-sm text-white/[0.42]">
+        <div className="mt-10 border-t border-line-dark pt-6 text-sm text-on-dark-faint">
           <p>© {year} Current Automations. All rights reserved.</p>
         </div>
       </div>

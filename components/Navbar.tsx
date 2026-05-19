@@ -17,8 +17,8 @@ function getLinkClasses(active: boolean) {
   return [
     "rounded-full px-4 py-2 text-sm font-medium",
     active
-      ? "bg-white/[0.12] text-white"
-      : "text-white/[0.68] hover:bg-white/[0.06] hover:text-white",
+      ? "bg-surface-dark-3 text-white"
+      : "text-on-dark hover:bg-surface-dark-2 hover:text-white",
   ].join(" ");
 }
 
@@ -26,8 +26,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const shellClasses = [
-    "border border-white/10 bg-[rgba(7,17,29,0.72)] px-4 py-2.5 shadow-[0_12px_36px_rgba(2,6,23,0.18)] backdrop-blur-md sm:px-5",
-    isOpen ? "rounded-[2rem]" : "rounded-full",
+    "border border-line-dark bg-[rgba(7,17,29,0.72)] px-4 py-2.5 shadow-[0_12px_36px_rgba(2,6,23,0.18)] backdrop-blur-md sm:px-5",
+    isOpen ? "rounded-card-lg" : "rounded-full",
   ].join(" ");
 
   return (
@@ -79,7 +79,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line-dark bg-surface-dark-1 text-white lg:hidden"
               aria-label="Toggle navigation"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((open) => !open)}
@@ -93,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {isOpen ? (
-            <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 lg:hidden">
+            <div className="mt-4 grid gap-2 border-t border-line-dark pt-4 lg:hidden">
               {navLinks.map((link) => {
                 const active = pathname === link.href;
 

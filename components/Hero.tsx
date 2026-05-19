@@ -38,7 +38,7 @@ export default function Hero({
   return (
     <section
       id={id}
-      className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32"
+      className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
       <div className="pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(244,214,165,0.2),_transparent_62%)] blur-3xl" />
@@ -52,12 +52,12 @@ export default function Hero({
       >
         <div className="relative">
           {eyebrow ? (
-            <p className="pill-label bg-white/[0.08] text-white/70">{eyebrow}</p>
+            <p className="pill-label bg-surface-dark-2 text-white/70">{eyebrow}</p>
           ) : null}
           <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[4.35rem] lg:leading-[1.02]">
             {title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
             {description}
           </p>
 
@@ -67,7 +67,7 @@ export default function Hero({
             </Link>
             <Link
               href={secondaryCta.href}
-              className="btn-secondary border-white/[0.16] text-white"
+              className="btn-secondary border-line-dark text-white"
             >
               {secondaryCta.label}
             </Link>
@@ -77,7 +77,7 @@ export default function Hero({
           </div>
 
           {ctaNote ? (
-            <p className="mt-3 text-sm text-white/[0.64]">{ctaNote}</p>
+            <p className="mt-3 text-sm text-on-dark">{ctaNote}</p>
           ) : null}
 
           {stats.length > 0 ? (
@@ -85,12 +85,12 @@ export default function Hero({
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] px-5 py-5"
+                  className="rounded-card-md border border-line-dark bg-surface-dark-2 px-5 py-5"
                 >
                   <p className="text-2xl font-semibold tracking-tight text-white">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-white/[0.56]">
+                  <p className="mt-2 text-sm leading-7 text-on-dark-muted">
                     {stat.label}
                   </p>
                 </div>

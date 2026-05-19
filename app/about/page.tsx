@@ -13,23 +13,23 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
+      <section className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
         <div className="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
         <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div>
-            <p className="pill-label bg-white/[0.08] text-white/70">
+            <p className="pill-label bg-surface-dark-2 text-white/70">
               Who We Are
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               We find where your business is losing money. Then we fix it.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
               Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.07] p-6">
-            <p className="text-xs uppercase tracking-[0.28em] text-white/[0.45]">
+          <div className="rounded-card-lg border border-line-dark bg-surface-dark-2 p-6">
+            <p className="text-xs uppercase tracking-[0.28em] text-on-dark-muted">
               Why this exists
             </p>
             <div className="mt-6 space-y-4">
@@ -40,7 +40,7 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.3rem] border border-white/[0.08] bg-black/10 px-4 py-4 text-sm leading-7 text-white/[0.72]"
+                  className="rounded-card-sm border border-line-dark bg-black/10 px-4 py-4 text-sm leading-7 text-on-dark"
                 >
                   {item}
                 </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           ].map((item) => (
             <article
               key={item.title}
-              className="surface-card rounded-[1.75rem] p-7"
+              className="surface-card rounded-card-lg p-7"
             >
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
@@ -93,7 +93,7 @@ export default function AboutPage() {
         title="We audit your business, find the highest-impact opportunity, then build the system that solves it."
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
-          <article className="surface-card rounded-[2rem] p-8">
+          <article className="surface-card rounded-card-lg p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
               Every engagement starts with a free Revenue Leak Audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
             </p>
@@ -102,8 +102,8 @@ export default function AboutPage() {
             </p>
           </article>
 
-          <aside className="dark-card rounded-[2rem] p-8">
-            <p className="text-sm uppercase tracking-[0.24em] text-white/[0.45]">
+          <aside className="dark-card rounded-card-lg p-8">
+            <p className="text-sm uppercase tracking-[0.24em] text-on-dark-muted">
               What we handle
             </p>
             <div className="mt-6 space-y-4">
@@ -114,10 +114,10 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-3 rounded-[1.4rem] border border-white/[0.08] bg-white/[0.06] px-4 py-4"
+                  className="flex items-start gap-3 rounded-card-md border border-line-dark bg-surface-dark-2 px-4 py-4"
                 >
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[var(--color-brand)]" />
-                  <p className="text-sm leading-7 text-white/[0.72]">{item}</p>
+                  <p className="text-sm leading-7 text-on-dark">{item}</p>
                 </div>
               ))}
             </div>
@@ -130,7 +130,7 @@ export default function AboutPage() {
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-stretch">
-          <div className="surface-card flex flex-col items-center justify-center rounded-[2rem] p-8 text-center">
+          <div className="surface-card flex flex-col items-center justify-center rounded-card-lg p-8 text-center">
             <div className="flex h-32 w-32 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(79,208,173,0.18),rgba(20,150,118,0.28))] text-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
               <svg
                 aria-hidden="true"
@@ -155,7 +155,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <article className="surface-card rounded-[2rem] p-8">
+          <article className="surface-card rounded-card-lg p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
               I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
             </p>
@@ -170,7 +170,7 @@ export default function AboutPage() {
         eyebrow="The relationship"
         title="I am not here to sell you a tool and disappear."
       >
-        <div className="surface-card rounded-[2rem] p-8 space-y-6">
+        <div className="surface-card rounded-card-lg p-8 space-y-6">
           <p className="text-base leading-8 text-[var(--color-muted)]">
             Most software companies hand you a login and leave you to figure it out. I work differently.
           </p>

@@ -27,7 +27,7 @@ export default function FAQSection({
         {items.map((item) => (
           <details
             key={item.question}
-            className="surface-card group rounded-[1.65rem] p-6 transition-transform duration-300 hover:-translate-y-1"
+            className="surface-card group rounded-card-md p-6 transition-transform duration-300 hover:-translate-y-1"
           >
             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-left">
               <span className="text-lg font-semibold tracking-tight text-[var(--color-ink)]">

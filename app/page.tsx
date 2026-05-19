@@ -73,13 +73,37 @@ const systemCards = [
   },
 ];
 
-const industryItems = [
-  { name: "Plumbing", tagline: "On-site all day, calls missed, leads gone." },
-  { name: "HVAC", tagline: "Peak season demand you cannot always answer." },
-  { name: "Electrical", tagline: "Jobs running back to back with no time to call back." },
-  { name: "Cleaning", tagline: "High inbound volume during your busiest hours." },
-  { name: "Landscaping", tagline: "Outdoor work means phones go unanswered for hours." },
-  { name: "Other local service businesses", tagline: "If your business runs on inbound calls or depends on fast follow-up, this fits." },
+const industryRows = [
+  {
+    name: "Plumbing",
+    leak: "On-site all day, hands in a job. No way to catch the next caller before they redial the next plumber on Google.",
+    automate: "Auto-text within 60 seconds of a missed call, with job-type capture and an urgency flag for after-hours.",
+  },
+  {
+    name: "HVAC",
+    leak: "Heat-wave Tuesdays bring 4× volume. The phone can't physically keep up with the inbound.",
+    automate: "Speed-to-lead plus after-hours intake routes urgent jobs to the right tech with the address already captured.",
+  },
+  {
+    name: "Electrical",
+    leak: "Jobs run back-to-back. By the time you check voicemail, the lead has already booked someone else.",
+    automate: "Voicemail transcript plus an AI-generated reply tailored to the actual issue, not a generic auto-response.",
+  },
+  {
+    name: "Cleaning",
+    leak: "Volume of small-job inquiries you cannot realistically quote one by one during your busiest hours.",
+    automate: "Web-form intake auto-quotes routine jobs and books straight into your calendar with no manual coordination.",
+  },
+  {
+    name: "Landscaping",
+    leak: "Mowers running, phones in the truck. Three hours can disappear silently while leads cool off.",
+    automate: "Missed-call SMS keeps every lead engaged until the crew breaks for lunch and checks the truck.",
+  },
+  {
+    name: "Other local trades",
+    leak: "Any business where speed of response decides who wins the job.",
+    automate: "We map your actual workflow first, then build the system around it. No template installs.",
+  },
 ];
 
 export default function Home() {
@@ -114,35 +138,93 @@ export default function Home() {
           </>
         }
       >
-        <div className="hidden lg:flex lg:flex-col lg:gap-4">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-              Industries served
-            </p>
-            <div className="space-y-2">
-              {["HVAC", "Plumbing", "Electrical", "Cleaning", "Landscaping"].map((trade) => (
-                <div
-                  key={trade}
-                  className="flex items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.03] px-4 py-2.5"
-                >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]" />
-                  <span className="text-sm font-medium text-white/80">{trade}</span>
+        <div className="hidden lg:block">
+          {/* Live SMS thread — replaces the generic industries panel */}
+          <div className="relative">
+            {/* Teal glow behind */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-6 -z-10 rounded-shell bg-[radial-gradient(circle_at_60%_40%,_rgba(93,214,203,0.22),_transparent_65%)] blur-2xl"
+            />
+
+            <div className="overflow-hidden rounded-shell border border-line-dark bg-[#0a1424]/95 shadow-[0_36px_90px_rgba(0,0,0,0.45)] backdrop-blur-md">
+              {/* Contact header */}
+              <div className="flex items-center gap-3 border-b border-line-dark px-5 py-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-brand)]/20 text-sm font-semibold tracking-wider text-[var(--color-brand)]">
+                  AC
                 </div>
-              ))}
-            </div>
-            <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/10 pt-5">
-              {[
-                { value: "48 hrs", label: "To go live" },
-                { value: "No contract", label: "Cancel any month" },
-                { value: "100% Canadian", label: "Based in Ontario" },
-                { value: "$150 setup", label: "Then month-to-month" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-base font-semibold text-white">{stat.value}</p>
-                  <p className="text-xs text-white/50">{stat.label}</p>
+                <div>
+                  <p className="text-sm font-semibold text-white">ABC HVAC</p>
+                  <p className="text-xs text-on-dark-faint">Business · iMessage</p>
                 </div>
-              ))}
+                <div className="ml-auto flex items-center gap-1.5 rounded-full bg-surface-dark-1 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-on-dark-faint">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-brand)]" />
+                  Live
+                </div>
+              </div>
+
+              {/* Missed call event */}
+              <div className="flex justify-center px-5 pt-5">
+                <div className="flex items-center gap-2 rounded-full border border-line-dark bg-surface-dark-1 px-3 py-1.5 text-[11px] font-medium text-on-dark-muted">
+                  <svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    className="h-3 w-3 text-rose-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M3 11l10-6M3 5l10 6" strokeLinecap="round" />
+                  </svg>
+                  Missed call · 2 sec ago
+                </div>
+              </div>
+
+              {/* Auto-reply from business */}
+              <div className="flex justify-end px-5 pt-4">
+                <div className="max-w-[80%] rounded-card-sm rounded-br-[0.4rem] bg-[var(--color-brand)] px-4 py-2.5 text-sm leading-6 text-[var(--color-ink)] shadow-[0_8px_22px_rgba(93,214,203,0.25)]">
+                  Hi — sorry we just missed your call. We&apos;re finishing a job. What&apos;s the issue and we&apos;ll get right back to you?
+                </div>
+              </div>
+              <p className="px-5 pt-1 text-right text-[10px] text-on-dark-faint">
+                Delivered · 0:09 after call
+              </p>
+
+              {/* Customer reply */}
+              <div className="flex justify-start px-5 pt-4">
+                <div className="max-w-[80%] rounded-card-sm rounded-bl-[0.4rem] bg-surface-dark-3 px-4 py-2.5 text-sm leading-6 text-white">
+                  AC died this morning, getting hot in here fast. Can someone come today?
+                </div>
+              </div>
+
+              {/* Business booking reply */}
+              <div className="flex justify-end px-5 pt-4 pb-5">
+                <div className="max-w-[80%] rounded-card-sm rounded-br-[0.4rem] bg-[var(--color-brand)] px-4 py-2.5 text-sm leading-6 text-[var(--color-ink)] shadow-[0_8px_22px_rgba(93,214,203,0.25)]">
+                  Yes — 1–3pm window today. What&apos;s the address?
+                </div>
+              </div>
+
+              {/* Outcome footer */}
+              <div className="flex items-center justify-between border-t border-line-dark bg-surface-dark-1 px-5 py-3.5">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-brand)]" />
+                  Job booked
+                </span>
+                <span className="text-xs text-on-dark-faint">3 min total</span>
+              </div>
             </div>
+          </div>
+
+          {/* Caption + condensed stats — kept lean */}
+          <p className="mt-5 max-w-[28rem] text-sm leading-7 text-on-dark-muted">
+            What your customer experiences when they call after hours. The text goes out before they finish dialing the next number on Google.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-xs text-on-dark-faint">
+            <span>48 hrs to go live</span>
+            <span aria-hidden="true">·</span>
+            <span>No contract</span>
+            <span aria-hidden="true">·</span>
+            <span>$150 setup, then month-to-month</span>
           </div>
         </div>
       </Hero>
@@ -158,7 +240,7 @@ export default function Home() {
           {problemCards.map((card, index) => (
             <article
               key={card.heading}
-              className="surface-card rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1"
+              className="surface-card rounded-card-lg p-7 transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-brand)]/[0.12] text-sm font-semibold text-[var(--color-brand-strong)]">
                 0{index + 1}
@@ -185,7 +267,7 @@ export default function Home() {
           {auditSteps.map((step) => (
             <article
               key={step.number}
-              className="relative rounded-[1.9rem] border border-white/10 bg-white/[0.06] p-7"
+              className="relative rounded-card-lg border border-line-dark bg-surface-dark-2 p-7"
             >
               <div className="mb-8 flex items-center justify-between">
                 <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
@@ -196,7 +278,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold tracking-tight text-white">
                 {step.heading}
               </h3>
-              <p className="mt-4 text-base leading-8 text-white/[0.68]">
+              <p className="mt-4 text-base leading-8 text-on-dark">
                 {step.body}
               </p>
             </article>
@@ -212,7 +294,7 @@ export default function Home() {
           >
             Book a Free Discovery Call
           </Link>
-          <p className="text-sm text-white/[0.48]">30 minutes. No pitch. No obligation.</p>
+          <p className="text-sm text-on-dark-muted">30 minutes. No pitch. No obligation.</p>
         </div>
       </Section>
 
@@ -228,7 +310,7 @@ export default function Home() {
           {systemCards.map((card) => (
             <article
               key={card.heading}
-              className="surface-card rounded-[1.75rem] p-7"
+              className="surface-card rounded-card-lg p-7"
             >
               {card.badge ? (
                 <span className="mb-4 inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold text-[var(--color-brand-strong)]">
@@ -278,13 +360,13 @@ export default function Home() {
       >
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Demo phone */}
-          <div className="rounded-[2rem] border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
+          <div className="rounded-card-lg border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
               Live demo line
             </p>
             <a
               href="tel:+13656017474"
-              className="mt-3 block rounded-[1.5rem] border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
+              className="mt-3 block rounded-card-md border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
               aria-label="Call the demo line at 1 365 601 7474"
             >
               1 365 601 7474
@@ -302,7 +384,7 @@ export default function Home() {
               ].map((step, i) => (
                 <div
                   key={step}
-                  className="flex items-start gap-3 rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
+                  className="flex items-start gap-3 rounded-card-sm border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
                 >
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
                     {i + 1}
@@ -314,7 +396,7 @@ export default function Home() {
           </div>
 
           {/* Video */}
-          <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
+          <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="/demos/video1.html"
@@ -325,10 +407,10 @@ export default function Home() {
               />
             </div>
             <div className="p-6 text-center">
-              <p className="text-sm text-white/[0.55]">
+              <p className="text-sm text-on-dark-muted">
                 Watch a missed call turn into a captured lead in under 60 seconds.
               </p>
-              <p className="mt-3 text-sm text-white/[0.45]">
+              <p className="mt-3 text-sm text-on-dark-muted">
                 Want to see it with your own call flow?{" "}
                 <Link
                   href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
@@ -344,35 +426,79 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 6: Why Speed Matters */}
+      {/* Section 6: Why Speed Matters — pull-stat archetype */}
       <Section
         eyebrow="Why speed matters"
         title="The data on lead response is clear."
         tone="dark"
       >
-        <div className="grid gap-6 md:grid-cols-2">
-          <article className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7">
-            <p className="text-5xl font-semibold tracking-tight text-white">21x</p>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-strong)]">
-              more likely to qualify
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
+          {/* Pull-stat: one giant 21× */}
+          <div>
+            <div className="flex items-end gap-5">
+              <span
+                aria-label="Twenty-one times"
+                className="font-display font-semibold leading-[0.85] tracking-tight text-white"
+                style={{ fontSize: "clamp(7rem, 16vw, 13rem)" }}
+              >
+                21
+                <span className="text-[var(--color-brand)]">×</span>
+              </span>
+              <span className="pb-3 text-xs font-semibold uppercase leading-snug tracking-[0.28em] text-on-dark-faint sm:text-sm">
+                more likely
+                <br />
+                to qualify
+                <br />
+                a lead
+              </span>
+            </div>
+            <p className="mt-8 max-w-md text-base leading-8 text-on-dark">
+              MIT and InsideSales research: businesses that responded to inbound leads within five minutes were 21× more likely to qualify them than businesses that waited thirty minutes.
             </p>
-            <p className="mt-4 text-base leading-8 text-white/[0.68]">
-              Research from MIT and InsideSales found that businesses responding to inbound leads within 5 minutes were 21 times more likely to qualify them than businesses that waited 30 minutes.
+            <p className="mt-4 text-xs uppercase tracking-[0.24em] text-on-dark-faint">
+              Source · MIT / InsideSales Lead Response Study
             </p>
-          </article>
-          <article className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-7">
-            <p className="text-5xl font-semibold tracking-tight text-white">Every minute</p>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-strong)]">
-              the lead gets colder
+          </div>
+
+          {/* Decay table */}
+          <div className="rounded-card-lg border border-line-dark bg-surface-dark-1 p-6 sm:p-8">
+            <div className="flex items-center justify-between border-b border-line-dark pb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-on-dark-faint">
+                Response time
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-on-dark-faint">
+                Qualify rate
+              </p>
+            </div>
+            <div className="mt-5 space-y-4">
+              {[
+                { time: "Under 1 min", bar: 100, label: "Baseline" },
+                { time: "5 min", bar: 38, label: "−62%" },
+                { time: "10 min", bar: 18, label: "−82%" },
+                { time: "30 min", bar: 8, label: "1/21 of baseline" },
+                { time: "60 min+", bar: 3, label: "Effectively lost" },
+              ].map((row) => (
+                <div
+                  key={row.time}
+                  className="grid grid-cols-[88px_minmax(0,1fr)_auto] items-center gap-4"
+                >
+                  <span className="text-sm font-semibold text-white">{row.time}</span>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-surface-dark-2">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-[var(--color-brand)] to-[var(--color-blue-current)]"
+                      style={{ width: `${row.bar}%` }}
+                    />
+                  </div>
+                  <span className="text-xs text-on-dark-muted">{row.label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 border-t border-line-dark pt-5 text-sm leading-7 text-on-dark">
+              Speed to Lead replies in under{" "}
+              <strong className="text-white">60 seconds</strong>. Every lead lands at the top of this curve, not the bottom.
             </p>
-            <p className="mt-4 text-base leading-8 text-white/[0.68]">
-              In plain English: the longer a lead waits, the colder it gets. When a business misses the first touchpoint, the next company on Google often gets the job.
-            </p>
-          </article>
+          </div>
         </div>
-        <p className="mt-8 max-w-3xl text-base leading-8 text-white/[0.68]">
-          Most callers will not wait around. If they hit voicemail and do not get a quick response, they move on. Speed to Lead fixes that automatically.
-        </p>
       </Section>
 
       {/* Section 7: Why Current Automations */}
@@ -383,7 +509,7 @@ export default function Home() {
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
-          <article className="surface-card rounded-[2rem] p-8">
+          <article className="surface-card rounded-card-lg p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
               Most business owners do not need more software. They need someone who can look at how their business actually runs, explain what AI can realistically improve, and then quietly implement the right system without adding complexity. That is exactly what Current Automations does.
             </p>
@@ -414,7 +540,7 @@ export default function Home() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-[1.7rem] border border-[var(--color-line)] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+                className="rounded-card-lg border border-[var(--color-line)] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
               >
                 <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
                   {item.title}
@@ -428,28 +554,56 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 8: Industries — unchanged */}
+      {/* Section 8: Industries — editorial table archetype */}
       <Section
         eyebrow="Industries served"
-        title="Built for service businesses like:"
-        description="Especially useful for businesses that rely on inbound phone calls and need to stay responsive while already on-site, in transit, or handling another customer."
+        title="Built for the way service businesses actually run."
+        description="If your day is mostly hands-on work, your phone is your business — and your inbox is where it leaks. Here is what we automate first for each trade."
       >
         <p className="mb-6 text-sm leading-7 text-[var(--color-muted)]">
-          Currently serving businesses in Ajax, Whitby, Oshawa, Pickering, and the surrounding GTA.
+          Currently serving businesses across Ajax, Whitby, Oshawa, Pickering, and the surrounding GTA.
         </p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {industryItems.map((industry) => (
-            <article
-              key={industry.name}
-              className="rounded-[1.5rem] border border-[var(--color-line)] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+
+        <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-white shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
+          {/* Desktop header */}
+          <div className="hidden border-b border-[var(--color-line)] bg-[var(--color-panel-muted)] px-6 py-3 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-8">
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
+              Trade
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
+              Where it leaks
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
+              What runs automatically
+            </span>
+          </div>
+
+          {industryRows.map((row, i) => (
+            <div
+              key={row.name}
+              className={`grid grid-cols-1 gap-2 px-6 py-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-8 lg:py-6 ${
+                i !== industryRows.length - 1
+                  ? "border-b border-[var(--color-line)]"
+                  : ""
+              }`}
             >
               <p className="text-lg font-semibold tracking-tight text-[var(--color-ink)]">
-                {industry.name}
+                {row.name}
               </p>
-              <p className="mt-1.5 text-sm leading-7 text-[var(--color-muted)]">
-                {industry.tagline}
+              <p className="text-sm leading-7 text-[var(--color-muted)]">
+                <span className="lg:hidden text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]/70 block mb-1">
+                  Where it leaks
+                </span>
+                {row.leak}
               </p>
-            </article>
+              <p className="text-sm leading-7 text-[var(--color-copy)]">
+                <span className="lg:hidden text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--color-brand-strong)] block mb-1">
+                  What we automate
+                </span>
+                <span className="font-medium text-[var(--color-brand-strong)]">→ </span>
+                {row.automate}
+              </p>
+            </div>
           ))}
         </div>
       </Section>

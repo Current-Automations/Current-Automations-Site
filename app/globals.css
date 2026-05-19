@@ -25,6 +25,33 @@
   --font-display: var(--font-space-grotesk);
 }
 
+/*
+ * Design tokens — radius, text-on-dark, surface-on-dark.
+ * Replaces ~15 ad-hoc radii and ~20 ad-hoc opacity values
+ * with a single defined scale.
+ */
+@theme {
+  /* 4-step radius scale */
+  --radius-card-sm: 1.25rem;  /* small cards, inputs, inset blocks */
+  --radius-card-md: 1.5rem;   /* standard content cards */
+  --radius-card-lg: 1.9rem;   /* featured / surface cards */
+  --radius-shell: 2.25rem;    /* outer shells, CTASection */
+
+  /* 4-step text-on-dark scale */
+  --color-on-dark-strong: rgba(255, 255, 255, 0.92);  /* headlines, emphasized body */
+  --color-on-dark: rgba(255, 255, 255, 0.72);         /* default body on dark */
+  --color-on-dark-muted: rgba(255, 255, 255, 0.55);   /* secondary / supporting */
+  --color-on-dark-faint: rgba(255, 255, 255, 0.4);    /* labels, eyebrows, copyright */
+
+  /* 3-step surface-on-dark scale */
+  --color-surface-dark-1: rgba(255, 255, 255, 0.04);
+  --color-surface-dark-2: rgba(255, 255, 255, 0.07);
+  --color-surface-dark-3: rgba(255, 255, 255, 0.12);
+
+  /* on-dark dividers */
+  --color-line-dark: rgba(255, 255, 255, 0.1);
+}
+
 @layer base {
   * {
     border-color: var(--color-line);

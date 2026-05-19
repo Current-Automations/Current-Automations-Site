@@ -23,16 +23,16 @@ export default function CTASection({
   return (
     <section className="pb-24 pt-8 sm:pb-28">
       <div className="container-shell">
-        <div className="dark-card overflow-hidden rounded-[2.25rem] p-8 sm:p-10 lg:p-12">
+        <div className="dark-card overflow-hidden rounded-shell p-8 sm:p-10 lg:p-12">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
-              <p className="pill-label bg-white/[0.08] text-white/70">
+              <p className="pill-label bg-surface-dark-2 text-white/70">
                 {eyebrow}
               </p>
               <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
                 {title}
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
                 {description}
               </p>
             </div>
@@ -43,29 +43,29 @@ export default function CTASection({
               </Link>
               <Link
                 href={secondaryHref}
-                className="btn-secondary border-white/[0.16] text-white"
+                className="btn-secondary border-line-dark text-white"
               >
                 {secondaryLabel}
               </Link>
             </div>
           </div>
 
-          <div className="mt-8 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2 xl:grid-cols-4">
-            <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] px-4 py-4 text-sm text-white/[0.72]">
+          <div className="mt-8 grid gap-3 border-t border-line-dark pt-6 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="rounded-card-sm border border-line-dark bg-surface-dark-2 px-4 py-4 text-sm text-on-dark">
               {siteContact.walkthroughNote}
             </div>
-            <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] px-4 py-4 text-sm text-white/[0.72]">
+            <div className="rounded-card-sm border border-line-dark bg-surface-dark-2 px-4 py-4 text-sm text-on-dark">
               Prefer to reach out directly? You can email or call any time.
             </div>
             <a
               href={`mailto:${siteContact.email}`}
-              className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] px-4 py-4 text-sm text-white/[0.72] hover:text-white"
+              className="rounded-card-sm border border-line-dark bg-surface-dark-2 px-4 py-4 text-sm text-on-dark hover:text-white"
             >
               {siteContact.email}
             </a>
             <a
               href={`tel:${siteContact.phoneHref}`}
-              className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] px-4 py-4 text-sm text-white/[0.72] hover:text-white"
+              className="rounded-card-sm border border-line-dark bg-surface-dark-2 px-4 py-4 text-sm text-on-dark hover:text-white"
             >
               {siteContact.phoneDisplay}
             </a>

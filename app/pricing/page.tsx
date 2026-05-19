@@ -187,7 +187,7 @@ export default function PricingPage() {
       <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(140deg,#07111d_0%,#0c182a_60%,#12324a_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
         <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_45%)]" />
         <div className="container-shell">
-          <p className="pill-label bg-white/[0.08] text-white/70">
+          <p className="pill-label bg-surface-dark-2 text-white/70">
             Straightforward pricing
           </p>
           <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -195,7 +195,7 @@ export default function PricingPage() {
             <br className="hidden sm:block" />
             Pay only for what you use.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
             Choose a bundled tier to save up to $149/month, or build your own
             stack with individual automation scenarios starting at $49/month.
           </p>
@@ -215,75 +215,105 @@ export default function PricingPage() {
         title="Start with a bundle. Save every month."
         description="Each tier stacks on the last. The more automations you run, the more you save versus a la carte pricing."
       >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
           {tiers.map((tier) => {
-            const dark = !!tier.badge;
+            const featured = !!tier.badge;
             return (
-              <div key={tier.id} className="flex flex-col">
-                <div className="mb-3 h-7 flex items-center">
+              <div
+                key={tier.id}
+                className={`flex flex-col ${featured ? "xl:-mt-6 xl:mb-0" : ""}`}
+              >
+                <div className={`mb-3 flex items-center ${featured ? "h-8" : "h-7"}`}>
                   {tier.badge && (
-                    <span className="inline-block rounded-full bg-[var(--color-brand)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)]">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-ink)] shadow-[0_10px_28px_rgba(93,214,203,0.45)]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-ink)]" />
                       {tier.badge}
                     </span>
                   )}
                 </div>
-              <article
-                className={`flex flex-col flex-1 rounded-[2rem] p-7 ${dark ? "dark-card" : "surface-card"}`}
-              >
-                <h2
-                  className={`text-xl font-semibold tracking-tight ${dark ? "text-white" : "text-[var(--color-ink)]"}`}
+                <article
+                  className={
+                    featured
+                      ? "flex flex-1 flex-col rounded-card-lg dark-card p-8 ring-1 ring-[var(--color-brand)]/30 shadow-[0_36px_90px_rgba(93,214,203,0.22)] xl:p-9"
+                      : "flex flex-1 flex-col rounded-card-lg surface-card p-7"
+                  }
                 >
-                  {tier.name}
-                </h2>
-                <p
-                  className={`mt-1 text-xs leading-5 ${dark ? "text-white/60" : "text-[var(--color-muted)]"}`}
-                >
-                  {tier.tagline}
-                </p>
-                <p
-                  className={`mt-5 text-3xl font-semibold tracking-tight ${dark ? "text-white" : "text-[var(--color-ink)]"}`}
-                >
-                  ${tier.price}
-                  <span
-                    className={`text-base font-normal ${dark ? "text-white/50" : "text-[var(--color-muted)]"}`}
+                  <h2
+                    className={`font-semibold tracking-tight ${
+                      featured ? "text-2xl text-white" : "text-xl text-[var(--color-ink)]"
+                    }`}
                   >
-                    /mo
-                  </span>
-                </p>
-                <div
-                  className={`my-5 h-px ${dark ? "bg-white/10" : "bg-[var(--color-line)]"}`}
-                />
-                <ul className="flex-1 space-y-2.5">
-                  {tier.scenarios.map((s) => (
-                    <li key={s} className="flex items-start gap-2.5">
-                      <span
-                        className={`mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full ${dark ? "bg-[var(--color-brand)]" : "bg-[var(--color-brand-strong)]"}`}
-                      />
-                      <span
-                        className={`text-xs leading-6 ${dark ? "text-white/70" : "text-[var(--color-muted)]"}`}
-                      >
-                        {s}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                {tier.note && (
-                  <p className="mt-4 text-xs italic text-white/40">{tier.note}</p>
-                )}
-                <div className="mt-6 flex flex-col gap-2">
-                  <BuyNowButton priceId={tier.priceId} />
-                  <Link
-                    href={CALENDLY}
-                    className={
-                      dark
-                        ? "inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/[0.08] px-5 py-3.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/[0.15]"
-                        : "btn-secondary w-full text-center text-sm"
-                    }
+                    {tier.name}
+                  </h2>
+                  <p
+                    className={`mt-1.5 text-xs leading-5 ${
+                      featured ? "text-on-dark-muted" : "text-[var(--color-muted)]"
+                    }`}
                   >
-                    Book a Call Instead
-                  </Link>
-                </div>
-              </article>
+                    {tier.tagline}
+                  </p>
+                  <p
+                    className={`mt-5 font-semibold tracking-tight ${
+                      featured ? "text-4xl text-white" : "text-3xl text-[var(--color-ink)]"
+                    }`}
+                  >
+                    ${tier.price}
+                    <span
+                      className={`text-base font-normal ${
+                        featured ? "text-on-dark-muted" : "text-[var(--color-muted)]"
+                      }`}
+                    >
+                      /mo
+                    </span>
+                  </p>
+                  <div
+                    className={`my-5 h-px ${
+                      featured ? "bg-line-dark" : "bg-[var(--color-line)]"
+                    }`}
+                  />
+                  <ul className="flex-1 space-y-2.5">
+                    {tier.scenarios.map((s) => (
+                      <li key={s} className="flex items-start gap-2.5">
+                        <span
+                          className={`mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full ${
+                            featured ? "bg-[var(--color-brand)]" : "bg-[var(--color-brand-strong)]"
+                          }`}
+                        />
+                        <span
+                          className={`leading-6 ${
+                            featured
+                              ? "text-sm text-on-dark"
+                              : "text-xs text-[var(--color-muted)]"
+                          }`}
+                        >
+                          {s}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  {tier.note && (
+                    <p
+                      className={`mt-4 text-xs italic ${
+                        featured ? "text-on-dark-faint" : "text-[var(--color-muted)]"
+                      }`}
+                    >
+                      {tier.note}
+                    </p>
+                  )}
+                  <div className="mt-6 flex flex-col gap-2">
+                    <BuyNowButton priceId={tier.priceId} />
+                    <Link
+                      href={CALENDLY}
+                      className={
+                        featured
+                          ? "inline-flex w-full items-center justify-center rounded-full border border-line-dark bg-surface-dark-2 px-5 py-3.5 text-sm font-semibold text-on-dark-strong transition-colors hover:bg-surface-dark-3"
+                          : "btn-secondary w-full text-center text-sm"
+                      }
+                    >
+                      Book a Call Instead
+                    </Link>
+                  </div>
+                </article>
               </div>
             );
           })}
@@ -324,7 +354,7 @@ export default function PricingPage() {
           ].map((item) => (
             <article
               key={item.title}
-              className="rounded-[1.75rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+              className="rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
             >
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
