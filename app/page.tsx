@@ -12,10 +12,12 @@ const costStats = [
   {
     stat: "78%",
     label: "of customers buy from the first business that responds",
+    source: "Industry lead-response research",
   },
   {
-    stat: "391%",
+    stat: "4×",
     label: "higher conversion when you respond within the first minute",
+    source: "Velocify lead-response research",
   },
 ];
 
@@ -288,6 +290,9 @@ export default function Home() {
                 {s.stat}
               </p>
               <p className="mt-3 text-sm leading-7 text-on-dark">{s.label}</p>
+              <p className="mt-3 text-xs uppercase tracking-[0.16em] text-on-dark-faint">
+                {s.source}
+              </p>
             </div>
           ))}
         </div>
@@ -374,10 +379,6 @@ export default function Home() {
             Book Free Audit
           </Link>
         </div>
-
-        <p className="mt-6 text-xs leading-6 text-on-dark-faint">
-          Sources: 391% — Velocify lead-response research; 78% — industry lead-response data. The 21× figure is from the MIT / InsideSales Lead Response Management Study cited above.
-        </p>
       </Section>
 
       {/* Section 4: Speed-to-Lead demo */}
