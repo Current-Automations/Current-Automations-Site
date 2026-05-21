@@ -73,7 +73,7 @@ export default function Navbar() {
 
             <div className="hidden lg:block">
               <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                Book a Free Discovery Call
+                Book Free Audit
               </Link>
             </div>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
               >
-                Book a Free Discovery Call
+                Book Free Audit
               </Link>
             </div>
           ) : null}

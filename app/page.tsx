@@ -5,6 +5,18 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { faqItems } from "@/data/siteContent";
 
+const CAL_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
+
+const costStats = [
+  { stat: "80%", label: "of callers hang up without leaving a voicemail" },
+  { stat: "62%", label: "go straight to a competitor after one missed call" },
+  {
+    stat: "391%",
+    label: "higher conversion when you respond in under 60 seconds",
+  },
+];
+
 const problemCards = [
   {
     heading: "Missed calls going to competitors",
@@ -111,8 +123,7 @@ export default function Home() {
     <>
       <Hero
         id="overview"
-        eyebrow="For service contractors in Ontario"
-        locationBadge="Serving GTA · Ontario · Canada"
+        eyebrow="For owner-operated trades across the GTA & Ontario"
         title={
           <>
             You built a great business.
@@ -120,15 +131,15 @@ export default function Home() {
             Stop losing jobs to missed calls.
           </>
         }
-        description="When you are on a job and cannot answer, that caller moves to the next business on Google within minutes. We build the system that texts them back in seconds, captures their details, and keeps the lead warm — without you touching a single thing."
+        description="We build and run the AI system that texts back every missed call in seconds and keeps the lead warm — without you lifting a finger."
         primaryCta={{
-          href: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb",
-          label: "Book a Free Discovery Call",
+          href: CAL_URL,
+          label: "Book Free Audit",
         }}
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote={
           <>
-            30 minutes. No pitch. No obligation.{" "}
+            A free 30-minute discovery call. No pitch. No obligation.{" "}
             <a
               href="tel:+14165097474"
               className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
@@ -234,6 +245,7 @@ export default function Home() {
         id="problem"
         eyebrow="Where businesses leak money"
         title="Most owners already know something is off. They just do not know what to fix first."
+        description="If any of these sound familiar, you are leaving jobs on the table."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -256,182 +268,28 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 3: How the Audit Works */}
+      {/* Section 3: Why Speed Matters — honest data block */}
       <Section
-        id="audit"
-        eyebrow="The free audit"
-        title="30 minutes. No jargon. You leave with a clear picture of where your business is losing money."
+        eyebrow="The cost of a missed call"
+        title="Every minute you do not respond, the job gets colder."
+        description="This is not opinion. It is what the data on inbound lead response says happens."
         tone="dark"
       >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {auditSteps.map((step) => (
-            <article
-              key={step.number}
-              className="relative rounded-card-lg border border-line-dark bg-surface-dark-2 p-7"
+        {/* Stat trio */}
+        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+          {costStats.map((s) => (
+            <div
+              key={s.stat}
+              className="rounded-card-lg border border-line-dark bg-surface-dark-1 p-6"
             >
-              <div className="mb-8 flex items-center justify-between">
-                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
-                  {step.number}
-                </span>
-                <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
-              </div>
-              <h3 className="text-2xl font-semibold tracking-tight text-white">
-                {step.heading}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-on-dark">
-                {step.body}
+              <p className="font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+                {s.stat}
               </p>
-            </article>
+              <p className="mt-3 text-sm leading-7 text-on-dark">{s.label}</p>
+            </div>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <Link
-            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
-            className="btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book a Free Discovery Call
-          </Link>
-          <p className="text-sm text-on-dark-muted">30 minutes. No pitch. No obligation.</p>
-        </div>
-      </Section>
-
-      {/* Section 4: Systems We Build */}
-      <Section
-        id="workflow"
-        eyebrow="What we implement"
-        title="Common systems we build for service businesses."
-        description="Every business is different. These are the systems that come up most often after an audit."
-        tone="muted"
-      >
-        <div className="grid gap-6 lg:grid-cols-2">
-          {systemCards.map((card) => (
-            <article
-              key={card.heading}
-              className="surface-card rounded-card-lg p-7"
-            >
-              {card.badge ? (
-                <span className="mb-4 inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold text-[var(--color-brand-strong)]">
-                  {card.badge}
-                </span>
-              ) : null}
-              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {card.heading}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                {card.body}
-              </p>
-              {card.link ? (
-                <Link
-                  href={card.link.href}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
-                >
-                  {card.link.label}
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 16 16"
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                  >
-                    <path
-                      d="M3 8h10m-4-4 4 4-4 4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* Demo section */}
-      <Section
-        id="demo"
-        eyebrow="Our most common starting point"
-        title="Speed to Lead: catch every missed call before they call your competitor."
-        description="Call the demo line and hear exactly what your customers will experience when they reach your business after hours. Takes 30 seconds."
-        tone="muted"
-      >
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Demo phone */}
-          <div className="rounded-card-lg border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
-              Live demo line
-            </p>
-            <a
-              href="tel:+13656017474"
-              className="mt-3 block rounded-card-md border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
-              aria-label="Call the demo line at 1 365 601 7474"
-            >
-              1 365 601 7474
-            </a>
-            <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
-            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Call and let it go to voicemail. You will receive a text within seconds — that is the system working.
-            </p>
-            <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
-            <div className="mt-6 grid gap-3 text-left">
-              {[
-                "Call the number and let it ring",
-                "Watch for a text within 60 seconds",
-                "That is what your customers will experience",
-              ].map((step, i) => (
-                <div
-                  key={step}
-                  className="flex items-start gap-3 rounded-card-sm border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <p className="text-sm leading-7 text-[var(--color-copy)]">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Video */}
-          <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <iframe
-                src="/demos/video1.html"
-                allow="autoplay"
-                scrolling="no"
-                title="Current Automations — demo"
-                className="absolute inset-0 h-full w-full border-0"
-              />
-            </div>
-            <div className="p-6 text-center">
-              <p className="text-sm text-on-dark-muted">
-                Watch a missed call turn into a captured lead in under 60 seconds.
-              </p>
-              <p className="mt-3 text-sm text-on-dark-muted">
-                Want to see it with your own call flow?{" "}
-                <Link
-                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
-                  className="font-medium text-[var(--color-brand)] hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book a Free Discovery Call.
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Section 6: Why Speed Matters — pull-stat archetype */}
-      <Section
-        eyebrow="Why speed matters"
-        title="The data on lead response is clear."
-        tone="dark"
-      >
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
           {/* Pull-stat: one giant 21× */}
           <div>
@@ -494,10 +352,205 @@ export default function Home() {
               ))}
             </div>
             <p className="mt-6 border-t border-line-dark pt-5 text-sm leading-7 text-on-dark">
-              Speed to Lead replies in under{" "}
-              <strong className="text-white">60 seconds</strong>. Every lead lands at the top of this curve, not the bottom.
+              Every lead lands at the top of this curve, not the bottom.
             </p>
           </div>
+        </div>
+
+        {/* 60-second callout */}
+        <div className="mt-10 flex flex-col items-start gap-5 rounded-card-lg border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.08] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <p className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            Speed to Lead replies in under{" "}
+            <span className="text-[var(--color-brand)]">60 seconds</span> — automatically.
+          </p>
+          <Link
+            href={CAL_URL}
+            className="btn-primary shrink-0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Free Audit
+          </Link>
+        </div>
+      </Section>
+
+      {/* Section 4: Speed-to-Lead demo */}
+      <Section
+        id="demo"
+        eyebrow="Our most common starting point"
+        title="Speed to Lead: catch every missed call before they call your competitor."
+        description="Call the demo line and hear exactly what your customers will experience when they reach your business after hours. Takes 30 seconds."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Demo phone */}
+          <div className="rounded-card-lg border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
+              Live demo line
+            </p>
+            <a
+              href="tel:+13656017474"
+              className="mt-3 block rounded-card-md border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
+              aria-label="Call the demo line at 1 365 601 7474"
+            >
+              1 365 601 7474
+            </a>
+            <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
+            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+              Call and let it go to voicemail. You will receive a text within seconds — that is the system working.
+            </p>
+            <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
+            <div className="mt-6 grid gap-3 text-left">
+              {[
+                "Call the number and let it ring",
+                "Watch for a text within 60 seconds",
+                "That is what your customers will experience",
+              ].map((step, i) => (
+                <div
+                  key={step}
+                  className="flex items-start gap-3 rounded-card-sm border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <p className="text-sm leading-7 text-[var(--color-copy)]">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Video */}
+          <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src="/demos/video1.html"
+                allow="autoplay"
+                scrolling="no"
+                title="Current Automations — demo"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+            <div className="p-6 text-center">
+              <p className="text-sm text-on-dark-muted">
+                Watch a missed call turn into a captured lead in under 60 seconds.
+              </p>
+              <p className="mt-3 text-sm text-on-dark-muted">
+                Want to see it with your own call flow?{" "}
+                <Link
+                  href={CAL_URL}
+                  className="font-medium text-[var(--color-brand)] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a free audit.
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Section 5: Systems We Build */}
+      <Section
+        id="workflow"
+        eyebrow="What we implement"
+        title="Common systems we build for service businesses."
+        description="Every business is different. These are the systems that come up most often after an audit."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          {systemCards.map((card) => (
+            <article
+              key={card.heading}
+              className="surface-card rounded-card-lg p-7"
+            >
+              {card.badge ? (
+                <span className="mb-4 inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold text-[var(--color-brand-strong)]">
+                  {card.badge}
+                </span>
+              ) : null}
+              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                {card.heading}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                {card.body}
+              </p>
+              {card.link ? (
+                <Link
+                  href={card.link.href}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
+                >
+                  {card.link.label}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 16 16"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <path
+                      d="M3 8h10m-4-4 4 4-4 4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              ) : null}
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-sm leading-7 text-[var(--color-muted)]">
+          Most systems go live in under 48 hours — $150 setup, then simple month-to-month pricing.{" "}
+          <Link
+            href="/pricing"
+            className="font-medium text-[var(--color-brand-strong)] hover:underline"
+          >
+            See full pricing →
+          </Link>
+        </p>
+      </Section>
+
+      {/* Section 6: How the Audit Works */}
+      <Section
+        id="audit"
+        eyebrow="The free audit"
+        title="30 minutes. No jargon. You leave with a clear picture of where your business is losing money."
+        tone="dark"
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {auditSteps.map((step) => (
+            <article
+              key={step.number}
+              className="relative rounded-card-lg border border-line-dark bg-surface-dark-2 p-7"
+            >
+              <div className="mb-8 flex items-center justify-between">
+                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
+                  {step.number}
+                </span>
+                <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-white">
+                {step.heading}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-on-dark">
+                {step.body}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <Link
+            href={CAL_URL}
+            className="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Free Audit
+          </Link>
+          <p className="text-sm text-on-dark-muted">A free 30-minute discovery call. No pitch, no obligation.</p>
         </div>
       </Section>
 
@@ -525,7 +578,7 @@ export default function Home() {
               {
                 title: "We start with your problem, not a product",
                 description:
-                  "Every engagement starts with a free Revenue Leak Audit. We find what will actually move the needle for your specific business before recommending anything.",
+                  "Every engagement starts with a free audit. We find what will actually move the needle for your specific business before recommending anything.",
               },
               {
                 title: "We build and maintain everything",
@@ -615,13 +668,13 @@ export default function Home() {
         description="Clear answers to the practical questions most owners ask before deciding whether the system fits their workflow."
       />
 
-      {/* Section 12: Bottom CTA */}
+      {/* Bottom CTA */}
       <CTASection
         eyebrow="Not sure where to start?"
-        title="Book a free Revenue Leak Audit and we will figure it out together."
+        title="Book a free audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
-        primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
-        primaryLabel="Book a Free Discovery Call"
+        primaryHref={CAL_URL}
+        primaryLabel="Book Free Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

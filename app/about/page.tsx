@@ -95,7 +95,7 @@ export default function AboutPage() {
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
           <article className="surface-card rounded-card-lg p-8">
             <p className="text-base leading-8 text-[var(--color-muted)]">
-              Every engagement starts with a free Revenue Leak Audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
+              Every engagement starts with a free audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
               Then we build it, configure it, and maintain it — so you never have to think about the technology. You just see the results.
@@ -191,7 +191,7 @@ export default function AboutPage() {
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
-        primaryLabel="Book a Free Discovery Call"
+        primaryLabel="Book Free Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

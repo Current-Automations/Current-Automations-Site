@@ -95,4 +95,4 @@ All primary CTAs across the site link to:
 https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb
 ```
 
-with the label **"Book a Free Discovery Call"**. Always add `target="_blank" rel="noopener noreferrer"` since it opens an external page. Maintain this consistency when adding or editing CTA buttons.
+with the label **"Book Free Audit"**. Always add `target="_blank" rel="noopener noreferrer"` since it opens an external page. Maintain this consistency when adding or editing CTA buttons. "Discovery call" may be used in descriptive body copy (e.g. "a free 30-minute discovery call") but is never a button label. Do not use "Revenue Leak Audit" phrasing anywhere.

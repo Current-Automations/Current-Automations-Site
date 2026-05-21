@@ -66,7 +66,7 @@
 - Do NOT invent colors outside this palette
 - Accent color (teal) appears maximum 3 times per viewport
 - All interactive elements need :focus-visible outline (2px teal)
-- Primary CTA label is always "Book Your Free Revenue Leak Audit"
+- Primary CTA label is always "Book Free Audit"
 - All primary CTAs link to https://calendly.com/currentautomations/30min
 - Phone: 416-509-7474 (display) / +14165097474 (href)
 - Demo line: 1-365-601-7474

@@ -256,7 +256,7 @@ export default function HowItWorksPage() {
         title="Find Out Where Your Business Is Leaving Money Behind"
         description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
-        primaryLabel="Book a Free Discovery Call"
+        primaryLabel="Book Free Audit"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

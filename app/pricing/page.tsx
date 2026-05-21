@@ -207,6 +207,9 @@ export default function PricingPage() {
               configuration, and onboarding included
             </span>
           </div>
+          <p className="mt-4 text-sm text-on-dark-muted">
+            Most plans pay for themselves with one or two recovered jobs a month.
+          </p>
         </div>
       </section>
 
@@ -379,7 +382,7 @@ export default function PricingPage() {
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={CALENDLY}
-        primaryLabel="Book a Free Discovery Call"
+        primaryLabel="Book Free Audit"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"
       />

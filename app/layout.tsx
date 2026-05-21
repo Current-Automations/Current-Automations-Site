@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import StickyCTA from "@/components/StickyCTA";
 import "./globals.css";
 
 const inter = Inter({
@@ -49,6 +50,9 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          {/* Mobile bottom spacer so the sticky CTA never covers footer content */}
+          <div className="h-20 lg:hidden" aria-hidden="true" />
+          <StickyCTA />
         </div>
       </body>
     </html>

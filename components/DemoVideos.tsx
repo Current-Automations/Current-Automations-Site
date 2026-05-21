@@ -265,7 +265,7 @@ export default function DemoVideos() {
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Book a Free Discovery Call
+            Book Free Audit
           </a>
           <p className="mt-4 text-sm text-white/40">
             30 minutes. No pitch. No obligation.

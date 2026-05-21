@@ -85,7 +85,7 @@ export default function DemoPage() {
                 rel="noopener noreferrer"
                 className="btn-secondary w-full border-white/[0.16] text-white sm:w-auto"
               >
-                Book a Free Discovery Call
+                Book Free Audit
               </Link>
             </div>
             <p className="mt-5 text-sm text-white/[0.48]">
