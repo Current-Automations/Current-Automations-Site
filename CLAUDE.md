@@ -56,7 +56,6 @@ There is **no test suite**.
 - **`CTASection`** — full-width dark CTA band. All copy (eyebrow, title, description, button labels) is passed as props — nothing is hardcoded in the component.
 - **`FAQSection`** — accordion FAQ. Takes `items: FAQItem[]`, `tone`, `title`, `description`.
 - **`Navbar`** / **`Footer`** — site-wide chrome. CTA links point to the Google Calendar booking URL (see CTA convention below).
-- **`PricingCard`** — currently imported but not used in any active page. Keep the file; don't delete.
 
 ### Design tokens (globals.css)
 
