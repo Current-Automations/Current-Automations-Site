@@ -13,11 +13,13 @@ const costStats = [
     stat: "78%",
     label: "of customers buy from the first business that responds",
     source: "Industry lead-response research",
+    href: "https://greetnow.com/blog/lead-response-time-statistics",
   },
   {
     stat: "4×",
     label: "higher conversion when you respond within the first minute",
     source: "Velocify lead-response research",
+    href: "https://cdn2.hubspot.net/hubfs/69576/leads360_wp_speed_to_call.pdf",
   },
 ];
 
@@ -290,9 +292,15 @@ export default function Home() {
                 {s.stat}
               </p>
               <p className="mt-3 text-sm leading-7 text-on-dark">{s.label}</p>
-              <p className="mt-3 text-xs uppercase tracking-[0.16em] text-on-dark-faint">
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1 text-xs uppercase tracking-[0.16em] text-on-dark-faint underline-offset-2 hover:text-[var(--color-brand)] hover:underline"
+              >
                 {s.source}
-              </p>
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
           ))}
         </div>
@@ -321,7 +329,15 @@ export default function Home() {
               MIT and InsideSales research: businesses that responded to inbound leads within five minutes were 21× more likely to qualify them than businesses that waited thirty minutes.
             </p>
             <p className="mt-4 text-xs uppercase tracking-[0.24em] text-on-dark-faint">
-              Source · MIT / InsideSales Lead Response Study
+              Source ·{" "}
+              <a
+                href="https://resources.rework.com/libraries/lead-management/lead-response-time"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-2 hover:text-[var(--color-brand)] hover:underline"
+              >
+                MIT / InsideSales Lead Response Study ↗
+              </a>
             </p>
           </div>
 
