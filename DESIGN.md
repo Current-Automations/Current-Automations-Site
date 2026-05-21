@@ -67,7 +67,7 @@
 - Accent color (teal) appears maximum 3 times per viewport
 - All interactive elements need :focus-visible outline (2px teal)
 - Primary CTA label is always "Book Free Audit"
-- All primary CTAs link to https://calendly.com/currentautomations/30min
+- All primary CTAs link to the Google Calendar booking URL (see CLAUDE.md → "CTA convention" for the canonical link)
 - Phone: 416-509-7474 (display) / +14165097474 (href)
 - Demo line: 1-365-601-7474
 - Service area: Durham Region + GTA, remote across Ontario

@@ -9,11 +9,13 @@ const CAL_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 const costStats = [
-  { stat: "80%", label: "of callers hang up without leaving a voicemail" },
-  { stat: "62%", label: "go straight to a competitor after one missed call" },
+  {
+    stat: "78%",
+    label: "of customers buy from the first business that responds",
+  },
   {
     stat: "391%",
-    label: "higher conversion when you respond in under 60 seconds",
+    label: "higher conversion when you respond within the first minute",
   },
 ];
 
@@ -272,11 +274,11 @@ export default function Home() {
       <Section
         eyebrow="The cost of a missed call"
         title="Every minute you do not respond, the job gets colder."
-        description="This is not opinion. It is what the data on inbound lead response says happens."
+        description="Most callers who reach voicemail never leave a message — they just dial the next company on Google. Here is what the research on response speed says happens."
         tone="dark"
       >
-        {/* Stat trio */}
-        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+        {/* Stat pair */}
+        <div className="mb-12 grid gap-6 sm:grid-cols-2">
           {costStats.map((s) => (
             <div
               key={s.stat}
@@ -372,6 +374,10 @@ export default function Home() {
             Book Free Audit
           </Link>
         </div>
+
+        <p className="mt-6 text-xs leading-6 text-on-dark-faint">
+          Sources: 391% — Velocify lead-response research; 78% — industry lead-response data. The 21× figure is from the MIT / InsideSales Lead Response Management Study cited above.
+        </p>
       </Section>
 
       {/* Section 4: Speed-to-Lead demo */}
