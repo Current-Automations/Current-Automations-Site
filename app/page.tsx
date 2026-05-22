@@ -2,6 +2,7 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import Hero from "@/components/Hero";
+import HomeDemoVideo from "@/components/HomeDemoVideo";
 import Section from "@/components/Section";
 import { faqItems } from "@/data/siteContent";
 
@@ -446,15 +447,7 @@ export default function Home() {
 
           {/* Video */}
           <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
-            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-              <iframe
-                src="/demos/video1.html"
-                allow="autoplay"
-                scrolling="no"
-                title="Current Automations — demo"
-                className="absolute inset-0 h-full w-full border-0"
-              />
-            </div>
+            <HomeDemoVideo src="/demos/video1.html" />
             <div className="p-6 text-center">
               <p className="text-sm text-on-dark-muted">
                 Watch a missed call turn into a captured lead in under 60 seconds.
