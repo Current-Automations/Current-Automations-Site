@@ -17,13 +17,13 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Current Automations | Stop Losing Jobs to Missed Calls",
+    default: "Current Automations | Find Where Your Business Is Losing Money",
     template: "%s | Current Automations",
   },
   description:
     "Current Automations finds where your service business is losing time and money, then builds and runs the automation that fixes it. Serving trades businesses across Ontario.",
   openGraph: {
-    title: "Current Automations | Stop Losing Jobs to Missed Calls",
+    title: "Current Automations | Find Where Your Business Is Losing Money",
     description:
       "Current Automations finds where your service business is losing time and money, then builds and runs the automation that fixes it. Serving trades businesses across Ontario.",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Current Automations | Stop Losing Jobs to Missed Calls",
+    title: "Current Automations | Find Where Your Business Is Losing Money",
     description:
       "Current Automations finds where your service business is losing time and money, then builds and runs the automation that fixes it. Serving trades businesses across Ontario.",
   },
