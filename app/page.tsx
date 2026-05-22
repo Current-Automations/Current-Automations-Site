@@ -292,15 +292,17 @@ export default function Home() {
                 {s.stat}
               </p>
               <p className="mt-3 text-sm leading-7 text-on-dark">{s.label}</p>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-xs uppercase tracking-[0.16em] text-on-dark-faint underline-offset-2 hover:text-[var(--color-brand)] hover:underline"
-              >
-                {s.source}
-                <span aria-hidden="true">↗</span>
-              </a>
+              <p className="mt-3 text-xs uppercase tracking-[0.16em] text-on-dark-faint">
+                Source ·{" "}
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-2 hover:text-[var(--color-brand)] hover:underline"
+                >
+                  {s.source} ↗
+                </a>
+              </p>
             </div>
           ))}
         </div>
