@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     };
 
     if (hasSetupFee) {
-      // TODO: Future enhancement — look up customer by email in Stripe before creating the
+      // TODO: Future enhancement - look up customer by email in Stripe before creating the
       // session; if they have an existing subscription, omit the setup fee to avoid
       // double-charging returning clients.
       //

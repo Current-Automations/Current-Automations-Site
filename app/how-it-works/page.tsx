@@ -145,7 +145,7 @@ export default function HowItWorksPage() {
           <div className="space-y-4">
             <div className="surface-card rounded-card-lg p-7">
               <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
-                10:14 AM — Incoming call
+                10:14 AM - Incoming call
               </p>
               <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 A homeowner calls about a broken AC unit.
@@ -159,31 +159,31 @@ export default function HowItWorksPage() {
               <div className="mt-5 rounded-card-md border border-[var(--color-line)] bg-[var(--color-panel-muted)] p-5">
                 <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-muted)] mb-3">Voicemail transcript</p>
                 <p className="text-sm leading-7 text-[var(--color-copy)]">
-                  &quot;Hi, calling about my AC on Oak Street — it stopped blowing cold this morning. It&apos;s getting really hot and I&apos;ve got two young kids here. Please call back when you can.&quot;
+                  &quot;Hi, calling about my AC on Oak Street. It stopped blowing cold this morning. It&apos;s getting really hot and I&apos;ve got two young kids here. Please call back when you can.&quot;
                 </p>
               </div>
             </div>
 
             <div className="rounded-card-lg border border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_100%)] p-7">
               <p className="text-xs uppercase tracking-[0.28em] text-on-dark-muted">
-                10:14 AM — AI-generated response sent
+                10:14 AM - AI-generated response sent
               </p>
               <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
                 Within seconds, the caller gets a tailored text.
               </h3>
               <div className="mt-5 rounded-card-md border border-line-dark bg-surface-dark-2 p-5">
                 <p className="text-sm leading-7 text-on-dark-strong">
-                  &quot;Hi — this is ABC HVAC. We just missed your call and caught your voicemail about the AC at Oak Street not blowing cold. That sounds urgent, especially with kids at home in this heat. We&apos;re finishing up another job and will call you back shortly. Reply here anytime if anything changes.&quot;
+                  &quot;Hi, this is ABC HVAC. We just missed your call and caught your voicemail about the AC at Oak Street not blowing cold. That sounds urgent, especially with kids at home in this heat. We&apos;re finishing up another job and will call you back shortly. Reply here anytime if anything changes.&quot;
                 </p>
               </div>
               <p className="mt-5 text-sm leading-7 text-on-dark">
-                The message is generated from the voicemail transcript — specific to their issue, not a generic auto-reply.
+                The message is generated from the voicemail transcript, specific to their issue, not a generic auto-reply.
               </p>
             </div>
 
             <div className="surface-card rounded-card-lg p-7">
               <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">
-                10:16 AM — Lead replies
+                10:16 AM - Lead replies
               </p>
               <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 The homeowner stays in the conversation.
@@ -208,7 +208,7 @@ export default function HowItWorksPage() {
                 {[
                   { label: "Address", value: "Oak Street" },
                   { label: "Issue", value: "AC not blowing cold" },
-                  { label: "Urgency", value: "High — family with kids" },
+                  { label: "Urgency", value: "High, family with kids" },
                   { label: "Voicemail", value: "Transcribed + actioned" },
                   { label: "Response time", value: "Under 2 minutes" },
                 ].map((row) => (
@@ -225,7 +225,7 @@ export default function HowItWorksPage() {
 
             <div className="rounded-card-lg border border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_100%)] p-7">
               <p className="text-xs uppercase tracking-[0.28em] text-on-dark-muted">
-                10:48 AM — Technician calls back
+                10:48 AM - Technician calls back
               </p>
               <p className="mt-4 text-base leading-8 text-on-dark-strong">
                 When the technician finishes the first job and checks their phone, the lead details are already there. They call back knowing it is Oak Street, it is an AC issue, and it is urgent. The booking takes under three minutes.

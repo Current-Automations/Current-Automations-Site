@@ -14,7 +14,7 @@ type Props = {
  */
 export default function HomeDemoVideo({
   src,
-  title = "Current Automations — demo",
+  title = "Current Automations - demo",
 }: Props) {
   const [expanded, setExpanded] = useState(false);
   const close = useCallback(() => setExpanded(false), []);

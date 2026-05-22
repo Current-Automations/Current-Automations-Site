@@ -1,4 +1,4 @@
-# Stripe Checkout Integration — Design Spec
+# Stripe Checkout Integration - Design Spec
 
 **Date:** 2026-05-17
 **Status:** Approved
@@ -10,7 +10,7 @@
 
 Add Stripe Checkout to currentautomations.ca so visitors can self-serve purchase monthly automation plans. The integration covers a POST API route, two focused Client Components embedded in the pricing page, and a confirmation page.
 
-No new dependencies are required — `stripe@^21.0.1` is already installed.
+No new dependencies are required: `stripe@^21.0.1` is already installed.
 
 ---
 
@@ -30,8 +30,8 @@ Content-Type: application/json
 }
 ```
 
-- `priceIds` — non-empty array of Stripe Price IDs (recurring subscriptions)
-- `hasSetupFee` — when `true`, the one-time $150 CAD setup fee is appended
+- `priceIds`: non-empty array of Stripe Price IDs (recurring subscriptions)
+- `hasSetupFee`: when `true`, the one-time $150 CAD setup fee is appended
 
 ### Behavior
 
@@ -41,7 +41,7 @@ Content-Type: application/json
 4. When `hasSetupFee` is true, attach the setup fee via `subscription_data.add_invoice_items`:
    - Price ID: `price_1TYDaJFbHh7D2pR6LF1A1ovY` ($150 CAD, one-time)
    - This bills the setup fee on the first subscription invoice with no trial period.
-   - **TODO:** Future enhancement — look up the customer by email in Stripe before creating the session; if they have a prior subscription, omit the setup fee.
+   - **TODO:** Future enhancement - look up the customer by email in Stripe before creating the session; if they have a prior subscription, omit the setup fee.
 5. Create Checkout session with `currency: "cad"`.
 6. `success_url`: `https://currentautomations.ca/success?session_id={CHECKOUT_SESSION_ID}`
 7. `cancel_url`: `https://currentautomations.ca/pricing`
@@ -61,7 +61,7 @@ STRIPE_SECRET_KEY=sk_live_...   # in .env.local
 
 ### `components/BuyNowButton.tsx`
 
-`"use client"` — used on each tier card.
+`"use client"`: used on each tier card.
 
 **Props:**
 ```ts
@@ -71,13 +71,13 @@ STRIPE_SECRET_KEY=sk_live_...   # in .env.local
 **Behavior:**
 - On click: disable button, show loading state, POST `{ priceIds: [priceId], hasSetupFee: true }` to `/api/checkout`.
 - On success: `window.location.href = data.url`.
-- On error: show inline message "Something went wrong — please try again or book a call instead." Re-enable button.
+- On error: show inline message "Something went wrong. Please try again or book a call instead." Re-enable button.
 
 ---
 
 ### `components/CartSelector.tsx`
 
-`"use client"` — used in the à la carte section.
+`"use client"`: used in the à la carte section.
 
 **Props:**
 ```ts
@@ -94,7 +94,7 @@ STRIPE_SECRET_KEY=sk_live_...   # in .env.local
 
 **Behavior:**
 - State: `Set<string>` of selected `priceId` values.
-- Each scenario renders as a checkbox row: `[code] Name — $price/mo`, with a "Retell subscription required" badge for T04 and T05.
+- Each scenario renders as a checkbox row: `[code] Name - $price/mo`, with a "Retell subscription required" badge for T04 and T05.
 - Running monthly total updates live as checkboxes change.
 - Summary line: "One-time $150 CAD setup fee added at checkout."
 - Checkout button disabled when selection is empty.
@@ -105,7 +105,7 @@ STRIPE_SECRET_KEY=sk_live_...   # in .env.local
 
 ## 3. Pricing Page (`app/pricing/page.tsx`)
 
-Remains a **Server Component**. No structural changes to the existing layout — tiers section first, à la carte builder below.
+Remains a **Server Component**. No structural changes to the existing layout: tiers section first, à la carte builder below.
 
 Changes:
 - Each tier card's "Get Started" button is replaced by `<BuyNowButton priceId="..." />`.
@@ -149,7 +149,7 @@ Server Component. Uses the existing dark hero style.
 Content:
 - Eyebrow: "Purchase confirmed"
 - Heading: "You're all set."
-- Body: "Your subscription is active. Expect an onboarding email from us within 24 hours — we'll walk you through everything."
+- Body: "Your subscription is active. Expect an onboarding email from us within 24 hours. We'll walk you through everything."
 - Secondary link: "Back to home" → `/`
 
 No Stripe session data fetching. Static confirmation only.
@@ -162,7 +162,7 @@ No Stripe session data fetching. Static confirmation only.
 |----------|----------|
 | Empty `priceIds` | API returns `400 { error: "priceIds must be a non-empty array" }` |
 | Stripe API error | Log raw error server-side; return `500 { error: "Failed to create checkout session" }` |
-| Client fetch error | Inline message: "Something went wrong — please try again or book a call instead." Button re-enabled. |
+| Client fetch error | Inline message: "Something went wrong. Please try again or book a call instead." Button re-enabled. |
 
 ---
 
@@ -174,5 +174,5 @@ No Stripe session data fetching. Static confirmation only.
 | `app/success/page.tsx` | **New** |
 | `components/BuyNowButton.tsx` | **New** |
 | `components/CartSelector.tsx` | **New** |
-| `app/pricing/page.tsx` | **Modified** — wire in Client Components, keep layout |
-| `.env.local` | **Modified** — add `STRIPE_SECRET_KEY` |
+| `app/pricing/page.tsx` | **Modified**: wire in Client Components, keep layout |
+| `.env.local` | **Modified**: add `STRIPE_SECRET_KEY` |

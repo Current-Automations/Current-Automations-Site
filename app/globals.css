@@ -26,7 +26,7 @@
 }
 
 /*
- * Design tokens — radius, text-on-dark, surface-on-dark.
+ * Design tokens: radius, text-on-dark, surface-on-dark.
  * Replaces ~15 ad-hoc radii and ~20 ad-hoc opacity values
  * with a single defined scale.
  */

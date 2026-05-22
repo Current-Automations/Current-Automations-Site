@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Current Automations &mdash; Demo</title>
+<title>Current Automations - Demo</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
   @property --count { syntax: '<integer>'; initial-value: 0; inherits: false; }
@@ -70,7 +70,7 @@
   @keyframes pulseTeal  {0%,100%{box-shadow:0 0 0 0 var(--teal-soft)} 50%{box-shadow:0 0 0 18px transparent}}
   @keyframes barRise    {from{height:0} to{height:var(--h,40%)}}
 
-  /* SCENE 1 — 0 to 8s */
+  /* SCENE 1 - 0 to 8s */
   #s1{animation: sceneIn 8s 0s both;}
   #s1 .stack{display:flex;flex-direction:column;gap:28px;align-items:flex-start;max-width:1100px}
   #s1 .line{font:500 84px/1.05 var(--serif);letter-spacing:-.01em;opacity:0;}
@@ -81,7 +81,7 @@
   #s1 .l3{animation: fadeUp .9s 2.4s ease-out both, fadeUpOut .7s 7.2s ease-in both}
   #s1 .l4{animation: fadeUp .9s 3.4s ease-out both, fadeUpOut .7s 7.2s ease-in both}
 
-  /* SCENE 2 — 8 to 15s */
+  /* SCENE 2 - 8 to 15s */
   #s2{animation: sceneIn 7s 8s both;}
   #s2 .row{display:flex;gap:90px;align-items:flex-start}
   #s2 .stat{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:300px;opacity:0;text-align:center}
@@ -91,7 +91,7 @@
   #s2 .s2a{animation: slam .7s 10.0s cubic-bezier(.2,.9,.2,1) both, fadeUpOut .5s 14.4s ease both}
   #s2 .s3a{animation: slam .7s 11.7s cubic-bezier(.2,.9,.2,1) both, fadeUpOut .5s 14.4s ease both}
 
-  /* SCENE 3 — 15 to 43s */
+  /* SCENE 3 - 15 to 43s */
   #s3{animation: sceneIn 28s 15s both;}
   #s3 .wrap{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;gap:18px;padding-top:30px;position:relative}
   #s3 h1{font:500 88px/1 var(--serif);color:var(--teal);letter-spacing:-.015em;opacity:0;animation: fadeUp .9s 15.4s ease-out both;}
@@ -130,7 +130,7 @@
   .phone .missed .txt{flex:1;font:600 13px/1.3 var(--sans)}
   .phone .missed .txt small{display:block;font-weight:400;opacity:.85;margin-top:2px;font-size:11px}
 
-  /* Timer — 10s sequence: 1,2,3 → freeze 3s → 33,34,35,36 */
+  /* Timer - 10s sequence: 1,2,3 → freeze 3s → 33,34,35,36 */
   .timer{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:18px;opacity:0;animation: pop .5s 21.4s ease-out both, fadeOut .5s 31.0s ease both;}
   @keyframes fadeOut{to{opacity:0}}
   .timer .ring{width:260px;height:260px;border-radius:50%;background:conic-gradient(var(--teal) var(--ring), rgba(255,255,255,.08) 0);display:grid;place-items:center;animation: ringFill 10s 21.6s linear forwards;position:relative;}
@@ -141,7 +141,7 @@
   @keyframes countStrip{from{transform:translateY(0)}to{transform:translateY(-1200px)}}
   .timer .lbl{font:500 13px/1 var(--sans);color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
 
-  /* Time-skip overlay — covers the 3→33 jump, visible ~3s */
+  /* Time-skip overlay - covers the 3→33 jump, visible ~3s */
   .timeskip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;width:210px;height:130px;background:var(--navy);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;animation:skipFlash 5.5s 23.8s ease both;}
   @keyframes skipFlash{0%{opacity:0}10%{opacity:1}80%{opacity:1}100%{opacity:0}}
   .timeskip .sk-dots{font:700 28px/1 var(--sans);color:var(--teal);letter-spacing:8px;}
@@ -168,7 +168,7 @@
   #s3 .caption{position:absolute;bottom:90px;left:0;right:0;text-align:center;font:500 22px/1.3 var(--serif);color:#fff;letter-spacing:.005em;opacity:0;animation: fadeUp .8s 38.5s ease-out both;}
   #s3 .caption em{font-style:normal;color:var(--teal)}
 
-  /* SCENE 4 — 43 to 53s */
+  /* SCENE 4 - 43 to 53s */
   #s4{animation: sceneIn 10s 43s both;}
   #s4 .wrap{display:flex;flex-direction:column;align-items:center;gap:40px;width:100%}
   #s4 h2{font:500 72px/1.05 var(--serif);color:#fff;letter-spacing:-.015em;text-align:center;opacity:0;animation: fadeUp .8s 43.4s ease-out both;}
@@ -187,7 +187,7 @@
   #s4 .tile .desc{font:400 15px/1.45 var(--sans);color:var(--muted)}
   #s4 .sub{font:400 19px/1.4 var(--serif);color:var(--muted);text-align:center;font-style:italic;opacity:0;animation: fadeUp .8s 47.0s ease-out both;}
 
-  /* SCENE 5 — 53 to 65s */
+  /* SCENE 5 - 53 to 65s */
   #s5{animation: sceneIn 12s 53s both;}
   #s5 .wrap{display:flex;flex-direction:column;gap:36px;width:1100px}
   #s5 h2{font:500 64px/1.05 var(--serif);color:#fff;letter-spacing:-.015em;opacity:0;animation: fadeUp .8s 53.4s ease-out both;}
@@ -213,7 +213,7 @@
   #s5 .closer{font:500 22px/1.4 var(--serif);color:#fff;text-align:center;margin-top:12px;opacity:0;animation: fadeUp .8s 61.6s ease-out both;}
   #s5 .closer em{font-style:normal;color:var(--teal)}
 
-  /* SCENE 6 — 65 to 73s */
+  /* SCENE 6 - 65 to 73s */
   #s6{animation: sceneIn 8s 65s both;}
   #s6 .wrap{display:flex;flex-direction:column;align-items:center;gap:40px;width:1100px}
   #s6 h2{font:500 64px/1.05 var(--serif);color:#fff;letter-spacing:-.015em;text-align:center;opacity:0;animation: fadeUp .8s 65.4s ease-out both;}
@@ -242,7 +242,7 @@
   #s6 .roi .chart span:nth-child(6){--h:95%;animation-delay:67.5s}
   #s6 .anom{font:400 16px/1.5 var(--sans);color:var(--muted);flex:1;display:flex;align-items:center}
 
-  /* SCENE 7 — 73 to 88s */
+  /* SCENE 7 - 73 to 88s */
   #s7{animation: sceneIn 15s 73s both;}
   #s7 .wrap{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
   #s7 .logo{font:500 124px/1 var(--serif);color:var(--teal);letter-spacing:-.025em;text-shadow:0 0 80px rgba(79,208,173,.35);opacity:0;animation: fadeUp 1.0s 73.6s ease-out both;}
@@ -345,15 +345,15 @@
 
           <div class="smsbubble">
             <div class="from"><span class="av">M</span>Mike's Plumbing &middot; sent automatically</div>
-            <div class="msg">Hi, sorry we missed your call. We'd love to help &mdash; book a time here: <span class="link">calendly.com/mikes-plumbing</span></div>
+            <div class="msg">Hi, sorry we missed your call. We'd love to help, book a time here: <span class="link">calendly.com/mikes-plumbing</span></div>
           </div>
 
           <div class="owneralert">
-            <div class="hdr"><span class="dot"></span>Urgent &mdash; new missed call</div>
+            <div class="hdr"><span class="dot"></span>Urgent - new missed call</div>
             <div class="title">Caller flagged HIGH priority</div>
             <div class="grid">
               <div class="k">Caller</div><div class="v">416-555-0192</div>
-              <div class="k">Intent</div><div class="v">Emergency repair &mdash; burst pipe</div>
+              <div class="k">Intent</div><div class="v">Emergency repair - burst pipe</div>
               <div class="k">Urgency</div><div class="v hi">HIGH</div>
             </div>
           </div>
@@ -398,7 +398,7 @@
             <div class="desc">Transcribed, tagged, summarized</div>
           </div>
         </div>
-        <div class="sub">No lead slips through &mdash; regardless of where they find you.</div>
+        <div class="sub">No lead slips through, regardless of where they find you.</div>
       </div>
     </section>
 
@@ -411,12 +411,12 @@
             <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
             <div class="body">
               <div class="lbl">Multi-Touch Follow Up</div>
-              <div class="dsc">Day 0, Day 2, Day 5 &mdash; until they book or opt out</div>
+              <div class="dsc">Day 0, Day 2, Day 5, until they book or opt out</div>
             </div>
             <div class="thread">
               <div class="b out b1"><span class="d">Day 0</span>Hi! Just following up on your call earlier.</div>
-              <div class="b out b2"><span class="d">Day 2</span>Still happy to send a quote &mdash; want a time?</div>
-              <div class="b out b3"><span class="d">Day 5</span>Last check-in &mdash; we have Friday open.</div>
+              <div class="b out b2"><span class="d">Day 2</span>Still happy to send a quote, want a time?</div>
+              <div class="b out b3"><span class="d">Day 5</span>Last check-in, we have Friday open.</div>
               <div class="b in b4">Yes, let's book it.</div>
             </div>
           </div>
@@ -424,7 +424,7 @@
             <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
             <div class="body">
               <div class="lbl">Quote Follow Up</div>
-              <div class="dsc">Sent quotes that go quiet &mdash; gently nudged back to life</div>
+              <div class="dsc">Sent quotes that go quiet, gently nudged back to life</div>
             </div>
             <div></div>
           </div>

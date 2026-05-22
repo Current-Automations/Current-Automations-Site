@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: {
-    default: "Privacy Policy — Current Automations",
+    default: "Privacy Policy | Current Automations",
     template: "%s",
   },
   description:
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                 3. Information We Collect
               </h2>
               <p className="mt-3 text-[var(--color-copy)]">
-                3.1 Information You Provide Directly — When you contact us or subscribe to our
+                3.1 Information You Provide Directly: When you contact us or subscribe to our
                 services, we collect:
               </p>
               <ul className="mt-3 space-y-3 pl-6 text-[var(--color-copy)]">
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
                   account number, billing name, and account PIN where applicable.
                 </li>
                 <li className="list-disc">
-                  Payment information processed by Stripe — we do not store credit card numbers or
+                  Payment information processed by Stripe, we do not store credit card numbers or
                   banking information directly.
                 </li>
                 <li className="list-disc">
@@ -102,7 +102,7 @@ export default function PrivacyPage() {
                 </li>
               </ul>
               <p className="mt-5 text-[var(--color-copy)]">
-                3.2 Information Collected Through Service Delivery — When we operate automation
+                3.2 Information Collected Through Service Delivery: When we operate automation
                 systems on behalf of a client, the following information about callers may be
                 collected and processed:
               </p>
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
                 processes this data as a service provider acting on the client's behalf.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                3.3 Information Collected Automatically — When you visit our website, we may collect
+                3.3 Information Collected Automatically: When you visit our website, we may collect
                 certain technical information automatically including:
               </p>
               <ul className="mt-3 space-y-3 pl-6 text-[var(--color-copy)]">
@@ -142,23 +142,23 @@ export default function PrivacyPage() {
                 4. How We Use Your Information
               </h2>
               <p className="mt-3 text-[var(--color-copy)]">
-                4.1 Service Delivery — to set up, configure, and operate automation systems on
+                4.1 Service Delivery: to set up, configure, and operate automation systems on
                 behalf of clients; to process number porting requests with telecommunications
                 carriers; to send automated SMS messages, voicemail transcripts, and urgency alerts
                 as part of the service; to provide client support and resolve technical issues.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                4.2 Billing and Account Management — to process subscription payments through
+                4.2 Billing and Account Management: to process subscription payments through
                 Stripe; to manage subscription renewals, cancellations, and refund requests; to
                 communicate about billing, invoicing, and account changes.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                4.3 Communications — to respond to inquiries submitted by email, phone, or text; to
+                4.3 Communications: to respond to inquiries submitted by email, phone, or text; to
                 send service-related notifications and updates; to send commercial electronic
                 messages where you have provided valid consent under CASL.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                4.4 Improvement and Analysis — to analyze website usage and improve our content and
+                4.4 Improvement and Analysis: to analyze website usage and improve our content and
                 user experience; to evaluate the performance and reliability of our automation
                 systems.
               </p>
@@ -224,7 +224,7 @@ export default function PrivacyPage() {
                 We do not sell, rent, or trade personal information.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                7.1 Service Providers — we share information with third-party platforms necessary to
+                7.1 Service Providers: we share information with third-party platforms necessary to
                 deliver our services including:
               </p>
               <ul className="mt-3 space-y-3 pl-6 text-[var(--color-copy)]">
@@ -248,13 +248,13 @@ export default function PrivacyPage() {
                 purpose of delivering services to us.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                7.2 Legal Requirements — we may disclose personal information if required to do so
+                7.2 Legal Requirements: we may disclose personal information if required to do so
                 by law, court order, or government authority, or where we believe disclosure is
                 necessary to protect the safety of any individual or to prevent fraud or illegal
                 activity.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                7.3 Business Transfers — in the event of a sale, merger, or transfer of all or part
+                7.3 Business Transfers: in the event of a sale, merger, or transfer of all or part
                 of our business, personal information may be transferred to the acquiring party. We
                 will notify affected individuals before their information becomes subject to a
                 different privacy policy.
@@ -330,24 +330,24 @@ export default function PrivacyPage() {
                 10. Your Rights Under PIPEDA
               </h2>
               <p className="mt-3 text-[var(--color-copy)]">
-                10.1 Right of Access — you have the right to request access to the personal
+                10.1 Right of Access: you have the right to request access to the personal
                 information we hold about you. We will respond to access requests within 30 days.
                 We may request proof of identity before fulfilling an access request.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                10.2 Right to Correction — if you believe personal information we hold about you is
+                10.2 Right to Correction: if you believe personal information we hold about you is
                 inaccurate or incomplete, you have the right to request a correction. We will make
                 corrections promptly and notify any third parties to whom the incorrect information
                 was disclosed where appropriate.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                10.3 Right to Withdraw Consent — you may withdraw your consent to the collection,
+                10.3 Right to Withdraw Consent: you may withdraw your consent to the collection,
                 use, or disclosure of your personal information at any time, subject to legal or
                 contractual restrictions and reasonable notice. Withdrawal may affect our ability to
                 provide services to you.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                10.4 Right to Complain — if you believe your privacy rights have been violated, you
+                10.4 Right to Complain: if you believe your privacy rights have been violated, you
                 may file a complaint with the Office of the Privacy Commissioner of Canada at
                 priv.gc.ca or by calling 1-800-282-1376.
               </p>

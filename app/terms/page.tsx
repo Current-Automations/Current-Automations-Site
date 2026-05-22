@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: {
-    default: "Terms of Service — Current Automations",
+    default: "Terms of Service | Current Automations",
     template: "%s",
   },
   description:
@@ -45,26 +45,26 @@ export default function TermsPage() {
               </h2>
               <ul className="mt-5 space-y-3 pl-6 text-[var(--color-copy)]">
                 <li className="list-disc">
-                  Monthly Subscription — Billing starts the day you sign up and renews automatically each month.
+                  Monthly Subscription: Billing starts the day you sign up and renews automatically each month.
                   Cancel anytime with 5 business days notice before your next billing date. No setup fees.
                 </li>
                 <li className="list-disc">
-                  No Refunds Once Charged — Monthly fees are non-refundable. If you cancel mid-month you keep access until the period ends.
+                  No Refunds Once Charged: Monthly fees are non-refundable. If you cancel mid-month you keep access until the period ends.
                 </li>
                 <li className="list-disc">
-                  No Guarantee of Results — The system helps you respond faster to missed calls. Whether that converts to bookings and revenue depends entirely on your own operations and follow-through.
+                  No Guarantee of Results: The system helps you respond faster to missed calls. Whether that converts to bookings and revenue depends entirely on your own operations and follow-through.
                 </li>
                 <li className="list-disc">
-                  AI Is Not Perfect — Transcriptions and urgency tags can have errors. You are responsible for reviewing all outputs and making your own business decisions.
+                  AI Is Not Perfect: Transcriptions and urgency tags can have errors. You are responsible for reviewing all outputs and making your own business decisions.
                 </li>
                 <li className="list-disc">
-                  Your Number Stays Yours — We port your number into our system so automation works seamlessly. When you leave, we initiate the return port within 5 business days of your written request.
+                  Your Number Stays Yours: We port your number into our system so automation works seamlessly. When you leave, we initiate the return port within 5 business days of your written request.
                 </li>
                 <li className="list-disc">
-                  CASL Is Your Responsibility — You must have valid consent for every recipient of automated texts. We do not check your contact lists.
+                  CASL Is Your Responsibility: You must have valid consent for every recipient of automated texts. We do not check your contact lists.
                 </li>
                 <li className="list-disc">
-                  Disputes — Ontario Courts — Contact us first and allow 14 business days to resolve anything before escalating.
+                  Disputes, Ontario Courts: Contact us first and allow 14 business days to resolve anything before escalating.
                 </li>
               </ul>
             </div>
@@ -87,7 +87,7 @@ export default function TermsPage() {
                 Client or you means the individual or business entity that has subscribed to a Current Automations service plan.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
-                Plan means the specific tier of service selected at checkout — Starter, Pro, Premium, or Elite.
+                Plan means the specific tier of service selected at checkout: Starter, Pro, Premium, or Elite.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
                 Subscription means the recurring monthly billing arrangement between the Client and Current Automations.
@@ -114,16 +114,16 @@ export default function TermsPage() {
               </p>
               <ul className="mt-5 space-y-3 pl-6 text-[var(--color-copy)]">
                 <li className="list-disc">
-                  Starter $97 CAD — Missed call SMS notification to caller.
+                  Starter $97 CAD: Missed call SMS notification to caller.
                 </li>
                 <li className="list-disc">
-                  Pro $197 CAD — SMS plus booking link plus voicemail transcription plus urgency tagging plus owner alerts.
+                  Pro $197 CAD: SMS plus booking link plus voicemail transcription plus urgency tagging plus owner alerts.
                 </li>
                 <li className="list-disc">
-                  Premium $297 CAD — All Pro features plus AI voicemail agent with intelligent response.
+                  Premium $297 CAD: All Pro features plus AI voicemail agent with intelligent response.
                 </li>
                 <li className="list-disc">
-                  Elite $497 CAD — All Premium features plus live AI voice agent with real-time booking.
+                  Elite $497 CAD: All Premium features plus live AI voice agent with real-time booking.
                 </li>
               </ul>
               <p className="mt-5 text-[var(--color-copy)]">

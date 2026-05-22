@@ -138,7 +138,7 @@ export default function Home() {
             Stop losing jobs to missed calls.
           </>
         }
-        description="We build and run the AI system that texts back every missed call in seconds and keeps the lead warm — without you lifting a finger."
+        description="We build and run the AI system that texts back every missed call in seconds and keeps the lead warm, without you lifting a finger."
         primaryCta={{
           href: CAL_URL,
           label: "Book Free Audit",
@@ -157,7 +157,7 @@ export default function Home() {
         }
       >
         <div className="hidden lg:block">
-          {/* Live SMS thread — replaces the generic industries panel */}
+          {/* Live SMS thread - replaces the generic industries panel */}
           <div className="relative">
             {/* Teal glow behind */}
             <div
@@ -201,7 +201,7 @@ export default function Home() {
               {/* Auto-reply from business */}
               <div className="flex justify-end px-5 pt-4">
                 <div className="max-w-[80%] rounded-card-sm rounded-br-[0.4rem] bg-[var(--color-brand)] px-4 py-2.5 text-sm leading-6 text-[var(--color-ink)] shadow-[0_8px_22px_rgba(93,214,203,0.25)]">
-                  Hi — sorry we just missed your call. We&apos;re finishing a job. What&apos;s the issue and we&apos;ll get right back to you?
+                  Hi, sorry we just missed your call. We&apos;re finishing a job. What&apos;s the issue and we&apos;ll get right back to you?
                 </div>
               </div>
               <p className="px-5 pt-1 text-right text-[10px] text-on-dark-faint">
@@ -218,7 +218,7 @@ export default function Home() {
               {/* Business booking reply */}
               <div className="flex justify-end px-5 pt-4 pb-5">
                 <div className="max-w-[80%] rounded-card-sm rounded-br-[0.4rem] bg-[var(--color-brand)] px-4 py-2.5 text-sm leading-6 text-[var(--color-ink)] shadow-[0_8px_22px_rgba(93,214,203,0.25)]">
-                  Yes — 1–3pm window today. What&apos;s the address?
+                  Yes, 1-3pm window today. What&apos;s the address?
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Caption + condensed stats — kept lean */}
+          {/* Caption + condensed stats - kept lean */}
           <p className="mt-5 max-w-[28rem] text-sm leading-7 text-on-dark-muted">
             What your customer experiences when they call after hours. The text goes out before they finish dialing the next number on Google.
           </p>
@@ -275,11 +275,11 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 3: Why Speed Matters — honest data block */}
+      {/* Section 3: Why Speed Matters - honest data block */}
       <Section
         eyebrow="The cost of a missed call"
         title="Every minute you do not respond, the job gets colder."
-        description="Most callers who reach voicemail never leave a message — they just dial the next company on Google. Here is what the research on response speed says happens."
+        description="Most callers who reach voicemail never leave a message. They just dial the next company on Google. Here is what the research on response speed says happens."
         tone="dark"
       >
         {/* Stat pair */}
@@ -387,7 +387,7 @@ export default function Home() {
         <div className="mt-10 flex flex-col items-start gap-5 rounded-card-lg border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.08] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <p className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
             Speed to Lead replies in under{" "}
-            <span className="text-[var(--color-brand)]">60 seconds</span> — automatically.
+            <span className="text-[var(--color-brand)]">60 seconds</span>, automatically.
           </p>
           <Link
             href={CAL_URL}
@@ -423,7 +423,7 @@ export default function Home() {
             </a>
             <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
             <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Call and let it go to voicemail. You will receive a text within seconds — that is the system working.
+              Call and let it go to voicemail. You will receive a text within seconds. That is the system working.
             </p>
             <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
             <div className="mt-6 grid gap-3 text-left">
@@ -520,7 +520,7 @@ export default function Home() {
         </div>
 
         <p className="mt-8 text-center text-sm leading-7 text-[var(--color-muted)]">
-          Most systems go live in under 48 hours — $150 setup, then simple month-to-month pricing.{" "}
+          Most systems go live in under 48 hours: $150 setup, then simple month-to-month pricing.{" "}
           <Link
             href="/pricing"
             className="font-medium text-[var(--color-brand-strong)] hover:underline"
@@ -625,11 +625,11 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 8: Industries — editorial table archetype */}
+      {/* Section 8: Industries - editorial table archetype */}
       <Section
         eyebrow="Industries served"
         title="Built for the way service businesses actually run."
-        description="If your day is mostly hands-on work, your phone is your business — and your inbox is where it leaks. Here is what we automate first for each trade."
+        description="If your day is mostly hands-on work, your phone is your business, and your inbox is where it leaks. Here is what we automate first for each trade."
       >
         <p className="mb-6 text-sm leading-7 text-[var(--color-muted)]">
           Currently serving businesses across Ajax, Whitby, Oshawa, Pickering, and the surrounding GTA.

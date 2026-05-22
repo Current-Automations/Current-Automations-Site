@@ -34,7 +34,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the Retell subscription for Elite?",
     answer:
-      "Elite includes T04 and T05 — AI voice automations powered by Retell AI. Retell requires its own subscription (separate from your Current Automations plan) to handle AI call minutes.",
+      "Elite includes T04 and T05, AI voice automations powered by Retell AI. Retell requires its own subscription (separate from your Current Automations plan) to handle AI call minutes.",
   },
   {
     question: "Can the pricing change after I sign up?",
@@ -163,7 +163,7 @@ const scenarioGroups: ScenarioGroup[] = [
   },
   {
     label: "Premium AI Voice",
-    description: "Retell AI — requires separate Retell subscription",
+    description: "Retell AI, requires separate Retell subscription",
     scenarios: [
       { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE", requiresRetell: true },
       { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4", requiresRetell: true },
@@ -203,7 +203,7 @@ export default function PricingPage() {
             <span className="h-2 w-2 rounded-full bg-[var(--color-brand)]" />
             <span className="text-sm text-white/80">
               One-time setup fee:{" "}
-              <strong className="text-white">$150 CAD</strong> — full build,
+              <strong className="text-white">$150 CAD</strong>: full build,
               configuration, and onboarding included
             </span>
           </div>

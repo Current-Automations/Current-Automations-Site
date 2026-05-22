@@ -26,21 +26,21 @@ This file is gitignored. The key must be present or the API route will throw at 
 
 | File | Action | Responsibility |
 |------|--------|----------------|
-| `app/api/checkout/route.ts` | Create | POST handler — validates input, creates Stripe Checkout session |
-| `components/BuyNowButton.tsx` | Create | Client Component — single-price checkout button with loading/error state |
-| `components/CartSelector.tsx` | Create | Client Component — multi-select cart, running total, batch checkout |
+| `app/api/checkout/route.ts` | Create | POST handler: validates input, creates Stripe Checkout session |
+| `components/BuyNowButton.tsx` | Create | Client Component: single-price checkout button with loading/error state |
+| `components/CartSelector.tsx` | Create | Client Component: multi-select cart, running total, batch checkout |
 | `app/success/page.tsx` | Create | Static purchase confirmation page |
 | `app/pricing/page.tsx` | Modify | Wire in BuyNowButton + CartSelector, keep all existing layout |
 
 ---
 
-## Lint command (PowerShell — use after every task)
+## Lint command (PowerShell, use after every task)
 
 ```powershell
 $env:PATH = "C:\Program Files\nodejs;" + $env:PATH; & "C:\Program Files\nodejs\node.exe" "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" run lint
 ```
 
-**Expected:** Exit 0 with exactly 8 pre-existing errors — 2 from `app/privacy/page.tsx` and 6 from `app/terms/page.tsx`. Zero errors from any file touched in this plan.
+**Expected:** Exit 0 with exactly 8 pre-existing errors: 2 from `app/privacy/page.tsx` and 6 from `app/terms/page.tsx`. Zero errors from any file touched in this plan.
 
 ---
 
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     };
 
     if (hasSetupFee) {
-      // TODO: Future enhancement — look up customer by email in Stripe before creating the
+      // TODO: Future enhancement - look up customer by email in Stripe before creating the
       // session; if they have an existing subscription, omit the setup fee to avoid
       // double-charging returning clients.
       sessionParams.subscription_data = {
@@ -162,7 +162,7 @@ export default function BuyNowButton({ priceId, label = "Get Started" }: Props) 
       window.location.href = data.url;
     } catch {
       setError(
-        "Something went wrong — please try again or book a call instead."
+        "Something went wrong. Please try again or book a call instead."
       );
       setLoading(false);
     }
@@ -264,7 +264,7 @@ export default function CartSelector({ scenarios }: Props) {
       window.location.href = data.url;
     } catch {
       setError(
-        "Something went wrong — please try again or book a call instead."
+        "Something went wrong. Please try again or book a call instead."
       );
       setLoading(false);
     }
@@ -418,7 +418,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the Retell subscription for Elite?",
     answer:
-      "Elite includes T04 and T05 — AI voice automations powered by Retell AI. Retell requires its own subscription (separate from your Current Automations plan) to handle AI call minutes.",
+      "Elite includes T04 and T05, AI voice automations powered by Retell AI. Retell requires its own subscription (separate from your Current Automations plan) to handle AI call minutes.",
   },
   {
     question: "Can the pricing change after I sign up?",
@@ -547,7 +547,7 @@ const scenarioGroups: ScenarioGroup[] = [
   },
   {
     label: "Premium AI Voice",
-    description: "Retell AI — requires separate Retell subscription",
+    description: "Retell AI, requires separate Retell subscription",
     scenarios: [
       { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE", requiresRetell: true },
       { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4", requiresRetell: true },
@@ -587,7 +587,7 @@ export default function PricingPage() {
             <span className="h-2 w-2 rounded-full bg-[var(--color-brand)]" />
             <span className="text-sm text-white/80">
               One-time setup fee:{" "}
-              <strong className="text-white">$150 CAD</strong> — full build,
+              <strong className="text-white">$150 CAD</strong>: full build,
               configuration, and onboarding included
             </span>
           </div>
@@ -788,7 +788,7 @@ export default function SuccessPage() {
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg">
           Your subscription is active. Expect an onboarding email from us within
-          24 hours — we will walk you through everything.
+          24 hours. We will walk you through everything.
         </p>
         <Link href="/" className="btn-primary mt-8 inline-flex">
           Back to home
@@ -824,7 +824,7 @@ git commit -m "feat: add /success confirmation page"
 $env:PATH = "C:\Program Files\nodejs;" + $env:PATH; & "C:\Program Files\nodejs\node.exe" "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" run build
 ```
 
-Expected: Build completes with no TypeScript errors. You may see Next.js route output — that is fine. Any type errors must be fixed before proceeding.
+Expected: Build completes with no TypeScript errors. You may see Next.js route output, that is fine. Any type errors must be fixed before proceeding.
 
 - [ ] **Step 2: Verify routes exist in build output**
 
@@ -848,7 +848,7 @@ Run `npm run dev` and verify in a browser:
 
 1. `/pricing` loads without JS errors in the console
 2. Each tier card shows a "Get Started" button and a "Book a Call Instead" link below it
-3. Clicking "Get Started" on any tier shows "Redirecting..." briefly (will 500 without a live Stripe key — that is expected in dev if using test key)
+3. Clicking "Get Started" on any tier shows "Redirecting..." briefly (will 500 without a live Stripe key, that is expected in dev if using test key)
 4. The a la carte section shows all 12 scenarios as checkboxes
 5. Checking scenarios updates the running monthly total
 6. The Checkout button is disabled when nothing is selected

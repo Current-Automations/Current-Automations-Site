@@ -53,7 +53,7 @@ export default function CartSelector({ scenarios }: Props) {
       window.location.href = data.url;
     } catch {
       setError(
-        "Something went wrong — please try again or book a call instead."
+        "Something went wrong. Please try again or book a call instead."
       );
       setLoading(false);
     }

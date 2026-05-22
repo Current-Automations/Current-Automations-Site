@@ -9,14 +9,14 @@ const GC_BOOKING =
 export const metadata: Metadata = {
   title: "See It In Action | Current Automations",
   description:
-    "Three demos. Under three minutes. Watch how Current Automations captures missed calls, covers every lead channel, and keeps deals alive — automatically.",
+    "Three demos. Under three minutes. Watch how Current Automations captures missed calls, covers every lead channel, and keeps deals alive, automatically.",
 };
 
 const steps = [
   {
     step: "Call the number",
     description:
-      "Dial +1 365 601 7474 from any phone. Let it ring and go to voicemail — do not leave a message.",
+      "Dial +1 365 601 7474 from any phone. Let it ring and go to voicemail. Do not leave a message.",
   },
   {
     step: "Wait 60 seconds",
@@ -26,7 +26,7 @@ const steps = [
   {
     step: "Reply to the text",
     description:
-      "The system will ask a few qualifying questions — name, address, what you need. This is the lead capture flow your customers will go through.",
+      "The system will ask a few qualifying questions: name, address, what you need. This is the lead capture flow your customers will go through.",
   },
   {
     step: "That is the full experience",

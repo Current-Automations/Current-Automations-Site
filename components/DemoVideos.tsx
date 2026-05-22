@@ -9,7 +9,7 @@ const featured = {
   src: "/demos/video1.html",
   title: "The Full Overview",
   description:
-    "A missed call becomes a booked job in under 60 seconds — watch the complete speed-to-lead sequence.",
+    "A missed call becomes a booked job in under 60 seconds. Watch the complete speed-to-lead sequence.",
 };
 
 const secondary = [
@@ -17,7 +17,7 @@ const secondary = [
     src: "/demos/video2.html",
     title: "Capture Everywhere",
     description:
-      "Four lead channels, one system — missed calls, web forms, Google Business, and inbound AI calls all handled automatically.",
+      "Four lead channels, one system: missed calls, web forms, Google Business, and inbound AI calls all handled automatically.",
   },
   {
     src: "/demos/video3.html",

@@ -25,7 +25,7 @@ export default function BuyNowButton({ priceId, label = "Get Started" }: Props) 
       window.location.href = data.url;
     } catch {
       setError(
-        "Something went wrong — please try again or book a call instead."
+        "Something went wrong. Please try again or book a call instead."
       );
       setLoading(false);
     }

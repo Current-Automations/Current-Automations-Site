@@ -98,7 +98,7 @@ export default function AboutPage() {
               Every engagement starts with a free audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Then we build it, configure it, and maintain it — so you never have to think about the technology. You just see the results.
+              Then we build it, configure it, and maintain it so you never have to think about the technology. You just see the results.
             </p>
           </article>
 
@@ -109,7 +109,7 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4">
               {[
                 "A free audit to find your highest-impact opportunity",
-                "Full build and configuration — no technical work on your end",
+                "Full build and configuration, no technical work on your end",
                 "Ongoing maintenance so the system keeps running reliably",
               ].map((item) => (
                 <div
@@ -160,7 +160,7 @@ export default function AboutPage() {
               I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
             </p>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
-              My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards&#8202;&#8212;&#8202;just lean systems that pay for themselves in saved time and recovered jobs.
+              My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards, just lean systems that pay for themselves in saved time and recovered jobs.
             </p>
           </article>
         </div>

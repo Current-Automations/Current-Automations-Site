@@ -20,7 +20,7 @@ export default function SuccessPage() {
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg">
           Your subscription is active. Expect an onboarding email from us within
-          24 hours — we will walk you through everything.
+          24 hours. We will walk you through everything.
         </p>
         <Link href="/" className="btn-primary mt-8 inline-flex">
           Back to home

@@ -1,6 +1,6 @@
 # Current Automations Site
 
-Marketing website for [currentautomations.ca](https://currentautomations.ca) — Speed to Lead automation for trades and service businesses.
+Marketing website for [currentautomations.ca](https://currentautomations.ca), Speed to Lead automation for trades and service businesses.
 
 ## Tech Stack
 
@@ -8,14 +8,14 @@ Marketing website for [currentautomations.ca](https://currentautomations.ca) —
 - **Language**: TypeScript
 - **UI**: React 19
 - **Styling**: Tailwind CSS v4
-- **Fonts**: Google Fonts — Manrope + Fraunces
+- **Fonts**: Google Fonts: Manrope + Fraunces
 - **Deployment**: Vercel
 
 ## Pages
 
 | Route | Description |
 |---|---|
-| `/` | Homepage — hero, how it works, why us, FAQ |
+| `/` | Homepage - hero, how it works, why us, FAQ |
 | `/about` | Founder background and company story |
 | `/how-it-works` | Step-by-step walkthrough of the automation workflow |
 | `/demo` | Live demo line and video |
@@ -26,7 +26,7 @@ Marketing website for [currentautomations.ca](https://currentautomations.ca) —
 
 ## Demo Line
 
-**+1 365 601 7474** — Call and let it go to voicemail. You will receive a text within 60 seconds demonstrating the missed-call automation.
+**+1 365 601 7474** - Call and let it go to voicemail. You will receive a text within 60 seconds demonstrating the missed-call automation.
 
 ## Development
 
@@ -37,7 +37,7 @@ npm install
 npm run dev
 ```
 
-On **Windows / PowerShell** (`npm` may be blocked by execution policy — use node directly):
+On **Windows / PowerShell** (`npm` may be blocked by execution policy, use node directly):
 
 ```powershell
 & "C:\Program Files\nodejs\node.exe" "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" run dev
@@ -55,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000).
 & "C:\Program Files\nodejs\node.exe" "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" run lint
 ```
 
-> `app/privacy/page.tsx` and `app/terms/page.tsx` have pre-existing unescaped-apostrophe lint errors — not regressions.
+> `app/privacy/page.tsx` and `app/terms/page.tsx` have pre-existing unescaped-apostrophe lint errors, not regressions.
 
 ## Contact
 
