@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Current Automations — Product Overview Package</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+  :root {
+    --deep:#04091a; --base:#06101f; --navy:#0b1828; --navy2:#11293f;
+    --card:#0f1f33; --cardHi:#142a44;
+    --ink:#fff; --ink80:#cfe1f0; --ink50:#7f95ad;
+    --crest:#8cf0e0; --teal:#5dd6cb; --tealMid:#3bb6c7; --blue:#2e8fd6; --blueDk:#1652a8;
+    --wave:linear-gradient(90deg, #8cf0e0 0%, #3bb6c7 38%, #2e8fd6 75%, #1652a8 100%);
+    --rule:rgba(140,240,224,0.20); --ruleSoft:rgba(140,240,224,0.08); --ruleDim:rgba(255,255,255,0.06);
+    --fontUi:'Inter',system-ui,sans-serif;
+    --fontDisplay:'Space Grotesk',system-ui,sans-serif;
+    --fontMono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; min-height:100%; }
+  body {
+    background:
+      radial-gradient(120% 80% at 10% 0%, var(--navy2) 0%, var(--base) 65%) fixed,
+      var(--deep);
+    color: var(--ink80);
+    font-family: var(--fontUi);
+    -webkit-font-smoothing: antialiased;
+    overflow-x:hidden;
+  }
+  .grid-bg {
+    position: fixed; inset: 0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(140,240,224,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(140,240,224,0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(85% 70% at 50% 40%, #000 0%, transparent 90%);
+  }
+  .stripes-bg {
+    position: fixed; right: -80px; top: 50%; z-index:0; pointer-events:none;
+    width: 62%; height: 220%;
+    transform: translateY(-50%) rotate(-12deg);
+    background:
+      repeating-linear-gradient(90deg,
+        transparent 0 24px,
+        rgba(59,182,199,0.06) 24px 25px,
+        transparent 25px 64px,
+        rgba(46,143,214,0.08) 64px 65px);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
+  }
+
+  .page {
+    position: relative; z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 88px 56px 96px;
+  }
+  header.mast {
+    display:flex; align-items:center; gap:18px;
+    padding-bottom:30px; border-bottom: 1px solid var(--ruleSoft);
+    margin-bottom: 56px;
+  }
+  header.mast img { width:60px; height:60px; }
+  header.mast .wordmark {
+    font-family: var(--fontDisplay);
+    font-weight:600; font-size:30px; color:var(--ink);
+    letter-spacing:-0.02em; line-height:0.95;
+  }
+  header.mast .wordmark span { color: var(--teal); font-weight:500; }
+  header.mast .eyebrow {
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink50); letter-spacing:0.22em;
+    text-transform:uppercase; margin-bottom:6px;
+  }
+
+  .hero h1 {
+    font-family: var(--fontDisplay);
+    font-weight: 500; font-size: 80px;
+    letter-spacing: -0.025em; line-height: 1.02;
+    color: var(--ink); margin: 0 0 24px;
+    max-width: 980px;
+  }
+  .hero h1 .stress {
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .hero p.lede {
+    font-size: 20px; color: var(--ink80);
+    line-height: 1.55; max-width: 720px;
+    margin: 0 0 56px;
+  }
+
+  .meta-strip {
+    display:flex; gap:32px; flex-wrap:wrap;
+    padding: 18px 0;
+    border-top: 1px solid var(--ruleDim);
+    border-bottom: 1px solid var(--ruleDim);
+    margin-bottom: 56px;
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink50); letter-spacing: 0.14em; text-transform:uppercase;
+  }
+  .meta-strip b { color: var(--ink); font-weight:500; }
+  .meta-strip .dot { color: var(--crest); }
+
+  .deliverables {
+    display:grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .deliv {
+    position:relative;
+    background:
+      linear-gradient(180deg, var(--cardHi) 0%, var(--card) 100%);
+    border: 1px solid rgba(140,240,224,0.10);
+    border-radius: 20px;
+    padding: 32px 32px 28px;
+    text-decoration: none; color:inherit;
+    display: flex; flex-direction: column;
+    min-height: 360px;
+    transition: all 200ms;
+    overflow: hidden;
+  }
+  .deliv:hover {
+    border-color: rgba(140,240,224,0.30);
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(140,240,224,0.18);
+  }
+  .deliv .num {
+    font-family: var(--fontMono); font-size:11px;
+    letter-spacing:0.24em; text-transform:uppercase;
+    color: var(--crest); margin-bottom: 14px;
+  }
+  .deliv h3 {
+    font-family: var(--fontDisplay);
+    font-weight: 600; font-size: 32px;
+    color: var(--ink); letter-spacing:-0.015em;
+    margin: 0 0 10px; line-height:1.1;
+  }
+  .deliv p {
+    color: var(--ink80); font-size: 15px;
+    line-height: 1.55; margin: 0 0 22px;
+    flex: 1;
+  }
+  .deliv .preview {
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    border: 1px solid var(--ruleDim);
+    overflow: hidden;
+    position: relative;
+  }
+  .preview-video {
+    background:
+      radial-gradient(50% 60% at 50% 60%, rgba(93,214,203,0.18), transparent 70%),
+      linear-gradient(180deg, var(--navy2) 0%, var(--base) 100%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .preview-video .play {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--wave);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 12px 30px rgba(46,143,214,0.4);
+  }
+  .preview-video .play svg { transform: translateX(2px); }
+  .preview-video .pill {
+    position:absolute; left:12px; bottom:12px;
+    font-family: var(--fontMono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform:uppercase;
+    color: var(--crest);
+    padding: 4px 8px; border-radius: 4px;
+    background: rgba(4,9,26,0.7); backdrop-filter: blur(4px);
+  }
+  .preview-doc {
+    background: var(--navy);
+    padding: 20px 22px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .preview-doc .doc-line {
+    height: 5px; border-radius: 3px;
+    background: rgba(255,255,255,0.05);
+  }
+  .preview-doc .doc-line.head {
+    height: 12px; width: 65%;
+    background: rgba(140,240,224,0.25);
+    margin-bottom: 8px;
+  }
+  .preview-doc .doc-line.sub { width: 90%; }
+  .preview-doc .doc-line.short { width: 50%; }
+  .preview-doc .doc-line.accent { background: rgba(93,214,203,0.35); width: 35%; }
+  .preview-doc .doc-row {
+    display:flex; gap:8px; margin-top: 6px;
+  }
+  .preview-doc .doc-row .doc-line { flex:1; }
+
+  .deliv .cta {
+    display:flex; align-items:center; gap:10px;
+    color: var(--crest);
+    font-family: var(--fontUi); font-weight:600; font-size: 15px;
+    letter-spacing:0.04em;
+  }
+  .deliv .cta svg { transition: transform 200ms; }
+  .deliv:hover .cta svg { transform: translateX(3px); }
+
+  /* Quick facts */
+  .facts {
+    margin-top: 56px;
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    padding-top: 36px;
+    border-top: 1px solid var(--ruleDim);
+  }
+  .fact {
+    padding: 4px 0;
+  }
+  .fact .label {
+    font-family: var(--fontMono); font-size: 10px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink50); margin-bottom: 8px;
+  }
+  .fact .val {
+    font-family: var(--fontDisplay); font-weight: 500;
+    font-size: 30px; color: var(--ink); letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .fact .val.accent {
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .fact .sub {
+    margin-top: 8px;
+    font-family: var(--fontUi); font-size:13px;
+    color: var(--ink50);
+  }
+
+  footer {
+    margin-top: 88px;
+    padding-top: 28px;
+    border-top: 1px solid var(--ruleDim);
+    display:flex; justify-content:space-between; align-items:center;
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink50); letter-spacing:0.18em; text-transform:uppercase;
+  }
+  footer a { color: var(--crest); text-decoration: none; }
+
+  /* Cut-down cards */
+  .cut-card {
+    display:block; text-decoration:none; color:inherit;
+    padding: 22px 24px 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(140,240,224,0.10);
+    background: linear-gradient(180deg, rgba(20,42,68,0.65) 0%, rgba(15,31,51,0.55) 100%);
+    transition: all 180ms;
+    position: relative;
+    overflow: hidden;
+  }
+  .cut-card:hover {
+    border-color: rgba(140,240,224,0.32);
+    background: linear-gradient(180deg, rgba(20,42,68,0.85) 0%, rgba(15,31,51,0.75) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(140,240,224,0.16);
+  }
+  .cut-rt {
+    font-family: var(--fontDisplay);
+    font-weight: 500; font-size: 38px;
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em; line-height: 1;
+    margin-bottom: 12px;
+  }
+  .cut-name {
+    font-family: var(--fontDisplay);
+    font-weight: 600; font-size: 20px;
+    color: var(--ink); letter-spacing: -0.01em;
+    margin-bottom: 8px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .cut-noVO {
+    font-family: var(--fontMono); font-size:9.5px;
+    color: var(--crest); letter-spacing:0.22em;
+    padding: 3px 7px; border-radius: 4px;
+    background: rgba(140,240,224,0.10);
+    border: 1px solid rgba(140,240,224,0.22);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cut-desc {
+    font-size: 13.5px; color: var(--ink80);
+    line-height: 1.55; margin-bottom: 18px;
+    min-height: 60px;
+  }
+  .cut-cta {
+    font-family: var(--fontMono); font-size: 11px;
+    color: var(--crest); letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 500;
+    padding-top: 14px; border-top: 1px solid var(--ruleDim);
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="stripes-bg"></div>
+
+<div class="page">
+  <header class="mast">
+    <img src="assets/icon.png" alt=""/>
+    <div>
+      <div class="eyebrow">Current Automations · AI Operations</div>
+      <div class="wordmark">Current <span>Automations</span></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Product overview, <span class="stress">delivered.</span></h1>
+    <p class="lede">An ~87-second product film for Canadian trades owners. Two artefacts in this package: the animated reference you can play and scrub through, and the full storyboard + script document for production handoff.</p>
+  </section>
+
+  <div class="meta-strip">
+    <span><span class="dot">●</span> &nbsp;Runtime <b>~87s</b></span>
+    <span>4 scenarios</span>
+    <span>1 system view</span>
+    <span>1 CTA card</span>
+    <span><b>1920 × 1080</b></span>
+    <span>VO ~140 wpm</span>
+    <span>+ <b>3 cut-down variants</b></span>
+  </div>
+
+  <div class="deliverables">
+    <a class="deliv" href="standalone/Storyboard Video (87s master).html">
+      <div class="num">01 · Animated reference</div>
+      <div class="preview preview-video">
+        <span class="pill">▶ Storyboard video</span>
+        <div class="play">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#04091a">
+            <path d="M5 3v14l12-7L5 3z"/>
+          </svg>
+        </div>
+      </div>
+      <h3>Storyboard Video</h3>
+      <p>Plays the full 87s film in browser. Scrub the timeline, jump between scenes, see every UI moment in motion. Built scene-by-scene from the brand canvas — palette, fonts, wave gradient, logo.</p>
+      <div class="cta">
+        Play the film
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    </a>
+
+    <a class="deliv" href="Storyboard %26 Script.html">
+      <div class="num">02 · Production document</div>
+      <div class="preview preview-doc">
+        <div class="doc-line head"></div>
+        <div class="doc-line sub"></div>
+        <div class="doc-line short"></div>
+        <div class="doc-line accent" style="margin-top:10px;"></div>
+        <div class="doc-row"><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div></div>
+        <div class="doc-row"><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div></div>
+        <div class="doc-row"><div class="doc-line"></div><div class="doc-line"></div><div class="doc-line"></div></div>
+      </div>
+      <h3>Storyboard &amp; Script</h3>
+      <p>The full handoff document: scene-by-scene board with timecodes, on-screen text, voiceover lines, the three-beat callout per scenario, the complete VO script, and production notes (audio, motion, cut-down variants).</p>
+      <div class="cta">
+        Open the document
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  <div class="facts">
+    <div class="fact">
+      <div class="label">Cold open</div>
+      <div class="val accent">21<span style="font-size:18px; font-weight:400;">×</span></div>
+      <div class="sub">Stat reveal on 5-min response speed</div>
+    </div>
+    <div class="fact">
+      <div class="label">Scenarios</div>
+      <div class="val">4</div>
+      <div class="sub">T05 · T01+T02 · T07+T03 · T10+T09</div>
+    </div>
+    <div class="fact">
+      <div class="label">Three-beat rhythm</div>
+      <div class="val">P→A→W</div>
+      <div class="sub">Problem · Automation · Win</div>
+    </div>
+    <div class="fact">
+      <div class="label">CTA</div>
+      <div class="val">Free 30m</div>
+      <div class="sub">No pitch, no obligation</div>
+    </div>
+  </div>
+
+  <!-- Cut-down variants -->
+  <section style="margin-top:80px; padding-top:36px; border-top:1px solid var(--ruleDim);">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:24px;">
+      <div>
+        <div style="font-family:var(--fontMono); font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--crest); margin-bottom:8px;">03 · Cut-down variants</div>
+        <h2 style="font-family:var(--fontDisplay); font-weight:500; font-size:42px; color:var(--ink); letter-spacing:-0.02em; margin:0 0 6px;">Same film, three shorter cuts.</h2>
+        <div style="font-size:15px; color:var(--ink80); max-width:680px; line-height:1.55;">Each cut plays standalone in the browser. Built from the same scene system as the master — same brand, same beats, different runtime.</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;">
+      <a class="cut-card" href="standalone/Storyboard Video - 60s Social.html">
+        <div class="cut-rt">0:60</div>
+        <div class="cut-name">60s · Social cut</div>
+        <div class="cut-desc">Drops scenario 3, compressed cold open, trimmed dashboard. Designed for paid social.</div>
+        <div class="cut-cta">▶ &nbsp;Play 60s</div>
+      </a>
+      <a class="cut-card" href="standalone/Storyboard Video - 30s Pre-roll.html">
+        <div class="cut-rt">0:30</div>
+        <div class="cut-name">30s · Pre-roll</div>
+        <div class="cut-desc">Hard open on the 21× stat. Scenario 2 only (missed-call text-back). Straight to CTA.</div>
+        <div class="cut-cta">▶ &nbsp;Play 30s</div>
+      </a>
+      <a class="cut-card" href="standalone/Storyboard Video - 15s Bumper.html">
+        <div class="cut-rt">0:15</div>
+        <div class="cut-name">15s · Bumper <span class="cut-noVO">no&nbsp;VO</span></div>
+        <div class="cut-desc">Stat → S2 win chip → CTA. On-screen text + sound design only. Drop into bumper slots.</div>
+        <div class="cut-cta">▶ &nbsp;Play 15s</div>
+      </a>
+    </div>
+    <p style="margin-top:22px; font-family:var(--fontMono); font-size:11px; color:var(--ink50); letter-spacing:0.12em; line-height:1.7;">
+      All four videos are also available as <b style="color:var(--crest); letter-spacing:0.14em;">self-contained single-file HTMLs in <code style="background:rgba(140,240,224,0.08); padding:2px 6px; border-radius:4px;">standalone/</code></b> — open by double-clicking, no server needed. Screen-record those to produce MP4 deliverables. See <b style="color:var(--ink);">README.md</b> for the full recording workflow.
+    </p>
+  </section>
+
+  <footer>
+    <div><a href="mailto:admin@currentautomations.ca" style="color:inherit; text-decoration:none;">admin@currentautomations.ca</a> · <a href="tel:+14165097474" style="color:inherit; text-decoration:none;">416 · 509 · 7474</a></div>
+    <a href="Storyboard Video.html">▶ &nbsp;Play storyboard</a>
+  </footer>
+</div>
+</body>
+</html>

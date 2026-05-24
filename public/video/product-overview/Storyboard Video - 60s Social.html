@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Current Automations — 60s Social Cut</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#04091a; font-family:'Inter', system-ui, sans-serif; color:#fff; overflow:hidden; }
+  #root { position:absolute; inset:0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+      <linearGradient id="tg" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#8cf0e0"/>
+        <stop offset="0.5" stop-color="#3bb6c7"/>
+        <stop offset="1" stop-color="#1652a8"/>
+      </linearGradient>
+    </defs>
+    <rect width="400" height="400" fill="#04091a"/>
+    <circle cx="200" cy="200" r="80" fill="url(#tg)"/>
+    <path d="M180 168 L180 232 L236 200 Z" fill="#04091a"/>
+    <text x="200" y="320" text-anchor="middle" fill="#8cf0e0" font-family="ui-monospace, monospace" font-size="22" letter-spacing="3">60s</text>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="animations.jsx"></script>
+<script type="text/babel" src="scenes/chrome.jsx"></script>
+<script type="text/babel" src="scenes/timemap.jsx"></script>
+<script type="text/babel" src="scenes/cold-open.jsx"></script>
+<script type="text/babel" src="scenes/scenario1.jsx"></script>
+<script type="text/babel" src="scenes/scenario2.jsx"></script>
+<script type="text/babel" src="scenes/scenario4.jsx"></script>
+<script type="text/babel" src="scenes/dashboard.jsx"></script>
+<script type="text/babel" src="scenes/cta.jsx"></script>
+
+<script type="text/babel">
+  const CUT_DURATION = 60.0;
+
+  // Outer (cut) → inner (master timeline) segments.
+  // Drops S3, shortens cold open to ~6s, dashboard trimmed to 8s.
+  const SEGMENTS = [
+    { from: 0.0,  to: 1.6,  innerFrom: 4.5,  innerTo: 6.8  }, // truck dash + missed-call beat
+    { from: 1.6,  to: 3.6,  innerFrom: 6.85, innerTo: 9.4  }, // stakes headline
+    { from: 3.6,  to: 6.0,  innerFrom: 9.4,  innerTo: 11.4 }, // 21× stat reveal
+    { from: 6.0,  to: 19.0, innerFrom: 11.4, innerTo: 25.4 }, // S1 after-hours AI
+    { from: 19.0, to: 32.0, innerFrom: 25.4, innerTo: 38.4 }, // S2 missed-call text-back
+    { from: 32.0, to: 45.0, innerFrom: 52.4, innerTo: 65.4 }, // S4 review + recovery (S3 dropped)
+    { from: 45.0, to: 53.0, innerFrom: 65.4, innerTo: 73.4 }, // dashboard, trimmed
+    { from: 53.0, to: 60.0, innerFrom: 80.0, innerTo: 87.0 }, // CTA
+  ];
+
+  // Outer markers (matching the cut's own segment starts)
+  const MARKERS = [
+    { t: 0,    label: 'Cold open' },
+    { t: 6,    label: 'S1 · After hours' },
+    { t: 19,   label: 'S2 · Missed call' },
+    { t: 32,   label: 'S4 · Reviews' },
+    { t: 45,   label: 'System view' },
+    { t: 53,   label: 'CTA' },
+  ];
+
+  function Movie() {
+    // Render every scene; TimeMap routes the playhead so only the
+    // chosen inner-time windows actually activate.
+    return (
+      <>
+        <TitleCard/>
+        <TruckDashScene/>
+        <StakesCard/>
+        <Scenario1/>
+        <Scenario2/>
+        <Scenario4/>
+        <DashboardScene/>
+        <CTAScene/>
+      </>
+    );
+  }
+
+  function CutMovie() {
+    return (
+      <>
+        <CutProgressBar duration={CUT_DURATION} markers={MARKERS} label="Current Automations · 60s social"/>
+        <TimeMap segments={SEGMENTS} masterDuration={87}>
+          <Movie/>
+        </TimeMap>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+      <Stage width={1920} height={1080} duration={CUT_DURATION} background="#04091a" loop={true} persistKey="ca-overview-60s">
+        <CutMovie/>
+      </Stage>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

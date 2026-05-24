@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Current Automations — Product Overview · Storyboard & Script</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+  :root {
+    --deep:#04091a;
+    --base:#06101f;
+    --navy:#0b1828;
+    --navy2:#11293f;
+    --card:#0f1f33;
+    --cardHi:#142a44;
+    --ink:#ffffff;
+    --ink80:#cfe1f0;
+    --ink50:#7f95ad;
+    --crest:#8cf0e0;
+    --teal:#5dd6cb;
+    --tealMid:#3bb6c7;
+    --blue:#2e8fd6;
+    --blueDk:#1652a8;
+    --rule:rgba(140,240,224,0.20);
+    --ruleSoft:rgba(140,240,224,0.08);
+    --ruleDim:rgba(255,255,255,0.06);
+    --wave:linear-gradient(90deg, #8cf0e0 0%, #3bb6c7 38%, #2e8fd6 75%, #1652a8 100%);
+    --fontUi:'Inter', system-ui, sans-serif;
+    --fontDisplay:'Space Grotesk', system-ui, sans-serif;
+    --fontMono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background:
+      radial-gradient(120% 80% at 10% 0%, var(--navy2) 0%, var(--base) 65%) fixed,
+      var(--deep);
+    color: var(--ink80);
+    font-family: var(--fontUi);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 64px 56px 100px;
+  }
+
+  /* ── Top mast ── */
+  .mast {
+    display:flex; align-items:flex-end; justify-content:space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--ruleSoft);
+    margin-bottom: 56px;
+  }
+  .mast .left { display:flex; align-items:center; gap:18px; }
+  .mast .logo { width:60px; height:60px; }
+  .mast .wordmark {
+    font-family: var(--fontDisplay);
+    font-weight:600; font-size:32px; color: var(--ink);
+    letter-spacing:-0.02em; line-height:0.95;
+  }
+  .mast .wordmark span { color: var(--teal); font-weight:500; }
+  .mast .eyebrow {
+    font-family: var(--fontMono); font-size: 12px;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color: var(--ink50);
+  }
+  .mast .meta {
+    text-align:right;
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink50); letter-spacing:0.14em; text-transform:uppercase;
+    line-height:1.8;
+  }
+  .mast .meta b { color: var(--ink); font-weight:500; }
+
+  /* ── Section headers ── */
+  h1.deck-title {
+    font-family: var(--fontDisplay);
+    font-weight: 500; letter-spacing: -0.025em; line-height:1.05;
+    font-size: 64px; color: var(--ink);
+    margin: 0 0 14px;
+  }
+  h1.deck-title .accent {
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .deck-sub {
+    font-family: var(--fontUi); font-size:18px;
+    max-width:780px; color: var(--ink80); line-height:1.6;
+    margin: 0 0 56px;
+  }
+
+  h2.sec-title {
+    font-family: var(--fontDisplay);
+    font-weight: 600; letter-spacing: -0.015em;
+    font-size: 32px; color: var(--ink);
+    margin: 72px 0 8px;
+    display:flex; align-items:baseline; gap:18px;
+  }
+  h2.sec-title .num {
+    font-family: var(--fontMono); font-size:14px;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color: var(--crest); font-weight:500;
+  }
+  .sec-sub {
+    color: var(--ink50); font-size:14px;
+    letter-spacing:0.04em; margin: 0 0 28px;
+    max-width:780px;
+  }
+
+  /* ── Storyboard table ── */
+  .board {
+    border: 1px solid var(--ruleSoft);
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(15,31,51,0.6);
+    backdrop-filter: blur(8px);
+  }
+  .board .row {
+    display:grid;
+    grid-template-columns: 110px 80px 1.1fr 1.2fr 1.2fr 1fr;
+    border-top: 1px solid var(--ruleDim);
+  }
+  .board .row:first-child { border-top: none; }
+  .board .row.head {
+    background: var(--navy);
+    border-top: none;
+  }
+  .board .row.head > div {
+    font-family: var(--fontMono); font-size: 10.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink50); font-weight: 500;
+    padding: 14px 16px;
+  }
+  .board .row > div {
+    padding: 18px 16px;
+    font-size: 13.5px; color: var(--ink80);
+    line-height: 1.55;
+  }
+  .board .row .tc {
+    font-family: var(--fontMono); font-size:12px;
+    color: var(--crest); letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .board .row .tc .dur { color: var(--ink50); display:block; margin-top:4px; }
+  .board .row .scene {
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink); letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .board .row .vo {
+    color: var(--ink); font-family: var(--fontDisplay);
+    font-size: 14.5px; line-height: 1.5;
+    font-style: italic;
+    border-left: 2px solid var(--teal);
+    padding-left: 14px;
+  }
+  .board .row .ost {
+    font-family: var(--fontMono); font-size:12px;
+    color: var(--crest); line-height:1.55;
+    letter-spacing:0.02em;
+  }
+  .board .row .ost b {
+    color: var(--ink); font-weight:600; letter-spacing:0;
+  }
+
+  /* Scenario marker pill */
+  .row-marker {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, rgba(140,240,224,0.10) 0%, rgba(46,143,214,0.04) 50%, transparent 100%);
+    padding: 14px 22px !important;
+    display:flex; align-items:center; gap:18px;
+    border-top: 1px solid var(--rule) !important;
+    border-bottom: 1px solid var(--ruleDim);
+  }
+  .row-marker .marker-num {
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--crest); letter-spacing:0.24em;
+    padding: 5px 11px; border-radius:999px;
+    border:1px solid rgba(140,240,224,0.3);
+    background: rgba(140,240,224,0.08);
+  }
+  .row-marker .marker-title {
+    font-family: var(--fontDisplay); font-weight:600;
+    color: var(--ink); font-size:18px; letter-spacing:-0.01em;
+  }
+  .row-marker .marker-tag {
+    font-family: var(--fontUi); color: var(--ink50);
+    font-size:13px;
+  }
+
+  /* ── Three-beat ── */
+  .beats {
+    display:grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .beat {
+    padding: 18px 20px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--ruleSoft);
+    background: rgba(15,31,51,0.7);
+  }
+  .beat .label {
+    font-family: var(--fontMono); font-size:10px;
+    letter-spacing:0.24em; text-transform:uppercase;
+    color: var(--crest); margin-bottom:10px;
+  }
+  .beat.win .label { color: var(--teal); }
+  .beat h4 {
+    font-family: var(--fontDisplay); font-weight:600;
+    font-size:18px; color: var(--ink);
+    margin: 0 0 6px; letter-spacing:-0.005em;
+  }
+  .beat p {
+    font-size:13.5px; color: var(--ink80);
+    margin: 0; line-height:1.5;
+  }
+
+  /* ── VO script ── */
+  .vo-script {
+    background: rgba(11,24,40,0.7);
+    border: 1px solid var(--ruleSoft);
+    border-radius: 18px;
+    padding: 36px 40px;
+  }
+  .vo-line {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--ruleDim);
+  }
+  .vo-line:first-child { border-top: none; }
+  .vo-line .stamp {
+    font-family: var(--fontMono); font-size:12px;
+    color: var(--crest); letter-spacing:0.06em;
+    padding-top: 4px;
+  }
+  .vo-line .text {
+    font-family: var(--fontDisplay); font-size: 19px;
+    color: var(--ink); line-height: 1.45;
+    font-weight:400; letter-spacing:-0.005em;
+  }
+  .vo-line.scene-break {
+    border-top: 1px solid var(--rule);
+    margin-top: 10px;
+    padding-top: 22px;
+  }
+  .vo-line .text em {
+    color: var(--teal);
+    font-style: italic;
+  }
+  .vo-line .text .pause {
+    color: var(--ink50);
+    font-family: var(--fontMono);
+    font-size: 13px;
+    font-style: normal;
+    padding: 0 4px;
+  }
+  .vo-line .text .stress {
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    font-weight: 500;
+  }
+
+  /* ── Style frame strip ── */
+  .frames {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .frame {
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--ruleSoft);
+    background: var(--navy);
+    position: relative;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+  }
+  .frame .label {
+    position: absolute; left: 10px; bottom: 10px;
+    font-family: var(--fontMono); font-size:10px;
+    color: var(--crest); letter-spacing:0.18em;
+    text-transform: uppercase;
+    background: rgba(4,9,26,0.7);
+    padding: 4px 8px; border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .frame .num {
+    position: absolute; right: 10px; top: 10px;
+    font-family: var(--fontMono); font-size:10px;
+    color: rgba(140,240,224,0.55); letter-spacing:0.18em;
+  }
+
+  /* Frame artworks (mini compositions) */
+  .frame-cold {
+    background:
+      radial-gradient(80% 50% at 30% 50%, rgba(255,180,90,0.15), transparent 70%),
+      linear-gradient(180deg, #0a1320 0%, #050810 100%);
+  }
+  .frame-stat {
+    display:flex; align-items:center; justify-content:center;
+    color: transparent;
+    background:
+      radial-gradient(80% 80% at 50% 50%, rgba(93,214,203,0.12), transparent 70%),
+      var(--base);
+  }
+  .frame-stat .num {
+    position: static;
+    font-family: var(--fontDisplay); font-weight:500;
+    font-size: 64px; letter-spacing:-0.04em;
+    background: var(--wave);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .frame-stat .num span { font-size:36px; font-weight:300; }
+  .frame-ai {
+    background:
+      radial-gradient(50% 60% at 30% 60%, rgba(93,214,203,0.18), transparent 70%),
+      var(--card);
+  }
+  .frame-ai::after {
+    content:""; position:absolute; left:30%; top:25%;
+    width:40%; height:50%; border-radius:14px;
+    border:1px solid rgba(140,240,224,0.25);
+    background: linear-gradient(180deg, rgba(140,240,224,0.06), rgba(140,240,224,0.0));
+  }
+  .frame-sms {
+    background: linear-gradient(180deg, #050810, #0a1726);
+    position:relative;
+  }
+  .frame-sms::after {
+    content:""; position:absolute;
+    right:14%; top:18%; width:30%; height:64%;
+    background: #000;
+    border-radius: 14px;
+    box-shadow: 0 0 0 2px #1a1d22, inset 0 0 0 8px #000;
+  }
+  .frame-sms::before {
+    content:""; position:absolute;
+    right:18%; top:32%; width:22%; height:7%;
+    border-radius:8px;
+    background: linear-gradient(180deg, var(--teal), var(--tealMid));
+  }
+  .frame-followup {
+    background: linear-gradient(180deg, #07101e, #0c1c2f);
+  }
+  .frame-followup::after {
+    content:""; position:absolute;
+    left:8%; right:8%; top:48%; height:2px;
+    background: var(--wave);
+    border-radius:1px;
+  }
+  .frame-review {
+    background: var(--navy);
+  }
+  .frame-review::after {
+    content:"★ ★ ★ ★ ★";
+    position:absolute; left:50%; top:42%;
+    transform:translate(-50%, -50%);
+    font-size:28px; color: var(--teal);
+    letter-spacing:0.08em;
+  }
+  .frame-dash {
+    background:
+      linear-gradient(180deg, #11293f, #07111d);
+    position:relative;
+  }
+  .frame-dash::after {
+    content:""; position:absolute;
+    left:10%; right:10%; top:45%; height:2px;
+    background:
+      linear-gradient(90deg, var(--teal) 0 35%, transparent 35% 45%, var(--blue) 45% 70%, transparent 70% 80%, var(--tealMid) 80% 100%);
+  }
+  .frame-cta {
+    background: var(--deep);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .frame-cta::after {
+    content:""; position:absolute;
+    left:30%; right:30%; top:55%; height:14%;
+    border-radius:100px;
+    background: var(--wave);
+    box-shadow: 0 0 30px rgba(46,143,214,0.4);
+  }
+
+  /* ── Brand vocab table ── */
+  .brand-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-top: 12px;
+  }
+  .brand-card {
+    background: rgba(15,31,51,0.7);
+    border: 1px solid var(--ruleSoft);
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+  }
+  .brand-card h3 {
+    font-family: var(--fontMono); font-size: 11px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--crest); margin: 0 0 12px; font-weight:500;
+  }
+  .brand-card .swatches {
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top:8px;
+  }
+  .brand-card .sw {
+    height: 56px; border-radius: 8px;
+    display:flex; align-items:flex-end; padding: 6px 8px;
+    font-family: var(--fontMono); font-size: 9.5px;
+    color: rgba(255,255,255,0.85); letter-spacing: 0.06em;
+  }
+  .brand-card .sw.dark { color: rgba(4,9,26,0.85); }
+  .brand-card .type {
+    font-family: var(--fontDisplay);
+    color: var(--ink); font-weight:500; font-size:40px;
+    letter-spacing:-0.02em; line-height:1; margin-bottom:6px;
+  }
+  .brand-card .type-meta {
+    font-family: var(--fontMono); font-size:11px;
+    color: var(--ink50); letter-spacing:0.06em;
+  }
+  .brand-card .vocab {
+    font-family: var(--fontUi); font-size: 13.5px;
+    color: var(--ink80); line-height:1.6;
+  }
+  .brand-card .vocab .kw {
+    display:inline-block; padding:2px 8px; border-radius:4px;
+    background: rgba(140,240,224,0.10);
+    color: var(--crest);
+    font-family: var(--fontMono); font-size:11px;
+    letter-spacing:0.04em;
+    margin: 0 4px 4px 0;
+  }
+  .brand-card .vocab .neg {
+    background: rgba(220,80,80,0.10); color:#ff9999;
+    text-decoration:line-through;
+  }
+
+  /* footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--ruleDim);
+    display:flex; justify-content:space-between; align-items:flex-end;
+    font-family: var(--fontMono); font-size: 11px;
+    color: var(--ink50); letter-spacing:0.18em; text-transform:uppercase;
+  }
+  footer a { color: var(--crest); text-decoration: none; }
+  footer .play-link {
+    padding: 10px 18px;
+    border-radius:999px;
+    border:1px solid rgba(140,240,224,0.35);
+    background:rgba(140,240,224,0.08);
+    color: var(--crest);
+  }
+
+  /* ── Helpers ── */
+  .toc {
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin: 8px 0 56px;
+  }
+  .toc a {
+    text-decoration:none; color: var(--ink50);
+    font-family: var(--fontMono); font-size:11px;
+    letter-spacing:0.16em; text-transform:uppercase;
+    padding: 7px 14px;
+    border-radius:999px;
+    border:1px solid var(--ruleDim);
+    background: rgba(11,24,40,0.4);
+    transition: all 120ms;
+  }
+  .toc a:hover {
+    color: var(--crest); border-color: rgba(140,240,224,0.3);
+    background: rgba(140,240,224,0.06);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── Mast ── -->
+  <header class="mast">
+    <div class="left">
+      <img src="assets/icon.png" alt="" class="logo"/>
+      <div>
+        <div class="eyebrow">Current Automations · AI Operations</div>
+        <div class="wordmark">Current <span>Automations</span></div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><b>Product Overview · v1.0</b></div>
+      <div>Storyboard, on-screen text, voiceover</div>
+      <div>Target runtime <b style="color:var(--crest)">~87s</b></div>
+    </div>
+  </header>
+
+  <!-- ── Intro ── -->
+  <h1 class="deck-title">Product overview, <span class="accent">one script.</span></h1>
+  <p class="deck-sub">
+    A 75–90 second product film for trades owners. Four real scenarios, one quiet system behind all of them. Tone is plain-spoken, grounded, respectful of their time. The owner stays the hero — the automation is the quiet partner in the background.
+  </p>
+  <p style="font-family:var(--fontMono); font-size:11px; color:var(--crest); letter-spacing:0.18em; text-transform:uppercase; max-width:780px; line-height:1.7; margin:-32px 0 32px; padding:14px 18px; border:1px solid rgba(140,240,224,0.25); border-radius:10px; background:rgba(140,240,224,0.05);">
+    ● Framing note &nbsp;·&nbsp; <span style="color:var(--ink80); letter-spacing:0.02em; text-transform:none; font-family:var(--fontUi); font-size:14px;">
+    This is a <b style="color:var(--ink);">concept demo of what the system does</b>. "Northstar Mechanical" is a fictional sample business used to illustrate the four scenarios — not a real client, not a case study, not delivered results. All language in the film reads as "here is what the system does," never "here is what we delivered."</span>
+  </p>
+
+  <nav class="toc">
+    <a href="#brand">Brand vocab</a>
+    <a href="#frames">Style frames</a>
+    <a href="#storyboard">Scene-by-scene board</a>
+    <a href="#beats">Three-beat per scenario</a>
+    <a href="#vo">Voiceover script</a>
+    <a href="#prod">Production notes</a>
+  </nav>
+
+  <!-- ════════════════════════════ Brand vocab ════════════════════════════ -->
+  <h2 class="sec-title" id="brand"><span class="num">01</span> Brand vocab</h2>
+  <p class="sec-sub">Pulled from the Current Automations brand canvas — not invented. Every scene composes from this vocabulary.</p>
+
+  <div class="brand-grid">
+    <div class="brand-card">
+      <h3>Palette</h3>
+      <div class="swatches">
+        <div class="sw" style="background:#04091a">#04091A · Deep ink</div>
+        <div class="sw" style="background:#0b1828">#0B1828 · Brand navy</div>
+        <div class="sw" style="background:#1652a8">#1652A8 · Deep blue</div>
+        <div class="sw" style="background:#2e8fd6">#2E8FD6 · Current blue</div>
+        <div class="sw dark" style="background:#5dd6cb">#5DD6CB · Wave teal</div>
+        <div class="sw dark" style="background:#8cf0e0">#8CF0E0 · Crest</div>
+      </div>
+      <p style="font-family:var(--fontMono); font-size:11px; color:var(--ink50); letter-spacing:0.06em; line-height:1.6; margin-top:14px; margin-bottom:0;">
+        Wave gradient (#8cf0e0 → #1652a8) is reserved for stat reveals, the CTA button, and headline accents. Teal solid is reserved for "win" confirmations.
+      </p>
+    </div>
+
+    <div class="brand-card">
+      <h3>Typography</h3>
+      <div class="type">Space Grotesk</div>
+      <div class="type-meta">Display · titles · stat reveals · 500/600</div>
+      <div class="type" style="font-family:var(--fontUi); font-size:24px; margin-top:18px;">Inter / regular &amp; semibold</div>
+      <div class="type-meta">UI · labels · captions · 400/600</div>
+      <div class="type" style="font-family:var(--fontMono); font-size:20px; margin-top:18px;">JetBrains Mono</div>
+      <div class="type-meta">Eyebrows · timestamps · meta · 500</div>
+    </div>
+
+    <div class="brand-card">
+      <h3>Visual rhythm</h3>
+      <p class="vocab">
+        <span class="kw">soft-shadow cards</span>
+        <span class="kw">frosted dark glass</span>
+        <span class="kw">thin teal divider rules</span>
+        <span class="kw">wide-tracked uppercase eyebrows</span>
+        <span class="kw">teal pill badges</span>
+        <span class="kw">subtle glow behind devices</span>
+        <span class="kw">wave-line graphic from brand banner</span>
+        <span class="kw">realistic phone &amp; dashboard UI</span>
+      </p>
+    </div>
+
+    <div class="brand-card">
+      <h3>What we never do</h3>
+      <p class="vocab">
+        <span class="kw neg">cartoon trades workers</span>
+        <span class="kw neg">stock-photo collage</span>
+        <span class="kw neg">SaaS confetti</span>
+        <span class="kw neg">emoji</span>
+        <span class="kw neg">hard sell language</span>
+        <span class="kw neg">jargon ("synergy", "leverage")</span>
+        <span class="kw neg">cluttered dashboards</span>
+        <span class="kw neg">aggressive gradients on every surface</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ Style frames ════════════════════════════ -->
+  <h2 class="sec-title" id="frames"><span class="num">02</span> Style frames</h2>
+  <p class="sec-sub">Eight key frames spanning the film. The animated reference renders these as full motion.</p>
+
+  <div class="frames">
+    <div class="frame frame-cold"><span class="num">01</span><span class="label">Cold open · truck dash</span></div>
+    <div class="frame frame-stat"><span class="num">02</span><span class="label">Stat reveal · 21×</span><span class="num" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-family:var(--fontDisplay); font-size:64px; font-weight:500; background:var(--wave); -webkit-background-clip:text; background-clip:text; color:transparent;">21<span style="font-size:36px; font-weight:300;">×</span></span></div>
+    <div class="frame frame-ai"><span class="num">03</span><span class="label">S1 · AI receptionist</span></div>
+    <div class="frame frame-sms"><span class="num">04</span><span class="label">S2 · Missed-call SMS</span></div>
+    <div class="frame frame-followup"><span class="num">05</span><span class="label">S3 · Follow-up timeline</span></div>
+    <div class="frame frame-review"><span class="num">06</span><span class="label">S4 · 5-star review</span></div>
+    <div class="frame frame-dash"><span class="num">07</span><span class="label">System view · ROI</span></div>
+    <div class="frame frame-cta"><span class="num">08</span><span class="label">CTA · Book audit</span></div>
+  </div>
+
+  <!-- ════════════════════════════ Storyboard table ════════════════════════════ -->
+  <h2 class="sec-title" id="storyboard"><span class="num">03</span> Scene-by-scene board</h2>
+  <p class="sec-sub">Read across each row: timecode → scene → shot description → on-screen text → voiceover. Scenario rows are anchored with the three-beat structure (problem → automation → win).</p>
+
+  <div class="board">
+    <div class="row head">
+      <div>Timecode</div>
+      <div>Scene</div>
+      <div>Shot description</div>
+      <div>On-screen text</div>
+      <div>Voiceover</div>
+      <div>Notes</div>
+    </div>
+
+    <!-- COLD OPEN -->
+    <div class="row">
+      <div class="tc">00:00<span class="dur">2.4s</span></div>
+      <div class="scene">A · Title</div>
+      <div>Logo + "AI Operations · For Canadian Trades" pill. Faint grid + soft halo on deep navy. No motion overload — let the mark breathe.</div>
+      <div class="ost"><b>CURRENT AUTOMATIONS</b><br/>● AI Operations · For Canadian Trades</div>
+      <div class="vo"></div>
+      <div>Cold open in. Logo plate doubles as project signature.</div>
+    </div>
+
+    <div class="row">
+      <div class="tc">00:02<span class="dur">4.4s</span></div>
+      <div class="scene">B · Truck dash</div>
+      <div>Cinematic vector composition: windshield, steering wheel arc, phone in dash cradle. Phone is buzzing — subtle shake. Hands implied off-frame.</div>
+      <div class="ost">18:42 — ON-SITE · HANDS FULL<br/>✕ MISSED CALL (appears at 5.5s)</div>
+      <div class="vo">"You're on a job. The phone rings. You can't take it."</div>
+      <div>No human portraits drawn — vector composition only. Avoid stock-photo trades imagery.</div>
+    </div>
+
+    <div class="row">
+      <div class="tc">00:06.8<span class="dur">2.6s</span></div>
+      <div class="scene">C · Stakes</div>
+      <div>Hard cut to dark. Headline reveals in Space Grotesk 88px, wave-gradient on closing phrase.</div>
+      <div class="ost"><b>Every missed call is a job<br/>going to your competitor.</b></div>
+      <div class="vo">"Every missed call <em>is a job</em> going to your competitor."</div>
+      <div>Hardest cut in the film. No music swell — let the silence hit.</div>
+    </div>
+
+    <div class="row">
+      <div class="tc">00:09.4<span class="dur">2s</span></div>
+      <div class="scene">D · Stat</div>
+      <div>Eyebrow "THE DATA". Big 21× in Space Grotesk 220px with wave-gradient text fill. Single-line caption underneath.</div>
+      <div class="ost">● THE DATA<br/><b>21×</b><br/>more likely to qualify a lead when you respond in the first five minutes.</div>
+      <div class="vo">"Respond inside five minutes — <em>twenty-one times</em> more likely to qualify the lead."</div>
+      <div>Source: Lead-response benchmarks (Harvard Business Review, Velocify). Restate as plain English in VO.</div>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">SCENARIO 01</span>
+        <span class="marker-title">After-hours AI receptionist</span>
+        <span class="marker-tag">T05 · Inbound AI Call Handling</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">00:11.4<span class="dur">2s</span></div>
+      <div class="scene">1A · Setup</div>
+      <div>Scene title left-aligned: eyebrow chip, display headline ("8:14 PM. The phone rings <em>after</em> you've clocked off."), Inter subtitle.</div>
+      <div class="ost">● SCENARIO 01 · AFTER HOURS<br/><b>8:14 PM. The phone rings <em>after</em> you've clocked off.</b><br/><br/>A homeowner has no heat. They're not waiting until morning — they're calling the next number on the list.</div>
+      <div class="vo">"It's eight-fourteen on a Tuesday. You're home. Someone's furnace just died."</div>
+      <div>Plain "civilian" time. No "after-hours window" jargon.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:13.4<span class="dur">9.2s</span></div>
+      <div class="scene">1B · AI call</div>
+      <div>Phone left of center — "Receptionist" connected, pulsing teal disc with waveform glyph. Right: live transcript card, frosted glass, T05 badge. Messages stream in alternating bubbles. Capture fields populate in real time below.</div>
+      <div class="ost">CURRENT · LIVE CALL · Receptionist · Connected<br/>CALLER: Margaret R · Mississauga, ON<br/>DETECTED: Emergency · No heat · Furnace<br/><br/><b>Transcript bubbles</b> (AI / Caller alternating).<br/><b>Capture fields</b>: Name, Address, Issue, Urgency, Slot.</div>
+      <div class="vo">"Your AI receptionist picks up. It talks like a person, captures the issue, the address, the urgency — and books the slot."</div>
+      <div>AI bubbles teal-tinted. Caller bubbles neutral. Capture fields fill in left-to-right as transcript progresses.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:22.6<span class="dur">2.4s</span></div>
+      <div class="scene">1C · Win</div>
+      <div>Wave-gradient pill chip pops in at the bottom right — pulses once.</div>
+      <div class="ost"><b>✓ Appointment booked</b><br/>Wed · 8:00 AM · No heat — emergency</div>
+      <div class="vo">"You didn't touch the phone."</div>
+      <div>"Win" beat. VO is short on purpose.</div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">SCENARIO 02</span>
+        <span class="marker-title">Missed-call text-back during the day</span>
+        <span class="marker-tag">T01 Missed Call Text Back + T02 Web Form Speed to Lead</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">00:25.4<span class="dur">2.6s</span></div>
+      <div class="scene">2A · Setup</div>
+      <div>Left-aligned headline. Stage background. No phone yet — let the line land.</div>
+      <div class="ost">● SCENARIO 02 · DAYTIME<br/><b>You're under a sink. <em>The lead can't wait.</em></b><br/><br/>The call goes to voicemail. Within 60 seconds, Current is already on it.</div>
+      <div class="vo">"Daytime. You're under a sink. The call goes to voicemail — and the customer is already dialing the next plumber."</div>
+      <div>Specific trade in VO ("the next plumber") for resonance.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:27.6<span class="dur">9.4s</span></div>
+      <div class="scene">2B · SMS</div>
+      <div>Right side: realistic dark iMessage thread. Outbound bubbles are wave-gradient with a small "AUTO" tag. Conversation runs: missed-call pill → auto-text → reply → slot offer → confirmation. Left side: "Behind the scenes" vertical timeline with a teal track lighting up step-by-step.</div>
+      <div class="ost"><b>iMessage thread</b> — outbound bubbles teal-gradient with AUTO tag.<br/><br/><b>Timeline (left)</b>:<br/>● Missed call detected · 2:14 PM<br/>● Automatic SMS sent · 14 sec after call<br/>● Customer replied<br/>● Slot offered · Calendar checked · 2–4 PM open<br/>● Booking confirmed · Dave assigned · CRM updated</div>
+      <div class="vo">"Within fourteen seconds, the customer gets a text from your business. Real conversation. They name the problem, you offer a slot, the calendar gets booked — and your tech gets dispatched. You're still under the sink."</div>
+      <div>The "AUTO" tag is critical — establishes that the system is doing this, not Mike.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:35.6<span class="dur">2.4s</span></div>
+      <div class="scene">2C · Win</div>
+      <div>Wave-gradient pill below the phone.</div>
+      <div class="ost"><b>✓ Job booked</b><br/>3 min, 14 sec — total</div>
+      <div class="vo">"Three minutes. Total."</div>
+      <div>"Three minutes, total" — owners track time in minutes. Make it concrete.</div>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">SCENARIO 03</span>
+        <span class="marker-title">Quote follow-up closing a deal</span>
+        <span class="marker-tag">T07 Quote Follow-Up Sequence + T03 Multi-Touch Follow Up</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">00:38.4<span class="dur">2.6s</span></div>
+      <div class="scene">3A · Setup</div>
+      <div>Left-aligned headline + subtitle. Stage background.</div>
+      <div class="ost">● SCENARIO 03 · PIPELINE<br/><b>Quote sent Tuesday. <em>Crickets.</em></b><br/><br/>The follow-up sequence runs itself. Polite, on-cadence, never pushy.</div>
+      <div class="vo">"You sent a quote on Tuesday. It's Thursday. Nothing."</div>
+      <div>"Crickets" lands with the audience. Don't soften.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:40.6<span class="dur">9s</span></div>
+      <div class="scene">3B · Sequence</div>
+      <div>Left: quote card ("Reilly Residence · Asphalt shingle replacement · $8,420 · Awaiting reply"). Right: horizontal 5-stop timeline. Each touch (Day 2 SMS · Day 4 email · Day 7 SMS · Day 10 email · Day 10 reply) lights up sequentially with AUTO tags on the system touches. The customer reply card lights last.</div>
+      <div class="ost"><b>Quote #Q-4408 · Reilly Residence · $8,420 · Awaiting reply</b><br/>Sent Tue, 9:14 AM · Opened 3× · No reply<br/><br/><b>Follow-up sequence · T07</b>:<br/>Day 2 — Friendly nudge (SMS / AUTO)<br/>Day 4 — Materials lock-in (Email / AUTO)<br/>Day 7 — Soft deadline (SMS / AUTO)<br/>Day 10 — Last gentle check (Email / AUTO)<br/>Day 10 — Margaret replied: "Yes — let's book it."</div>
+      <div class="vo">"While you're busy on the next job, Current sends the follow-ups for you. Friendly. On cadence. Never pushy. By day ten, she replies."</div>
+      <div>The point is "polite, never pushy." Tone of follow-up copy matches that — write like a person, not a CRM.</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:49.6<span class="dur">2.4s</span></div>
+      <div class="scene">3C · Win</div>
+      <div>Quote card status flips to "✓ Accepted" (teal). Wave-gradient win pill below.</div>
+      <div class="ost"><b>✓ Quote accepted</b><br/>$8,420 — Roof replacement, deposit pending</div>
+      <div class="vo">"Quote closed. <em>Eight thousand four hundred dollars.</em>"</div>
+      <div>Say the dollar amount out loud. Owners do.</div>
+    </div>
+
+    <!-- SCENARIO 4 -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">SCENARIO 04</span>
+        <span class="marker-title">Post-job review request + no-show recovery</span>
+        <span class="marker-tag">T10 Post-Job Review Request + T09 No-Show & Cancellation Recovery</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">00:52.4<span class="dur">2.6s</span></div>
+      <div class="scene">4A · Setup</div>
+      <div>Left-aligned headline + subtitle.</div>
+      <div class="ost">● SCENARIO 04 · POST-JOB<br/><b>Job's done. <em>The reputation work happens on its own.</em></b><br/><br/>A review request goes out. A canceled slot gets refilled. You're already on the next call.</div>
+      <div class="vo">"Job's done. You're back on the truck. Two more things still need to happen — they happen on their own."</div>
+      <div>Sets up the dual-payoff scene (review + recovery in one composition).</div>
+    </div>
+    <div class="row">
+      <div class="tc">00:54.6<span class="dur">10.4s</span></div>
+      <div class="scene">4B · Review + recovery</div>
+      <div>Three-panel composition. Left: phone with auto SMS to "Tom" requesting review, his reply, system's "thanks." Center: Google Business profile card — 4.9 ★, +1 this week pill, new Tom B. review animates in. Right: T09 recovery panel — cancelled slot → outreach to waitlist → slot refilled with new customer.</div>
+      <div class="ost"><b>SMS (AUTO · T10)</b>: "Hi Tom — thanks for choosing Northstar Mechanical today. If we did right by you, a quick Google review would mean the world."<br/><br/><b>Business profile</b>: Northstar Mechanical · 4.9 ★ · 247 reviews · "+1 this week" pill.<br/><br/><b>T09 · No-Show Recovery — Thursday 3:00 PM slot</b>:<br/>✕ Customer cancelled · 11 min ago<br/>↻ Outreach to waitlist · 3 nearby leads auto-texted<br/>✓ Slot refilled · Anders K · same-day install</div>
+      <div class="vo">"A review request goes out the moment the truck pulls away. Tom replies — Northstar's rating ticks up. And when a different customer cancels at three, the system quietly fills the slot before you've even noticed."</div>
+      <div>Two automations shown in one beat — show, don't tell. Don't over-explain the recovery: let the three steps do the talking.</div>
+    </div>
+
+    <!-- SYSTEM VIEW -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">CLOSING SYSTEM VIEW</span>
+        <span class="marker-title">Weekly ROI report</span>
+        <span class="marker-tag">T11 · Weekly Client ROI Report</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">01:05.4<span class="dur">2.2s</span></div>
+      <div class="scene">E · Title</div>
+      <div>Pull-back moment. Left-aligned headline reframes everything just shown as "one system."</div>
+      <div class="ost">● THE FULL PICTURE · T11<br/><b>One system, <span class="stress">running your front office.</span></b><br/><br/>Every Friday morning, in plain English. No dashboards to log into.</div>
+      <div class="vo">"All four scenarios — same system. Quietly running your whole front office while you stay on the tools."</div>
+      <div>This is the connective tissue. Pause before the dashboard appears.</div>
+    </div>
+    <div class="row">
+      <div class="tc">01:07.6<span class="dur">12s</span></div>
+      <div class="scene">F · Dashboard</div>
+      <div>Frosted glass card spans full width. Header (logo, "Weekly ROI · T11 · Northstar Mechanical · Week of May 18 — 24, 2026", auto-delivered badges). Six big metrics count up. Sparkline with three series draws in below. "Mike's weekly note" is plain-English summary, right column.</div>
+      <div class="ost"><b>Metrics row</b>: Leads captured 47 (+12) · After-hours calls answered 9 (+9) · Quotes followed up 31 (+6) · Jobs recovered 4 (+4) · Reviews collected 12 (+12) · Pipeline influenced $84.2k (+$22.1k)<br/><br/><b>Concept-demo</b> tag visible on the dashboard header. <b>Sample week</b> qualifier next to client name.<br/><br/><b>Your weekly note</b>: Here's how a week could look, Mike. In this sample, <b>9 calls</b> were answered after hours that would've gone to voicemail — 4 of those booked. The missed-call text-back caught a <b>$2,940 sink repair</b> Wednesday morning. The Reilly roof quote (Q-4408) closed at <b>$8,420</b> after the day-10 nudge. Two recovered no-shows put booked hours up <b>11% vs last week</b>.</div>
+      <div class="vo">"Every Friday morning, you get one plain-English email. Calls answered. Quotes followed up. Jobs recovered. Dollars in. The work this system would have done for you, that week."</div>
+      <div>Frame as a <b>concept demo</b>, not a real delivered client report — the "sample week" qualifier and concept-demo pill make this explicit. Note copy addresses Mike (the owner) and reads as the system's plain-English summary.</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="row">
+      <div class="row-marker">
+        <span class="marker-num">CTA</span>
+        <span class="marker-title">Book a free audit</span>
+        <span class="marker-tag">End card</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="tc">01:20.0<span class="dur">7s</span></div>
+      <div class="scene">G · CTA</div>
+      <div>Deep navy end card. Wave-echo graphic spans full width behind. Centered: logo, headline ("Book a free <span class="stress">30-minute audit.</span>"), subtitle, primary CTA button (wave-gradient pill with arrow + shimmer), supporting line with contact info.</div>
+      <div class="ost"><b>Current Automations</b><br/><br/><b>Book a free 30-minute audit.</b><br/>No pitch, no obligation. Just a look at where the leaks are.<br/><br/><b>[ Book Free Audit → ]</b> &nbsp;<span style="color:var(--ink50);">(button links to real Google Calendar booking URL)</span> &nbsp;or call directly<br/><br/>LIVE IN &lt; 48H / MONTH-TO-MONTH / <a href="mailto:admin@currentautomations.ca" style="color:var(--crest); text-decoration:none;">admin@currentautomations.ca</a> / <a href="tel:+14165097474" style="color:var(--crest); text-decoration:none;">416 · 509 · 7474</a></div>
+      <div class="vo">"Book a free thirty-minute audit. No pitch. Just a look at where the leaks are."</div>
+      <div>"Where the leaks are" is the strongest line. The CTA never says "demo" or "discovery call."</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ Three-beat per scenario ════════════════════════════ -->
+  <h2 class="sec-title" id="beats"><span class="num">04</span> Three-beat per scenario</h2>
+  <p class="sec-sub">Every scenario follows the same rhythm: <b>problem → automation fires → owner wins</b>. The win is the only place teal gets to be loud.</p>
+
+  <h3 style="font-family:var(--fontDisplay); font-weight:600; color:var(--ink); font-size:20px; margin:32px 0 4px; letter-spacing:-0.005em;">S1 · After-hours AI receptionist</h3>
+  <div class="beats">
+    <div class="beat"><div class="label">① Problem</div><h4>Owner is off the clock</h4><p>It's 8:14 PM. Homeowner's furnace just died. They won't wait until morning — they'll call the next number.</p></div>
+    <div class="beat"><div class="label">② Automation</div><h4>AI picks up, talks, books</h4><p>Receptionist answers naturally, captures name + address + urgency, books the slot. Live transcript visible.</p></div>
+    <div class="beat win"><div class="label">③ Win</div><h4>Appointment booked</h4><p>Wed · 8:00 AM. No heat — emergency. Owner never touched the phone.</p></div>
+  </div>
+
+  <h3 style="font-family:var(--fontDisplay); font-weight:600; color:var(--ink); font-size:20px; margin:32px 0 4px; letter-spacing:-0.005em;">S2 · Missed-call text-back</h3>
+  <div class="beats">
+    <div class="beat"><div class="label">① Problem</div><h4>Call goes to voicemail</h4><p>Owner is under a sink. The lead won't wait — they're moving down the list of plumbers.</p></div>
+    <div class="beat"><div class="label">② Automation</div><h4>Auto SMS in 14 seconds</h4><p>"Sorry we missed your call…" Real conversation. Slot offered. Calendar checked. Tech dispatched.</p></div>
+    <div class="beat win"><div class="label">③ Win</div><h4>Job booked — 3 min total</h4><p>Owner still under the sink. Customer never saw the seam.</p></div>
+  </div>
+
+  <h3 style="font-family:var(--fontDisplay); font-weight:600; color:var(--ink); font-size:20px; margin:32px 0 4px; letter-spacing:-0.005em;">S3 · Quote follow-up</h3>
+  <div class="beats">
+    <div class="beat"><div class="label">① Problem</div><h4>Quote went quiet</h4><p>Sent Tuesday. Opened 3×. No reply. The deal is leaking.</p></div>
+    <div class="beat"><div class="label">② Automation</div><h4>Five-touch sequence</h4><p>SMS day 2 · email day 4 · SMS day 7 · email day 10. Polite, on cadence, never pushy. AUTO-tagged.</p></div>
+    <div class="beat win"><div class="label">③ Win</div><h4>Quote accepted · $8,420</h4><p>"Yes — let's book it." Status flips from Awaiting → Accepted.</p></div>
+  </div>
+
+  <h3 style="font-family:var(--fontDisplay); font-weight:600; color:var(--ink); font-size:20px; margin:32px 0 4px; letter-spacing:-0.005em;">S4 · Review + recovery</h3>
+  <div class="beats">
+    <div class="beat"><div class="label">① Problem</div><h4>Reputation + cancellations</h4><p>Most jobs end without a review. A 3 PM cancellation puts a hole in tomorrow's schedule.</p></div>
+    <div class="beat"><div class="label">② Automation</div><h4>Review request + waitlist outreach</h4><p>T10 sends the ask. T09 sees the cancellation and texts three nearby leads.</p></div>
+    <div class="beat win"><div class="label">③ Win</div><h4>+1 5★ review · slot refilled</h4><p>Profile ticks to 4.9. Anders K takes the 3 PM slot — same-day install.</p></div>
+  </div>
+
+  <!-- ════════════════════════════ Voiceover script ════════════════════════════ -->
+  <h2 class="sec-title" id="vo"><span class="num">05</span> Voiceover script</h2>
+  <p class="sec-sub">Read at a conversational pace, ~135–145 words/minute. Plain Canadian voice, mid-range male preferred. <em style="color:var(--teal); font-style:italic;">Italics</em> = stress; <span style="color:var(--ink50); font-family:var(--fontMono); font-size:13px;">[pause]</span> = breath. Total VO length ≈ 82 seconds (leaves headroom under 90s target).</p>
+
+  <div class="vo-script">
+    <div class="vo-line">
+      <div class="stamp">00:02</div>
+      <div class="text">"You're on a job. The phone rings. <em>You can't take it.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:07</div>
+      <div class="text">"Every missed call is a job <em>going to your competitor.</em>" <span class="pause">[pause]</span></div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:10</div>
+      <div class="text">"Respond inside five minutes — <span class="stress">twenty-one times</span> more likely to qualify the lead."</div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">00:12</div>
+      <div class="text">"It's eight-fourteen on a Tuesday. You're home. <em>Someone's furnace just died.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:15</div>
+      <div class="text">"Your AI receptionist picks up. It talks like a person — captures the issue, the address, the urgency — and books the slot."</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:23</div>
+      <div class="text">"<em>You didn't touch the phone.</em>" <span class="pause">[beat]</span></div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">00:26</div>
+      <div class="text">"Daytime. You're under a sink. The call goes to voicemail — and the customer is already dialing the next plumber."</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:32</div>
+      <div class="text">"Within fourteen seconds, the customer gets a text from your business. Real conversation. They name the problem, you offer a slot, the calendar gets booked — and your tech gets dispatched."</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:36</div>
+      <div class="text">"<em>You're still under the sink.</em> <span class="pause">[pause]</span> Three minutes. Total."</div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">00:39</div>
+      <div class="text">"You sent a quote on Tuesday. It's Thursday. <em>Nothing.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:42</div>
+      <div class="text">"While you're busy on the next job, Current sends the follow-ups for you. Friendly. On cadence. <em>Never pushy.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:47</div>
+      <div class="text">"By day ten, she replies." <span class="pause">[beat]</span> "Quote closed. <span class="stress">Eight thousand four hundred dollars.</span>"</div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">00:53</div>
+      <div class="text">"Job's done. You're back on the truck. Two more things still need to happen — <em>they happen on their own.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">00:57</div>
+      <div class="text">"A review request goes out the moment the truck pulls away. Tom replies — Northstar's rating ticks up."</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">01:01</div>
+      <div class="text">"And when a different customer cancels at three, the system quietly fills the slot <em>before you've even noticed.</em>"</div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">01:06</div>
+      <div class="text">"All four scenarios — <em>same system.</em> Quietly running your whole front office <em>while you stay on the tools.</em>"</div>
+    </div>
+    <div class="vo-line">
+      <div class="stamp">01:11</div>
+      <div class="text">"Every Friday morning, you get one plain-English email. Calls answered. Quotes followed up. Jobs recovered. Dollars in. <em>The work this system would do for you, that week.</em>"</div>
+    </div>
+
+    <div class="vo-line scene-break">
+      <div class="stamp">01:21</div>
+      <div class="text">"Book a free thirty-minute audit. No pitch. <span class="stress">Just a look at where the leaks are.</span>"</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ Production notes ════════════════════════════ -->
+  <h2 class="sec-title" id="prod"><span class="num">06</span> Production notes</h2>
+  <div class="brand-grid">
+    <div class="brand-card">
+      <h3>Audio direction</h3>
+      <p class="vocab">
+        <b style="color:var(--ink); font-weight:600;">Voice:</b> Canadian male, 38–52. Plain-spoken, never up-selling. Think: experienced shop manager, not a SaaS narrator.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">Music bed:</b> sparse. Low piano + soft synth pad. Drops out under stat reveal and during the "you didn't touch the phone" beat. Re-enters under the dashboard.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">SFX:</b> single phone-ring loop on the truck scene (clipped on the hard cut). Soft "tick" on each win-chip pulse. Type-bed audio under transcripts is optional — if used, keep it just below perception.
+      </p>
+    </div>
+    <div class="brand-card">
+      <h3>Motion direction</h3>
+      <p class="vocab">
+        <b style="color:var(--ink); font-weight:600;">Pace:</b> measured, confident. Most moves are easeOutCubic with 0.4–0.6s durations. No bouncy back-eases anywhere except the win chip pulse.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">Transitions:</b> hard cuts between scenarios. No swipes, no spin transitions, no whip pans.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">Reveal pattern:</b> eyebrow chip → display headline → subtitle → UI artifact. Each step ~0.2s behind the last. The UI element is always the last thing to appear.
+      </p>
+    </div>
+    <div class="brand-card">
+      <h3>Localization</h3>
+      <p class="vocab">
+        Voiceover is Canadian English. Sample customer names should rotate: <span class="kw">Margaret Reilly</span> <span class="kw">Tom Brouwer</span> <span class="kw">Anders Kowalski</span>. Sample addresses use Ontario cities the audience knows (Mississauga, Oakville, Burlington, Hamilton). Phone numbers use 905 / 416 / 519 area codes. Currency in CAD with "GST in" callout.
+      </p>
+    </div>
+    <div class="brand-card">
+      <h3>Cut-down variants <span style="color:var(--ink50); letter-spacing:0.04em; text-transform:none; font-size:11px;">— playable</span></h3>
+      <p class="vocab" style="margin-bottom:14px;">
+        <b style="color:var(--ink); font-weight:600;">60s social cut:</b> drop S3 (quote follow-up), shorten cold open to 6s, trim dashboard to 8s.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">30s pre-roll:</b> hard open on stat reveal; one scenario only (S2 missed-call text-back); CTA.
+        <br/><br/>
+        <b style="color:var(--ink); font-weight:600;">15s bumper:</b> stat reveal → S2 win chip → CTA card. No VO; sound design + on-screen text only.
+      </p>
+      <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid var(--ruleDim);">
+        <a href="Storyboard Video - 60s Social.html" style="display:flex; justify-content:space-between; align-items:center; padding:9px 12px; border-radius:8px; background:rgba(140,240,224,0.06); border:1px solid rgba(140,240,224,0.18); text-decoration:none; font-family:var(--fontMono); font-size:11px; color:var(--crest); letter-spacing:0.12em;">
+          <span>▶ &nbsp;60s · Social cut</span><span style="color:var(--ink50);">1:00</span>
+        </a>
+        <a href="Storyboard Video - 30s Pre-roll.html" style="display:flex; justify-content:space-between; align-items:center; padding:9px 12px; border-radius:8px; background:rgba(140,240,224,0.06); border:1px solid rgba(140,240,224,0.18); text-decoration:none; font-family:var(--fontMono); font-size:11px; color:var(--crest); letter-spacing:0.12em;">
+          <span>▶ &nbsp;30s · Pre-roll cut</span><span style="color:var(--ink50);">0:30</span>
+        </a>
+        <a href="Storyboard Video - 15s Bumper.html" style="display:flex; justify-content:space-between; align-items:center; padding:9px 12px; border-radius:8px; background:rgba(140,240,224,0.06); border:1px solid rgba(140,240,224,0.18); text-decoration:none; font-family:var(--fontMono); font-size:11px; color:var(--crest); letter-spacing:0.12em;">
+          <span>▶ &nbsp;15s · Bumper (no VO)</span><span style="color:var(--ink50);">0:15</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Current Automations · <a href="mailto:admin@currentautomations.ca" style="color:inherit; text-decoration:none;">admin@currentautomations.ca</a> · <a href="tel:+14165097474" style="color:inherit; text-decoration:none;">416 · 509 · 7474</a></div>
+    <a class="play-link" href="Storyboard Video.html">▶ &nbsp;&nbsp;Play the animated reference</a>
+  </footer>
+
+</div>
+</body>
+</html>

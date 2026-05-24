@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Current Automations — Product Overview · Animated Storyboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#04091a; font-family:'Inter', system-ui, sans-serif; color:#fff; overflow:hidden; }
+  #root { position:absolute; inset:0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+      <linearGradient id="tg" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#8cf0e0"/>
+        <stop offset="0.5" stop-color="#3bb6c7"/>
+        <stop offset="1" stop-color="#1652a8"/>
+      </linearGradient>
+    </defs>
+    <rect width="400" height="400" fill="#04091a"/>
+    <circle cx="200" cy="200" r="80" fill="url(#tg)"/>
+    <path d="M180 168 L180 232 L236 200 Z" fill="#04091a"/>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Animations engine -->
+<script type="text/babel" src="animations.jsx"></script>
+<!-- Shared chrome (brand tokens, logo, eyebrows, win chips) -->
+<script type="text/babel" src="scenes/chrome.jsx"></script>
+<!-- Scene files -->
+<script type="text/babel" src="scenes/cold-open.jsx"></script>
+<script type="text/babel" src="scenes/scenario1.jsx"></script>
+<script type="text/babel" src="scenes/scenario2.jsx"></script>
+<script type="text/babel" src="scenes/scenario3.jsx"></script>
+<script type="text/babel" src="scenes/scenario4.jsx"></script>
+<script type="text/babel" src="scenes/dashboard.jsx"></script>
+<script type="text/babel" src="scenes/cta.jsx"></script>
+
+<script type="text/babel">
+  const TOTAL = 87.0;
+
+  function ProgressBar() {
+    const t = useTime();
+    const pct = clamp(t / TOTAL, 0, 1) * 100;
+    // 6 scene markers
+    const markers = [
+      { t:0,    label:'Cold open' },
+      { t:11.4, label:'S1 · After hours' },
+      { t:25.4, label:'S2 · Missed call' },
+      { t:38.4, label:'S3 · Follow-up' },
+      { t:52.4, label:'S4 · Reviews' },
+      { t:65.4, label:'System view' },
+      { t:80.0, label:'CTA' },
+    ];
+    return (
+      <div style={{
+        position:'absolute', left:120, right:120, top:60, zIndex:50,
+        display:'flex', alignItems:'center', gap:18,
+        fontFamily:FONT_MONO, fontSize:11, color:'rgba(140,240,224,0.55)',
+        letterSpacing:'0.18em', textTransform:'uppercase',
+        pointerEvents:'none',
+      }}>
+        <span style={{color:BRAND.crest}}>● Current Automations</span>
+        <div style={{flex:1, position:'relative', height:2, background:'rgba(255,255,255,0.08)'}}>
+          <div style={{
+            position:'absolute', left:0, top:0, bottom:0,
+            width:`${pct}%`,
+            background:BRAND.wave,
+          }}/>
+          {markers.map((m, i) => (
+            <div key={i} style={{
+              position:'absolute', left:`${(m.t / TOTAL) * 100}%`,
+              top:-2, width:1, height:6,
+              background:t > m.t ? BRAND.crest : 'rgba(255,255,255,0.2)',
+            }}/>
+          ))}
+        </div>
+        <span>{String(Math.floor(t)).padStart(2,'0')}<span style={{opacity:0.4}}> / {Math.floor(TOTAL)}s</span></span>
+      </div>
+    );
+  }
+
+  function Movie() {
+    return (
+      <>
+        <ProgressBar/>
+        <TitleCard/>
+        <TruckDashScene/>
+        <StakesCard/>
+        <Scenario1/>
+        <Scenario2/>
+        <Scenario3/>
+        <Scenario4/>
+        <DashboardScene/>
+        <CTAScene/>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+      <Stage width={1920} height={1080} duration={TOTAL} background="#04091a" loop={true} persistKey="ca-overview-video">
+        <Movie/>
+      </Stage>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

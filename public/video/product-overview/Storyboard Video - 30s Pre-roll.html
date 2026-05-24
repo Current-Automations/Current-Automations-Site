@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Current Automations — 30s Pre-roll Cut</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#04091a; font-family:'Inter', system-ui, sans-serif; color:#fff; overflow:hidden; }
+  #root { position:absolute; inset:0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+      <linearGradient id="tg" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#8cf0e0"/>
+        <stop offset="0.5" stop-color="#3bb6c7"/>
+        <stop offset="1" stop-color="#1652a8"/>
+      </linearGradient>
+    </defs>
+    <rect width="400" height="400" fill="#04091a"/>
+    <circle cx="200" cy="200" r="80" fill="url(#tg)"/>
+    <path d="M180 168 L180 232 L236 200 Z" fill="#04091a"/>
+    <text x="200" y="320" text-anchor="middle" fill="#8cf0e0" font-family="ui-monospace, monospace" font-size="22" letter-spacing="3">30s</text>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="animations.jsx"></script>
+<script type="text/babel" src="scenes/chrome.jsx"></script>
+<script type="text/babel" src="scenes/timemap.jsx"></script>
+<script type="text/babel" src="scenes/cold-open.jsx"></script>
+<script type="text/babel" src="scenes/scenario2.jsx"></script>
+<script type="text/babel" src="scenes/cta.jsx"></script>
+
+<script type="text/babel">
+  const CUT_DURATION = 30.0;
+
+  // Hard open on stat → dwell on the 21× line → S2 only → CTA → short end-card hold.
+  const SEGMENTS = [
+    { from: 0.0,  to: 2.0,  innerFrom: 9.4,   innerTo: 11.4  }, // 21× stat reveal (hard open)
+    { from: 2.0,  to: 5.0,  innerFrom: 11.39, innerTo: 11.4  }, // dwell on stat — give it room to land
+    { from: 5.0,  to: 18.0, innerFrom: 25.4,  innerTo: 38.4  }, // S2 missed-call text-back
+    { from: 18.0, to: 25.0, innerFrom: 80.0,  innerTo: 87.0  }, // CTA card
+    { from: 25.0, to: 30.0, innerFrom: 86.5,  innerTo: 86.79 }, // CTA end-card hold (5s)
+  ];
+
+  const MARKERS = [
+    { t: 0,    label: 'Stat' },
+    { t: 5,    label: 'S2 · Missed call' },
+    { t: 18,   label: 'CTA' },
+  ];
+
+  function Movie() {
+    return (
+      <>
+        <StakesCard/>
+        <Scenario2/>
+        <CTAScene/>
+      </>
+    );
+  }
+
+  function CutMovie() {
+    return (
+      <>
+        <CutProgressBar duration={CUT_DURATION} markers={MARKERS} label="Current Automations · 30s pre-roll"/>
+        <TimeMap segments={SEGMENTS} masterDuration={87}>
+          <Movie/>
+        </TimeMap>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+      <Stage width={1920} height={1080} duration={CUT_DURATION} background="#04091a" loop={true} persistKey="ca-overview-30s">
+        <CutMovie/>
+      </Stage>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
