@@ -67,7 +67,7 @@ function Wordmark({ markSize = 60, wordSize = 32, gap = 18, light = false }) {
 function StageBG() {
   return (
     <div style={{
-      position:'absolute', inset:0,
+      position:'absolute', inset:0, overflow:'hidden',
       background:`radial-gradient(120% 100% at 10% 0%, ${BRAND.navy2} 0%, ${BRAND.base} 65%)`,
     }}>
       {/* faint grid */}
@@ -151,9 +151,10 @@ function GlassCard({ children, style = {}, glow = false }) {
       background:`linear-gradient(180deg, ${BRAND.cardHi} 0%, ${BRAND.card} 100%)`,
       border:'1px solid rgba(140,240,224,0.10)',
       borderRadius:16,
+      overflow:'hidden',
       boxShadow: glow
-        ? '0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(140,240,224,0.10), 0 0 60px rgba(93,214,203,0.10)'
-        : '0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.02)',
+        ? '0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(93,214,203,0.10)'
+        : '0 30px 80px rgba(0,0,0,0.45)',
       ...style,
     }}>
       {children}
@@ -168,11 +169,13 @@ function LowerThird({ scene, label, tag, x = 120, y = 940 }) {
   const exitT = Easing.easeInCubic(clamp((localTime - (duration - 0.45)) / 0.45, 0, 1));
   const opacity = (1 - exitT) * t;
   const tx = (1 - t) * -16;
+  const atRest = t >= 1 && exitT === 0;
   return (
     <div style={{
-      position:'absolute', left:x, top:y,
+      position:'absolute', left:x, top:y, zIndex:5,
       display:'flex', alignItems:'center', gap:18,
-      opacity, transform:`translateX(${tx}px)`,
+      opacity: atRest ? 1 : opacity,
+      transform: atRest ? 'none' : `translateX(${tx}px)`,
       fontFamily:FONT_UI,
     }}>
       <div style={{
@@ -208,7 +211,7 @@ function WinChip({ x, y, label, sub, delay = 0, size = 1 }) {
   const pulse = 1 + Math.max(0, 0.05 * Math.sin(Math.max(0, lt - 0.55) * 6) * Math.exp(-(lt - 0.55) * 2));
   return (
     <div style={{
-      position:'absolute', left:x, top:y,
+      position:'absolute', left:x, top:y, zIndex:10,
       transform:`translate(-50%, -50%) scale(${scale * size * pulse})`,
       opacity,
       display:'flex', alignItems:'center', gap:14,
@@ -217,7 +220,7 @@ function WinChip({ x, y, label, sub, delay = 0, size = 1 }) {
       background:BRAND.wave,
       color:BRAND.deep,
       fontFamily:FONT_UI, fontWeight:700,
-      boxShadow:`0 20px 50px rgba(93,214,203,0.40), 0 0 0 6px rgba(140,240,224,0.12)`,
+      boxShadow:`0 20px 50px rgba(93,214,203,0.40)`,
     }}>
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="11" r="10" fill={BRAND.deep} opacity="0.20"/>

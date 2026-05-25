@@ -186,8 +186,7 @@ function TranscriptPanel() {
                 </div>
                 <div style={{
                   padding:'12px 16px', borderRadius:14,
-                  background: isAI ? 'rgba(79,208,173,0.12)' : 'rgba(255,255,255,0.05)',
-                  border:`1px solid ${isAI ? 'rgba(79,208,173,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                  background: isAI ? 'rgba(79,208,173,0.14)' : 'rgba(255,255,255,0.07)',
                   color: BRAND.ink, fontFamily:FONT_UI, fontSize:16, lineHeight:1.4,
                   borderBottomLeftRadius: isAI ? 4 : 14,
                   borderBottomRightRadius: isAI ? 14 : 4,

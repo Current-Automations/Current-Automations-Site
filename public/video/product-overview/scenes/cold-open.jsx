@@ -35,20 +35,17 @@ function TitleCard() {
   );
 }
 
-// Small helper for fade-in within a Sprite
-// When the animation is complete (t===1) we explicitly set transform:'none'
-// so the element leaves the GPU compositing layer — this eliminates the faint
-// hairline boundary that adjacent compositing layers create.
+// Small helper for fade-in within a Sprite.
+// Uses opacity-only (no transform) to avoid GPU compositing layer creation
+// during animation. When complete, the wrapper has no style at all so there
+// is zero chance of a compositing-layer boundary artifact.
 function FadeIn({ children, duration = 0.5, delay = 0 }) {
   const { localTime } = useSprite();
   const lt = localTime - delay;
   const t = Easing.easeOutCubic(clamp(lt / duration, 0, 1));
-  const done = t >= 1;
+  if (t >= 1) return React.createElement(React.Fragment, null, children);
   return (
-    <div style={{
-      opacity: t,
-      transform: done ? 'none' : `translateY(${(1 - t) * 12}px)`,
-    }}>
+    <div style={{opacity: t}}>
       {children}
     </div>
   );
@@ -149,9 +146,9 @@ function TruckDashIllustration() {
 
 function RingingPhone({ x, y }) {
   const { localTime, duration } = useSprite();
+  const PW = 340, PH = 680;
   // Phone enters quickly, rings (small shake), missed call lights up
   const enter = Easing.easeOutBack(clamp((localTime - 0.2) / 0.6, 0, 1));
-  // Subtle ring shake for the first ~3s
   const ringStart = 0.8;
   const ringEnd = 3.0;
   let shakeX = 0, shakeY = 0;
@@ -160,11 +157,21 @@ function RingingPhone({ x, y }) {
     shakeX = Math.sin(r) * 3;
     shakeY = Math.cos(r * 1.3) * 1.5;
   }
+  // Pre-center using left/top so we can fully drop the transform when at rest,
+  // preventing a persistent GPU compositing layer (which caused the boundary box).
+  const enterDone = enter >= 1;
+  const shaking = shakeX !== 0 || shakeY !== 0;
+  let tf = 'none';
+  if (!enterDone && shaking) tf = `translate(${shakeX}px,${shakeY}px) scale(${0.85 + enter * 0.15})`;
+  else if (!enterDone)       tf = `scale(${0.85 + enter * 0.15})`;
+  else if (shaking)          tf = `translate(${shakeX}px,${shakeY}px)`;
   return (
     <div style={{
-      position:'absolute', left:x, top:y,
-      transform:`translate(-50%, -50%) translate(${shakeX}px, ${shakeY}px) scale(${0.85 + enter * 0.15})`,
-      opacity: enter,
+      position:'absolute',
+      left: x - PW / 2,
+      top:  y - PH / 2,
+      transform: tf,
+      opacity: enterDone ? 1 : enter,
     }}>
       <PhoneFrame width={340} height={680}>
         <PhoneRingingUI ringing={localTime < ringEnd}/>
