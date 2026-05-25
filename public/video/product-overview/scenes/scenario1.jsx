@@ -87,11 +87,12 @@ function Scenario1PhoneUI() {
       <div style={{fontSize:12, color:BRAND.teal, letterSpacing:'0.24em', textTransform:'uppercase', marginBottom:14}}>
         Current · Live call
       </div>
-      <div style={{position:'relative', marginBottom:18}}>
+      <div style={{marginBottom:18}}>
         <div style={{
           width:120, height:120, borderRadius:'50%',
           background:`linear-gradient(135deg, ${BRAND.tealDk}, ${BRAND.teal})`,
           display:'flex', alignItems:'center', justifyContent:'center',
+          boxShadow:`0 0 0 ${Math.round(8 + pulse * 8)}px rgba(93,214,203,${(0.08 + pulse * 0.18).toFixed(2)}), 0 0 ${Math.round(18 + pulse * 16)}px rgba(93,214,203,${(0.12 + pulse * 0.15).toFixed(2)})`,
         }}>
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
             {/* Waveform */}
@@ -99,11 +100,6 @@ function Scenario1PhoneUI() {
             <path d="M10 28 Q16 22 22 28 T34 28" stroke="#062014" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"/>
           </svg>
         </div>
-        <div style={{
-          position:'absolute', inset:-12, borderRadius:'50%',
-          border:`2px solid ${BRAND.teal}`,
-          opacity: 0.2 + pulse * 0.35,
-        }}/>
       </div>
       <div style={{fontSize:22, fontWeight:700, marginBottom:4}}>Receptionist</div>
       <div style={{fontSize:13, color:BRAND.slateLt, marginBottom:28, letterSpacing:'0.04em'}}>

@@ -36,12 +36,19 @@ function TitleCard() {
 }
 
 // Small helper for fade-in within a Sprite
+// When the animation is complete (t===1) we explicitly set transform:'none'
+// so the element leaves the GPU compositing layer — this eliminates the faint
+// hairline boundary that adjacent compositing layers create.
 function FadeIn({ children, duration = 0.5, delay = 0 }) {
   const { localTime } = useSprite();
   const lt = localTime - delay;
   const t = Easing.easeOutCubic(clamp(lt / duration, 0, 1));
+  const done = t >= 1;
   return (
-    <div style={{opacity:t, transform:`translateY(${(1-t)*12}px)`}}>
+    <div style={{
+      opacity: t,
+      transform: done ? 'none' : `translateY(${(1 - t) * 12}px)`,
+    }}>
       {children}
     </div>
   );
@@ -215,7 +222,7 @@ function PhoneRingingUI({ ringing }) {
         display:'flex', alignItems:'center', justifyContent:'center',
         fontSize:42, fontWeight:600, color:BRAND.ink,
         marginBottom:18,
-        boxShadow: ringing ? `0 0 0 8px rgba(220,60,60,0.22)` : 'none',
+        boxShadow: ringing ? `0 0 22px 4px rgba(220,60,60,0.32)` : 'none',
       }}>
         DM
       </div>
