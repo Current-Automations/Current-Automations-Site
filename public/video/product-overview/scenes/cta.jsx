@@ -131,10 +131,11 @@ function CTAButton() {
       color:BRAND.deep,
       fontFamily:FONT_DISPLAY, fontSize:22, fontWeight:600,
       letterSpacing:'-0.01em',
-      boxShadow:'0 24px 60px rgba(46,143,214,0.45), 0 0 0 6px rgba(140,240,224,0.10)',
+      boxShadow:'0 14px 44px -6px rgba(46,143,214,0.55)',
       display:'flex', alignItems:'center', gap:14,
       overflow:'hidden',
       textDecoration:'none',
+      outline:'none',
       cursor:'pointer',
     }}>
       <span style={{position:'relative', zIndex:2}}>Book Free Audit</span>

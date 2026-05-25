@@ -180,7 +180,7 @@ function PhoneFrame({ children, width = 340, height = 680 }) {
       background:'#000',
       borderRadius:42,
       padding:7,
-      boxShadow:'0 30px 80px rgba(0,0,0,0.6), inset 0 0 0 1.5px #2a2d33',
+      boxShadow:'0 30px 80px rgba(0,0,0,0.6)',
       position:'relative',
     }}>
       <div style={{
@@ -215,7 +215,7 @@ function PhoneRingingUI({ ringing }) {
         display:'flex', alignItems:'center', justifyContent:'center',
         fontSize:42, fontWeight:600, color:BRAND.ink,
         marginBottom:18,
-        boxShadow: ringing ? `0 0 0 8px rgba(220,60,60,0.18), 0 0 40px rgba(220,60,60,0.3)` : 'none',
+        boxShadow: ringing ? `0 0 0 8px rgba(220,60,60,0.22)` : 'none',
       }}>
         DM
       </div>

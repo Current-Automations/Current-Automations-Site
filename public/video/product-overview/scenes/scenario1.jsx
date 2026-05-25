@@ -102,8 +102,7 @@ function Scenario1PhoneUI() {
         <div style={{
           position:'absolute', inset:-12, borderRadius:'50%',
           border:`2px solid ${BRAND.teal}`,
-          opacity: 0.2 + pulse * 0.3,
-          transform:`scale(${1 + pulse * 0.12})`,
+          opacity: 0.2 + pulse * 0.35,
         }}/>
       </div>
       <div style={{fontSize:22, fontWeight:700, marginBottom:4}}>Receptionist</div>
