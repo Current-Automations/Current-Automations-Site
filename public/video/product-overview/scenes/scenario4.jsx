@@ -110,7 +110,7 @@ function ReviewRequestUI() {
         {showAuto && (
           <div style={{alignSelf:'flex-end', maxWidth:'85%', position:'relative'}}>
             <div style={{
-              padding:'10px 13px', borderRadius:18,
+              padding:'18px 13px 10px', borderRadius:18,
               background:`linear-gradient(180deg, ${BRAND.teal} 0%, ${BRAND.tealDk} 100%)`,
               color:'#062014', fontFamily:FONT_UI, fontSize:13, lineHeight:1.4,
               fontWeight:600, borderBottomRightRadius:6,
@@ -118,9 +118,9 @@ function ReviewRequestUI() {
               Hi Tom — thanks for choosing Northstar Mechanical today. If we did right by you, a quick Google review would mean the world. Takes about 20 seconds: <u>g.page/r/northstar</u>
             </div>
             <div style={{
-              position:'absolute', top:-7, right:8,
+              position:'absolute', top:5, right:8,
               padding:'2px 6px', borderRadius:4,
-              background:'#062014', color:BRAND.teal,
+              background:'rgba(6,32,20,0.85)', color:BRAND.teal,
               fontFamily:FONT_MONO, fontSize:8, fontWeight:700, letterSpacing:'0.2em',
             }}>
               AUTO · T10
@@ -142,7 +142,7 @@ function ReviewRequestUI() {
         {showThanks && (
           <div style={{alignSelf:'flex-end', maxWidth:'85%', position:'relative'}}>
             <div style={{
-              padding:'10px 13px', borderRadius:18,
+              padding:'18px 13px 10px', borderRadius:18,
               background:`linear-gradient(180deg, ${BRAND.teal} 0%, ${BRAND.tealDk} 100%)`,
               color:'#062014', fontFamily:FONT_UI, fontSize:13,
               fontWeight:600, borderBottomRightRadius:6,
@@ -150,9 +150,9 @@ function ReviewRequestUI() {
               Means a lot — thank you Tom. Have a great weekend.
             </div>
             <div style={{
-              position:'absolute', top:-7, right:8,
+              position:'absolute', top:5, right:8,
               padding:'2px 6px', borderRadius:4,
-              background:'#062014', color:BRAND.teal,
+              background:'rgba(6,32,20,0.85)', color:BRAND.teal,
               fontFamily:FONT_MONO, fontSize:8, fontWeight:700, letterSpacing:'0.2em',
             }}>
               AUTO

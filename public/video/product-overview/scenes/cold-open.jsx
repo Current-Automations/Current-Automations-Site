@@ -204,6 +204,7 @@ function PhoneFrame({ children, width = 340, height = 680 }) {
       <div style={{
         width:'100%', height:'100%', borderRadius:36, overflow:'hidden',
         background:BRAND.base, position:'relative',
+        transform:'translateZ(0)',
       }}>
         {children}
       </div>
