@@ -229,7 +229,7 @@ function PhoneRingingUI({ ringing }) {
         display:'flex', alignItems:'center', justifyContent:'center',
         fontSize:42, fontWeight:600, color:BRAND.ink,
         marginBottom:18,
-        boxShadow: ringing ? `0 0 22px 4px rgba(220,60,60,0.32)` : 'none',
+        boxShadow: `0 0 22px 4px rgba(220,60,60,${ringing ? 0.32 : 0})`,
       }}>
         DM
       </div>
@@ -244,7 +244,7 @@ function PhoneRingingUI({ ringing }) {
           width:62, height:62, borderRadius:'50%',
           background:'#d63c3c',
           display:'flex', alignItems:'center', justifyContent:'center',
-          boxShadow: ringing ? '0 0 30px rgba(220,60,60,0.5)' : 'none',
+          boxShadow: `0 0 30px rgba(220,60,60,${ringing ? 0.5 : 0})`,
         }}>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" style={{transform:'rotate(135deg)'}}>
             <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.07 15.07 0 0 1-6.59-6.58l2.2-2.21a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/>

@@ -137,19 +137,21 @@ function CTAButton() {
       textDecoration:'none',
       outline:'none',
       cursor:'pointer',
+      isolation:'isolate',
     }}>
-      <span style={{position:'relative', zIndex:2}}>Book Free Audit</span>
-      <span style={{position:'relative', zIndex:2, display:'flex', alignItems:'center'}}>
+      <span>Book Free Audit</span>
+      <span style={{display:'flex', alignItems:'center'}}>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M4 10h12M11 5l5 5-5 5" stroke={BRAND.deep} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </span>
-      {/* Shimmer */}
+      {/* Shimmer — zIndex:-1 keeps it below text within this isolation context */}
       <div style={{
         position:'absolute', top:0, bottom:0, width:'40%',
         left:`${shimmerX - 20}%`,
         background:'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)',
         pointerEvents:'none',
+        zIndex:-1,
       }}/>
     </a>
   );

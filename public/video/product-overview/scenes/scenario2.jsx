@@ -144,7 +144,8 @@ function SMSThread() {
             }}>
               <div style={{
                 maxWidth:'82%',
-                padding:'9px 13px', borderRadius:18,
+                padding: isOut && m.system ? '18px 13px 9px' : '9px 13px',
+                borderRadius:18,
                 background: isOut
                   ? `linear-gradient(180deg, ${BRAND.teal} 0%, ${BRAND.tealDk} 100%)`
                   : 'rgba(255,255,255,0.10)',
@@ -158,9 +159,9 @@ function SMSThread() {
                 {m.text}
                 {isOut && m.system && (
                   <div style={{
-                    position:'absolute', top:-7, right:8,
+                    position:'absolute', top:5, right:8,
                     padding:'2px 6px', borderRadius:4,
-                    background:'#062014', color:BRAND.teal,
+                    background:'rgba(6,32,20,0.85)', color:BRAND.teal,
                     fontFamily:FONT_MONO, fontSize:8, fontWeight:700,
                     letterSpacing:'0.2em',
                   }}>

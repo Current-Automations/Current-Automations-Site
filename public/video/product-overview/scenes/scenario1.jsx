@@ -92,7 +92,7 @@ function Scenario1PhoneUI() {
           width:120, height:120, borderRadius:'50%',
           background:`linear-gradient(135deg, ${BRAND.tealDk}, ${BRAND.teal})`,
           display:'flex', alignItems:'center', justifyContent:'center',
-          boxShadow:`0 0 0 ${Math.round(8 + pulse * 8)}px rgba(93,214,203,${(0.08 + pulse * 0.18).toFixed(2)}), 0 0 ${Math.round(18 + pulse * 16)}px rgba(93,214,203,${(0.12 + pulse * 0.15).toFixed(2)})`,
+          boxShadow:`0 0 0 16px rgba(93,214,203,${(0.08 + pulse * 0.18).toFixed(2)}), 0 0 32px rgba(93,214,203,${(0.12 + pulse * 0.15).toFixed(2)})`,
         }}>
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
             {/* Waveform */}
@@ -108,8 +108,7 @@ function Scenario1PhoneUI() {
 
       <div style={{
         width:'100%', padding:'14px 16px', borderRadius:12,
-        background:'rgba(255,255,255,0.04)',
-        border:'1px solid rgba(255,255,255,0.06)',
+        background:'rgba(255,255,255,0.07)',
         fontSize:13, color:BRAND.slateLt, marginBottom:10,
       }}>
         <div style={{color:BRAND.teal, fontWeight:600, marginBottom:4, fontSize:11, letterSpacing:'0.16em', textTransform:'uppercase'}}>Caller</div>
@@ -117,8 +116,7 @@ function Scenario1PhoneUI() {
       </div>
       <div style={{
         width:'100%', padding:'14px 16px', borderRadius:12,
-        background:'rgba(79,208,173,0.08)',
-        border:'1px solid rgba(79,208,173,0.22)',
+        background:'rgba(79,208,173,0.12)',
         fontSize:13, color:BRAND.ink,
       }}>
         <div style={{color:BRAND.teal, fontWeight:600, marginBottom:4, fontSize:11, letterSpacing:'0.16em', textTransform:'uppercase'}}>Detected</div>
