@@ -40,5 +40,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Claude Code per-user settings (machine-local)
-.claude/settings.local.json
+# Claude Code / AI tooling (machine-local, not project source)
+.claude/
+.agents/
+skills-lock.json
+.playwright-mcp/
+
+# Agent local issue tracker / scratch working state
+.scratch/
+docs/agents/
+
+# One-pagers / exported HTML docs (live in Drive, not the Next.js app)
+Current Automations*.html

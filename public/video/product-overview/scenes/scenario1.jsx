@@ -56,7 +56,7 @@ function Scenario1Center() {
     <div style={{position:'absolute', inset:0}}>
       {/* Phone, left of center */}
       <FadeIn duration={0.6}>
-        <div style={{position:'absolute', left:380, top:200}}>
+        <div style={{position:'absolute', left:380, top:200, willChange:'transform'}}>
           <PhoneFrame width={360} height={720}>
             <Scenario1PhoneUI/>
           </PhoneFrame>
@@ -75,8 +75,6 @@ function Scenario1Center() {
 
 function Scenario1PhoneUI() {
   const { localTime } = useSprite();
-  // Pulse the "on-call" ring
-  const pulse = 0.5 + 0.5 * Math.sin(localTime * 3);
   return (
     <div style={{
       position:'absolute', inset:0,
@@ -87,20 +85,22 @@ function Scenario1PhoneUI() {
       <div style={{fontSize:12, color:BRAND.teal, letterSpacing:'0.24em', textTransform:'uppercase', marginBottom:14}}>
         Current · Live call
       </div>
-      <div style={{marginBottom:18}}>
-        <div style={{
-          width:120, height:120, borderRadius:'50%',
-          background:`linear-gradient(135deg, ${BRAND.tealDk}, ${BRAND.teal})`,
-          display:'flex', alignItems:'center', justifyContent:'center',
-          boxShadow:`0 0 0 16px rgba(93,214,203,${(0.08 + pulse * 0.18).toFixed(2)}), 0 0 32px rgba(93,214,203,${(0.12 + pulse * 0.15).toFixed(2)})`,
-        }}>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            {/* Waveform */}
-            <path d="M8 24 Q14 18 20 24 T32 24 T44 24" stroke="#062014" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-            <path d="M10 28 Q16 22 22 28 T34 28" stroke="#062014" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"/>
-          </svg>
-        </div>
-      </div>
+      {/* Static SVG — no per-frame attribute mutations, no compositing sub-layer, no box artifact */}
+      <svg width="152" height="152" style={{marginBottom:18, display:'block'}}>
+        <defs>
+          <linearGradient id="s1ReceptionistGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor={BRAND.tealDk}/>
+            <stop offset="100%" stopColor={BRAND.teal}/>
+          </linearGradient>
+        </defs>
+        <circle cx="76" cy="76" r="76" fill="rgba(93,214,203,0.14)"/>
+        <circle cx="76" cy="76" r="68" fill="none" stroke="rgba(93,214,203,0.5)" strokeWidth="2" opacity="0.6"/>
+        <circle cx="76" cy="76" r="60" fill="url(#s1ReceptionistGrad)"/>
+        <g transform="translate(52,52)">
+          <path d="M8 24 Q14 18 20 24 T32 24 T44 24" stroke="#062014" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+          <path d="M10 28 Q16 22 22 28 T34 28" stroke="#062014" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"/>
+        </g>
+      </svg>
       <div style={{fontSize:22, fontWeight:700, marginBottom:4}}>Receptionist</div>
       <div style={{fontSize:13, color:BRAND.slateLt, marginBottom:28, letterSpacing:'0.04em'}}>
         Connected · {Math.floor(localTime / 60).toString().padStart(2,'0')}:{Math.floor(localTime % 60).toString().padStart(2,'0')}
@@ -167,12 +167,11 @@ function TranscriptPanel() {
           if (absoluteTime < m.time) return null;
           const age = absoluteTime - m.time;
           const opacity = clamp(age / 0.4, 0, 1);
-          const ty = (1 - clamp(age / 0.4, 0, 1)) * 8;
           const isAI = m.who === 'AI';
           return (
             <div key={i} style={{
               display:'flex', justifyContent: isAI ? 'flex-start' : 'flex-end',
-              opacity, transform:`translateY(${ty}px)`,
+              opacity,
             }}>
               <div style={{maxWidth:'78%'}}>
                 <div style={{

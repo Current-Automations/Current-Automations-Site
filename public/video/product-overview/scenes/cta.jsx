@@ -138,6 +138,7 @@ function CTAButton() {
       outline:'none',
       cursor:'pointer',
       isolation:'isolate',
+      willChange:'transform',
     }}>
       <span>Book Free Audit</span>
       <span style={{display:'flex', alignItems:'center'}}>
