@@ -64,7 +64,7 @@ export default function DemoPage() {
         description="Experience the missed-call automation firsthand. Call, let it go to voicemail, and watch what happens next."
         tone="muted"
       >
-        <div className="mx-auto max-w-lg">
+        <div className="mx-auto max-w-xl">
           <div className="rounded-[2rem] border border-white/10 bg-[var(--color-ink)] p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.18)]">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/[0.45]">
               Live demo line
