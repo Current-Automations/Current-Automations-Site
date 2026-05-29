@@ -5,8 +5,8 @@ export type FAQItem = {
 
 export const siteContact = {
   email: "admin@currentautomations.ca",
-  phoneDisplay: "416-509-7474",
-  phoneHref: "+14165097474",
+  phoneDisplay: "+1 (365) 513-7474",
+  phoneHref: "+13655137474",
   responseExpectation: "Most inquiries receive a reply within 1 business day",
   walkthroughNote: "A no-pressure walkthrough tailored to your workflow",
   directContactNote:

@@ -68,6 +68,6 @@
 - All interactive elements need :focus-visible outline (2px teal)
 - Primary CTA label is always "Book Free Audit"
 - All primary CTAs link to the Google Calendar booking URL (see CLAUDE.md → "CTA convention" for the canonical link)
-- Phone: 416-509-7474 (display) / +14165097474 (href)
+- Phone: +1 (365) 513-7474 (display) / +13655137474 (href)
 - Demo line: 1-365-601-7474
 - Service area: Durham Region + GTA, remote across Ontario

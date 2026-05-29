@@ -148,10 +148,10 @@ export default function Home() {
           <>
             A free 30-minute discovery call. No pitch. No obligation.{" "}
             <a
-              href="tel:+14165097474"
+              href="tel:+13655137474"
               className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
             >
-              Or call: 416&#8209;509&#8209;7474
+              Or call: +1 (365) 513&#8209;7474
             </a>
           </>
         }

@@ -28,9 +28,9 @@ export default function StickyCTA() {
     >
       <div className="flex items-center gap-3">
         <a
-          href="tel:+14165097474"
+          href="tel:+13655137474"
           className="btn-secondary shrink-0 border-white/[0.16] text-white"
-          aria-label="Call 416 509 7474"
+          aria-label="Call 365 513 7474"
         >
           Call
         </a>

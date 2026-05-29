@@ -31,7 +31,7 @@ export default function TermsPage() {
           </h1>
           <p className="mt-6 max-w-4xl text-base leading-8 text-white/[0.68] sm:text-lg">
             EFFECTIVE DATE: May 7, 2025 | VERSION: 1.3 | JURISDICTION: Province of Ontario,
-            Canada | CONTACT: admin@currentautomations.ca | +1 365 601 7474
+            Canada | CONTACT: admin@currentautomations.ca | +1 (365) 513-7474
           </p>
         </div>
       </section>
@@ -143,7 +143,7 @@ export default function TermsPage() {
                 2.5 No Professional Advice: The Service, including any AI-generated transcriptions, urgency summaries, or automated message content, does not constitute legal, financial, medical, or any other form of professional advice.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                2.6 Support and Response: Current Automations provides support by email at admin@currentautomations.ca and by text at +1 365 601 7474 during regular Ontario business hours on business days.
+                2.6 Support and Response: Current Automations provides support by email at admin@currentautomations.ca and by text at +1 (365) 513-7474 during regular Ontario business hours on business days.
                 Response within 1 to 2 business days. No guaranteed SLA or 24/7 support obligation under any plan.
               </p>
             </div>
@@ -176,7 +176,7 @@ export default function TermsPage() {
                 Cancellation and Refund Policy
               </h2>
               <p className="mt-3 text-[var(--color-copy)]">
-                4.1 Cancellation by Client: Cancel anytime by emailing admin@currentautomations.ca or texting +1 365 601 7474.
+                4.1 Cancellation by Client: Cancel anytime by emailing admin@currentautomations.ca or texting +1 (365) 513-7474.
                 Cancellation requests must be received at least 5 business days before the next billing date.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
@@ -321,7 +321,7 @@ export default function TermsPage() {
 
             <div>
               <p className="text-[var(--color-copy)]">
-                Questions? Contact admin@currentautomations.ca or +1 365 601 7474.
+                Questions? Contact admin@currentautomations.ca or +1 (365) 513-7474.
               </p>
             </div>
           </div>

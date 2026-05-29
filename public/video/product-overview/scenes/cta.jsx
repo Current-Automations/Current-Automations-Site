@@ -106,8 +106,8 @@ function CTAContent() {
           <a href="mailto:admin@currentautomations.ca"
              style={{color:BRAND.crest, textDecoration:'none'}}>admin@currentautomations.ca</a>
           <span style={{color:'rgba(140,240,224,0.4)'}}>/</span>
-          <a href="tel:+14165097474"
-             style={{color:BRAND.crest, textDecoration:'none'}}>416 · 509 · 7474</a>
+          <a href="tel:+13655137474"
+             style={{color:BRAND.crest, textDecoration:'none'}}>365 · 513 · 7474</a>
         </div>
       </FadeIn>
     </div>
