@@ -61,8 +61,8 @@ export default function DemoPage() {
       {/* Live demo line */}
       <Section
         eyebrow="Try it yourself"
-        title="Call the Demo Line Right Now"
-        description="Experience the missed-call automation firsthand. Call, let it go to voicemail, and watch what happens next."
+        title="Call it yourself: 1-365-601-7474."
+        description="The demo line is live right now. Call, let it go to voicemail, and watch what happens next."
         tone="muted"
       >
         <div className="mx-auto max-w-xl">

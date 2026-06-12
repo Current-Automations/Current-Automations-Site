@@ -21,7 +21,7 @@ export default function AboutPage() {
             <p className="pill-label bg-surface-dark-2 text-white/70">
               Who We Are
             </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-5 max-w-4xl text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
               We find where your business is losing money. Then we fix it.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
@@ -98,7 +98,7 @@ export default function AboutPage() {
               Every engagement starts with a free audit. We ask about your business, find where the biggest opportunities are, and recommend one system that would have the most immediate impact.
             </p>
             <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-              Then we build it, configure it, and maintain it so you never have to think about the technology. You just see the results.
+              Then we install it, tune it, and hand you a working system. You don&apos;t touch the tech. You just see the results.
             </p>
           </article>
 

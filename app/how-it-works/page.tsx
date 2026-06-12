@@ -52,11 +52,11 @@ export default function HowItWorksPage() {
             <p className="pill-label bg-surface-dark-2 text-white/70">
               How the workflow works
             </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-5 max-w-4xl text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
               From first conversation to running system. Here is how we work.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-              Every engagement starts with a free consultation where we find where your business is losing time and money. Then we build and run the systems that fix it. You never touch the technology.
+              Every engagement starts with a free audit that finds where your business is losing time and money. Then we install it, tune it, and hand you a working system. You don&apos;t touch the tech.
             </p>
           </div>
 

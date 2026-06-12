@@ -15,12 +15,13 @@ export default function SuccessPage() {
         <p className="pill-label bg-white/[0.08] text-white/70">
           Purchase confirmed
         </p>
-        <h1 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <h1 className="font-display mt-5 max-w-2xl text-4xl font-semibold text-white sm:text-5xl">
           You are all set.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg">
           Your subscription is active. Expect an onboarding email from us within
-          24 hours. We will walk you through everything.
+          24 hours. We install it, tune it, and hand you a working system. You
+          don&apos;t touch the tech.
         </p>
         <Link href="/" className="btn-primary mt-8 inline-flex">
           Back to home

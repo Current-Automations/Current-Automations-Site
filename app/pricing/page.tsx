@@ -191,7 +191,7 @@ export default function PricingPage() {
           <p className="pill-label bg-surface-dark-2 text-white/70">
             Straightforward pricing
           </p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-display mt-5 max-w-4xl text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
             Transparent pricing.{" "}
             <br className="hidden sm:block" />
             Pay only for what you use.
@@ -215,9 +215,59 @@ export default function PricingPage() {
       </section>
 
       <Section
+        eyebrow="Done for you"
+        title="Cheap tools still leave you doing the work."
+        description="Self-serve automation tools cost less on paper. Then you spend your evenings configuring them, connecting them to your phone system, and figuring out why the texts stopped sending. We install it, tune it, and hand you a working system. You don't touch the tech."
+        tone="muted"
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <article className="h-full rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                Self-serve tools
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "You pick the software and learn it yourself",
+                  "You wire it to your phone line and calendar",
+                  "You write the messages and test the flows",
+                  "When it breaks, you troubleshoot it",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-[var(--color-muted)]">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-muted)]/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+          <Reveal delay={110}>
+            <article className="dark-card h-full rounded-card-lg p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-brand)]">
+                Current Automations
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "We map your actual call flow first",
+                  "We install and connect everything for you",
+                  "We tune the messages until they sound like you",
+                  "We monitor and maintain it. You see results.",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-on-dark">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section
         eyebrow="Bundled Tiers"
         title="Start with a bundle. Save every month."
-        description="Each tier stacks on the last. The more automations you run, the more you save versus a la carte pricing."
+        description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $149/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
           {tiers.map((tier, index) => {
@@ -327,8 +377,8 @@ export default function PricingPage() {
 
       <Section
         eyebrow="A La Carte"
-        title="Build your own stack."
-        description="Pick only the automations your business actually needs. Each scenario runs independently and can be added to any tier."
+        title="Just need one fix? Pick a single workflow."
+        description="Each scenario runs independently and can be added to any tier. Start with the one problem that hurts most; bundles save money once you are running three or more."
         tone="muted"
       >
         <CartSelector scenarios={allScenarios} />

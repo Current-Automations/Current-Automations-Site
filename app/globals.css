@@ -21,8 +21,8 @@
 @theme inline {
   --color-background: var(--color-canvas);
   --color-foreground: var(--color-copy);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
 }
 
 /*
@@ -72,7 +72,7 @@
     min-height: 100vh;
     background: var(--color-canvas);
     color: var(--color-copy);
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-manrope), sans-serif;
     text-rendering: optimizeLegibility;
   }
 
@@ -118,7 +118,9 @@
   }
 
   .font-display {
-    font-family: var(--font-space-grotesk), sans-serif;
+    font-family: var(--font-fraunces), serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 
   .pill-label {

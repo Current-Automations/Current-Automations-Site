@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import HomeDemoVideo from "@/components/HomeDemoVideo";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import Walkthrough from "@/components/Walkthrough";
 import { faqItems } from "@/data/siteContent";
 
 const CAL_URL =
@@ -27,24 +28,24 @@ const costStats = [
 
 const problemCards = [
   {
-    heading: "Missed calls going to competitors",
-    body: "Most callers will not wait around or leave a voicemail. If no one responds quickly, they move on to the next business on the list.",
+    heading: "Texts at 8pm about an AC that quit",
+    body: "You are at the dinner table and the phone lights up again. Answer it and lose your evening, or ignore it and lose the job. Neither feels right.",
   },
   {
-    heading: "Slow follow-up losing jobs",
-    body: "The longer a lead waits for a response, the lower the chance you win the work. Manual follow-up cannot keep pace with how fast intent fades.",
+    heading: "The 9pm furnace call you never heard",
+    body: "Someone's heat died and they called the first three contractors on Google. You were the one whose phone went to voicemail. They never call back.",
   },
   {
-    heading: "Evenings lost to admin",
-    body: "Quotes, scheduling, reminders, follow-ups, inbox cleanup. These tasks eat hours every day that should not require the owner every single time.",
+    heading: "Inquiries stacking up while you wind down",
+    body: "Web forms, voicemails, missed calls. By the time you sit down to deal with them, half those people have already booked someone who answered.",
   },
   {
-    heading: "Leads falling through the cracks",
-    body: "No reminder, no follow-up, no system. A potential job comes in, life gets busy, and the opportunity quietly disappears without anyone noticing.",
+    heading: "Quotes sent, then silence",
+    body: "You priced the job, sent it over, and meant to follow up. Then the week happened. The customer was not cold, just waiting for a nudge that never came.",
   },
   {
-    heading: "Inconsistent customer communication",
-    body: "Customers expect fast, clear responses. When the day gets busy, manual processes break down and the customer experience suffers.",
+    heading: "You are the entire front office",
+    body: "Scheduling, reminders, callbacks, inbox cleanup. It all routes through you. The business cannot answer the phone unless you personally do.",
   },
 ];
 
@@ -131,15 +132,17 @@ export default function Home() {
     <>
       <Hero
         id="overview"
-        eyebrow="For owner-operated trades across the GTA & Ontario"
+        eyebrow="Serving trades across the GTA"
         title={
           <>
-            You built a great business.
+            A furnace dies at 9pm.
             <br />
-            Find where it&apos;s leaking jobs.
+            The call hits voicemail.
+            <br />
+            Someone else books the job.
           </>
         }
-        description="A free 30-minute audit maps exactly where work slips away: missed calls, slow follow-up, evenings lost to admin. Then we build and run the system that plugs the leak, without you lifting a finger."
+        description="The next contractor who picks up wins the work. We install a system that texts every missed caller back in seconds, captures the job, and books it. We install it, tune it, and hand you a working system. You don't touch the tech."
         primaryCta={{
           href: CAL_URL,
           label: "Book Free Audit",
@@ -147,7 +150,7 @@ export default function Home() {
         secondaryCta={{ href: "/pricing", label: "See Pricing" }}
         ctaNote={
           <>
-            A free 30-minute discovery call. No pitch. No obligation.{" "}
+            A free 30-minute audit. No pitch. No obligation.{" "}
             <a
               href="tel:+13655137474"
               className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
@@ -155,6 +158,16 @@ export default function Home() {
               Or call: +1 (365) 513&#8209;7474
             </a>
           </>
+        }
+        proof={
+          <div className="max-w-xl rounded-card-md border border-line-dark bg-surface-dark-1 px-6 py-5">
+            <p className="font-display text-4xl font-semibold text-white sm:text-5xl">
+              $7,200
+            </p>
+            <p className="mt-2 text-sm leading-7 text-on-dark">
+              One contractor reported 18 booked jobs in three weeks from overflow calls. $7,200 that used to hit voicemail.
+            </p>
+          </div>
         }
       >
         <div className="hidden lg:block">
@@ -251,9 +264,9 @@ export default function Home() {
       {/* Section 2: Problems We Fix */}
       <Section
         id="problem"
-        eyebrow="Where businesses leak money"
-        title="Most owners already know something is off. They just do not know what to fix first."
-        description="If any of these sound familiar, you are leaving jobs on the table."
+        eyebrow="Sound familiar?"
+        title="The work is good. The phone is the problem."
+        description="If any of these sound like your week, you are leaving jobs on the table. None of them need you to work harder. They need a system that answers when you cannot."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -273,6 +286,19 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      {/* Walkthrough: missed call → instant text → booked job */}
+      <Section
+        id="walkthrough"
+        eyebrow="Here is the fix"
+        title="Three minutes from missed call to booked job."
+        description="This is the exact sequence your customers go through once the system is running. No app, no portal, nothing for them or you to learn."
+      >
+        <Walkthrough />
+        <p className="mt-8 text-center text-sm leading-7 text-[var(--color-muted)]">
+          We install it, tune it, and hand you a working system. You don&apos;t touch the tech.
+        </p>
       </Section>
 
       {/* Section 3: How the Audit Works (the front-door offer) */}
@@ -321,8 +347,8 @@ export default function Home() {
       <Section
         id="demo"
         eyebrow="Proof you can dial right now"
-        title="Call the demo line. Watch the system text you back."
-        description="Call and let it go to voicemail. You will get a text within seconds: the same thing your customers experience when they reach your business after hours. Takes 30 seconds, works on any phone."
+        title="Call it yourself: 1-365-601-7474."
+        description="The demo line is live. Call and let it go to voicemail. You will get a text within seconds: the same thing your customers experience when they reach your business after hours. Takes 30 seconds, works on any phone."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-2">
@@ -580,8 +606,9 @@ export default function Home() {
       {/* Section 7: Why Current Automations */}
       <Section
         id="why-current"
-        eyebrow="About"
-        title="Why service businesses choose us"
+        eyebrow="Done for you"
+        title="We install it, tune it, and hand you a working system."
+        description="You don't touch the tech."
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">

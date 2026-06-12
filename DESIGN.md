@@ -18,8 +18,8 @@
 - Line / border: rgba(15,27,44,0.12)
 
 ## Typography Rules
-- Display: Space Grotesk (--font-display / .font-display), 600, large pull-stats and display accents
-- Body: Inter (--font-sans), 400, 1rem/1.75-2, all body copy and headings
+- Display: Fraunces (--font-display / .font-display), 600, optical sizing auto, -0.015em tracking; all h1/h2 headings (Hero h1, Section h2, page heroes) and large pull-stats
+- Body: Manrope (--font-sans), 400, 1rem/1.75-2, all body copy, h3 card headings, and UI text
 - Mono: not used decoratively
 - Headings h1-h3 use text-wrap: balance
 - Wordmark (in UI): "CURRENT" 700 tracking-[0.18em], "Automations" 500 tracking-[0.22em] at 75% opacity
