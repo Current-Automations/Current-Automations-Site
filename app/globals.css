@@ -193,18 +193,18 @@
   /* Scroll reveal: content is visible by default; the animation only fires
      once Reveal.tsx observes the element entering the viewport. */
   .reveal-in {
-    animation: reveal-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: reveal-up 900ms cubic-bezier(0.25, 0.8, 0.3, 1) both;
   }
 
   .lift-card {
     transition:
-      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 320ms ease;
+      transform 550ms cubic-bezier(0.25, 0.8, 0.3, 1),
+      box-shadow 550ms cubic-bezier(0.25, 0.8, 0.3, 1),
+      border-color 550ms ease;
   }
 
   .lift-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
   }
 
   .surface-card.lift-card:hover {
