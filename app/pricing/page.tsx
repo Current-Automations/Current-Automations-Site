@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import BuyNowButton from "@/components/BuyNowButton";
 import CartSelector from "@/components/CartSelector";
@@ -219,11 +220,12 @@ export default function PricingPage() {
         description="Each tier stacks on the last. The more automations you run, the more you save versus a la carte pricing."
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
-          {tiers.map((tier) => {
+          {tiers.map((tier, index) => {
             const featured = !!tier.badge;
             return (
-              <div
+              <Reveal
                 key={tier.id}
+                delay={index * 70}
                 className={`flex flex-col ${featured ? "xl:-mt-6 xl:mb-0" : ""}`}
               >
                 <div className={`mb-3 flex items-center ${featured ? "h-8" : "h-7"}`}>
@@ -317,7 +319,7 @@ export default function PricingPage() {
                     </Link>
                   </div>
                 </article>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -354,10 +356,10 @@ export default function PricingPage() {
               description:
                 "Start with one system. As your business grows, we layer in more. The relationship is ongoing, not transactional.",
             },
-          ].map((item) => (
+          ].map((item, index) => (
+            <Reveal key={item.title} delay={index * 70}>
             <article
-              key={item.title}
-              className="rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
+              className="lift-card h-full rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
             >
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
@@ -366,6 +368,7 @@ export default function PricingPage() {
                 {item.description}
               </p>
             </article>
+            </Reveal>
           ))}
         </div>
       </Section>

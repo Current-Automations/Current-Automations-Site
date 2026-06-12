@@ -3,6 +3,7 @@ import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import Hero from "@/components/Hero";
 import HomeDemoVideo from "@/components/HomeDemoVideo";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { faqItems } from "@/data/siteContent";
 
@@ -135,10 +136,10 @@ export default function Home() {
           <>
             You built a great business.
             <br />
-            Stop losing jobs to missed calls.
+            Find where it&apos;s leaking jobs.
           </>
         }
-        description="We build and run the AI system that texts back every missed call in seconds and keeps the lead warm, without you lifting a finger."
+        description="A free 30-minute audit maps exactly where work slips away: missed calls, slow follow-up, evenings lost to admin. Then we build and run the system that plugs the leak, without you lifting a finger."
         primaryCta={{
           href: CAL_URL,
           label: "Book Free Audit",
@@ -257,21 +258,133 @@ export default function Home() {
       >
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           {problemCards.map((card, index) => (
-            <article
-              key={card.heading}
-              className="surface-card rounded-card-lg p-7 transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-brand)]/[0.12] text-sm font-semibold text-[var(--color-brand-strong)]">
-                0{index + 1}
-              </div>
-              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {card.heading}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                {card.body}
-              </p>
-            </article>
+            <Reveal key={card.heading} delay={index * 70}>
+              <article className="surface-card lift-card h-full rounded-card-lg p-7">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-brand)]/[0.12] text-sm font-semibold text-[var(--color-brand-strong)]">
+                  0{index + 1}
+                </div>
+                <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+                  {card.heading}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                  {card.body}
+                </p>
+              </article>
+            </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* Section 3: How the Audit Works (the front-door offer) */}
+      <Section
+        id="audit"
+        eyebrow="The free audit"
+        title="30 minutes. No jargon. You leave knowing exactly where your business is losing money."
+        description="This is where every engagement starts, and where most owners get the most value, even the ones who never hire us."
+        tone="dark"
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {auditSteps.map((step, index) => (
+            <Reveal key={step.number} delay={index * 90}>
+              <article className="relative h-full rounded-card-lg border border-line-dark bg-surface-dark-2 p-7">
+                <div className="mb-8 flex items-center justify-between">
+                  <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand)]">
+                    {step.number}
+                  </span>
+                  <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
+                </div>
+                <h3 className="text-2xl font-semibold tracking-tight text-white">
+                  {step.heading}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-on-dark">
+                  {step.body}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <Link
+            href={CAL_URL}
+            className="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Free Audit
+          </Link>
+          <p className="text-sm text-on-dark-muted">A free 30-minute discovery call. No pitch, no obligation.</p>
+        </div>
+      </Section>
+
+      {/* Section 4: Speed-to-Lead demo */}
+      <Section
+        id="demo"
+        eyebrow="Proof you can dial right now"
+        title="Call the demo line. Watch the system text you back."
+        description="Call and let it go to voicemail. You will get a text within seconds: the same thing your customers experience when they reach your business after hours. Takes 30 seconds, works on any phone."
+        tone="muted"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Demo phone */}
+          <Reveal>
+            <div className="h-full rounded-card-lg border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
+                Live demo line
+              </p>
+              <a
+                href="tel:+13656017474"
+                className="mt-3 block rounded-card-md border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
+                aria-label="Call the demo line at 1 365 601 7474"
+              >
+                1 365 601 7474
+              </a>
+              <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
+              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                No signup. No form. The text you get back is the product.
+              </p>
+              <div className="mt-6 grid gap-3 text-left">
+                {[
+                  "Call the number and let it ring",
+                  "Watch for a text within 60 seconds",
+                  "That is what your customers will experience",
+                ].map((step, i) => (
+                  <div
+                    key={step}
+                    className="flex items-start gap-3 rounded-card-sm border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
+                  >
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-strong)] text-[10px] font-bold text-white">
+                      {i + 1}
+                    </span>
+                    <p className="text-sm leading-7 text-[var(--color-copy)]">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Video */}
+          <Reveal delay={90}>
+            <div className="h-full overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
+              <HomeDemoVideo src="/demos/video1.html" />
+              <div className="p-6 text-center">
+                <p className="text-sm text-on-dark-muted">
+                  Watch a missed call turn into a captured lead in under 60 seconds.
+                </p>
+                <p className="mt-3 text-sm text-on-dark-muted">
+                  Want to see it with your own call flow?{" "}
+                  <Link
+                    href={CAL_URL}
+                    className="font-medium text-[var(--color-brand)] hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book a free audit.
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </Section>
 
@@ -284,10 +397,10 @@ export default function Home() {
       >
         {/* Stat pair */}
         <div className="mb-12 grid gap-6 sm:grid-cols-2">
-          {costStats.map((s) => (
+          {costStats.map((s, index) => (
+            <Reveal key={s.stat} delay={index * 90}>
             <div
-              key={s.stat}
-              className="rounded-card-lg border border-line-dark bg-surface-dark-1 p-6"
+              className="h-full rounded-card-lg border border-line-dark bg-surface-dark-1 p-6"
             >
               <p className="font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl">
                 {s.stat}
@@ -305,6 +418,7 @@ export default function Home() {
                 </a>
               </p>
             </div>
+            </Reveal>
           ))}
         </div>
 
@@ -400,74 +514,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Section 4: Speed-to-Lead demo */}
-      <Section
-        id="demo"
-        eyebrow="Our most common starting point"
-        title="Speed to Lead: catch every missed call before they call your competitor."
-        description="Call the demo line and hear exactly what your customers will experience when they reach your business after hours. Takes 30 seconds."
-        tone="muted"
-      >
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Demo phone */}
-          <div className="rounded-card-lg border-2 border-[var(--color-brand-strong)]/20 bg-white p-8 text-center shadow-[0_24px_64px_rgba(7,17,29,0.12)] sm:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
-              Live demo line
-            </p>
-            <a
-              href="tel:+13656017474"
-              className="mt-3 block rounded-card-md border-2 border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.06] py-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] transition-all hover:border-[var(--color-brand)]/50 hover:bg-[var(--color-brand)]/[0.1] sm:text-5xl"
-              aria-label="Call the demo line at 1 365 601 7474"
-            >
-              1 365 601 7474
-            </a>
-            <p className="mt-1 text-xs text-[var(--color-muted)]">Tap to call on mobile</p>
-            <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-              Call and let it go to voicemail. You will receive a text within seconds. That is the system working.
-            </p>
-            <p className="mt-5 text-sm text-[var(--color-muted)]">No signup required. Works on any phone.</p>
-            <div className="mt-6 grid gap-3 text-left">
-              {[
-                "Call the number and let it ring",
-                "Watch for a text within 60 seconds",
-                "That is what your customers will experience",
-              ].map((step, i) => (
-                <div
-                  key={step}
-                  className="flex items-start gap-3 rounded-card-sm border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand)] text-[10px] font-bold text-white">
-                    {i + 1}
-                  </span>
-                  <p className="text-sm leading-7 text-[var(--color-copy)]">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Video */}
-          <div className="overflow-hidden rounded-card-lg border border-[var(--color-line)] bg-[var(--color-ink)] shadow-[0_18px_45px_rgba(7,17,29,0.12)]">
-            <HomeDemoVideo src="/demos/video1.html" />
-            <div className="p-6 text-center">
-              <p className="text-sm text-on-dark-muted">
-                Watch a missed call turn into a captured lead in under 60 seconds.
-              </p>
-              <p className="mt-3 text-sm text-on-dark-muted">
-                Want to see it with your own call flow?{" "}
-                <Link
-                  href={CAL_URL}
-                  className="font-medium text-[var(--color-brand)] hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book a free audit.
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* Section 5: Systems We Build */}
       <Section
         id="workflow"
@@ -477,10 +523,10 @@ export default function Home() {
         tone="muted"
       >
         <div className="grid gap-6 lg:grid-cols-2">
-          {systemCards.map((card) => (
+          {systemCards.map((card, index) => (
+            <Reveal key={card.heading} delay={index * 70}>
             <article
-              key={card.heading}
-              className="surface-card rounded-card-lg p-7"
+              className="surface-card lift-card h-full rounded-card-lg p-7"
             >
               {card.badge ? (
                 <span className="mb-4 inline-block rounded-full border border-[var(--color-brand-strong)]/30 bg-[var(--color-brand)]/[0.08] px-3 py-1 text-xs font-semibold text-[var(--color-brand-strong)]">
@@ -516,6 +562,7 @@ export default function Home() {
                 </Link>
               ) : null}
             </article>
+            </Reveal>
           ))}
         </div>
 
@@ -528,48 +575,6 @@ export default function Home() {
             See full pricing →
           </Link>
         </p>
-      </Section>
-
-      {/* Section 6: How the Audit Works */}
-      <Section
-        id="audit"
-        eyebrow="The free audit"
-        title="30 minutes. No jargon. You leave with a clear picture of where your business is losing money."
-        tone="dark"
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {auditSteps.map((step) => (
-            <article
-              key={step.number}
-              className="relative rounded-card-lg border border-line-dark bg-surface-dark-2 p-7"
-            >
-              <div className="mb-8 flex items-center justify-between">
-                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
-                  {step.number}
-                </span>
-                <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
-              </div>
-              <h3 className="text-2xl font-semibold tracking-tight text-white">
-                {step.heading}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-on-dark">
-                {step.body}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <Link
-            href={CAL_URL}
-            className="btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book Free Audit
-          </Link>
-          <p className="text-sm text-on-dark-muted">A free 30-minute discovery call. No pitch, no obligation.</p>
-        </div>
       </Section>
 
       {/* Section 7: Why Current Automations */}

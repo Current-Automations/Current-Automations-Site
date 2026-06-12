@@ -18,10 +18,11 @@
 - Line / border: rgba(15,27,44,0.12)
 
 ## Typography Rules
-- Display: Fraunces (serif), 600, clamp(2rem, 5vw, 4.35rem), section headings and hero title
-- Body: Manrope (geometric humanist sans), 400, 1rem/1.75, all body copy
+- Display: Space Grotesk (--font-display / .font-display), 600, large pull-stats and display accents
+- Body: Inter (--font-sans), 400, 1rem/1.75-2, all body copy and headings
 - Mono: not used decoratively
-- Wordmark (in UI): "CURRENT" in Manrope 700 tracking-[0.18em], "Automations" in Manrope 500 tracking-[0.22em] at 75% opacity
+- Headings h1-h3 use text-wrap: balance
+- Wordmark (in UI): "CURRENT" 700 tracking-[0.18em], "Automations" 500 tracking-[0.22em] at 75% opacity
 
 ## Component Stylings
 - Buttons (primary): rounded-full, teal gradient (#4fd0ad → #149676), ink text, teal glow shadow
@@ -42,6 +43,13 @@
 - Dark sections: shadow-[0_36px_100px_rgba(2,6,23,0.34)] on dark cards
 - Navbar: backdrop-blur-md, rgba(7,17,29,0.72) bg, floating pill
 - No decorative drop shadows on text
+
+## Motion
+- Scroll reveals: wrap card grids in components/Reveal.tsx (IntersectionObserver adds .reveal-in, 700ms ease-out rise; stagger via delay prop, ~70-90ms per item)
+- Content is always visible by default; reveals only animate, never gate visibility
+- Card hovers: .lift-card (4px rise, 320ms expo ease-out)
+- Hero ambient glows: .glow-drift / .glow-drift-slow (14-22s alternating drift)
+- All motion disabled under prefers-reduced-motion
 
 ## Do's and Don'ts
 - DO use the declared color tokens exclusively
