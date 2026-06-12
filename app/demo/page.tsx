@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import DemoVideos from "@/components/DemoVideos";
 
@@ -97,9 +98,9 @@ export default function DemoPage() {
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((item, index) => (
+              <Reveal key={item.step} delay={index * 70}>
               <article
-                key={item.step}
-                className="surface-card rounded-[1.75rem] p-6 transition-transform duration-300 hover:-translate-y-1"
+                className="surface-card lift-card h-full rounded-[1.75rem] p-6"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--color-ink)] text-sm font-semibold text-white">
                   0{index + 1}
@@ -111,6 +112,7 @@ export default function DemoPage() {
                   {item.description}
                 </p>
               </article>
+              </Reveal>
             ))}
           </div>
         </div>

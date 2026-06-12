@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -72,11 +73,9 @@ export default function AboutPage() {
               description:
                 "Quotes, scheduling, reminders, and inbox cleanup eat hours every week that should not require the owner every single time.",
             },
-          ].map((item) => (
-            <article
-              key={item.title}
-              className="surface-card rounded-card-lg p-7"
-            >
+          ].map((item, index) => (
+            <Reveal key={item.title} delay={index * 70}>
+            <article className="surface-card lift-card h-full rounded-card-lg p-7">
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {item.title}
               </h3>
@@ -84,6 +83,7 @@ export default function AboutPage() {
                 {item.description}
               </p>
             </article>
+            </Reveal>
           ))}
         </div>
       </Section>

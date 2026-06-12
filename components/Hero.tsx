@@ -40,8 +40,8 @@ export default function Hero({
       id={id}
       className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
-      <div className="pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(244,214,165,0.2),_transparent_62%)] blur-3xl" />
+      <div className="glow-drift-slow pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
+      <div className="glow-drift pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(244,214,165,0.2),_transparent_62%)] blur-3xl" />
 
       <div
         className={

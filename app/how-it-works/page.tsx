@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
@@ -88,10 +89,10 @@ export default function HowItWorksPage() {
         description="Each stage is designed to shorten the time between an unanswered call and a real conversation with your next customer."
       >
         <div className="grid gap-6 lg:grid-cols-5">
-          {steps.map((step) => (
+          {steps.map((step, index) => (
+            <Reveal key={step.number} delay={index * 70}>
             <article
-              key={step.number}
-              className="surface-card relative rounded-card-lg p-7"
+              className="surface-card lift-card relative h-full rounded-card-lg p-7"
             >
               <div className="mb-8 flex items-center justify-between">
                 <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
@@ -106,6 +107,7 @@ export default function HowItWorksPage() {
                 {step.description}
               </p>
             </article>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -123,15 +125,14 @@ export default function HowItWorksPage() {
             "Most clients see measurable impact within 30 days",
             "The relationship is ongoing, not a one-time install",
           ].map((item, index) => (
-            <div
-              key={item}
-              className="rounded-card-md border border-line-dark bg-surface-dark-2 p-6"
-            >
+            <Reveal key={item} delay={index * 70}>
+            <div className="h-full rounded-card-md border border-line-dark bg-surface-dark-2 p-6">
               <p className="text-sm uppercase tracking-[0.24em] text-on-dark-muted">
                 Benefit {index + 1}
               </p>
               <p className="mt-4 text-lg leading-8 text-on-dark-strong">{item}</p>
             </div>
+            </Reveal>
           ))}
         </div>
       </Section>
