@@ -1,81 +1,77 @@
-# Current Automations Design System
+# Current Automations Design System — "Editorial Industrial" (2026-06 overhaul)
 
-## Visual Theme & Atmosphere
-- Mood: professional_minimal
-- Feel: Trustworthy, direct, quietly confident, built for trades business owners who are skeptical of tech and respond to clarity over cleverness
-- Brand name: Current Automations (no "& Systems")
-- Icon: Wave-circle mark (teal-to-blue gradient on dark navy circle), keep unchanged
-- References: Industrial tool brands, Canadian regional service companies, Basecamp/Shopify in restraint and directness
+## Art direction
+Premium trade-journal meets job board. High contrast, ink-dark inverted sections,
+oversized Fraunces display type, hairline editorial rules instead of card soup,
+and a motion system that reacts to the cursor and the scroll. Nothing glows,
+nothing floats in purple. The page feels custom because the *structure* is
+editorial (numbered sections, full-bleed rows, giant numerals) and the *motion*
+is physical (sweeps, counters, tilt, drawn lines) rather than ambient blobs.
+
+- Feel: confident, mechanical, built by someone who answers the phone
+- References: print trade journals, dispatch boards, Stripe-level interaction polish
+- Anti-references: purple-gradient SaaS, glowing blobs, center-everything templates
 
 ## Color Palette & Roles
-- Background: #f4f7fb (canvas, light sections)
-- Surface: #ffffff (cards, panels)
-- Text primary: #07111d (ink, near-black navy)
-- Text secondary: #62748b (muted, mid-grey-blue)
-- Accent: #4fd0ad (brand teal)
-- Accent strong: #149676 (dark teal, buttons, hover states)
-- Dark background: #07111d (hero, dark sections)
-- Line / border: rgba(15,27,44,0.12)
+- Ink (dark canvas): #04091a / #07111d — most sections are dark now; light sections punctuate
+- Canvas (light): #f4f7fb · Surface: #ffffff
+- Text primary: #07111d · Text secondary: #62748b
+- Accent: #4fd0ad (teal) · Accent strong: #149676
+- Signal amber: #f4d6a5 (sparingly: timestamps, "live" markers)
+- Hairlines: rgba(15,27,44,0.12) light / rgba(255,255,255,0.1) dark
+- Accent appears as *lines and numerals*, not washes. Max 3 teal moments per viewport.
 
-## Typography Rules
-- Display: Space Grotesk (--font-display / .font-display), 600, large pull-stats and display accents
-- Body: Inter (--font-sans), 400, 1rem/1.75-2, all body copy and headings
-- Mono: not used decoratively
-- Headings h1-h3 use text-wrap: balance
-- Wordmark (in UI): "CURRENT" 700 tracking-[0.18em], "Automations" 500 tracking-[0.22em] at 75% opacity
+## Typography — pushed hard
+- Display: Fraunces 600, optical sizing auto, -0.02em
+  - `.display-hero`: clamp(2.75rem, 7.5vw, 6.5rem), line-height 0.98 — homepage h1
+  - `.display-giant`: clamp(6rem, 18vw, 15rem) — pull-stats (21×, $7,200, phone number)
+  - Section h2: clamp(2.25rem, 4.5vw, 3.75rem)
+- Body: Manrope 400, 1rem/1.75
+- Kickers: Manrope 600 uppercase 0.72rem tracking 0.28em, paired with a section index numeral ("01 — Sound familiar?")
+- Headings use text-wrap: balance
 
-## Component Stylings
-- Buttons (primary): rounded-full, teal gradient (#4fd0ad → #149676), ink text, teal glow shadow
-- Buttons (secondary): rounded-full, transparent bg, border, ink text on light / white text on dark
-- Cards (light): frosted white, 1px white border, 72px blur, soft shadow, class: surface-card
-- Cards (dark): radial teal glow + dark gradient, 1px white/8% border, class: dark-card
-- Pill labels / badges: teal-tinted, 0.72rem uppercase tracking-[0.24em]
-- Inputs: rounded-[1.15rem], white bg, subtle border, teal focus ring
+## Section grammar
+Every major section carries an index numeral + kicker rule line (hairline that
+draws in on reveal). Alternate dark/light deliberately; dark sections dominate.
+Rows > cards: lists render as full-width hairline rows with hover sweep, not
+floating rounded cards. Cards survive only where they earn it (pricing tiers,
+SMS mock, video frames) and then they tilt.
 
-## Layout Principles
-- Max width: 1280px (container-shell)
-- Grid: single_column sections with 2–3 col content grids inside
-- Section spacing: py-20 sm:py-24 lg:py-28 (balanced density)
-- Content padding: px-6 sm:px-8 lg:px-10
+## Motion system (CSS + IntersectionObserver, no animation library)
+- `Reveal` (components/Reveal.tsx): IO-triggered, variants `up | fade | clip | left | scale`,
+  optional `delay`. Content always visible by default; animation only enhances.
+- `CountUp` (components/motion/CountUp.tsx): IO-triggered numeric counters
+  (eased, ~1.4s) for $7,200, 18 jobs, 21×, 78%, 4×, response-decay labels.
+- `TiltCard` (components/motion/TiltCard.tsx): pointer-tracking tilt (max ~5deg)
+  + moving glare highlight via CSS vars. Used on SMS mock, system cards, video frames.
+- `CursorField` (components/motion/CursorField.tsx): writes --mx/--my (px) and
+  --par-x/--par-y (-1..1) on a container. Hero uses it for a cursor spotlight
+  (`.cursor-spotlight`) and layered parallax (`.par-1`/`.par-2`/`.par-3`).
+- Button shimmer: `.btn-primary` / `.btn-shimmer` sweep a light band across on hover.
+- Row sweep: `.row-sweep` slides a teal-tinted wash in from the left on hover.
+- Bars: `.bar-fill` scaleX 0→1 (800ms expo) once an ancestor has `.reveal-in`.
+- Rule draw: `.rule-draw` hairline scaleX 0→1 on reveal.
+- Ticker: `.ticker-track` infinite marquee (trade names strip under hero), 36s linear.
+- Live pulse: `.pulse-dot` for the demo line / SMS "Live" badge.
+- EVERYTHING gated behind prefers-reduced-motion: reduce → static, visible, no transforms.
 
-## Depth & Elevation
-- Light sections: shadow-[0_24px_72px_rgba(7,17,29,0.10)] on cards
-- Dark sections: shadow-[0_36px_100px_rgba(2,6,23,0.34)] on dark cards
-- Navbar: backdrop-blur-md, rgba(7,17,29,0.72) bg, floating pill
-- No decorative drop shadows on text
+## Component stylings
+- Buttons primary: rounded-full, teal gradient, ink text, shimmer sweep, -2px lift on hover
+- Buttons secondary: rounded-full bordered ghost
+- Pill labels: replaced by index kickers (numeral + tracked uppercase + rule)
+- Inputs: unchanged (rounded-[1.15rem], teal focus ring)
 
-## Motion
-- Scroll reveals: wrap card grids in components/Reveal.tsx (IntersectionObserver adds .reveal-in, 700ms ease-out rise; stagger via delay prop, ~70-90ms per item)
-- Content is always visible by default; reveals only animate, never gate visibility
-- Card hovers: .lift-card (4px rise, 320ms expo ease-out)
-- Hero ambient glows: .glow-drift / .glow-drift-slow (14-22s alternating drift)
-- All motion disabled under prefers-reduced-motion
+## Layout
+- Max width 1280px (`container-shell`); dark sections run full-bleed with the
+  shell inside; generous asymmetry (60/40 splits, sticky columns)
+- Section spacing: py-24 sm:py-28 lg:py-36 for hero-adjacent, py-20 default
 
-## Do's and Don'ts
-- DO use the declared color tokens exclusively
-- DO maintain consistent section spacing
-- DO ensure all text meets WCAG AA contrast ratio
-- DO use "Current Automations", never "Current Automations & Systems"
-- DO write for a 45-year-old trades owner: concrete, plain language, no jargon
-- DON'T invent colors outside this palette
-- DON'T use "AI" as a lead concept, lead with the business outcome (missed calls, jobs won)
-- DON'T add fake testimonials or placeholder social proof
-- DON'T use emojis in UI copy
-
-## Responsive Behavior
-- Breakpoints: 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
-- Mobile: single column, full-width CTAs, tap-to-call phone numbers
-- Tablet: allow 2-column feature grids
-- Desktop: full layout, hero right-column panel visible
-- Navbar: pill collapses to hamburger below lg breakpoint
-
-## Agent Prompt Guide
-- Do NOT use "& Systems" anywhere in brand copy or UI
-- Do NOT invent colors outside this palette
-- Accent color (teal) appears maximum 3 times per viewport
-- All interactive elements need :focus-visible outline (2px teal)
-- Primary CTA label is always "Book Free Audit"
-- All primary CTAs link to the Google Calendar booking URL (see CLAUDE.md → "CTA convention" for the canonical link)
-- Phone: +1 (365) 513-7474 (display) / +13655137474 (href)
-- Demo line: 1-365-601-7474
-- Service area: Durham Region + GTA, remote across Ontario
+## Hard rules (unchanged)
+- Primary CTA always "Book Free Audit" → Google Calendar URL (CLAUDE.md), target _blank + rel
+- Phone +1 (365) 513-7474 · Demo line 1-365-601-7474
+- Copy voice: 45-year-old trades owner, concrete, no jargon, "AI" never the lead,
+  no emojis, no em dashes, no fabricated testimonials
+- $7,200 / 18-jobs stat phrased as "one contractor reported", no client name
+- WCAG AA contrast; all interactive elements get :focus-visible 2px teal outline
+- Mobile: single column at 375px, tap-to-call numbers, sticky CTA bar
+- Don't use "& Systems"; service area Durham Region + GTA, remote across Ontario

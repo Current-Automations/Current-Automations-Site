@@ -164,7 +164,11 @@ export default function DemoVideos() {
       {/* Featured video */}
       <div className="container-shell pb-8 pt-16 sm:pt-20">
         <div className="fade-up" style={{ transitionDelay: "0s" }}>
-          <h2 className="mb-2 font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          <p className="mb-4 flex items-center gap-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-white/40">
+            <span className="font-display text-base tracking-normal text-[var(--color-brand)]">Watch first</span>
+            <span aria-hidden="true" className="h-px w-16 bg-gradient-to-r from-[var(--color-brand)]/60 to-transparent" />
+          </p>
+          <h2 className="mb-2 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             {featured.title}
           </h2>
           <p className="mb-6 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">

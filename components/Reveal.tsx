@@ -6,9 +6,15 @@ type RevealProps = {
   children: ReactNode;
   delay?: number;
   className?: string;
+  variant?: "up" | "fade" | "clip" | "left" | "scale";
 };
 
-export default function Reveal({ children, delay = 0, className = "" }: RevealProps) {
+export default function Reveal({
+  children,
+  delay = 0,
+  className = "",
+  variant = "up",
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,6 +40,7 @@ export default function Reveal({ children, delay = 0, className = "" }: RevealPr
   return (
     <div
       ref={ref}
+      data-reveal={variant}
       className={`reveal ${className}`}
       style={delay ? { animationDelay: `${delay}ms` } : undefined}
     >

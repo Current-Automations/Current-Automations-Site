@@ -5,6 +5,8 @@ import FAQSection from "@/components/FAQSection";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import BuyNowButton from "@/components/BuyNowButton";
+import CountUp from "@/components/motion/CountUp";
+import TiltCard from "@/components/motion/TiltCard";
 import CartSelector from "@/components/CartSelector";
 import type { CartScenario } from "@/components/CartSelector";
 import type { FAQItem } from "@/data/siteContent";
@@ -185,39 +187,100 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(140deg,#07111d_0%,#0c182a_60%,#12324a_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
-        <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_45%)]" />
-        <div className="container-shell">
-          <p className="pill-label bg-surface-dark-2 text-white/70">
-            Straightforward pricing
-          </p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Transparent pricing.{" "}
-            <br className="hidden sm:block" />
-            Pay only for what you use.
+      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)] pb-20 pt-20 sm:pb-24 sm:pt-28">
+        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+        <div className="container-shell relative">
+          <Reveal variant="fade">
+            <p className="kicker text-on-dark-muted">
+              <span className="kicker-num" aria-hidden="true">01</span>
+              <span>Straightforward pricing</span>
+              <span aria-hidden="true" className="kicker-rule rule-draw" />
+            </p>
+          </Reveal>
+          <h1 className="display-hero mt-8 max-w-4xl text-white">
+            <Reveal variant="clip">
+              <span className="block">Transparent pricing.</span>
+            </Reveal>
+            <Reveal variant="clip" delay={140}>
+              <span className="block">Pay only for what you use.</span>
+            </Reveal>
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-            Choose a bundled tier to save up to $149/month, or build your own
-            stack with individual automation scenarios starting at $49/month.
-          </p>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.08] px-5 py-3">
-            <span className="h-2 w-2 rounded-full bg-[var(--color-brand)]" />
-            <span className="text-sm text-white/80">
-              One-time setup fee:{" "}
-              <strong className="text-white">$150 CAD</strong>: full build,
-              configuration, and onboarding included
-            </span>
-          </div>
-          <p className="mt-4 text-sm text-on-dark-muted">
-            Most plans pay for themselves with one or two recovered jobs a month.
-          </p>
+          <Reveal variant="fade" delay={300}>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
+              Choose a bundled tier to save up to $149/month, or build your own
+              stack with individual automation scenarios starting at $49/month.
+            </p>
+            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.08] px-5 py-3">
+              <span className="pulse-dot h-2 w-2 rounded-full bg-[var(--color-brand)]" />
+              <span className="text-sm text-white/80">
+                One-time setup fee:{" "}
+                <strong className="text-white">$150 CAD</strong>: full build,
+                configuration, and onboarding included
+              </span>
+            </div>
+            <p className="mt-4 text-sm text-on-dark-muted">
+              Most plans pay for themselves with one or two recovered jobs a month.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <Section
+        index="02"
+        eyebrow="Done for you"
+        title="Cheap tools still leave you doing the work."
+        description="Self-serve automation tools cost less on paper. Then you spend your evenings configuring them, connecting them to your phone system, and figuring out why the texts stopped sending. We install it, tune it, and hand you a working system. You don't touch the tech."
+        tone="muted"
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <article className="h-full rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                Self-serve tools
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "You pick the software and learn it yourself",
+                  "You wire it to your phone line and calendar",
+                  "You write the messages and test the flows",
+                  "When it breaks, you troubleshoot it",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-[var(--color-muted)]">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-muted)]/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+          <Reveal delay={110}>
+            <article className="dark-card h-full rounded-card-lg p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-brand)]">
+                Current Automations
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "We map your actual call flow first",
+                  "We install and connect everything for you",
+                  "We tune the messages until they sound like you",
+                  "We monitor and maintain it. You see results.",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-on-dark">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section
+        index="03"
         eyebrow="Bundled Tiers"
         title="Start with a bundle. Save every month."
-        description="Each tier stacks on the last. The more automations you run, the more you save versus a la carte pricing."
+        description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $149/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
           {tiers.map((tier, index) => {
@@ -236,7 +299,7 @@ export default function PricingPage() {
                     </span>
                   )}
                 </div>
-                <article
+                <TiltCard
                   className={
                     featured
                       ? "flex flex-1 flex-col rounded-card-lg dark-card p-8 ring-1 ring-[var(--color-brand)]/30 shadow-[0_36px_90px_rgba(93,214,203,0.22)] xl:p-9"
@@ -258,11 +321,11 @@ export default function PricingPage() {
                     {tier.tagline}
                   </p>
                   <p
-                    className={`mt-5 font-semibold tracking-tight ${
-                      featured ? "text-4xl text-white" : "text-3xl text-[var(--color-ink)]"
+                    className={`font-display mt-5 font-semibold tracking-tight ${
+                      featured ? "text-5xl text-white" : "text-4xl text-[var(--color-ink)]"
                     }`}
                   >
-                    ${tier.price}
+                    <CountUp value={tier.price} prefix="$" />
                     <span
                       className={`text-base font-normal ${
                         featured ? "text-on-dark-muted" : "text-[var(--color-muted)]"
@@ -318,7 +381,7 @@ export default function PricingPage() {
                       Book a Call Instead
                     </Link>
                   </div>
-                </article>
+                </TiltCard>
               </Reveal>
             );
           })}
@@ -326,15 +389,17 @@ export default function PricingPage() {
       </Section>
 
       <Section
+        index="04"
         eyebrow="A La Carte"
-        title="Build your own stack."
-        description="Pick only the automations your business actually needs. Each scenario runs independently and can be added to any tier."
+        title="Just need one fix? Pick a single workflow."
+        description="Each scenario runs independently and can be added to any tier. Start with the one problem that hurts most; bundles save money once you are running three or more."
         tone="muted"
       >
         <CartSelector scenarios={allScenarios} />
       </Section>
 
       <Section
+        index="05"
         eyebrow="Why teams choose this"
         title="Why service businesses choose Current Automations."
         description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."

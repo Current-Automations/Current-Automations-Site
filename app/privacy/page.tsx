@@ -118,7 +118,7 @@ export default function PrivacyPage() {
                 This caller data is collected on behalf of the client whose business number is
                 configured in the system. The client is the organization responsible for those
                 communications under applicable Canadian privacy legislation. Current Automations
-                processes this data as a service provider acting on the client's behalf.
+                processes this data as a service provider acting on the client&apos;s behalf.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
                 3.3 Information Collected Automatically: When you visit our website, we may collect
@@ -202,7 +202,7 @@ export default function PrivacyPage() {
                 6. Commercial Electronic Messages and CASL
               </h2>
               <p className="mt-3 text-[var(--color-copy)]">
-                Current Automations complies with Canada's Anti-Spam Legislation (CASL). We will
+                Current Automations complies with Canada&apos;s Anti-Spam Legislation (CASL). We will
                 only send commercial electronic messages to individuals who have provided express or
                 implied consent. Every commercial message we send will include a clear and easy way
                 to unsubscribe. We will honour all unsubscribe requests within 10 business days.

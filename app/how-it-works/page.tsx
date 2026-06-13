@@ -45,21 +45,33 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0f1d31_65%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
-        <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,_rgba(79,208,173,0.18),_transparent_48%)]" />
-        <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+      <section className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)] pb-20 pt-20 sm:pb-24 sm:pt-28">
+        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+        <div className="container-shell relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div>
-            <p className="pill-label bg-surface-dark-2 text-white/70">
-              How the workflow works
-            </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              From first conversation to running system. Here is how we work.
+            <Reveal variant="fade">
+              <p className="kicker text-on-dark-muted">
+                <span className="kicker-num" aria-hidden="true">01</span>
+                <span>How the workflow works</span>
+                <span aria-hidden="true" className="kicker-rule rule-draw" />
+              </p>
+            </Reveal>
+            <h1 className="display-hero mt-8 max-w-4xl text-white">
+              <Reveal variant="clip">
+                <span className="block">From first conversation</span>
+              </Reveal>
+              <Reveal variant="clip" delay={140}>
+                <span className="block">to running system.</span>
+              </Reveal>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-              Every engagement starts with a free consultation where we find where your business is losing time and money. Then we build and run the systems that fix it. You never touch the technology.
-            </p>
+            <Reveal variant="fade" delay={300}>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
+                Every engagement starts with a free audit that finds where your business is losing time and money. Then we install it, tune it, and hand you a working system. You don&apos;t touch the tech.
+              </p>
+            </Reveal>
           </div>
 
+          <Reveal variant="scale" delay={250}>
           <div className="rounded-card-lg border border-line-dark bg-surface-dark-2 p-6">
             <p className="text-xs uppercase tracking-[0.28em] text-on-dark-muted">
               What you get
@@ -80,10 +92,12 @@ export default function HowItWorksPage() {
               ))}
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       <Section
+        index="02"
         eyebrow="Step-by-step"
         title="How every engagement works."
         description="Each stage is designed to shorten the time between an unanswered call and a real conversation with your next customer."
@@ -95,10 +109,10 @@ export default function HowItWorksPage() {
               className="surface-card lift-card relative h-full rounded-card-lg p-7"
             >
               <div className="mb-8 flex items-center justify-between">
-                <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-strong)]">
+                <span className="font-display text-3xl font-semibold text-[var(--color-brand-strong)]">
                   {step.number}
                 </span>
-                <span className="h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
+                <span className="rule-draw h-px w-14 bg-gradient-to-r from-[var(--color-brand)]/70 to-transparent" />
               </div>
               <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {step.title}
@@ -113,6 +127,7 @@ export default function HowItWorksPage() {
       </Section>
 
       <Section
+        index="03"
         eyebrow="Behind the scenes"
         title="Built to run without you having to think about it."
         description="This is not about replacing your team. It is about making sure every inbound lead gets fast attention in a workflow that feels natural and dependable."
@@ -138,6 +153,7 @@ export default function HowItWorksPage() {
       </Section>
 
       <Section
+        index="04"
         eyebrow="Real example"
         title="Here is what this looks like for an HVAC company on a busy Tuesday."
         description="This is a representative scenario based on the kind of situation local service teams deal with every week."

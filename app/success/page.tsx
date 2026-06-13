@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: { absolute: "You Are All Set | Current Automations" },
@@ -9,22 +10,31 @@ export const metadata: Metadata = {
 
 export default function SuccessPage() {
   return (
-    <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-[linear-gradient(140deg,#07111d_0%,#0c182a_60%,#12324a_100%)]">
-      <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_45%)]" />
-      <div className="container-shell py-24 sm:py-32">
-        <p className="pill-label bg-white/[0.08] text-white/70">
-          Purchase confirmed
-        </p>
-        <h1 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          You are all set.
+    <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)]">
+      <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+      <div className="container-shell relative py-24 sm:py-32">
+        <Reveal variant="fade">
+          <p className="kicker text-on-dark-muted">
+            <span className="pulse-dot h-2 w-2 rounded-full bg-[var(--color-brand)]" />
+            <span>Purchase confirmed</span>
+            <span aria-hidden="true" className="kicker-rule rule-draw" />
+          </p>
+        </Reveal>
+        <h1 className="display-hero mt-8 max-w-2xl text-white">
+          <Reveal variant="clip">
+            <span className="block">You are all set.</span>
+          </Reveal>
         </h1>
-        <p className="mt-6 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg">
-          Your subscription is active. Expect an onboarding email from us within
-          24 hours. We will walk you through everything.
-        </p>
-        <Link href="/" className="btn-primary mt-8 inline-flex">
-          Back to home
-        </Link>
+        <Reveal variant="fade" delay={220}>
+          <p className="mt-7 max-w-xl text-base leading-8 text-white/[0.68] sm:text-lg">
+            Your subscription is active. Expect an onboarding email from us within
+            24 hours. We install it, tune it, and hand you a working system. You
+            don&apos;t touch the tech.
+          </p>
+          <Link href="/" className="btn-primary mt-9 inline-flex">
+            Back to home
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

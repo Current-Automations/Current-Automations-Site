@@ -96,10 +96,10 @@ export default function TermsPage() {
                 Third-Party Providers means external platforms used to deliver the Service, including Twilio, Make, OpenAI, Google, Calendly, and others as applicable.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
-                Ported Number means any telephone number transferred from a Client's existing carrier to Twilio as part of the onboarding process.
+                Ported Number means any telephone number transferred from a Client&apos;s existing carrier to Twilio as part of the onboarding process.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
-                Authorized Recipients means individuals who have provided valid express or implied consent under CASL to receive automated commercial electronic messages from the Client's business.
+                Authorized Recipients means individuals who have provided valid express or implied consent under CASL to receive automated commercial electronic messages from the Client&apos;s business.
               </p>
             </div>
 
@@ -132,12 +132,12 @@ export default function TermsPage() {
                 Target go-live time is 2 to 3 business days from receipt of all required information. This timeline is an estimate only and is subject to carrier processing times and completeness of information provided by the Client.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                2.3 Service Limitations: The Service is designed to supplement the Client's existing call handling, not to replace it.
+                2.3 Service Limitations: The Service is designed to supplement the Client&apos;s existing call handling, not to replace it.
                 Current Automations makes no guarantee that the Service will capture every missed call, deliver every SMS, or accurately transcribe every voicemail.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
                 2.4 No Guarantee of Results: Current Automations does not guarantee any specific business outcomes, revenue increases, booking volume, lead conversion rates, or return on investment from use of the Service.
-                Business results depend entirely on the Client's own operations, responsiveness, and follow-through.
+                Business results depend entirely on the Client&apos;s own operations, responsiveness, and follow-through.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
                 2.5 No Professional Advice: The Service, including any AI-generated transcriptions, urgency summaries, or automated message content, does not constitute legal, financial, medical, or any other form of professional advice.
@@ -191,9 +191,9 @@ export default function TermsPage() {
                 No refund issued for termination for cause.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                4.5 Offboarding and Number Return: Upon cancellation we will initiate the return port of the Client's number within 5 business days of a written request.
+                4.5 Offboarding and Number Return: Upon cancellation we will initiate the return port of the Client&apos;s number within 5 business days of a written request.
                 The number will continue to function on the Twilio platform at no charge for up to 14 days.
-                After 14 days, if the return port has not completed due to delay on the Client's part, a holding fee may apply.
+                After 14 days, if the return port has not completed due to delay on the Client&apos;s part, a holding fee may apply.
               </p>
             </div>
 

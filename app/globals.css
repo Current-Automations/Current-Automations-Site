@@ -21,34 +21,28 @@
 @theme inline {
   --color-background: var(--color-canvas);
   --color-foreground: var(--color-copy);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
 }
 
-/*
- * Design tokens: radius, text-on-dark, surface-on-dark.
- * Replaces ~15 ad-hoc radii and ~20 ad-hoc opacity values
- * with a single defined scale.
- */
 @theme {
   /* 4-step radius scale */
-  --radius-card-sm: 1.25rem;  /* small cards, inputs, inset blocks */
-  --radius-card-md: 1.5rem;   /* standard content cards */
-  --radius-card-lg: 1.9rem;   /* featured / surface cards */
-  --radius-shell: 2.25rem;    /* outer shells, CTASection */
+  --radius-card-sm: 1.25rem;
+  --radius-card-md: 1.5rem;
+  --radius-card-lg: 1.9rem;
+  --radius-shell: 2.25rem;
 
   /* 4-step text-on-dark scale */
-  --color-on-dark-strong: rgba(255, 255, 255, 0.92);  /* headlines, emphasized body */
-  --color-on-dark: rgba(255, 255, 255, 0.72);         /* default body on dark */
-  --color-on-dark-muted: rgba(255, 255, 255, 0.55);   /* secondary / supporting */
-  --color-on-dark-faint: rgba(255, 255, 255, 0.4);    /* labels, eyebrows, copyright */
+  --color-on-dark-strong: rgba(255, 255, 255, 0.92);
+  --color-on-dark: rgba(255, 255, 255, 0.72);
+  --color-on-dark-muted: rgba(255, 255, 255, 0.55);
+  --color-on-dark-faint: rgba(255, 255, 255, 0.4);
 
   /* 3-step surface-on-dark scale */
   --color-surface-dark-1: rgba(255, 255, 255, 0.04);
   --color-surface-dark-2: rgba(255, 255, 255, 0.07);
   --color-surface-dark-3: rgba(255, 255, 255, 0.12);
 
-  /* on-dark dividers */
   --color-line-dark: rgba(255, 255, 255, 0.1);
 }
 
@@ -72,7 +66,7 @@
     min-height: 100vh;
     background: var(--color-canvas);
     color: var(--color-copy);
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-manrope), sans-serif;
     text-rendering: optimizeLegibility;
   }
 
@@ -118,7 +112,56 @@
   }
 
   .font-display {
-    font-family: var(--font-space-grotesk), sans-serif;
+    font-family: var(--font-fraunces), serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+  }
+
+  /* ---- Display scale, pushed hard ---- */
+  .display-hero {
+    font-family: var(--font-fraunces), serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.6rem, 7vw, 6.25rem);
+    line-height: 1.02;
+  }
+
+  .display-giant {
+    font-family: var(--font-fraunces), serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+  }
+
+  /* ---- Section kicker: index numeral + tracked label + drawn rule ---- */
+  .kicker {
+    @apply flex items-center gap-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em];
+  }
+
+  .kicker-num {
+    font-family: var(--font-fraunces), serif;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    color: var(--color-brand-strong);
+  }
+
+  .kicker-rule {
+    @apply h-px flex-1;
+    max-width: 7rem;
+    background: linear-gradient(90deg, var(--color-brand), transparent);
+  }
+
+  .rule-draw {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1) 150ms;
+  }
+
+  .reveal-in .rule-draw,
+  .rule-draw.reveal-in {
+    transform: scaleX(1);
   }
 
   .pill-label {
@@ -137,14 +180,15 @@
 
   .dark-card {
     background:
-      radial-gradient(circle at top left, rgba(93, 214, 203, 0.14), transparent 32%),
+      radial-gradient(circle at top left, rgba(93, 214, 203, 0.1), transparent 32%),
       linear-gradient(145deg, rgba(14, 25, 42, 0.98), rgba(8, 17, 29, 0.94));
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 36px 100px rgba(2, 6, 23, 0.34);
   }
 
+  /* ---- Buttons: alive states + shimmer sweep ---- */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3.5 text-sm font-semibold whitespace-nowrap;
     background: linear-gradient(
       135deg,
       var(--color-brand-crest) 0%,
@@ -155,9 +199,32 @@
     box-shadow: 0 14px 36px rgba(93, 214, 203, 0.28);
   }
 
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.65) 50%,
+      transparent 70%
+    );
+    transform: translateX(-130%) skewX(-12deg);
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
   .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 42px rgba(93, 214, 203, 0.34);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 48px rgba(93, 214, 203, 0.4);
+  }
+
+  .btn-primary:hover::after {
+    transform: translateX(130%) skewX(-12deg);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
   }
 
   .btn-secondary {
@@ -168,9 +235,13 @@
   }
 
   .btn-secondary:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.5);
     border-color: rgba(15, 27, 44, 0.18);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0) scale(0.98);
   }
 
   .form-input {
@@ -190,25 +261,171 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
-  /* Scroll reveal: content is visible by default; the animation only fires
-     once Reveal.tsx observes the element entering the viewport. */
+  /* ---- Reveal variants (content visible by default, animation only enhances) ---- */
   .reveal-in {
     animation: reveal-up 900ms cubic-bezier(0.25, 0.8, 0.3, 1) both;
   }
 
+  .reveal-in[data-reveal="fade"] {
+    animation-name: reveal-fade;
+  }
+
+  .reveal-in[data-reveal="clip"] {
+    animation-name: reveal-clip;
+    animation-duration: 1000ms;
+  }
+
+  .reveal-in[data-reveal="left"] {
+    animation-name: reveal-left;
+  }
+
+  .reveal-in[data-reveal="scale"] {
+    animation-name: reveal-scale;
+  }
+
+  /* ---- Card hover physics ---- */
   .lift-card {
     transition:
-      transform 550ms cubic-bezier(0.25, 0.8, 0.3, 1),
-      box-shadow 550ms cubic-bezier(0.25, 0.8, 0.3, 1),
-      border-color 550ms ease;
+      transform 480ms cubic-bezier(0.25, 0.8, 0.3, 1),
+      box-shadow 480ms cubic-bezier(0.25, 0.8, 0.3, 1),
+      border-color 480ms ease;
   }
 
   .lift-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
   }
 
   .surface-card.lift-card:hover {
-    box-shadow: 0 32px 80px rgba(4, 9, 26, 0.14);
+    box-shadow: 0 36px 88px rgba(4, 9, 26, 0.16);
+  }
+
+  /* ---- Row sweep: editorial list rows ---- */
+  .row-sweep {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .row-sweep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(93, 214, 203, 0.1), rgba(93, 214, 203, 0.02));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .row-sweep:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* ---- Animated bars: scaleX once revealed ---- */
+  .bar-fill {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1) var(--bar-delay, 200ms);
+  }
+
+  .reveal-in .bar-fill {
+    transform: scaleX(1);
+  }
+
+  /* ---- Cursor spotlight (CursorField sets --mx / --my in px) ---- */
+  .cursor-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      560px circle at var(--mx, 50%) var(--my, 30%),
+      rgba(93, 214, 203, 0.09),
+      transparent 65%
+    );
+  }
+
+  /* ---- Parallax layers (CursorField sets --par-x / --par-y in -1..1) ---- */
+  .par-1 {
+    transform: translate3d(calc(var(--par-x, 0) * 8px), calc(var(--par-y, 0) * 8px), 0);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .par-2 {
+    transform: translate3d(calc(var(--par-x, 0) * -14px), calc(var(--par-y, 0) * -10px), 0);
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .par-3 {
+    transform: translate3d(calc(var(--par-x, 0) * 20px), calc(var(--par-y, 0) * 14px), 0);
+    transition: transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ---- Tilt card (TiltCard sets --rx / --ry / --gx / --gy) ---- */
+  .tilt-card {
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 240ms ease-out;
+    will-change: transform;
+  }
+
+  .tilt-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--gx, 50%) var(--gy, 50%),
+      rgba(255, 255, 255, 0.08),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .tilt-card:hover .tilt-glare {
+    opacity: 1;
+  }
+
+  /* ---- Ticker marquee ---- */
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 36s linear infinite;
+  }
+
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* ---- Live pulse dot ---- */
+  .pulse-dot {
+    position: relative;
+  }
+
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: inherit;
+    animation: pulse-ring 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  /* ---- Dark dispatch-board grid texture ---- */
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 90% 75% at 50% 20%, black 30%, transparent 78%);
+  }
+
+  /* ---- SMS thread choreography: messages land one by one on reveal ---- */
+  .thread-step {
+    opacity: 1;
+  }
+
+  .reveal-in .thread-step {
+    animation: thread-pop 520ms cubic-bezier(0.34, 1.4, 0.5, 1) both;
+    animation-delay: var(--thread-delay, 0ms);
   }
 
   .glow-drift {
@@ -223,11 +440,90 @@
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-clip {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 -10% 0);
+    transform: none;
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thread-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
   }
 }
 
@@ -242,15 +538,41 @@
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-in,
+  .reveal-in[data-reveal],
   .glow-drift,
-  .glow-drift-slow {
+  .glow-drift-slow,
+  .ticker-track,
+  .pulse-dot::after,
+  .reveal-in .thread-step {
     animation: none;
   }
 
   .lift-card,
-  .lift-card:hover {
+  .lift-card:hover,
+  .tilt-card,
+  .par-1,
+  .par-2,
+  .par-3,
+  .btn-primary:hover,
+  .btn-secondary:hover {
     transform: none;
     transition: none;
+  }
+
+  .btn-primary::after,
+  .row-sweep::before {
+    display: none;
+  }
+
+  .bar-fill,
+  .rule-draw {
+    transform: scaleX(1);
+    transition: none;
+  }
+
+  .cursor-spotlight,
+  .tilt-glare {
+    display: none;
   }
 
   html {

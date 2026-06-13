@@ -25,9 +25,9 @@ Add `$env:PATH = "C:\Program Files\nodejs;" + $env:PATH` before calling node if 
 
 There is **no test suite**.
 
-## Known pre-existing lint errors
+## Lint status
 
-`app/privacy/page.tsx` (2 errors) and `app/terms/page.tsx` (6 errors) have unescaped apostrophe lint errors that pre-date this project. They are not regressions. Ignore them when verifying that new changes are clean.
+The lint run is fully clean. The previously documented unescaped-apostrophe errors in `app/privacy/page.tsx` and `app/terms/page.tsx` were fixed in the 2026-06 refresh.
 
 ## Architecture
 
