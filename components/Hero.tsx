@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import CursorField from "@/components/motion/CursorField";
+import Reveal from "@/components/Reveal";
 
 type HeroProps = {
   id?: string;
   eyebrow?: string;
-  title: ReactNode;
+  titleLines: string[];
   description: string;
   primaryCta: {
     href: string;
@@ -16,96 +18,121 @@ type HeroProps = {
   };
   ctaNote?: ReactNode;
   proof?: ReactNode;
-  locationBadge?: string;
-  stats?: Array<{
-    value: string;
-    label: string;
-  }>;
+  ticker?: string[];
   children?: ReactNode;
 };
 
 export default function Hero({
   id,
   eyebrow,
-  title,
+  titleLines,
   description,
   primaryCta,
   secondaryCta,
   ctaNote,
   proof,
-  locationBadge,
-  stats = [],
+  ticker,
   children,
 }: HeroProps) {
   return (
     <section
       id={id}
-      className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32"
+      className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)]"
     >
-      <div className="glow-drift-slow pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
-      <div className="glow-drift pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(244,214,165,0.2),_transparent_62%)] blur-3xl" />
-      <div className="glow-drift pointer-events-none absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(46,143,214,0.14),_transparent_60%)] blur-3xl" />
+      <CursorField className="relative">
+        {/* Dispatch-board grid + cursor-reactive spotlight */}
+        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+        <div aria-hidden="true" className="cursor-spotlight" />
 
-      <div
-        className={
-          children
-            ? "container-shell grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center"
-            : "container-shell"
-        }
-      >
-        <div className="relative">
-          {eyebrow ? (
-            <p className="pill-label bg-surface-dark-2 text-white/70">{eyebrow}</p>
-          ) : null}
-          <h1 className="font-display mt-6 max-w-4xl text-4xl font-semibold text-white sm:text-5xl lg:text-[4.1rem] lg:leading-[1.06]">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-            {description}
-          </p>
+        <div
+          className={
+            children
+              ? "container-shell relative grid gap-14 pb-20 pt-20 sm:pt-28 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center lg:pb-24"
+              : "container-shell relative pb-20 pt-20 sm:pt-28 lg:pb-24"
+          }
+        >
+          <div className="relative">
+            {eyebrow ? (
+              <Reveal variant="fade">
+                <p className="kicker text-on-dark-muted">
+                  <span className="kicker-num" aria-hidden="true">
+                    01
+                  </span>
+                  <span>{eyebrow}</span>
+                  <span aria-hidden="true" className="kicker-rule rule-draw" />
+                </p>
+              </Reveal>
+            ) : null}
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link href={primaryCta.href} className="btn-primary" target="_blank" rel="noopener noreferrer">
-              {primaryCta.label}
-            </Link>
-            <Link
-              href={secondaryCta.href}
-              className="btn-secondary border-line-dark text-white"
-            >
-              {secondaryCta.label}
-            </Link>
-            {locationBadge ? (
-              <span className="text-sm text-white/70">{locationBadge}</span>
+            <h1 className="display-hero mt-8 text-white">
+              {titleLines.map((line, i) => (
+                <Reveal key={line} variant="clip" delay={i * 140}>
+                  <span className="block">{line}</span>
+                </Reveal>
+              ))}
+            </h1>
+
+            <Reveal variant="fade" delay={420}>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
+                {description}
+              </p>
+            </Reveal>
+
+            <Reveal variant="up" delay={520}>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Link
+                  href={primaryCta.href}
+                  className="btn-primary px-7 py-4 text-base"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {primaryCta.label}
+                </Link>
+                <Link
+                  href={secondaryCta.href}
+                  className="btn-secondary border-line-dark text-white"
+                >
+                  {secondaryCta.label}
+                </Link>
+              </div>
+              {ctaNote ? (
+                <p className="mt-4 text-sm text-on-dark">{ctaNote}</p>
+              ) : null}
+            </Reveal>
+
+            {proof ? (
+              <Reveal variant="up" delay={620}>
+                <div className="par-1 mt-10">{proof}</div>
+              </Reveal>
             ) : null}
           </div>
 
-          {ctaNote ? (
-            <p className="mt-3 text-sm text-on-dark">{ctaNote}</p>
-          ) : null}
-
-          {proof ? <div className="mt-8">{proof}</div> : null}
-
-          {stats.length > 0 ? (
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-card-md border border-line-dark bg-surface-dark-2 px-5 py-5"
-                >
-                  <p className="text-2xl font-semibold tracking-tight text-white">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-on-dark-muted">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+          {children ? (
+            <Reveal variant="scale" delay={300}>
+              <div className="par-2">{children}</div>
+            </Reveal>
           ) : null}
         </div>
 
-        {children ? <div>{children}</div> : null}
-      </div>
+        {ticker?.length ? (
+          <div
+            className="relative overflow-hidden border-t border-line-dark py-4"
+            aria-hidden="true"
+          >
+            <div className="ticker-track gap-12 pr-12">
+              {[...ticker, ...ticker].map((item, i) => (
+                <span
+                  key={`${item}-${i}`}
+                  className="flex shrink-0 items-center gap-12 text-xs font-semibold uppercase tracking-[0.3em] text-on-dark-faint"
+                >
+                  {item}
+                  <span className="h-1 w-1 rounded-full bg-[var(--color-brand)]/50" />
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </CursorField>
     </section>
   );
 }

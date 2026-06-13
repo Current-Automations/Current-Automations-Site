@@ -14,21 +14,33 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-20 pt-24 sm:pb-24 sm:pt-32">
-        <div className="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
-        <div className="container-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+      <section className="relative overflow-hidden border-b border-line-dark bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)] pb-20 pt-20 sm:pb-24 sm:pt-28">
+        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+        <div className="container-shell relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div>
-            <p className="pill-label bg-surface-dark-2 text-white/70">
-              Who We Are
-            </p>
-            <h1 className="font-display mt-5 max-w-4xl text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
-              We find where your business is losing money. Then we fix it.
+            <Reveal variant="fade">
+              <p className="kicker text-on-dark-muted">
+                <span className="kicker-num" aria-hidden="true">01</span>
+                <span>Who We Are</span>
+                <span aria-hidden="true" className="kicker-rule rule-draw" />
+              </p>
+            </Reveal>
+            <h1 className="display-hero mt-8 max-w-4xl text-white">
+              <Reveal variant="clip">
+                <span className="block">We find where your business</span>
+              </Reveal>
+              <Reveal variant="clip" delay={140}>
+                <span className="block">is losing money. Then we fix it.</span>
+              </Reveal>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-              Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.
-            </p>
+            <Reveal variant="fade" delay={300}>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
+                Current Automations is an AI systems company for trades and service businesses across Ontario. We start with a free consultation, find your highest-impact opportunity, and build the systems that recover it.
+              </p>
+            </Reveal>
           </div>
 
+          <Reveal variant="scale" delay={250}>
           <div className="rounded-card-lg border border-line-dark bg-surface-dark-2 p-6">
             <p className="text-xs uppercase tracking-[0.28em] text-on-dark-muted">
               Why this exists
@@ -48,10 +60,12 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       <Section
+        index="02"
         eyebrow="Where the money leaks"
         title="Most service businesses are losing revenue in the same three places."
         tone="muted"
@@ -89,6 +103,7 @@ export default function AboutPage() {
       </Section>
 
       <Section
+        index="03"
         eyebrow="How we fix it"
         title="We audit your business, find the highest-impact opportunity, then build the system that solves it."
       >
@@ -167,6 +182,7 @@ export default function AboutPage() {
       </Section>
 
       <Section
+        index="05"
         eyebrow="The relationship"
         title="I am not here to sell you a tool and disappear."
       >

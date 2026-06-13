@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} ${fraunces.variable}`}>
       <body>
         <div className="site-shell">
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_top_left,_rgba(93,214,203,0.2),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(244,214,165,0.22),_transparent_20%),linear-gradient(180deg,_#04091a_0%,_#0b1828_56%,_#f4f7fb_56%,_#f4f7fb_100%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[linear-gradient(180deg,_#04091a_0%,_#081424_56%,_#f4f7fb_56%,_#f4f7fb_100%)]" />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

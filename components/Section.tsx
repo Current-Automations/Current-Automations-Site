@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
+import Reveal from "@/components/Reveal";
 
 type SectionProps = {
   id?: string;
+  index?: string;
   eyebrow?: string;
   title?: string;
   description?: string;
@@ -13,6 +15,7 @@ type SectionProps = {
 
 export default function Section({
   id,
+  index,
   eyebrow,
   title,
   description,
@@ -40,7 +43,8 @@ export default function Section({
     .join(" ");
 
   const titleClasses = [
-    "font-display mt-5 text-3xl font-semibold sm:text-4xl lg:text-5xl",
+    "font-display mt-6 font-semibold leading-[1.05]",
+    "text-[clamp(2.1rem,4.5vw,3.6rem)]",
     tone === "dark" ? "text-white" : "text-[var(--color-ink)]",
   ].join(" ");
 
@@ -49,27 +53,34 @@ export default function Section({
     tone === "dark" ? "text-on-dark" : "text-[var(--color-muted)]",
   ].join(" ");
 
+  const kickerColor =
+    tone === "dark" ? "text-on-dark-muted" : "text-[var(--color-muted)]";
+
   return (
     <section id={id} className={sectionClasses}>
       <div className="container-shell">
         {(eyebrow ?? title ?? description) ? (
-          <div className={headerClasses}>
-            {eyebrow ? (
-              <p
-                className={
-                  tone === "dark"
-                    ? "pill-label bg-surface-dark-2 text-white/70"
-                    : "pill-label"
-                }
-              >
-                {eyebrow}
-              </p>
-            ) : null}
-            {title ? <h2 className={titleClasses}>{title}</h2> : null}
-            {description ? (
-              <p className={descriptionClasses}>{description}</p>
-            ) : null}
-          </div>
+          <Reveal variant="fade">
+            <div className={headerClasses}>
+              {eyebrow ? (
+                <p className={`kicker ${kickerColor} ${align === "center" ? "justify-center" : ""}`}>
+                  {index ? (
+                    <span className="kicker-num" aria-hidden="true">
+                      {index}
+                    </span>
+                  ) : null}
+                  <span>{eyebrow}</span>
+                  {align !== "center" ? (
+                    <span aria-hidden="true" className="kicker-rule rule-draw" />
+                  ) : null}
+                </p>
+              ) : null}
+              {title ? <h2 className={titleClasses}>{title}</h2> : null}
+              {description ? (
+                <p className={descriptionClasses}>{description}</p>
+              ) : null}
+            </div>
+          </Reveal>
         ) : null}
         {children}
       </div>
