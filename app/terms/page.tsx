@@ -46,7 +46,7 @@ export default function TermsPage() {
               <ul className="mt-5 space-y-3 pl-6 text-[var(--color-copy)]">
                 <li className="list-disc">
                   Monthly Subscription: Billing starts the day you sign up and renews automatically each month.
-                  Cancel anytime with 5 business days notice before your next billing date. No setup fees.
+                  Cancel anytime with 5 business days notice before your next billing date. A one-time $150 CAD setup fee applies at signup (non-refundable once onboarding begins; may be waived at our discretion).
                 </li>
                 <li className="list-disc">
                   No Refunds Once Charged: Monthly fees are non-refundable. If you cancel mid-month you keep access until the period ends.
@@ -87,7 +87,7 @@ export default function TermsPage() {
                 Client or you means the individual or business entity that has subscribed to a Current Automations service plan.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
-                Plan means the specific tier of service selected at checkout: Starter, Pro, Premium, or Elite.
+                Plan means the specific tier of service selected at checkout: Starter, Pro, Growth, or Elite, or any individual automation scenario purchased a la carte.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
                 Subscription means the recurring monthly billing arrangement between the Client and Current Automations.
@@ -114,20 +114,23 @@ export default function TermsPage() {
               </p>
               <ul className="mt-5 space-y-3 pl-6 text-[var(--color-copy)]">
                 <li className="list-disc">
-                  Starter $97 CAD: Missed call SMS notification to caller.
+                  Starter $197 CAD/mo: Missed Call Text Back, Web Form Speed to Lead, Google Business Profile Lead Capture, and System Anomaly Alert.
                 </li>
                 <li className="list-disc">
-                  Pro $197 CAD: SMS plus booking link plus voicemail transcription plus urgency tagging plus owner alerts.
+                  Pro $297 CAD/mo: Everything in Starter, plus Multi-Touch Follow Up, Quote Follow Up, and Post Job Review Request.
                 </li>
                 <li className="list-disc">
-                  Premium $297 CAD: All Pro features plus AI voicemail agent with intelligent response.
+                  Growth $397 CAD/mo: Everything in Pro, plus Database Reactivation, No Show and Cancellation Recovery, and Weekly ROI Report.
                 </li>
                 <li className="list-disc">
-                  Elite $497 CAD: All Premium features plus live AI voice agent with real-time booking.
+                  Elite $597 CAD/mo: Everything in Growth, plus Retell AI Outbound Call and Inbound AI Call Handling. Retell AI requires a separate subscription.
+                </li>
+                <li className="list-disc">
+                  A la carte: individual automation scenarios are available from $49 CAD/mo and can be added to any tier.
                 </li>
               </ul>
               <p className="mt-5 text-[var(--color-copy)]">
-                2.2 Setup and Onboarding: No setup fees are charged. Setup and onboarding are included in the monthly subscription.
+                2.2 Setup and Onboarding: A one-time setup fee of $150 CAD is charged at checkout, covering full build, configuration, onboarding, and initial testing. There are no recurring setup costs. The setup fee is non-refundable once onboarding has begun, including if you later cancel the Service or request a refund. Current Automations reserves the right to waive or reduce the setup fee at its sole discretion, for example as part of a promotional offer.
                 Current Automations will begin setup upon receipt of a completed intake form and signed Letter of Authorization.
                 Target go-live time is 2 to 3 business days from receipt of all required information. This timeline is an estimate only and is subject to carrier processing times and completeness of information provided by the Client.
               </p>
