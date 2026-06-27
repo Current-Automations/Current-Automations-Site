@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
+import Script from "next/script";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import StickyCTA from "@/components/StickyCTA";
@@ -56,6 +57,13 @@ export default function RootLayout({
           <StickyCTA />
         </div>
       </body>
+      <Script
+        id="vtag-ai-js"
+        src="https://r2.leadsy.ai/tag.js"
+        data-pid="15uVMmObwRm7jxnEr"
+        data-version="062024"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
