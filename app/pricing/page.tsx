@@ -11,7 +11,7 @@ import CartSelector from "@/components/CartSelector";
 import type { CartScenario } from "@/components/CartSelector";
 import type { FAQItem } from "@/data/siteContent";
 
-const CALENDLY = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
+const BOOK_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 const pricingFaqItems: FAQItem[] = [
   {
@@ -371,7 +371,7 @@ export default function PricingPage() {
                   <div className="mt-6 flex flex-col gap-2">
                     <BuyNowButton priceId={tier.priceId} />
                     <Link
-                      href={CALENDLY}
+                      href={BOOK_URL}
                       className={
                         featured
                           ? "inline-flex w-full items-center justify-center rounded-full border border-line-dark bg-surface-dark-2 px-5 py-3.5 text-sm font-semibold text-on-dark-strong transition-colors hover:bg-surface-dark-3"
@@ -449,7 +449,7 @@ export default function PricingPage() {
         eyebrow="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
-        primaryHref={CALENDLY}
+        primaryHref={BOOK_URL}
         primaryLabel="Book Free Audit"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"

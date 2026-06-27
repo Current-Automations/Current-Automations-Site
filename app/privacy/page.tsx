@@ -72,7 +72,7 @@ export default function PrivacyPage() {
               <p className="mt-3 text-[var(--color-copy)]">
                 It does not apply to the personal information practices of third-party platforms we
                 use to deliver our services, such as Twilio, Make, OpenAI, Google, Stripe, or
-                Calendly. Each of those providers operates under its own privacy policy.
+                Google Calendar. Each of those providers operates under its own privacy policy.
               </p>
             </div>
 
@@ -236,7 +236,7 @@ export default function PrivacyPage() {
                 </li>
                 <li className="list-disc">Stripe for payment processing.</li>
                 <li className="list-disc">
-                  Calendly or equivalent booking tools for appointment scheduling.
+                  Google Calendar for appointment scheduling.
                 </li>
                 <li className="list-disc">
                   Docuseal or equivalent e-signature platforms for document execution.

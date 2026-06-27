@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static assets and utility scripts — not app code:
+    "public/**",
+    "export-brand-html.js",
   ]),
 ]);
 

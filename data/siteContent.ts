@@ -4,13 +4,20 @@ export type FAQItem = {
 };
 
 export const siteContact = {
-  email: "admin@currentautomations.ca",
+  email: "info@currentautomations.ca",
   phoneDisplay: "+1 (365) 513-7474",
   phoneHref: "+13655137474",
   responseExpectation: "Most inquiries receive a reply within 1 business day",
   walkthroughNote: "A no-pressure walkthrough tailored to your workflow",
   directContactNote:
     "You can email or call directly and most inquiries receive a reply within 1 business day.",
+};
+
+export const siteContacts = {
+  general: "info@currentautomations.ca",
+  support: "support@currentautomations.ca",
+  billing: "billing@currentautomations.ca",
+  noReply: "no-reply@currentautomations.ca",
 };
 
 export const faqItems: FAQItem[] = [

@@ -93,7 +93,7 @@ export default function TermsPage() {
                 Subscription means the recurring monthly billing arrangement between the Client and Current Automations.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
-                Third-Party Providers means external platforms used to deliver the Service, including Twilio, Make, OpenAI, Google, Calendly, and others as applicable.
+                Third-Party Providers means external platforms used to deliver the Service, including Twilio, Make, OpenAI, Google, Google Calendar, and others as applicable.
               </p>
               <p className="mt-3 text-[var(--color-copy)]">
                 Ported Number means any telephone number transferred from a Client&apos;s existing carrier to Twilio as part of the onboarding process.
@@ -238,7 +238,7 @@ export default function TermsPage() {
                 7.2 Exclusion of Consequential Damages: In no event shall Current Automations be liable for loss of revenue, profits, business, data, goodwill, missed calls, lost leads, or failure to convert customers.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">
-                7.3 Third-Party Platform Failures: Not liable for disruptions caused by Twilio, Make, OpenAI, Google, Calendly, or any other provider.
+                7.3 Third-Party Platform Failures: Not liable for disruptions caused by Twilio, Make, OpenAI, Google, Google Calendar, or any other provider.
                 We will make commercially reasonable efforts to notify affected Clients of known outages and restore functionality promptly.
               </p>
               <p className="mt-5 text-[var(--color-copy)]">

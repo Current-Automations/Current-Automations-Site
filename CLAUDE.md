@@ -45,7 +45,8 @@ The lint run is fully clean. The previously documented unescaped-apostrophe erro
 | `/privacy-policy` | `app/privacy-policy/page.tsx` | |
 | `/privacy` | `app/privacy/page.tsx` | Legacy, pre-existing lint errors |
 | `/terms` | `app/terms/page.tsx` | Pre-existing lint errors |
-| `/book-a-demo` | `app/book-a-demo/page.tsx` | Server-side `redirect()` to Calendly |
+| `/contact` | `app/contact/page.tsx` | General, support, and billing contact |
+| `/book-a-demo` | `app/book-a-demo/page.tsx` | Server-side `redirect()` to Google Calendar |
 
 `app/layout.tsx` wraps every page with `<Navbar>`, `<main>`, and `<Footer>`. It also holds the global `metadata` object (title template `"%s | Current Automations"`). Pages that need a title bypassing the template use `title: { absolute: "..." }`.
 
@@ -81,11 +82,17 @@ Key utility classes defined in `@layer components`:
 ### Shared data
 
 `data/siteContent.ts` is the single source of truth for:
-- `siteContact`: email (`admin@currentautomations.ca`), phone display/href, notes
+- `siteContact`: primary public email (`info@currentautomations.ca`), phone display/href, notes — used in Footer and anywhere a single contact appears
+- `siteContacts`: all inboxes by role:
+  - `general` — `info@currentautomations.ca` — front door, site contact form, warm inbound
+  - `support` — `support@currentautomations.ca` — existing client issues and change requests
+  - `billing` — `billing@currentautomations.ca` — invoices, refunds, card changes, billing questions
+  - `noReply` — `no-reply@currentautomations.ca` — automated one-way sends (receipts, confirmations); never monitored
+  - `admin@currentautomations.ca` — internal only (domain/registrar/account admin); never appears on the public site
 - `faqItems`: homepage FAQ entries
 - `FAQItem` type
 
-Import `siteContact` anywhere contact details appear rather than hardcoding them.
+Import `siteContact` for the single-email use case. Import `siteContacts` for the contact page or anywhere inbox-specific routing matters. Never hardcode email addresses.
 
 ### CTA convention
 
