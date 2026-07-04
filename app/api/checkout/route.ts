@@ -3,6 +3,25 @@ import { NextResponse } from "next/server";
 
 const SETUP_FEE_PRICE_ID = "price_1TYDaJFbHh7D2pR6LF1A1ovY";
 const BASE_URL = "https://currentautomations.ca";
+
+const ALLOWED_PRICE_IDS = new Set([
+  "price_1TYDaUFbHh7D2pR6HnZkAMIH",
+  "price_1TYDaeFbHh7D2pR6fS50MB9m",
+  "price_1TYDanFbHh7D2pR63S10aawu",
+  "price_1TYDaxFbHh7D2pR6UGz2bypy",
+  "price_1TYDb8FbHh7D2pR6daDOEzXl",
+  "price_1TYDbHFbHh7D2pR6ygqSwCnP",
+  "price_1TYDbuFbHh7D2pR6ZlkKBdsG",
+  "price_1TYDbQFbHh7D2pR6YQbn6Hce",
+  "price_1TYDc3FbHh7D2pR6CPMT08gB",
+  "price_1TYDcNFbHh7D2pR6nuxSwwMz",
+  "price_1TYDcYFbHh7D2pR64ZGtcZk5",
+  "price_1TYDcDFbHh7D2pR6bqd0TlCJ",
+  "price_1TYDchFbHh7D2pR6JVe7Nyz8",
+  "price_1TYDcsFbHh7D2pR6r0F4Bsnx",
+  "price_1TYDbaFbHh7D2pR6Kt85mIAE",
+  "price_1TYDbkFbHh7D2pR6N7FPebE4",
+]);
 // TODO: To support staging environments, replace BASE_URL with process.env.NEXT_PUBLIC_SITE_URL
 
 // Lazy-initialize so the key is read at request time, not build time.
@@ -24,6 +43,10 @@ export async function POST(request: Request) {
         { error: "priceIds must be a non-empty array" },
         { status: 400 }
       );
+    }
+
+    if ((priceIds as string[]).some((id) => !ALLOWED_PRICE_IDS.has(id))) {
+      return NextResponse.json({ error: "Invalid price ID" }, { status: 400 });
     }
 
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =

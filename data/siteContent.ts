@@ -68,3 +68,38 @@ export const whyThisWorksPoints = [
   "Missed calls quietly turn into lost revenue.",
   "Fast follow-up helps protect opportunities.",
 ];
+
+export type CaseStudy = {
+  company: string;
+  industry: string;
+  problem: string;
+  system: string;
+  result: string;
+  source: string;
+  isClient: boolean;
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    company: "GG Homes",
+    industry: "Real estate services",
+    problem:
+      "Incoming calls needed manual review before a rep could tell which ones were real leads.",
+    system:
+      "Call recordings transcribed, AI flags lead quality and key details, results pushed straight to the sales team.",
+    result: "25% more closed deals, 100 hours a week given back to the team.",
+    source: "Zapier customer stories",
+    isClient: false,
+  },
+  {
+    company: "Rachio",
+    industry: "Smart home / product support",
+    problem:
+      "Support volume for over a million users spiked every season, and the answer was always hiring and training temporary staff.",
+    system:
+      "AI agents handle chat, voice, and email support instead of scaling headcount for the rush.",
+    result: "95-99.8% response accuracy, 30% lower cost, no seasonal hiring.",
+    source: "Crescendo.ai",
+    isClient: false,
+  },
+];
