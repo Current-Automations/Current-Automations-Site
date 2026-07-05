@@ -1,17 +1,20 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import CTASection from "@/components/CTASection";
-import FAQSection from "@/components/FAQSection";
 import Reveal from "@/components/Reveal";
-import Section from "@/components/Section";
 import BuyNowButton from "@/components/BuyNowButton";
-import CountUp from "@/components/motion/CountUp";
-import TiltCard from "@/components/motion/TiltCard";
 import CartSelector from "@/components/CartSelector";
 import type { CartScenario } from "@/components/CartSelector";
 import type { FAQItem } from "@/data/siteContent";
+import { jobsheetFonts } from "@/components/jobsheet/fonts";
+import jobsheet from "@/components/jobsheet/jobsheet.module.css";
+import JobSheetSection from "@/components/jobsheet/JobSheetSection";
+import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
+import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
+import PricingTicket from "@/components/jobsheet/PricingTicket";
+import PunchButton from "@/components/jobsheet/PunchButton";
+import Stamp from "@/components/jobsheet/Stamp";
 
-const BOOK_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
+const BOOK_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 const pricingFaqItems: FAQItem[] = [
   {
@@ -186,56 +189,63 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)] pb-20 pt-20 sm:pb-24 sm:pt-28">
-        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
+    <div className={jobsheetFonts}>
+      {/* Invoice masthead hero */}
+      <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative pb-16 pt-14 sm:pb-20 sm:pt-16 lg:pt-20`}>
         <div className="container-shell relative">
-          <Reveal variant="fade">
-            <p className="kicker text-on-dark-muted">
-              <span className="kicker-num" aria-hidden="true">01</span>
-              <span>Straightforward pricing</span>
-              <span aria-hidden="true" className="kicker-rule rule-draw" />
-            </p>
-          </Reveal>
-          <h1 className="display-hero mt-8 max-w-4xl text-white">
-            <Reveal variant="clip">
-              <span className="block">Transparent pricing.</span>
-            </Reveal>
-            <Reveal variant="clip" delay={140}>
-              <span className="block">Pay only for what you use.</span>
-            </Reveal>
-          </h1>
-          <Reveal variant="fade" delay={300}>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-on-dark sm:text-lg">
-              Choose a bundled tier to save up to $149/month, or build your own
-              stack with individual automation scenarios starting at $49/month.
-            </p>
-            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-[var(--color-brand)]/30 bg-[var(--color-brand)]/[0.08] px-5 py-3">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-[var(--color-brand)]" />
-              <span className="text-sm text-white/80">
-                One-time setup fee:{" "}
-                <strong className="text-white">$150 CAD</strong>: full build,
-                configuration, and onboarding included
+          <div className={`${jobsheet.ticket} p-0 overflow-hidden`}>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-dashed border-[rgba(28,36,48,0.24)] px-6 py-4 sm:px-9">
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                CURRENT AUTOMATIONS
+              </span>
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                INVOICE <span className="font-semibold text-[#201c16]">FORM CA-PRICING</span>
               </span>
             </div>
-            <p className="mt-4 text-sm text-on-dark-muted">
-              Most plans pay for themselves with one or two recovered jobs a month.
-            </p>
-          </Reveal>
+
+            <div className="px-6 py-10 sm:px-9 sm:py-12 lg:py-14">
+              <Reveal variant="fade">
+                <p className={`${jobsheet.mono} text-xs uppercase tracking-[0.22em] text-[#58524a]`}>
+                  Straightforward pricing
+                </p>
+              </Reveal>
+              <h1 className={`${jobsheet.display} mt-5 max-w-3xl text-[clamp(2rem,5vw,3.6rem)] leading-[1.02] text-[#181510]`}>
+                Transparent pricing.
+                <br />
+                Pay only for what you use.
+              </h1>
+              <Reveal variant="fade" delay={200}>
+                <p className="mt-7 max-w-2xl text-base leading-8 text-[#3a352c] sm:text-lg">
+                  Choose a bundled tier to save up to $149/month, or build your
+                  own stack with individual automation scenarios starting at
+                  $49/month.
+                </p>
+                <div className="mt-7 inline-block">
+                  <Stamp label="$150 CAD setup, one time" tone="rust" />
+                </div>
+                <p className="mt-4 text-sm text-[#58524a]">
+                  Full build, configuration, and onboarding included. Most
+                  plans pay for themselves with one or two recovered jobs a
+                  month.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
-      <Section
-        index="02"
-        eyebrow="Done for you"
+      <JobSheetSection
+        code="CA-P2"
+        label="Done for you"
         title="Cheap tools still leave you doing the work."
         description="Self-serve automation tools cost less on paper. Then you spend your evenings configuring them, connecting them to your phone system, and figuring out why the texts stopped sending. We install it, tune it, and hand you a working system. You don't touch the tech."
-        tone="muted"
+        tone="carbon"
       >
         <div className="grid gap-6 md:grid-cols-2">
           <Reveal>
-            <article className="h-full rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.06)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
+            <div className={`${jobsheet.ticket} h-full p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
+              <span className={jobsheet.ticketHole} aria-hidden="true" />
+              <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[#58524a]`}>
                 Self-serve tools
               </p>
               <ul className="mt-5 space-y-3">
@@ -245,17 +255,18 @@ export default function PricingPage() {
                   "You write the messages and test the flows",
                   "When it breaks, you troubleshoot it",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-[var(--color-muted)]">
-                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-muted)]/50" />
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-[#58524a]">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#a39a86]" />
                     {item}
                   </li>
                 ))}
               </ul>
-            </article>
+            </div>
           </Reveal>
           <Reveal delay={110}>
-            <article className="dark-card h-full rounded-card-lg p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-brand)]">
+            <div className={`${jobsheet.ticket} h-full !bg-[rgba(20,150,118,0.06)] !border-[var(--color-brand-strong)] p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
+              <span className={jobsheet.ticketHole} aria-hidden="true" />
+              <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-strong)]`}>
                 Current Automations
               </p>
               <ul className="mt-5 space-y-3">
@@ -265,144 +276,63 @@ export default function PricingPage() {
                   "We tune the messages until they sound like you",
                   "We monitor and maintain it. You see results.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-on-dark">
-                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]" />
+                  <li key={item} className="flex items-start gap-3 text-base leading-8 text-[#3a352c]">
+                    <span className="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand-strong)]" />
                     {item}
                   </li>
                 ))}
               </ul>
-            </article>
+            </div>
           </Reveal>
         </div>
-      </Section>
+      </JobSheetSection>
 
-      <Section
-        index="03"
-        eyebrow="Bundled Tiers"
+      <JobSheetSection
+        code="CA-P3"
+        label="Bundled tiers"
         title="Start with a bundle. Save every month."
         description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $149/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
+        tone="paper"
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
-          {tiers.map((tier, index) => {
-            const featured = !!tier.badge;
-            return (
-              <Reveal
-                key={tier.id}
-                delay={index * 70}
-                className={`flex flex-col ${featured ? "xl:-mt-6 xl:mb-0" : ""}`}
+          {tiers.map((tier, i) => (
+            <Reveal
+              key={tier.id}
+              delay={i * 70}
+              className={`flex flex-col ${tier.badge ? "xl:-mt-4" : ""}`}
+            >
+              <PricingTicket
+                name={tier.name}
+                price={tier.price}
+                tagline={tier.tagline}
+                scenarios={tier.scenarios}
+                note={tier.note}
+                featured={!!tier.badge}
               >
-                <div className={`mb-3 flex items-center ${featured ? "h-8" : "h-7"}`}>
-                  {tier.badge && (
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-ink)] shadow-[0_10px_28px_rgba(93,214,203,0.45)]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-ink)]" />
-                      {tier.badge}
-                    </span>
-                  )}
-                </div>
-                <TiltCard
-                  className={
-                    featured
-                      ? "flex flex-1 flex-col rounded-card-lg dark-card p-8 ring-1 ring-[var(--color-brand)]/30 shadow-[0_36px_90px_rgba(93,214,203,0.22)] xl:p-9"
-                      : "flex flex-1 flex-col rounded-card-lg surface-card p-7"
-                  }
-                >
-                  <h2
-                    className={`font-semibold tracking-tight ${
-                      featured ? "text-2xl text-white" : "text-xl text-[var(--color-ink)]"
-                    }`}
-                  >
-                    {tier.name}
-                  </h2>
-                  <p
-                    className={`mt-1.5 text-xs leading-5 ${
-                      featured ? "text-on-dark-muted" : "text-[var(--color-muted)]"
-                    }`}
-                  >
-                    {tier.tagline}
-                  </p>
-                  <p
-                    className={`font-display mt-5 font-semibold tracking-tight ${
-                      featured ? "text-5xl text-white" : "text-4xl text-[var(--color-ink)]"
-                    }`}
-                  >
-                    <CountUp value={tier.price} prefix="$" />
-                    <span
-                      className={`text-base font-normal ${
-                        featured ? "text-on-dark-muted" : "text-[var(--color-muted)]"
-                      }`}
-                    >
-                      /mo
-                    </span>
-                  </p>
-                  <div
-                    className={`my-5 h-px ${
-                      featured ? "bg-line-dark" : "bg-[var(--color-line)]"
-                    }`}
-                  />
-                  <ul className="flex-1 space-y-2.5">
-                    {tier.scenarios.map((s) => (
-                      <li key={s} className="flex items-start gap-2.5">
-                        <span
-                          className={`mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full ${
-                            featured ? "bg-[var(--color-brand)]" : "bg-[var(--color-brand-strong)]"
-                          }`}
-                        />
-                        <span
-                          className={`leading-6 ${
-                            featured
-                              ? "text-sm text-on-dark"
-                              : "text-xs text-[var(--color-muted)]"
-                          }`}
-                        >
-                          {s}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  {tier.note && (
-                    <p
-                      className={`mt-4 text-xs italic ${
-                        featured ? "text-on-dark-faint" : "text-[var(--color-muted)]"
-                      }`}
-                    >
-                      {tier.note}
-                    </p>
-                  )}
-                  <div className="mt-6 flex flex-col gap-2">
-                    <BuyNowButton priceId={tier.priceId} />
-                    <Link
-                      href={BOOK_URL}
-                      className={
-                        featured
-                          ? "inline-flex w-full items-center justify-center rounded-full border border-line-dark bg-surface-dark-2 px-5 py-3.5 text-sm font-semibold text-on-dark-strong transition-colors hover:bg-surface-dark-3"
-                          : "btn-secondary w-full text-center text-sm"
-                      }
-                    >
-                      Book a Call Instead
-                    </Link>
-                  </div>
-                </TiltCard>
-              </Reveal>
-            );
-          })}
+                <BuyNowButton priceId={tier.priceId} />
+                <PunchButton href={BOOK_URL} label="Book a Call Instead" variant="ghost" />
+              </PricingTicket>
+            </Reveal>
+          ))}
         </div>
-      </Section>
+      </JobSheetSection>
 
-      <Section
-        index="04"
-        eyebrow="A La Carte"
+      <JobSheetSection
+        code="CA-P4"
+        label="A la carte"
         title="Just need one fix? Pick a single workflow."
         description="Each scenario runs independently and can be added to any tier. Start with the one problem that hurts most; bundles save money once you are running three or more."
-        tone="muted"
+        tone="carbon"
       >
         <CartSelector scenarios={allScenarios} />
-      </Section>
+      </JobSheetSection>
 
-      <Section
-        index="05"
-        eyebrow="Why teams choose this"
+      <JobSheetSection
+        code="CA-P5"
+        label="Why teams choose this"
         title="Why service businesses choose Current Automations."
         description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."
+        tone="paper"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {[
@@ -421,32 +351,30 @@ export default function PricingPage() {
               description:
                 "Start with one system. As your business grows, we layer in more. The relationship is ongoing, not transactional.",
             },
-          ].map((item, index) => (
-            <Reveal key={item.title} delay={index * 70}>
-            <article
-              className="lift-card h-full rounded-card-lg border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_45px_rgba(7,17,29,0.08)]"
-            >
-              <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
-                {item.description}
-              </p>
-            </article>
+          ].map((item, i) => (
+            <Reveal key={item.title} delay={i * 70}>
+              <div className={`${jobsheet.ticket} h-full p-7 pl-10 relative`}>
+                <span className={jobsheet.ticketHole} aria-hidden="true" />
+                <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">{item.title}</h3>
+                <p className="mt-4 text-base leading-8 text-[#58524a]">{item.description}</p>
+              </div>
             </Reveal>
           ))}
         </div>
-      </Section>
+      </JobSheetSection>
 
-      <FAQSection
+      <JobSheetFAQ
         items={pricingFaqItems}
-        tone="light"
+        code="CA-P6"
+        label="Frequently Asked Questions"
         title="Common questions about pricing and contracts."
         description="Straightforward answers to what most owners want to know before committing."
+        tone="paper"
       />
 
-      <CTASection
-        eyebrow="Not sure where to start?"
+      <JobSheetCTA
+        code="CA-P7"
+        label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={BOOK_URL}
@@ -454,6 +382,6 @@ export default function PricingPage() {
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"
       />
-    </>
+    </div>
   );
 }

@@ -1,0 +1,348 @@
+/*
+  Job Sheet visual system — paper/dispatch-ticket aesthetic.
+  Scoped entirely via CSS Modules; nothing here touches globals.css
+  or any class name used by shared chrome (Navbar/Footer/StickyCTA)
+  or other routes.
+*/
+
+.root {
+  --paper: #f3ede1;
+  --paper-deep: #e9e0cd;
+  --card: #faf7ee;
+  --card-line: rgba(28, 36, 48, 0.16);
+  --card-line-strong: rgba(28, 36, 48, 0.32);
+  --ink-text: #201c16;
+  --ink-soft: #58524a;
+  --rust: #a8452f;
+  --rust-soft: rgba(168, 69, 47, 0.1);
+  font-family: var(--font-sheet-body), sans-serif;
+  color: var(--ink-text);
+  background: var(--paper);
+}
+
+.mono {
+  font-family: var(--font-sheet-mono), monospace;
+}
+
+.display {
+  font-family: var(--font-sheet-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- */
+/* Paper texture: faint cross-hatch + vignette so flat panels read   */
+/* as cut stock, not a flat CSS div.                                  */
+/* ---------------------------------------------------------------- */
+.paperTexture {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(28, 36, 48, 0.028) 0px,
+      rgba(28, 36, 48, 0.028) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 15% 0%, rgba(28, 36, 48, 0.05), transparent 60%);
+}
+
+.carbonTexture {
+  background-color: #ded5c2;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(28, 36, 48, 0.05) 0px,
+      rgba(28, 36, 48, 0.05) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+.inkTexture {
+  background-color: var(--color-ink, #07111d);
+  background-image: radial-gradient(circle at 20% 0%, rgba(79, 208, 173, 0.08), transparent 55%);
+}
+
+/* ---------------------------------------------------------------- */
+/* Form tab: manila-folder tab label used as the section identifier  */
+/* instead of a narrative step numeral. Form codes, not sequence.    */
+/* ---------------------------------------------------------------- */
+.formTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--card-line);
+  border-bottom: none;
+  border-radius: 0.35rem 0.35rem 0 0;
+  box-shadow: 0 -2px 0 rgba(28, 36, 48, 0.02) inset;
+}
+
+.formTabOnDark {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.formTabCode {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--rust);
+}
+
+.formTabOnDark .formTabCode {
+  color: var(--color-brand, #4fd0ad);
+}
+
+.formTabLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: capitalize;
+}
+
+.formTabOnDark .formTabLabel {
+  color: rgba(243, 237, 225, 0.82);
+}
+
+/* ---------------------------------------------------------------- */
+/* Ticket / punch-card: the signature surface for cards.             */
+/* ---------------------------------------------------------------- */
+.ticket {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--card-line);
+  border-radius: 0.6rem;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 28px rgba(28, 36, 48, 0.1);
+}
+
+.ticketHole {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 9999px;
+  background: var(--paper);
+  box-shadow:
+    inset 0 1px 2px rgba(28, 36, 48, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.ticketRef {
+  position: absolute;
+  top: 1rem;
+  right: 1.15rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------- */
+/* Perforated divider: torn-ticket edge between stacked sections.    */
+/* ---------------------------------------------------------------- */
+.perf {
+  border: none;
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--card-line-strong) 55%, transparent 45%);
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+}
+
+/* ---------------------------------------------------------------- */
+/* Ledger table: striped rows with a job-number column.              */
+/* ---------------------------------------------------------------- */
+.ledgerRow:nth-child(odd) {
+  background: rgba(28, 36, 48, 0.025);
+}
+
+.ledgerRow {
+  transition: background-color 260ms ease;
+}
+
+.ledgerRow:hover {
+  background: rgba(20, 150, 118, 0.07);
+}
+
+/* ---------------------------------------------------------------- */
+/* Stamp: the signature motion. A rubber stamp slams onto the ticket */
+/* to visualise "missed call -> recovered job."                      */
+/* ---------------------------------------------------------------- */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border: 2.5px solid currentColor;
+  border-radius: 0.3rem;
+  font-family: var(--font-sheet-display), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  position: relative;
+  mix-blend-mode: multiply;
+}
+
+.stampRust {
+  color: var(--rust);
+  background: var(--rust-soft);
+}
+
+.stampTeal {
+  color: var(--color-brand-strong, #149676);
+  background: rgba(20, 150, 118, 0.08);
+}
+
+.stampTexture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(currentColor 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.stampSlam {
+  animation: stampSlam 620ms cubic-bezier(0.16, 1.4, 0.4, 1) both;
+}
+
+@keyframes stampSlam {
+  0% {
+    opacity: 0;
+    transform: scale(2.6) rotate(-14deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.92) rotate(-7deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-9deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-8deg);
+  }
+}
+
+.stampStatic {
+  transform: rotate(-8deg);
+}
+
+/* ---------------------------------------------------------------- */
+/* Punch button: the in-page CTA, distinct from the sitewide navbar  */
+/* pill so the ticket buttons read as part of the paper artifact.    */
+/* ---------------------------------------------------------------- */
+.punchButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-sheet-display), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.92rem;
+  background: var(--color-brand-strong, #149676);
+  color: #f3ede1;
+  border: none;
+  border-radius: 0.35rem;
+  box-shadow:
+    0 3px 0 rgba(7, 30, 24, 0.55),
+    0 10px 24px rgba(20, 150, 118, 0.25);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.punchButton:hover {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 0 rgba(7, 30, 24, 0.55),
+    0 6px 16px rgba(20, 150, 118, 0.3);
+}
+
+.punchButton:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 rgba(7, 30, 24, 0.55);
+}
+
+.punchButtonGhost {
+  background: transparent;
+  color: var(--ink-text);
+  border: 1.5px dashed var(--card-line-strong);
+  box-shadow: none;
+}
+
+.punchButtonGhost:hover {
+  background: rgba(28, 36, 48, 0.04);
+  transform: translateY(0);
+}
+
+.punchButtonOnDark {
+  color: var(--color-ink, #07111d);
+  background: var(--color-brand, #4fd0ad);
+  box-shadow:
+    0 3px 0 rgba(3, 60, 46, 0.6),
+    0 10px 24px rgba(79, 208, 173, 0.25);
+}
+
+.punchButtonGhostOnDark {
+  color: #f3ede1;
+  border-color: rgba(243, 237, 225, 0.32);
+}
+
+/* ---------------------------------------------------------------- */
+/* Reveal hook-ins: combine with the shared Reveal component's       */
+/* .reveal-in class (added via IntersectionObserver) without editing */
+/* the shared component itself.                                     */
+/* ---------------------------------------------------------------- */
+.peel {
+  opacity: 1;
+}
+
+.peel:global(.reveal-in) {
+  animation: peelIn 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes peelIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-1.4deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--tilt, -0.6deg));
+  }
+}
+
+.tiltA {
+  --tilt: -0.7deg;
+}
+
+.tiltB {
+  --tilt: 0.5deg;
+}
+
+.tiltC {
+  --tilt: -0.3deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stampSlam,
+  .peel:global(.reveal-in) {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .punchButton:hover,
+  .punchButton:active {
+    transform: none;
+  }
+}

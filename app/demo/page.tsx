@@ -1,134 +1,97 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import Section from "@/components/Section";
 import DemoVideos from "@/components/DemoVideos";
-import TiltCard from "@/components/motion/TiltCard";
+import { jobsheetFonts } from "@/components/jobsheet/fonts";
+import jobsheet from "@/components/jobsheet/jobsheet.module.css";
+import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
+import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
+import PunchButton from "@/components/jobsheet/PunchButton";
+import Stamp from "@/components/jobsheet/Stamp";
+import FormTab from "@/components/jobsheet/FormTab";
 
-const GC_BOOKING =
+const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   title: { absolute: "See It In Action | Current Automations" },
   description:
-    "Three demos. Under three minutes. Watch how Current Automations captures missed calls, covers every lead channel, and keeps deals alive, automatically.",
+    "Call the live demo line and watch the text come back within seconds, plus three short demos of the full lead-capture system.",
 };
 
-const steps = [
-  {
-    step: "Call the number",
-    description:
-      "Dial +1 365 601 7474 from any phone. Let it ring and go to voicemail. Do not leave a message.",
-  },
-  {
-    step: "Wait 60 seconds",
-    description:
-      "Within seconds of the missed call, the automation fires. You will receive a text to the number you called from.",
-  },
-  {
-    step: "Reply to the text",
-    description:
-      "The system will ask a few qualifying questions: name, address, what you need. This is the lead capture flow your customers will go through.",
-  },
-  {
-    step: "That is the full experience",
-    description:
-      "Every caller who misses your business goes through this same flow. You get a notification with their details so your team can follow up prepared.",
-  },
+const testSteps = [
+  { time: "0:00", label: "Call +1 365 601 7474" },
+  { time: "0:00", label: "Say something if you want, or just let it ring" },
+  { time: "~0:30", label: "A text lands on the number you called from" },
+  { time: "any time", label: "Reply and the qualifying questions start" },
 ];
 
 export default function DemoPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(165deg,#04091a_0%,#081424_55%,#0d2236_100%)] pb-16 pt-20 sm:pb-20 sm:pt-28">
-        <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
-        <div className="container-shell relative text-center">
-          <Reveal variant="fade">
-            <p className="kicker justify-center text-on-dark-muted">
-              <span className="kicker-num" aria-hidden="true">01</span>
-              <span>Live demos</span>
-            </p>
-          </Reveal>
-          <h1 className="display-hero mt-7 text-white">
-            <Reveal variant="clip">
-              <span className="block">See It In Action</span>
-            </Reveal>
-          </h1>
-          <Reveal variant="fade" delay={220}>
-            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/[0.62] sm:text-lg">
-              Three demos. Under three minutes. You&apos;ll know exactly what we do.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Three demo videos */}
-      <DemoVideos />
-
-      {/* Live demo line */}
-      <Section
-        index="02"
-        eyebrow="Try it yourself"
-        title="The demo line is live right now."
-        description="Call, let it go to voicemail, and watch what happens next. The text you get back is the product."
-        tone="muted"
-        align="center"
-      >
-        <div className="mx-auto max-w-2xl">
-          <Reveal variant="scale">
-            <TiltCard className="overflow-hidden rounded-shell border border-white/10 bg-[var(--color-ink)] p-8 text-center shadow-[0_36px_90px_rgba(7,17,29,0.3)] sm:p-12">
-              <p className="flex items-center justify-center gap-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-white/[0.45]">
-                <span className="pulse-dot h-2 w-2 rounded-full bg-[var(--color-brand)]" />
-                Live demo line
-              </p>
+    <div className={jobsheetFonts}>
+      <JobSheetPageHero
+        docLabel="TEST SLIP"
+        docCode="FORM DM-01"
+        kicker="Proof you can dial right now"
+        title="Call it yourself. The text you get back is the product."
+        description="No signup, no form, no sales call. Say something if you want, or just let it ring — either way, watch what your customers would see after hours."
+        side={
+          <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
+            <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                LIVE LINE
+              </span>
+              <span className="inline-flex">
+                <Stamp label="Active" tone="teal" />
+              </span>
+            </div>
+            <div className="px-6 py-7 text-center">
               <a
                 href="tel:+13656017474"
-                className="display-giant mt-6 block text-[clamp(2.6rem,6vw,4.6rem)] text-white transition-colors hover:text-[var(--color-brand)]"
+                className={`${jobsheet.mono} block text-[clamp(1.7rem,4vw,2.3rem)] font-semibold text-[#181510] transition-colors hover:text-[var(--color-brand-strong)]`}
+                aria-label="Call the demo line at 1 365 601 7474"
               >
                 +1 365 601 7474
               </a>
-              <p className="mt-3 text-xs text-on-dark-faint">Tap to call on mobile</p>
-              <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a href="tel:+13656017474" className="btn-primary w-full px-7 py-4 text-base sm:w-auto">
-                  Call Now
-                </a>
-                <Link
-                  href={GC_BOOKING}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary w-full border-white/[0.16] text-white sm:w-auto"
-                >
-                  Book Free Audit
-                </Link>
+              <p className="mt-1.5 text-xs text-[#58524a]">Tap to call on mobile</p>
+              <div className="mt-6 flex flex-col gap-3">
+                <PunchButton href="tel:+13656017474" label="Call Now" />
+                <PunchButton href={BOOK_URL} label="Book Free Audit" variant="ghost" external />
               </div>
-              <p className="mt-5 text-sm text-white/[0.48]">
-                No signup required. Works on any phone. Takes 30 seconds.
-              </p>
-            </TiltCard>
-          </Reveal>
-        </div>
-
-        <div className="mx-auto mt-12 max-w-4xl">
-          <div className="grid gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((item, index) => (
-              <Reveal key={item.step} delay={index * 90}>
-                <article className="surface-card lift-card h-full rounded-[1.75rem] p-6">
-                  <p className="font-display mb-4 text-3xl font-semibold text-[var(--color-brand-strong)]">
-                    0{index + 1}
-                  </p>
-                  <h3 className="text-base font-semibold tracking-tight text-[var(--color-ink)]">
-                    {item.step}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                    {item.description}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
+            </div>
+            <div className="divide-y divide-[rgba(28,36,48,0.1)] border-t-2 border-dashed border-[rgba(28,36,48,0.24)]">
+              {testSteps.map((step) => (
+                <div
+                  key={step.label}
+                  className={`${jobsheet.ledgerRow} grid grid-cols-[4rem_1fr] items-baseline gap-3 px-5 py-3`}
+                >
+                  <span className={`${jobsheet.mono} text-[0.7rem] text-[#58524a]`}>{step.time}</span>
+                  <span className="text-sm leading-6 text-[#3a352c]">{step.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        }
+      />
+
+      {/* Video demos keep their existing dark treatment and built-in intro copy for
+          continuity with the site's dark chrome; just file it under a form code
+          so it still reads as part of the same paperwork system. */}
+      <div className={`${jobsheet.root} ${jobsheet.inkTexture} relative pt-14 sm:pt-16`}>
+        <div className="container-shell relative">
+          <FormTab code="DM-02" label="Three demos, three minutes" onDark />
         </div>
-      </Section>
-    </>
+      </div>
+      <DemoVideos />
+
+      <JobSheetCTA
+        code="DM-03"
+        label="Ready to see your own numbers?"
+        title="Want to see this running on your business's own call flow?"
+        description="Book a free audit and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."
+        primaryHref={BOOK_URL}
+        primaryLabel="Book Free Audit"
+        secondaryHref="/pricing"
+        secondaryLabel="See Pricing"
+      />
+    </div>
   );
 }
