@@ -16,14 +16,23 @@ export default function PrivacyPolicyPage() {
       <JobSheetPageHero
         docLabel="LEGAL FILE"
         docCode="FORM PP-01"
-        kicker="Legal"
+        kicker="Short version"
         title="Privacy Policy"
-        description="This policy describes how Current Automations handles information received through this website."
+        description="This is the short-form policy covering the website itself. This describes how Current Automations handles information received through currentautomations.ca."
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
         <div className="container-shell relative">
-          <div className={`${jobsheet.ticket} max-w-4xl overflow-hidden p-0`}>
+          <div className={`${jobsheet.ticket} max-w-3xl overflow-hidden p-0`}>
+            <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 sm:px-9">
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                3 CLAUSES ON FILE
+              </span>
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                FORM PP-01
+              </span>
+            </div>
+
             <JobSheetLegalClause code="01" title="Information We Receive">
               <p>
                 If you contact Current Automations through email or a demo
