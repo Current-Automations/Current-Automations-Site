@@ -420,7 +420,7 @@ export default function Home() {
       {/* Systems we build */}
       <JobSheetSection
         code="CA-06"
-        label="Parts catalog"
+        label="What we implement"
         title="Common systems we build for service businesses."
         description="Every business is different. These are the systems that come up most often after an audit."
         tone="paper"
@@ -624,7 +624,7 @@ export default function Home() {
       <JobSheetFAQ
         items={faqItems}
         code="CA-11"
-        label="Questions on file"
+        label="Frequently Asked Questions"
         title="Questions service business owners usually ask first."
         description="A straightforward overview of how Current Automations fits into your existing process."
         tone="paper"

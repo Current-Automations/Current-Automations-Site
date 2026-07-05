@@ -236,7 +236,7 @@ export default function PricingPage() {
 
       <JobSheetSection
         code="CA-P2"
-        label="Comparison"
+        label="Done for you"
         title="Cheap tools still leave you doing the work."
         description="Self-serve automation tools cost less on paper. Then you spend your evenings configuring them, connecting them to your phone system, and figuring out why the texts stopped sending. We install it, tune it, and hand you a working system. You don't touch the tech."
         tone="carbon"
@@ -366,7 +366,7 @@ export default function PricingPage() {
       <JobSheetFAQ
         items={pricingFaqItems}
         code="CA-P6"
-        label="Filed answers"
+        label="Frequently Asked Questions"
         title="Common questions about pricing and contracts."
         description="Straightforward answers to what most owners want to know before committing."
         tone="paper"
@@ -374,7 +374,7 @@ export default function PricingPage() {
 
       <JobSheetCTA
         code="CA-P7"
-        label="Approval"
+        label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={BOOK_URL}
