@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 
 type Props = {
   priceId: string;
@@ -36,11 +37,11 @@ export default function BuyNowButton({ priceId, label = "Get Started" }: Props) 
       <button
         onClick={handleClick}
         disabled={loading}
-        className="btn-primary w-full text-sm disabled:cursor-not-allowed disabled:opacity-60"
+        className={`${jobsheet.punchButton} w-full text-sm disabled:cursor-not-allowed disabled:opacity-60`}
       >
         {loading ? "Redirecting..." : label}
       </button>
-      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-2 text-xs text-[#a8452f]">{error}</p>}
     </>
   );
 }

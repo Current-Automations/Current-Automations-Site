@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 
 const BOOK_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
@@ -60,17 +61,17 @@ export default function CartSelector({ scenarios }: Props) {
   }
 
   return (
-    <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_18px_45px_rgba(7,17,29,0.08)]">
+    <div className={`${jobsheet.ticket} p-8`}>
       <div className="space-y-1">
         {scenarios.map((scenario) => {
           const isChecked = selected.has(scenario.priceId);
           return (
             <label
               key={scenario.priceId}
-              className="flex cursor-pointer items-center justify-between rounded-[1rem] border px-4 py-3 transition-colors hover:bg-[var(--color-brand)]/[0.04]"
+              className={`${jobsheet.ledgerRow} flex cursor-pointer items-center justify-between rounded border px-4 py-3`}
               style={{
-                borderColor: isChecked ? "rgba(79,208,173,0.3)" : "transparent",
-                backgroundColor: isChecked ? "rgba(79,208,173,0.06)" : undefined,
+                borderColor: isChecked ? "rgba(20,150,118,0.4)" : "transparent",
+                backgroundColor: isChecked ? "rgba(20,150,118,0.08)" : undefined,
               }}
             >
               <div className="flex items-center gap-3">
@@ -78,23 +79,23 @@ export default function CartSelector({ scenarios }: Props) {
                   type="checkbox"
                   checked={isChecked}
                   onChange={() => toggle(scenario.priceId)}
-                  className="h-4 w-4 rounded border-gray-300 accent-[#149676]"
+                  className="h-4 w-4 rounded border-[#a39a86] accent-[#149676]"
                 />
                 <div>
-                  <span className="font-mono text-xs text-[var(--color-muted)]">
+                  <span className={`${jobsheet.mono} text-xs text-[#58524a]`}>
                     {scenario.code}
                   </span>
-                  <p className="text-sm font-medium leading-5 text-[var(--color-ink)]">
+                  <p className="text-sm font-medium leading-5 text-[#181510]">
                     {scenario.name}
                   </p>
                   {scenario.requiresRetell && (
-                    <span className="text-xs italic text-[var(--color-muted)]">
+                    <span className="text-xs italic text-[#58524a]">
                       Retell subscription required separately
                     </span>
                   )}
                 </div>
               </div>
-              <span className="ml-4 shrink-0 text-sm font-semibold text-[var(--color-ink)]">
+              <span className={`${jobsheet.mono} ml-4 shrink-0 text-sm font-semibold text-[#181510]`}>
                 ${scenario.price}/mo
               </span>
             </label>
@@ -102,28 +103,28 @@ export default function CartSelector({ scenarios }: Props) {
         })}
       </div>
 
-      <div className="mt-6 border-t border-[var(--color-line)] pt-6">
+      <div className="mt-6 border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-6">
         <div className="flex items-baseline justify-between">
-          <span className="text-sm text-[var(--color-muted)]">Monthly total</span>
-          <span className="text-2xl font-semibold text-[var(--color-ink)]">
+          <span className="text-sm text-[#58524a]">Monthly total</span>
+          <span className={`${jobsheet.mono} text-2xl font-semibold text-[#181510]`}>
             ${monthlyTotal}/mo
           </span>
         </div>
-        <p className="mt-1 text-xs text-[var(--color-muted)]">
+        <p className="mt-1 text-xs text-[#58524a]">
           + one-time $150 CAD setup fee added at checkout
         </p>
 
-        {error && <p className="mt-3 text-xs text-red-500">{error}</p>}
+        {error && <p className="mt-3 text-xs text-[#a8452f]">{error}</p>}
 
         <button
           onClick={handleCheckout}
           disabled={selected.size === 0 || loading}
-          className="btn-primary mt-4 w-full disabled:cursor-not-allowed disabled:opacity-60"
+          className={`${jobsheet.punchButton} mt-4 w-full disabled:cursor-not-allowed disabled:opacity-60`}
         >
           {loading ? "Redirecting..." : "Checkout"}
         </button>
 
-        <Link href={BOOK_URL} className="btn-secondary mt-3 block w-full text-center">
+        <Link href={BOOK_URL} className={`${jobsheet.punchButton} ${jobsheet.punchButtonGhost} mt-3 w-full text-center`}>
           Book a Call Instead
         </Link>
       </div>
