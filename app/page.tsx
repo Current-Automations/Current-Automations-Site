@@ -488,7 +488,7 @@ export default function Home() {
       {/* Why Current Automations */}
       <JobSheetSection
         code="CA-08"
-        label="Terms of service"
+        label="Done for you"
         title="We install it, tune it, and hand you a working system."
         description="You don't touch the tech."
         tone="carbon"
@@ -547,8 +547,7 @@ export default function Home() {
         </p>
 
         <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-          <div className="hidden border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 lg:grid lg:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6">
-            <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>Code</span>
+          <div className="hidden border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6">
             <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>Trade</span>
             <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>Where it leaks</span>
             <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>What runs automatically</span>
@@ -557,11 +556,9 @@ export default function Home() {
           {industryRows.map((row) => (
             <div
               key={row.code}
-              className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-2 border-b border-[rgba(28,36,48,0.12)] px-6 py-5 last:border-b-0 lg:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6 lg:py-6`}
+              className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-2 border-b border-[rgba(28,36,48,0.12)] px-6 py-5 last:border-b-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6 lg:py-6`}
             >
-              <span className={`${jobsheet.mono} hidden text-sm text-[#a8452f] lg:block`}>{row.code}</span>
               <p className="text-lg font-semibold tracking-tight text-[#181510]">
-                <span className={`${jobsheet.mono} mr-2 text-sm text-[#a8452f] lg:hidden`}>{row.code}</span>
                 {row.name}
               </p>
               <p className="text-sm leading-7 text-[#58524a]">

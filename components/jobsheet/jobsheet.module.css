@@ -99,6 +99,11 @@
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.16em;
+  text-transform: capitalize;
+}
+
+.formTabOnDark .formTabLabel {
+  color: rgba(243, 237, 225, 0.82);
 }
 
 /* ---------------------------------------------------------------- */

@@ -32,7 +32,7 @@ export default function PricingTicket({
 
       {featured ? (
         <div className="mb-3">
-          <Stamp label="Most booked" tone="teal" />
+          <Stamp label="Most popular" tone="teal" />
         </div>
       ) : (
         <div className="mb-3 h-[1.6rem]" aria-hidden="true" />
