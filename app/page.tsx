@@ -184,7 +184,7 @@ export default function Home() {
       {/* Problems: ledger of scenarios, not a numbered narrative */}
       <JobSheetSection
         code="CA-02"
-        label="Intake log"
+        label="Sound familiar?"
         title="The work is good. The phone is the problem."
         description="If any of these sound like your week, you are leaving jobs on the table. None of them need you to work harder. They need a system that answers when you cannot."
         tone="paper"
@@ -209,7 +209,7 @@ export default function Home() {
       {/* Lifecycle: the real 3-stage sequence a job actually goes through */}
       <JobSheetSection
         code="CA-03"
-        label="Job lifecycle"
+        label="Here is the fix"
         title="Every missed call becomes a three-stage job ticket."
         description="This is the exact path your customers go through once the system is running. No app, no portal, nothing for them or you to learn."
         tone="carbon"
@@ -234,7 +234,7 @@ export default function Home() {
       {/* Cost of a missed call: mono stat blocks + decay ledger */}
       <JobSheetSection
         code="CA-04"
-        label="Cost record"
+        label="The cost of a missed call"
         title="Every minute you do not respond, the job gets colder."
         description="Most callers who reach voicemail never leave a message. They just dial the next company on Google. Here is what the research on response speed says happens."
         tone="ink"
@@ -354,7 +354,7 @@ export default function Home() {
       <JobSheetSection
         id="demo"
         code="CA-05"
-        label="Live proof"
+        label="Proof you can dial right now"
         title="Call it yourself. The text you get back is the product."
         description="The demo line is live. Call and let it go to voicemail. You will get a text within seconds: the same thing your customers experience when they reach your business after hours. Takes 30 seconds, works on any phone."
         tone="paper"
@@ -463,7 +463,7 @@ export default function Home() {
       {/* Audit steps: the one real sequence on the page */}
       <JobSheetSection
         code="CA-07"
-        label="Intake procedure"
+        label="The free audit"
         title="30 minutes. No jargon. You leave knowing exactly where your business is losing money."
         description="This is where every engagement starts, and where most owners get the most value, even the ones who never hire us."
         tone="ink"
@@ -537,7 +537,7 @@ export default function Home() {
       {/* Industries served */}
       <JobSheetSection
         code="CA-09"
-        label="Trade index"
+        label="Industries served"
         title="Built for the way service businesses actually run."
         description="If your day is mostly hands-on work, your phone is your business, and your inbox is where it leaks. Here is what we automate first for each trade."
         tone="paper"
@@ -582,7 +582,7 @@ export default function Home() {
       {/* Proof / in-practice case studies */}
       <JobSheetSection
         code="CA-10"
-        label="On file"
+        label="Proof it works"
         title="In practice."
         description="These aren't Current Automations clients yet. They're real examples of the same approach, missed calls and support gaps closed with the right system. We're building the same thing for trades businesses right now."
         tone="ink"
@@ -632,7 +632,7 @@ export default function Home() {
 
       <JobSheetCTA
         code="CA-12"
-        label="Approval"
+        label="Not sure where to start?"
         title="Book a free audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={CAL_URL}
