@@ -4,7 +4,7 @@ import styles from "./jobsheet.module.css";
 type JobSheetPageHeroProps = {
   docLabel: string;
   docCode: string;
-  kicker?: string;
+  kicker?: ReactNode;
   title: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
