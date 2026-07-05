@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
-import Section from "@/components/Section";
-import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
 import { siteContact, siteContacts } from "@/data/siteContent";
+import { jobsheetFonts } from "@/components/jobsheet/fonts";
+import jobsheet from "@/components/jobsheet/jobsheet.module.css";
+import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
+import JobSheetSection from "@/components/jobsheet/JobSheetSection";
+import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
+import TicketCard from "@/components/jobsheet/TicketCard";
+
+const BOOK_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,22 +17,22 @@ export const metadata: Metadata = {
     "Reach the right person at Current Automations — general questions, client support, or billing.",
 };
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
-
 const contacts = [
   {
+    code: "CN-DESK-1",
     label: "General",
     email: siteContacts.general,
     description: "Questions about what we do, or where to start.",
   },
   {
+    code: "CN-DESK-2",
     label: "Support",
     email: siteContacts.support,
     description:
       "Already working with us and need a hand? Email support. Live chat is coming.",
   },
   {
+    code: "CN-DESK-3",
     label: "Billing",
     email: siteContacts.billing,
     description: "Invoices, refunds, card changes, or any billing question.",
@@ -33,61 +41,60 @@ const contacts = [
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="relative overflow-hidden border-b border-white/10 bg-[linear-gradient(145deg,#07111d_0%,#0d1b30_58%,#16334e_100%)] pb-18 pt-24 sm:pb-20 sm:pt-32">
-        <div className="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top_left,_rgba(79,208,173,0.16),_transparent_42%)]" />
-        <div className="container-shell">
-          <p className="pill-label bg-white/[0.08] text-white/70">Contact</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Get in touch
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-            {siteContact.responseExpectation}. Use the right address below and
-            we will get back to you fast.
-          </p>
-        </div>
-      </section>
+    <div className={jobsheetFonts}>
+      <JobSheetPageHero
+        docLabel="CONTACT SLIP"
+        docCode="FORM CN-01"
+        kicker="Reach the right desk"
+        title="Get in touch."
+        description={`${siteContact.responseExpectation}. Use the right address below and we will get back to you fast.`}
+      />
 
-      <Section tone="muted">
-        <div className="grid gap-5 sm:grid-cols-3">
-          {contacts.map(({ label, email, description }) => (
-            <a
-              key={email}
-              href={`mailto:${email}`}
-              className="surface-card flex flex-col gap-3 rounded-[2rem] p-7 transition-shadow hover:shadow-lg sm:p-8"
-            >
-              <p className="pill-label">{label}</p>
-              <p className="font-medium text-[var(--color-brand-strong)]">
-                {email}
-              </p>
-              <p className="text-sm leading-7 text-[var(--color-muted)]">
-                {description}
-              </p>
-            </a>
+      <JobSheetSection
+        code="CN-02"
+        label="Filed by department"
+        title="Three inboxes, routed correctly."
+        tone="paper"
+      >
+        <div className="grid gap-6 sm:grid-cols-3">
+          {contacts.map((contact, i) => (
+            <Reveal key={contact.email} delay={i * 70} className={i % 2 === 0 ? jobsheet.tiltA : jobsheet.tiltB}>
+              <a href={`mailto:${contact.email}`} className="block h-full">
+                <TicketCard refCode={contact.code} className="h-full transition-shadow hover:shadow-lg">
+                  <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-strong)]`}>
+                    {contact.label}
+                  </p>
+                  <p className="mt-3 text-lg font-semibold tracking-tight text-[#181510]">
+                    {contact.email}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[#58524a]">{contact.description}</p>
+                </TicketCard>
+              </a>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[var(--color-line)] pt-8">
+        <div className="mt-10 flex flex-wrap items-center gap-6 border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-8">
           <a
             href={`tel:${siteContact.phoneHref}`}
-            className="text-sm font-medium text-[var(--color-ink)] hover:text-[var(--color-brand-strong)]"
+            className={`${jobsheet.mono} text-sm font-semibold text-[#181510] hover:text-[var(--color-brand-strong)]`}
           >
             {siteContact.phoneDisplay}
           </a>
-          <span className="text-sm text-[var(--color-muted)]">
-            {siteContact.responseExpectation}.
-          </span>
+          <span className="text-sm text-[#58524a]">{siteContact.responseExpectation}.</span>
         </div>
-      </Section>
+      </JobSheetSection>
 
-      <CTASection
+      <JobSheetCTA
+        code="CN-03"
+        label="Not sure where to start?"
         title="Not sure where to start?"
         description="Book a free 30-minute audit and we will map exactly where your business is losing time and money."
         primaryHref={BOOK_URL}
         primaryLabel="Book Free Audit"
         secondaryHref="/how-it-works"
-        secondaryLabel="See how it works"
+        secondaryLabel="See How It Works"
       />
-    </>
+    </div>
   );
 }
