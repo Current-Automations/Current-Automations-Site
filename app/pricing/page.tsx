@@ -107,6 +107,7 @@ const tiers: Tier[] = [
       "T09 No Show and Cancellation Recovery",
       "T08 Database Reactivation Campaign",
       "T11 Weekly Client ROI Report",
+      "T13 Invoice Payment Follow Up",
     ],
     priceId: "price_1TYDanFbHh7D2pR63S10aawu",
   },
@@ -165,6 +166,7 @@ const scenarioGroups: ScenarioGroup[] = [
     scenarios: [
       { code: "T11", name: "Weekly Client ROI Report", price: 99, priceId: "price_1TYDchFbHh7D2pR6JVe7Nyz8" },
       { code: "T12", name: "System Anomaly Alert", price: 79, priceId: "price_1TYDcsFbHh7D2pR6r0F4Bsnx" },
+      { code: "T13", name: "Invoice Payment Follow Up", price: 79, priceId: "price_1TwsOOFbHh7D2pR6sazpj7db" },
     ],
   },
   {
@@ -288,6 +290,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
+        id="tiers"
         code="CA-P3"
         label="Bundled tiers"
         title="Start with a bundle. Save every month."
@@ -318,6 +321,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
+        id="a-la-carte"
         code="CA-P4"
         label="A la carte"
         title="Just need one fix? Pick a single workflow."

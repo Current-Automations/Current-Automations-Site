@@ -14,6 +14,18 @@ const logRows = [
     detail: "“AC's out, need someone today”",
     tone: "plain" as const,
   },
+  {
+    time: "9:16:51 PM",
+    event: "AUTO-TEXT SENT",
+    detail: "“Got it, AC down. We can have a tech out today, 1–3 PM. Does that work? Or we can call you back within 10 minutes.”",
+    tone: "plain" as const,
+  },
+  {
+    time: "9:17:12 PM",
+    event: "CUSTOMER REPLY",
+    detail: "“1–3 works”",
+    tone: "plain" as const,
+  },
   { time: "9:17:20 PM", event: "JOB BOOKED", detail: "1–3 PM WINDOW", tone: "teal" as const },
 ];
 
@@ -36,7 +48,7 @@ export default function DispatchLog() {
 
       <div className="divide-y divide-[rgba(28,36,48,0.1)]">
         {logRows.map((row) => (
-          <div key={row.event} className={`${styles.ledgerRow} grid grid-cols-[6.5rem_1fr] gap-4 px-5 py-3.5`}>
+          <div key={row.time} className={`${styles.ledgerRow} grid grid-cols-[6.5rem_1fr] gap-4 px-5 py-3.5`}>
             <span className={`${styles.mono} text-[0.7rem] text-[#58524a]`}>{row.time}</span>
             <div>
               <p

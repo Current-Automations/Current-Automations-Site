@@ -104,6 +104,37 @@ const systemCards = [
   },
 ];
 
+const automationLanes = [
+  {
+    code: "CAT-01",
+    stamp: { label: "Live", tone: "teal" as const },
+    heading: "Call & dispatch handling",
+    body: "The core system. Missed-call text back, speed to lead, intake, and booking: every call, form, and voicemail gets an answer in seconds and lands as a booked job instead of a cold lead.",
+    link: { label: "See tiers & pricing", href: "/pricing#tiers" },
+  },
+  {
+    code: "CAT-02",
+    stamp: { label: "Live", tone: "teal" as const },
+    heading: "Auto-replies & follow-up",
+    body: "Automatic replies and follow-up sequences that answer every inquiry and keep quotes moving toward a yes. Tuned to sound like your business, not a robot with your logo.",
+    link: { label: "See individual systems", href: "/pricing#a-la-carte" },
+  },
+  {
+    code: "CAT-03",
+    stamp: { label: "Rolling out", tone: "rust" as const },
+    heading: "Back-office & admin",
+    body: "The paperwork that eats your evenings. First system is ready now: automated invoice and payment follow-up that chases overdue invoices politely and on schedule, so you never have to. More on the way.",
+    link: { label: "See individual systems", href: "/pricing#a-la-carte" },
+  },
+  {
+    code: "CAT-04",
+    stamp: { label: "Different audience", tone: "rust" as const },
+    heading: "Lead generation",
+    body: "Not a trades tool. Automated pipelines that find and qualify decision-makers at companies matching your exact ICP. Built for corporate, construction management, and B2B service companies that sell to other businesses.",
+    link: { label: "See the lead-gen program", href: "/lead-generation" },
+  },
+];
+
 const auditSteps = [
   {
     number: "STEP 01",
@@ -417,9 +448,41 @@ export default function Home() {
         </div>
       </JobSheetSection>
 
-      {/* Systems we build */}
+      {/* What we automate: the four lanes, category level */}
       <JobSheetSection
         code="CA-06"
+        label="What we automate"
+        title="Four lanes. One shop underneath."
+        description="Everything we build runs in one of four lanes. Two are the core of what we install for trades businesses today, one is rolling out now, and one serves a different audience entirely."
+        tone="carbon"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          {automationLanes.map((lane, i) => (
+            <Reveal key={lane.code} delay={i * 70} className={i % 2 === 0 ? jobsheet.tiltA : jobsheet.tiltC}>
+              <TicketCard refCode={lane.code}>
+                <div className="mb-4">
+                  <Stamp label={lane.stamp.label} tone={lane.stamp.tone} />
+                </div>
+                <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">{lane.heading}</h3>
+                <p className="mt-4 text-base leading-8 text-[#58524a]">{lane.body}</p>
+                <Link
+                  href={lane.link.href}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
+                >
+                  {lane.link.label}
+                  <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path d="M3 8h10m-4-4 4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </TicketCard>
+            </Reveal>
+          ))}
+        </div>
+      </JobSheetSection>
+
+      {/* Systems we build */}
+      <JobSheetSection
+        code="CA-07"
         label="What we implement"
         title="Common systems we build for service businesses."
         description="Every business is different. These are the systems that come up most often after an audit."
@@ -462,7 +525,7 @@ export default function Home() {
 
       {/* Audit steps: the one real sequence on the page */}
       <JobSheetSection
-        code="CA-07"
+        code="CA-08"
         label="The free audit"
         title="30 minutes. No jargon. You leave knowing exactly where your business is losing money."
         description="This is where every engagement starts, and where most owners get the most value, even the ones who never hire us."
@@ -487,7 +550,7 @@ export default function Home() {
 
       {/* Why Current Automations */}
       <JobSheetSection
-        code="CA-08"
+        code="CA-09"
         label="Done for you"
         title="We install it, tune it, and hand you a working system."
         description="You don't touch the tech."
@@ -536,7 +599,7 @@ export default function Home() {
 
       {/* Industries served */}
       <JobSheetSection
-        code="CA-09"
+        code="CA-10"
         label="Industries served"
         title="Built for the way service businesses actually run."
         description="If your day is mostly hands-on work, your phone is your business, and your inbox is where it leaks. Here is what we automate first for each trade."
@@ -581,7 +644,7 @@ export default function Home() {
 
       {/* Proof / in-practice case studies */}
       <JobSheetSection
-        code="CA-10"
+        code="CA-11"
         label="Proof it works"
         title="In practice."
         description="These aren't Current Automations clients yet. They're real examples of the same approach, missed calls and support gaps closed with the right system. We're building the same thing for trades businesses right now."
@@ -623,7 +686,7 @@ export default function Home() {
 
       <JobSheetFAQ
         items={faqItems}
-        code="CA-11"
+        code="CA-12"
         label="Frequently Asked Questions"
         title="Questions service business owners usually ask first."
         description="A straightforward overview of how Current Automations fits into your existing process."
@@ -631,7 +694,7 @@ export default function Home() {
       />
 
       <JobSheetCTA
-        code="CA-12"
+        code="CA-13"
         label="Not sure where to start?"
         title="Book a free audit and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."

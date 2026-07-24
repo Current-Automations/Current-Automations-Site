@@ -39,7 +39,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Is this only for certain industries?",
     answer:
-      "It is built for trades and service businesses that rely on inbound calls. Plumbing, HVAC, electrical, cleaning, and landscaping are the most common fits.",
+      "The core systems are built for trades and service businesses that rely on inbound calls. Plumbing, HVAC, electrical, cleaning, and landscaping are the most common fits. We also run a separate lead generation service for companies that sell to other businesses; see the Lead Generation page for that.",
   },
   {
     question: "Do I need technical knowledge?",

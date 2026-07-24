@@ -205,6 +205,9 @@ export default function AboutPage() {
                 <p className={`${jobsheet.mono} mt-4 border-t border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-xs leading-6 text-[#58524a]`}>
                   B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
                 </p>
+                <p className={`${jobsheet.mono} mt-2 text-xs leading-6 text-[#58524a]`}>
+                  Active member, AI Automation Society community
+                </p>
               </div>
             </div>
           </Reveal>
