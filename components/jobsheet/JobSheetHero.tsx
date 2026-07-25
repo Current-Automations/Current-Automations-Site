@@ -47,11 +47,11 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Stamp label="Leaks" tone="rust" />
+                <Stamp label="Time lost" tone="rust" />
                 <span aria-hidden="true" className="text-lg text-[#58524a]">
                   &#8594;
                 </span>
-                <Stamp label="Plugged" tone="teal" />
+                <Stamp label="Time back" tone="teal" />
               </div>
 
               <p className="mt-7 max-w-xl text-base leading-8 text-[#3a352c] sm:text-lg">
