@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
-import TicketCard from "@/components/jobsheet/TicketCard";
-import Stamp from "@/components/jobsheet/Stamp";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -14,7 +13,7 @@ const BOOK_URL =
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "See how Current Automations helps service businesses respond faster after missed calls and keep new opportunities moving.",
+    "From first conversation to running system: how every Current Automations engagement runs. Free audit, we build it for you, we maintain it. No app, no portal, nothing to learn.",
 };
 
 const steps = [
@@ -36,7 +35,7 @@ const steps = [
   {
     number: "04",
     title: "It runs in the background",
-    body: "The system runs automatically from day one. Missed calls get caught. Follow-ups go out. Leads get captured. Your team gets notified. No manual work required.",
+    body: "The system runs automatically from day one. Missed calls get caught. Follow-ups go out. Leads get captured. Your team gets notified. And if you want the final say, it starts with approvals on: nothing sends until you OK it, until you're ready to hand over control.",
   },
   {
     number: "05",
@@ -59,12 +58,11 @@ const heroChecklist = [
   "Ongoing maintenance so nothing breaks on you",
 ];
 
-const captured = [
-  { label: "Address", value: "Oak Street" },
-  { label: "Issue", value: "AC not blowing cold" },
-  { label: "Urgency", value: "High, family with kids" },
-  { label: "Voicemail", value: "Transcribed + actioned" },
-  { label: "Response time", value: "Under 2 minutes" },
+const pillarPointers = [
+  { href: "/call-dispatch", label: "Call & dispatch handling", note: "Includes a full HVAC Tuesday, logged minute by minute" },
+  { href: "/follow-up", label: "Auto-replies & follow-up", note: "Watch a quiet quote get chased to a yes" },
+  { href: "/back-office", label: "Back-office & admin", note: "Invoice follow-up, from due date to paid" },
+  { href: "/lead-generation", label: "Lead generation", note: "B2B only: pipelines that find your next customers" },
 ];
 
 function CheckBox() {
@@ -164,164 +162,32 @@ export default function HowItWorksPage() {
         </div>
       </JobSheetSection>
 
-      {/* The Tuesday scenario: one chronological call log, read top to bottom */}
+      {/* Pointer to the pillar deep dives */}
       <JobSheetSection
         code="HW-03"
-        label="A Tuesday morning, logged"
-        title="Here is what this looks like for an HVAC company on a busy Tuesday."
-        description="A representative scenario based on the kind of situation local service teams deal with every week, written up the way the system actually logs it."
+        label="See it in a real week"
+        title="Want the play-by-play? Each pillar has its own page."
+        description="This page is the process. The pillar pages show what actually runs: logged scenarios, the systems in each lane, and what they cost."
         tone="paper"
       >
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] lg:items-start">
-          <Reveal>
-            <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-              <div className="flex items-center justify-between border-b border-[rgba(28,36,48,0.16)] bg-[rgba(28,36,48,0.03)] px-5 py-3 sm:px-6">
-                <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                  CALL LOG &middot; ABC HVAC &middot; LINE 1
+        <div className="grid gap-4 sm:grid-cols-2">
+          {pillarPointers.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${jobsheet.ticket} ${jobsheet.ledgerRow} group flex items-center justify-between gap-4 p-6`}
+            >
+              <span>
+                <span className="block text-lg font-semibold tracking-tight text-[#181510] group-hover:text-[var(--color-brand-strong)]">
+                  {link.label}
                 </span>
-                <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                  TUESDAY
-                </span>
-              </div>
-
-              <div className="divide-y divide-[rgba(28,36,48,0.1)]">
-                {/* 10:14 — missed call */}
-                <div className="grid grid-cols-1 gap-3 px-5 py-6 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-5 sm:px-6">
-                  <span className={`${jobsheet.mono} text-xs font-semibold text-[#58524a]`}>10:14 AM</span>
-                  <div>
-                    <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#a8452f]`}>
-                      Incoming call &middot; missed
-                    </p>
-                    <p className="mt-3 text-base leading-8 text-[#3a352c]">
-                      A homeowner calls about a broken AC unit. It is mid-morning on a hot day. The technician on duty is already on-site at another job. The call rings out, the caller leaves a voicemail, and the system captures it immediately.
-                    </p>
-                    <div className="mt-4 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] p-4">
-                      <p className={`${jobsheet.mono} mb-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#58524a]`}>
-                        Voicemail transcript
-                      </p>
-                      <p className="text-sm leading-7 text-[#3a352c]">
-                        &quot;Hi, calling about my AC on Oak Street. It stopped blowing cold this morning. It&apos;s getting really hot and I&apos;ve got two young kids here. Please call back when you can.&quot;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 10:14 — auto text */}
-                <div className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-3 px-5 py-6 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-5 sm:px-6`}>
-                  <span className={`${jobsheet.mono} text-xs font-semibold text-[#58524a]`}>10:14 AM</span>
-                  <div>
-                    <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-strong)]`}>
-                      AI-generated response sent
-                    </p>
-                    <p className="mt-3 text-base leading-8 text-[#3a352c]">
-                      Within seconds, the caller gets a text tailored to what they actually said, not a generic auto-reply.
-                    </p>
-                    <div className="mt-4 rounded border border-[var(--color-brand-strong)] bg-[rgba(20,150,118,0.06)] p-4">
-                      <p className={`${jobsheet.mono} mb-2 text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-brand-strong)]`}>
-                        Outbound SMS
-                      </p>
-                      <p className="text-sm leading-7 text-[#3a352c]">
-                        &quot;Hi, this is ABC HVAC. We just missed your call and caught your voicemail about the AC at Oak Street not blowing cold. That sounds urgent, especially with kids at home in this heat. We&apos;re finishing up another job and will call you back shortly. Reply here anytime if anything changes.&quot;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 10:16 — reply */}
-                <div className="grid grid-cols-1 gap-3 px-5 py-6 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-5 sm:px-6">
-                  <span className={`${jobsheet.mono} text-xs font-semibold text-[#58524a]`}>10:16 AM</span>
-                  <div>
-                    <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>
-                      Customer reply
-                    </p>
-                    <div className="mt-3 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] p-4">
-                      <p className="text-sm leading-7 text-[#3a352c]">
-                        &quot;Thanks, appreciate the quick response. Yes please call back, it&apos;s getting hot in here.&quot;
-                      </p>
-                    </div>
-                    <p className="mt-3 text-base leading-8 text-[#58524a]">
-                      Because the first message felt personal and acknowledged the real issue, they waited instead of calling the next company on Google.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 10:48 — callback */}
-                <div className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-3 px-5 py-6 sm:grid-cols-[5.5rem_minmax(0,1fr)] sm:gap-5 sm:px-6`}>
-                  <span className={`${jobsheet.mono} text-xs font-semibold text-[#58524a]`}>10:48 AM</span>
-                  <div>
-                    <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-strong)]`}>
-                      Technician calls back
-                    </p>
-                    <p className="mt-3 text-base leading-8 text-[#3a352c]">
-                      When the technician finishes the first job and checks their phone, the lead details are already there. They call back knowing it is Oak Street, it is an AC issue, and it is urgent. The booking takes under three minutes.
-                    </p>
-                    <div className="mt-4">
-                      <Stamp label="Job booked. Lead recovered." tone="teal" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between border-t-2 border-dashed border-[rgba(28,36,48,0.24)] px-5 py-3.5 sm:px-6">
-                <span className={`${jobsheet.mono} text-xs uppercase tracking-widest text-[#58524a]`}>
-                  Missed call to booked job
-                </span>
-                <span className={`${jobsheet.mono} text-sm font-semibold text-[var(--color-brand-strong)]`}>
-                  00:34:00
-                </span>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="space-y-4 lg:sticky lg:top-28">
-            <Reveal delay={120}>
-              <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-                <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
-                  <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                    INTAKE
-                  </span>
-                  <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                    AUTO-FILLED
-                  </span>
-                </div>
-                <div className="divide-y divide-[rgba(28,36,48,0.1)]">
-                  {captured.map((row) => (
-                    <div
-                      key={row.label}
-                      className={`${jobsheet.ledgerRow} flex items-center justify-between gap-4 px-5 py-3`}
-                    >
-                      <span className={`${jobsheet.mono} text-xs uppercase tracking-[0.12em] text-[#58524a]`}>
-                        {row.label}
-                      </span>
-                      <span className="text-right text-sm font-semibold text-[#181510]">{row.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <TicketCard refCode="IF-QUIET">
-                <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[#58524a]`}>
-                  If they go quiet
-                </p>
-                <p className="mt-4 text-base leading-8 text-[#58524a]">
-                  If the homeowner had not replied, the workflow sends a follow-up nudge after a set interval, keeping the opportunity warm without anyone on your team having to remember to check.
-                </p>
-              </TicketCard>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <TicketCard refCode="NO-SYSTEM">
-                <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[#a8452f]`}>
-                  Without the system
-                </p>
-                <p className="mt-4 text-base leading-8 text-[#58524a]">
-                  That caller was gone within two minutes of the missed call, dialing the next HVAC company on the list. With it, they waited, because they felt acknowledged.
-                </p>
-              </TicketCard>
-            </Reveal>
-          </div>
+                <span className="mt-1 block text-sm leading-6 text-[#58524a]">{link.note}</span>
+              </span>
+              <span aria-hidden="true" className="text-xl text-[#58524a] transition-transform group-hover:translate-x-1 group-hover:text-[var(--color-brand-strong)]">
+                &#8594;
+              </span>
+            </Link>
+          ))}
         </div>
       </JobSheetSection>
 

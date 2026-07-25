@@ -1,32 +1,32 @@
 import styles from "./jobsheet.module.css";
 
 const logRows = [
-  { time: "9:14:02 PM", event: "INCOMING CALL", detail: "MISSED", tone: "rust" as const },
+  { time: "9:14:02 AM", event: "INCOMING CALL", detail: "MISSED", tone: "rust" as const },
   {
-    time: "9:14:09 PM",
+    time: "9:14:09 AM",
     event: "AUTO-TEXT SENT",
-    detail: "“Sorry we just missed you — what’s the issue?”",
+    detail: "“Sorry we just missed you. What’s the issue?”",
     tone: "plain" as const,
   },
   {
-    time: "9:16:44 PM",
+    time: "9:16:44 AM",
     event: "CUSTOMER REPLY",
     detail: "“AC's out, need someone today”",
     tone: "plain" as const,
   },
   {
-    time: "9:16:51 PM",
+    time: "9:16:51 AM",
     event: "AUTO-TEXT SENT",
-    detail: "“Got it, AC down. We can have a tech out today, 1–3 PM. Does that work? Or we can call you back within 10 minutes.”",
+    detail: "“Sorry about the AC. Just checked the crew's schedule and we can fit you in today between 11 and 1. Want me to book it? Happy to call you in the next 10 minutes instead if that's easier.”",
     tone: "plain" as const,
   },
   {
-    time: "9:17:12 PM",
+    time: "9:17:12 AM",
     event: "CUSTOMER REPLY",
-    detail: "“1–3 works”",
+    detail: "“Book it”",
     tone: "plain" as const,
   },
-  { time: "9:17:20 PM", event: "JOB BOOKED", detail: "1–3 PM WINDOW", tone: "teal" as const },
+  { time: "9:17:20 AM", event: "JOB BOOKED", detail: "TODAY, 11 AM–1 PM WINDOW", tone: "teal" as const },
 ];
 
 /**

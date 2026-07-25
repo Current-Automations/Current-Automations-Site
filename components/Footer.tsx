@@ -7,9 +7,15 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/lead-generation", label: "Lead Generation" },
   { href: "/contact", label: "Contact" },
   { href: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb", label: "Book Free Audit" },
+];
+
+const automateLinks = [
+  { href: "/call-dispatch", label: "Call & Dispatch" },
+  { href: "/follow-up", label: "Auto-Replies & Follow-Up" },
+  { href: "/back-office", label: "Back-Office & Admin" },
+  { href: "/lead-generation", label: "Lead Generation (B2B)" },
 ];
 
 const legalLinks = [
@@ -50,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_repeat(2,minmax(0,0.6fr))]">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,0.6fr))]">
           <div className="max-w-2xl">
             <Link href="/" className="inline-flex items-center gap-4">
               <Image
@@ -80,6 +86,23 @@ export default function Footer() {
             </p>
             <div className="mt-5 grid gap-3">
               {companyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-on-dark hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-on-dark-faint">
+              What We Automate
+            </p>
+            <div className="mt-5 grid gap-3">
+              {automateLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

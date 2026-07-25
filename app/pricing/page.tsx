@@ -367,9 +367,24 @@ export default function PricingPage() {
         </div>
       </JobSheetSection>
 
+      <JobSheetSection
+        code="CA-P6"
+        label="Selling to other businesses?"
+        title="Lead generation is priced separately."
+        description="Everything above is built for trades and service businesses. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
+        tone="carbon"
+      >
+        <div className="flex flex-col items-start gap-4 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.02)] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <p className="text-lg font-semibold tracking-tight text-[#181510]">
+            Verified decision-maker lists, built from your exact ICP.
+          </p>
+          <PunchButton href="/lead-generation" label="See Lead Generation" variant="ghost" className="shrink-0" />
+        </div>
+      </JobSheetSection>
+
       <JobSheetFAQ
         items={pricingFaqItems}
-        code="CA-P6"
+        code="CA-P7"
         label="Frequently Asked Questions"
         title="Common questions about pricing and contracts."
         description="Straightforward answers to what most owners want to know before committing."
@@ -377,7 +392,7 @@ export default function PricingPage() {
       />
 
       <JobSheetCTA
-        code="CA-P7"
+        code="CA-P8"
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
