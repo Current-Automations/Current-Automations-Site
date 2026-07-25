@@ -123,7 +123,7 @@ export default function LeadGenerationPage() {
       >
         <div className="grid gap-6 md:grid-cols-2">
           <Reveal>
-            <div className={`${jobsheet.ticket} h-full !bg-[rgba(20,150,118,0.06)] !border-[var(--color-brand-strong)] p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
+            <div className={`${jobsheet.ticket} h-full !bg-[#e8f6f1] !border-[var(--color-brand-strong)] p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
               <span className={jobsheet.ticketHole} aria-hidden="true" />
               <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-strong)]`}>
                 This is for you if

@@ -120,7 +120,7 @@ export default function Home() {
         {/* The +1: same scale, different paper */}
         <Reveal variant="up" delay={380}>
           <div className="mt-6 grid gap-6 lg:grid-cols-3">
-            <div className={`${jobsheet.ticket} !bg-[rgba(168,69,47,0.06)] !border-[#a8452f] relative p-7 pl-10 sm:p-8 sm:pl-11 lg:col-start-2`}>
+            <div className={`${jobsheet.ticket} !bg-[var(--card)] !border-[#a8452f] relative p-7 pl-10 sm:p-8 sm:pl-11 lg:col-start-2`}>
               <span className={jobsheet.ticketHole} aria-hidden="true" />
               <span className={`${jobsheet.mono} ${jobsheet.ticketRef}`}>PILLAR 04</span>
               <div className="mb-4">

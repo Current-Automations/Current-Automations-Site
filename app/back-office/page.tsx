@@ -40,6 +40,42 @@ export default function BackOfficePage() {
           </>
         }
         description="The admin work that keeps you at the desk after the trucks are parked: chasing invoices, sending reminders, keeping the books straight. We automate it one job at a time, starting with the one that stings most: getting paid on time."
+        side={
+          <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
+            <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                INVOICE LEDGER
+              </span>
+              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
+                INVOICE #1042
+              </span>
+            </div>
+            <div className="divide-y divide-[rgba(28,36,48,0.1)]">
+              {[
+                { time: "DAY 0", event: "Invoice sent, due on receipt" },
+                { time: "DAY 7", event: "Unpaid: firmer reminder goes out" },
+                { time: "DAY 14", event: "Final reminder, direct pay link" },
+                { time: "PAID", event: "Marked paid. Chasing stops instantly." },
+              ].map((row, i, arr) => (
+                <div
+                  key={row.time}
+                  className={`${jobsheet.ledgerRow} grid grid-cols-[4.5rem_1fr] items-baseline gap-4 px-5 py-3.5`}
+                >
+                  <span className={`${jobsheet.mono} text-[0.7rem] text-[#58524a]`}>{row.time}</span>
+                  <span
+                    className={`text-sm leading-6 ${
+                      i === arr.length - 1
+                        ? "font-semibold text-[var(--color-brand-strong)]"
+                        : "text-[#3a352c]"
+                    }`}
+                  >
+                    {row.event}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        }
       />
 
       {/* First system: invoice follow-up */}

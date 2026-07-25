@@ -47,7 +47,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Stamp label="Leaking" tone="rust" />
+                <Stamp label="Leaks" tone="rust" />
                 <span aria-hidden="true" className="text-lg text-[#58524a]">
                   &#8594;
                 </span>
