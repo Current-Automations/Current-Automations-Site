@@ -52,3 +52,6 @@ docs/agents/
 
 # One-pagers / exported HTML docs (live in Drive, not the Next.js app)
 Current Automations*.html
+
+# Retell agent config exports (contain live Make.com webhook URLs)
+/agents/
