@@ -51,7 +51,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
                 <span aria-hidden="true" className="text-lg text-[#58524a]">
                   &#8594;
                 </span>
-                <Stamp label="Time back" tone="teal" />
+                <Stamp label="Money saved" tone="teal" />
               </div>
 
               <p className="mt-7 max-w-xl text-base leading-8 text-[#3a352c] sm:text-lg">
