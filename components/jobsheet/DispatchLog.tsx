@@ -5,7 +5,7 @@ const logRows = [
   {
     time: "9:14:09 AM",
     event: "AUTO-TEXT SENT",
-    detail: "“Sorry we just missed you. What's the issue?”",
+    detail: "“Sorry we missed you. How can we help?”",
     tone: "plain" as const,
   },
   {
