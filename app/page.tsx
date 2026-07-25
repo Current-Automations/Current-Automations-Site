@@ -96,6 +96,7 @@ export default function Home() {
 
       {/* The pillars: 3 trades lanes + 1 B2B lane */}
       <JobSheetSection
+        id="what-we-automate"
         code="CA-02"
         label="What we automate"
         title="Three lanes for your trade. Start with the one that hurts most."

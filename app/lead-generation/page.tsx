@@ -164,7 +164,7 @@ export default function LeadGenerationPage() {
               <p className="mt-6 border-t border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-sm leading-7 text-[#58524a]">
                 Running a trades business? The systems that fill your calendar
                 are over here:{" "}
-                <Link href="/" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+                <Link href="/#what-we-automate" className="font-medium text-[var(--color-brand-strong)] hover:underline">
                   what we automate for trades
                 </Link>
                 .
