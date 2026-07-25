@@ -22,6 +22,7 @@ const tradeLanes = [
     heading: "Call & dispatch handling",
     body: "Missed-call text back, speed to lead, intake, and booking. Every call, form, and voicemail gets an answer in seconds and lands as a booked job instead of a cold lead.",
     href: "/call-dispatch",
+    linkLabel: "See the call & dispatch lane",
   },
   {
     code: "PILLAR 02",
@@ -29,6 +30,7 @@ const tradeLanes = [
     heading: "Auto-replies & follow-up",
     body: "Automatic replies and follow-up sequences that answer every inquiry and keep quotes moving toward a yes. Tuned to sound like your business, not a robot with your logo.",
     href: "/follow-up",
+    linkLabel: "See the follow-up lane",
   },
   {
     code: "PILLAR 03",
@@ -36,6 +38,7 @@ const tradeLanes = [
     heading: "Back-office & admin",
     body: "The desk work that eats your evenings. First up: invoice and payment follow-up that chases overdue invoices politely and on schedule. More on the way.",
     href: "/back-office",
+    linkLabel: "See the back-office lane",
   },
 ];
 
@@ -108,7 +111,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">{lane.heading}</h3>
                 <p className="mt-4 text-base leading-8 text-[#58524a]">{lane.body}</p>
-                <LaneLink href={lane.href} label="See the lane" />
+                <LaneLink href={lane.href} label={lane.linkLabel} />
               </TicketCard>
             </Reveal>
           ))}
@@ -117,7 +120,7 @@ export default function Home() {
         {/* The +1: same scale, different paper */}
         <Reveal variant="up" delay={380}>
           <div className="mt-6 grid gap-6 lg:grid-cols-3">
-            <div className={`${jobsheet.ticket} !bg-[rgba(28,36,48,0.05)] !border-[rgba(28,36,48,0.45)] relative p-7 pl-10 sm:p-8 sm:pl-11 lg:col-start-2`}>
+            <div className={`${jobsheet.ticket} !bg-[rgba(168,69,47,0.06)] !border-[#a8452f] relative p-7 pl-10 sm:p-8 sm:pl-11 lg:col-start-2`}>
               <span className={jobsheet.ticketHole} aria-hidden="true" />
               <span className={`${jobsheet.mono} ${jobsheet.ticketRef}`}>PILLAR 04</span>
               <div className="mb-4">
