@@ -28,7 +28,7 @@ const quietPlaces = [
   {
     code: "FU-B",
     title: "The web form from last weekend",
-    body: "Someone filled out your contact form Saturday morning. By the time Monday you arrives, they have already heard back from two competitors.",
+    body: "Someone filled out your contact form Saturday morning. By the time Monday arrives, they have already heard back from two competitors.",
   },
   {
     code: "FU-C",

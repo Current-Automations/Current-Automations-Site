@@ -11,7 +11,7 @@ const BOOK_URL =
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach the right person at Current Automations — general questions, client support, or billing.",
+    "Reach the right person at Current Automations: general questions, client support, or billing.",
 };
 
 const desks = [
