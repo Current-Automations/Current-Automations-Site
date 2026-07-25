@@ -1,20 +1,38 @@
 import styles from "./jobsheet.module.css";
 
 const logRows = [
-  { time: "9:14:02 PM", event: "INCOMING CALL", detail: "MISSED", tone: "rust" as const },
+  { time: "9:14:02 AM", event: "INCOMING CALL", detail: "MISSED", tone: "rust" as const },
   {
-    time: "9:14:09 PM",
+    time: "9:14:09 AM",
     event: "AUTO-TEXT SENT",
-    detail: "“Sorry we just missed you — what’s the issue?”",
+    detail: "“Sorry we missed you. How can we help?”",
     tone: "plain" as const,
   },
   {
-    time: "9:16:44 PM",
+    time: "9:16:44 AM",
     event: "CUSTOMER REPLY",
     detail: "“AC's out, need someone today”",
     tone: "plain" as const,
   },
-  { time: "9:17:20 PM", event: "JOB BOOKED", detail: "1–3 PM WINDOW", tone: "teal" as const },
+  {
+    time: "9:16:51 AM",
+    event: "AUTO-TEXT SENT",
+    detail: "“Sorry about the AC. Just checked the crew's schedule and we can fit you in today between 11 and 1. Want me to book it? Happy to call you in the next 10 minutes instead if that's easier.”",
+    tone: "plain" as const,
+  },
+  {
+    time: "9:17:12 AM",
+    event: "CUSTOMER REPLY",
+    detail: "“Book it”",
+    tone: "plain" as const,
+  },
+  {
+    time: "9:17:20 AM",
+    event: "AUTO-TEXT SENT",
+    detail: "“Okay, you're booked. We'll see you between 11 and 1.”",
+    tone: "plain" as const,
+  },
+  { time: "9:17:24 AM", event: "JOB BOOKED", detail: "ON THE SCHEDULE", tone: "teal" as const },
 ];
 
 /**
@@ -36,7 +54,7 @@ export default function DispatchLog() {
 
       <div className="divide-y divide-[rgba(28,36,48,0.1)]">
         {logRows.map((row) => (
-          <div key={row.event} className={`${styles.ledgerRow} grid grid-cols-[6.5rem_1fr] gap-4 px-5 py-3.5`}>
+          <div key={row.time} className={`${styles.ledgerRow} grid grid-cols-[6.5rem_1fr] gap-4 px-5 py-3.5`}>
             <span className={`${styles.mono} text-[0.7rem] text-[#58524a]`}>{row.time}</span>
             <div>
               <p

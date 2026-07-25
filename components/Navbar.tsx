@@ -3,15 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
-  { href: "/demo", label: "Demo" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
+];
+
+const pillarLinks = [
+  { href: "/call-dispatch", label: "Call & Dispatch" },
+  { href: "/follow-up", label: "Auto-Replies & Follow-Up" },
+  { href: "/back-office", label: "Back-Office & Admin" },
+  { href: "/lead-generation", label: "Lead Generation (B2B)" },
 ];
 
 function getLinkClasses(active: boolean) {
@@ -26,6 +32,26 @@ function getLinkClasses(active: boolean) {
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [pillarsOpen, setPillarsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!pillarsOpen) return;
+    function onClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setPillarsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [pillarsOpen]);
+
+  useEffect(() => {
+    setPillarsOpen(false);
+    setIsOpen(false);
+  }, [pathname]);
+
+  const pillarActive = pillarLinks.some((link) => pathname === link.href);
   const shellClasses = [
     "border border-line-dark bg-[rgba(7,17,29,0.72)] px-4 py-2.5 shadow-[0_12px_36px_rgba(2,6,23,0.18)] backdrop-blur-md sm:px-5",
     isOpen ? "rounded-card-lg" : "rounded-full",
@@ -34,7 +60,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <div className="container-shell pb-1 pt-3 sm:pt-4">
-        <div className={`overflow-hidden ${shellClasses}`}>
+        <div className={`${shellClasses} ${isOpen ? "overflow-hidden" : ""}`}>
           <div className="flex items-center justify-between gap-3">
             <Link href="/" className="flex shrink-0 items-center gap-3">
               <Image
@@ -56,7 +82,66 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden items-center gap-1 lg:flex">
-              {navLinks.map((link) => {
+              {navLinks.slice(0, 2).map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={getLinkClasses(active)}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  type="button"
+                  className={`${getLinkClasses(pillarActive)} inline-flex items-center gap-1.5`}
+                  aria-expanded={pillarsOpen}
+                  aria-haspopup="true"
+                  onClick={() => setPillarsOpen((open) => !open)}
+                >
+                  What We Automate
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 12 12"
+                    className={`h-3 w-3 transition-transform ${pillarsOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <path d="M2.5 4.5 6 8l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                {pillarsOpen ? (
+                  <div className="absolute left-0 top-full z-50 mt-2 min-w-[15rem] rounded-card-lg border border-line-dark bg-[rgba(7,17,29,0.94)] p-2 shadow-[0_18px_48px_rgba(2,6,23,0.4)] backdrop-blur-md">
+                    {pillarLinks.map((link) => {
+                      const active = pathname === link.href;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={`block rounded-full px-4 py-2 text-sm font-medium ${
+                            active
+                              ? "bg-surface-dark-3 text-white"
+                              : "text-on-dark hover:bg-surface-dark-2 hover:text-white"
+                          }`}
+                          onClick={() => setPillarsOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </div>
+
+              {navLinks.slice(2).map((link) => {
                 const active = pathname === link.href;
 
                 return (
@@ -95,7 +180,40 @@ export default function Navbar() {
 
           {isOpen ? (
             <div className="mt-4 grid gap-2 border-t border-line-dark pt-4 lg:hidden">
-              {navLinks.map((link) => {
+              {navLinks.slice(0, 2).map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={getLinkClasses(active)}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+
+              <p className="mt-2 px-4 text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-white/55">
+                What We Automate
+              </p>
+              {pillarLinks.map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={getLinkClasses(active)}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+
+              {navLinks.slice(2).map((link) => {
                 const active = pathname === link.href;
 
                 return (

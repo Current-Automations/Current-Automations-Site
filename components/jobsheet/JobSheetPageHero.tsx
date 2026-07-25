@@ -9,6 +9,7 @@ type JobSheetPageHeroProps = {
   description?: ReactNode;
   children?: ReactNode;
   side?: ReactNode;
+  sideAlign?: "center" | "start";
 };
 
 /**
@@ -24,6 +25,7 @@ export default function JobSheetPageHero({
   description,
   children,
   side,
+  sideAlign = "center",
 }: JobSheetPageHeroProps) {
   return (
     <section className={`${styles.root} ${styles.paperTexture} relative pb-16 pt-14 sm:pb-20 sm:pt-16 lg:pt-20`}>
@@ -41,7 +43,9 @@ export default function JobSheetPageHero({
           <div
             className={`px-6 py-10 sm:px-9 sm:py-12 lg:py-14 ${
               side
-                ? "grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-center"
+                ? `grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] ${
+                    sideAlign === "start" ? "lg:items-start" : "lg:items-center"
+                  }`
                 : ""
             }`}
           >

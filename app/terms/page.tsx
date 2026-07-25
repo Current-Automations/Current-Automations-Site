@@ -20,8 +20,8 @@ const clauseIndex = [
   { code: "SIGN", title: "Electronic Acceptance" },
   { code: "01", title: "Definitions" },
   { code: "02", title: "Services Provided" },
-  { code: "03", title: "Billing and Subscription" },
-  { code: "04", title: "Cancellation and Refunds" },
+  { code: "03", title: "Billing, Payment and Subscription Terms" },
+  { code: "04", title: "Cancellation and Refund Policy" },
   { code: "05", title: "Acceptable Use" },
   { code: "06", title: "Client Obligations" },
   { code: "07", title: "Limitation of Liability" },
@@ -52,7 +52,7 @@ export default function TermsPage() {
           </span>
         }
         title="Terms of Service"
-        description="EFFECTIVE DATE: May 7, 2025 | VERSION: 1.3 | JURISDICTION: Province of Ontario, Canada | CONTACT: admin@currentautomations.ca | +1 (365) 513-7474"
+        description="EFFECTIVE DATE: May 7, 2025 | VERSION: 1.3 | JURISDICTION: Province of Ontario, Canada | CONTACT: info@currentautomations.ca | +1 (365) 513-7474"
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
@@ -185,7 +185,7 @@ export default function TermsPage() {
                   2.5 No Professional Advice: The Service, including any AI-generated transcriptions, urgency summaries, or automated message content, does not constitute legal, financial, medical, or any other form of professional advice.
                 </p>
                 <p>
-                  2.6 Support and Response: Current Automations provides support by email at admin@currentautomations.ca and by text at +1 (365) 513-7474 during regular Ontario business hours on business days.
+                  2.6 Support and Response: Current Automations provides support by email at support@currentautomations.ca and by text at +1 (365) 513-7474 during regular Ontario business hours on business days.
                   Response within 1 to 2 business days. No guaranteed SLA or 24/7 support obligation under any plan.
                 </p>
               </JobSheetLegalClause>
@@ -212,7 +212,7 @@ export default function TermsPage() {
 
               <JobSheetLegalClause id="clause-04" code="04" title="Cancellation and Refund Policy">
                 <p>
-                  4.1 Cancellation by Client: Cancel anytime by emailing admin@currentautomations.ca or texting +1 (365) 513-7474.
+                  4.1 Cancellation by Client: Cancel anytime by emailing billing@currentautomations.ca or texting +1 (365) 513-7474.
                   Cancellation requests must be received at least 5 business days before the next billing date.
                 </p>
                 <p>
@@ -304,7 +304,7 @@ export default function TermsPage() {
 
               <JobSheetLegalClause id="clause-10" code="10" title="Dispute Resolution">
                 <p>
-                  10.1 Good Faith Resolution: Contact admin@currentautomations.ca and allow 14 business days for resolution before pursuing any other remedy.
+                  10.1 Good Faith Resolution: Contact info@currentautomations.ca and allow 14 business days for resolution before pursuing any other remedy.
                 </p>
                 <p>
                   10.2 Governing Law: Governed by the laws of the Province of Ontario and federal laws of Canada.
@@ -332,7 +332,7 @@ export default function TermsPage() {
               </JobSheetLegalClause>
 
               <JobSheetLegalClause id="clause-END" code="END" title="Questions">
-                <p>Questions? Contact admin@currentautomations.ca or +1 (365) 513-7474.</p>
+                <p>Questions? Contact info@currentautomations.ca or +1 (365) 513-7474.</p>
               </JobSheetLegalClause>
             </div>
           </div>

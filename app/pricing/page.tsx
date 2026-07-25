@@ -107,6 +107,7 @@ const tiers: Tier[] = [
       "T09 No Show and Cancellation Recovery",
       "T08 Database Reactivation Campaign",
       "T11 Weekly Client ROI Report",
+      "T13 Invoice Payment Follow Up",
     ],
     priceId: "price_1TYDanFbHh7D2pR63S10aawu",
   },
@@ -165,6 +166,7 @@ const scenarioGroups: ScenarioGroup[] = [
     scenarios: [
       { code: "T11", name: "Weekly Client ROI Report", price: 99, priceId: "price_1TYDchFbHh7D2pR6JVe7Nyz8" },
       { code: "T12", name: "System Anomaly Alert", price: 79, priceId: "price_1TYDcsFbHh7D2pR6r0F4Bsnx" },
+      { code: "T13", name: "Invoice Payment Follow Up", price: 79, priceId: "price_1TwsOOFbHh7D2pR6sazpj7db" },
     ],
   },
   {
@@ -264,7 +266,7 @@ export default function PricingPage() {
             </div>
           </Reveal>
           <Reveal delay={110}>
-            <div className={`${jobsheet.ticket} h-full !bg-[rgba(20,150,118,0.06)] !border-[var(--color-brand-strong)] p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
+            <div className={`${jobsheet.ticket} h-full !border-[var(--color-brand-strong)] p-7 pl-10 sm:p-8 sm:pl-11 relative`}>
               <span className={jobsheet.ticketHole} aria-hidden="true" />
               <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-strong)]`}>
                 Current Automations
@@ -288,6 +290,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
+        id="tiers"
         code="CA-P3"
         label="Bundled tiers"
         title="Start with a bundle. Save every month."
@@ -318,6 +321,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
+        id="a-la-carte"
         code="CA-P4"
         label="A la carte"
         title="Just need one fix? Pick a single workflow."
@@ -363,9 +367,24 @@ export default function PricingPage() {
         </div>
       </JobSheetSection>
 
+      <JobSheetSection
+        code="CA-P6"
+        label="Selling to other businesses?"
+        title="Lead generation is priced separately."
+        description="Everything above is built for trades and service businesses. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
+        tone="carbon"
+      >
+        <div className="flex flex-col items-start gap-4 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.02)] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <p className="text-lg font-semibold tracking-tight text-[#181510]">
+            Verified decision-maker lists, built from your exact ICP.
+          </p>
+          <PunchButton href="/lead-generation" label="See Lead Generation" variant="ghost" className="shrink-0" />
+        </div>
+      </JobSheetSection>
+
       <JobSheetFAQ
         items={pricingFaqItems}
-        code="CA-P6"
+        code="CA-P7"
         label="Frequently Asked Questions"
         title="Common questions about pricing and contracts."
         description="Straightforward answers to what most owners want to know before committing."
@@ -373,7 +392,7 @@ export default function PricingPage() {
       />
 
       <JobSheetCTA
-        code="CA-P7"
+        code="CA-P8"
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."

@@ -32,7 +32,7 @@ export default function DemoPage() {
         docCode="FORM DM-01"
         kicker="Proof you can dial right now"
         title="Call it yourself. The text you get back is the product."
-        description="No signup, no form, no sales call. Say something if you want, or just let it ring — either way, watch what your customers would see after hours."
+        description="No signup, no form, no sales call. Say something if you want, or just let it ring. Either way, watch what your customers would see after hours."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">

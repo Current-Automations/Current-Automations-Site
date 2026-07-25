@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import DispatchLog from "./DispatchLog";
 import PunchButton from "./PunchButton";
 import Stamp from "./Stamp";
 import styles from "./jobsheet.module.css";
@@ -11,6 +11,13 @@ type JobSheetHeroProps = {
   secondaryHref: string;
   ctaNote?: ReactNode;
 };
+
+const pillarBoard = [
+  { code: "01", name: "Call & dispatch", promise: "Every call answered", href: "/call-dispatch" },
+  { code: "02", name: "Auto-replies & follow-up", promise: "No lead goes cold", href: "/follow-up" },
+  { code: "03", name: "Back-office & admin", promise: "Paperwork handled", href: "/back-office" },
+  { code: "04", name: "Lead generation", promise: "B2B only", href: "/lead-generation" },
+];
 
 export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }: JobSheetHeroProps) {
   return (
@@ -30,30 +37,29 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
           <div className="grid gap-12 px-6 py-10 sm:px-9 sm:py-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-center lg:py-14">
             <div>
               <p className={`${styles.mono} text-xs uppercase tracking-[0.22em] text-[#58524a]`}>
-                Serving trades across the GTA
+                Serving trades across Ontario
               </p>
 
-              <h1 className={`${styles.display} mt-5 text-[clamp(2.1rem,5.4vw,4rem)] leading-[1.02] text-[#181510]`}>
-                A furnace dies at 9pm.
+              <h1 className={`${styles.display} mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] text-[#181510]`}>
+                The automation department
                 <br />
-                The call hits voicemail.
-                <br />
-                Someone else books the job.
+                your business doesn&apos;t have.
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Stamp label="Missed call" tone="rust" />
+                <Stamp label="Time lost" tone="rust" />
                 <span aria-hidden="true" className="text-lg text-[#58524a]">
                   &#8594;
                 </span>
-                <Stamp label="Recovered" tone="teal" />
+                <Stamp label="Money saved" tone="teal" />
               </div>
 
               <p className="mt-7 max-w-xl text-base leading-8 text-[#3a352c] sm:text-lg">
-                The next contractor who picks up wins the work. We install a
-                system that texts every missed caller back in seconds,
-                captures the job, and books it. We install it, tune it, and
-                hand you a working system. You don&apos;t touch the tech.
+                We find where your business is losing time and money, then we
+                build the fix: small systems that answer missed calls, chase
+                quiet quotes, nudge overdue invoices, and follow up so you
+                don&apos;t have to. Installed in days. We run and maintain it
+                for you.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -65,11 +71,41 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
             </div>
 
             <Reveal variant="scale" delay={200} className="hidden lg:block">
-              <DispatchLog />
+              <div className={`${styles.ticket} p-0 overflow-hidden`}>
+                <div className="flex items-center justify-between border-b border-[var(--card-line,rgba(28,36,48,0.16))] bg-[rgba(28,36,48,0.03)] px-5 py-3">
+                  <span className={`${styles.mono} text-xs tracking-widest text-[#58524a]`}>
+                    SERVICE BOARD
+                  </span>
+                  <span className={`${styles.mono} text-xs tracking-widest text-[#58524a]`}>
+                    4 PILLARS
+                  </span>
+                </div>
+                <div className="divide-y divide-[rgba(28,36,48,0.1)]">
+                  {pillarBoard.map((row) => (
+                    <Link
+                      key={row.code}
+                      href={row.href}
+                      className={`${styles.ledgerRow} group grid grid-cols-[2.2rem_1fr_auto] items-center gap-3 px-5 py-4`}
+                    >
+                      <span className={`${styles.mono} text-xs font-semibold text-[#58524a]`}>{row.code}</span>
+                      <span>
+                        <span className="block text-sm font-semibold leading-5 text-[#181510] group-hover:text-[var(--color-brand-strong)]">
+                          {row.name}
+                        </span>
+                        <span className={`${styles.mono} mt-0.5 block text-[0.68rem] uppercase tracking-[0.14em] text-[#58524a]`}>
+                          {row.promise}
+                        </span>
+                      </span>
+                      <span aria-hidden="true" className="text-[#58524a] transition-transform group-hover:translate-x-1 group-hover:text-[var(--color-brand-strong)]">
+                        &#8594;
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <p className="mt-5 max-w-[26rem] text-sm leading-7 text-[#58524a]">
-                What your customer experiences when they call after hours. The
-                text goes out before they finish dialing the next number on
-                Google.
+                Four pillars, one department. Start with the one that hurts
+                most; add the rest as your business grows into them.
               </p>
             </Reveal>
           </div>

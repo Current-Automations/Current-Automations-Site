@@ -21,6 +21,7 @@ const ALLOWED_PRICE_IDS = new Set([
   "price_1TYDcsFbHh7D2pR6r0F4Bsnx",
   "price_1TYDbaFbHh7D2pR6Kt85mIAE",
   "price_1TYDbkFbHh7D2pR6N7FPebE4",
+  "price_1TwsOOFbHh7D2pR6sazpj7db",
 ]);
 // TODO: To support staging environments, replace BASE_URL with process.env.NEXT_PUBLIC_SITE_URL
 
