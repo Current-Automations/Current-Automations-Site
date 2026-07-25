@@ -7,7 +7,6 @@ import JobSheetHero from "@/components/jobsheet/JobSheetHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
-import DispatchLog from "@/components/jobsheet/DispatchLog";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
@@ -182,21 +181,16 @@ export default function Home() {
             </TicketCard>
           </Reveal>
 
-          <div className="grid gap-6">
-            <Reveal delay={90}>
-              <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-                <HomeDemoVideo src="/demos/video1.html" />
-                <div className="p-5 text-center">
-                  <p className="text-sm text-[#58524a]">
-                    Watch a missed call turn into a captured lead in under 60 seconds.
-                  </p>
-                </div>
+          <Reveal delay={90}>
+            <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
+              <HomeDemoVideo src="/demos/video1.html" />
+              <div className="p-6 text-center">
+                <p className="text-sm text-[#58524a]">
+                  Watch a missed call turn into a captured lead in under 60 seconds.
+                </p>
               </div>
-            </Reveal>
-            <Reveal delay={150}>
-              <DispatchLog />
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
           Want to see it with your own call flow?{" "}

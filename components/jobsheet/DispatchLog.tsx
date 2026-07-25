@@ -26,7 +26,13 @@ const logRows = [
     detail: "“Book it”",
     tone: "plain" as const,
   },
-  { time: "9:17:20 AM", event: "JOB BOOKED", detail: "TODAY, 11 AM–1 PM WINDOW", tone: "teal" as const },
+  {
+    time: "9:17:20 AM",
+    event: "AUTO-TEXT SENT",
+    detail: "“Okay, you're booked. We'll see you between 11 and 1.”",
+    tone: "plain" as const,
+  },
+  { time: "9:17:24 AM", event: "JOB BOOKED", detail: "ON THE SCHEDULE", tone: "teal" as const },
 ];
 
 /**

@@ -40,7 +40,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
                 Serving trades across the GTA
               </p>
 
-              <h1 className={`${styles.display} mt-5 text-[clamp(2.1rem,5.4vw,4rem)] leading-[1.02] text-[#181510]`}>
+              <h1 className={`${styles.display} mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] text-[#181510]`}>
                 The automation department
                 <br />
                 your business doesn&apos;t have.

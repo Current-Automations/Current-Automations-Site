@@ -7,6 +7,7 @@ import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
+import DispatchLog from "@/components/jobsheet/DispatchLog";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
@@ -106,14 +107,6 @@ const industryRows = [
   },
 ];
 
-const captured = [
-  { label: "Address", value: "Oak Street" },
-  { label: "Issue", value: "AC not blowing cold" },
-  { label: "Urgency", value: "High, family with kids" },
-  { label: "Voicemail", value: "Transcribed + actioned" },
-  { label: "Response time", value: "Under 2 minutes" },
-];
-
 export default function CallDispatchPage() {
   return (
     <div className={jobsheetFonts}>
@@ -129,31 +122,7 @@ export default function CallDispatchPage() {
           </>
         }
         description="Missed-call text back, speed to lead, intake, and booking. The moment a call rings out, the system texts the caller back, captures the job, and books it. Your customers get an answer in seconds. You get the job instead of losing it to whoever picked up."
-        side={
-          <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-            <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
-              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                INTAKE
-              </span>
-              <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                AUTO-FILLED
-              </span>
-            </div>
-            <div className="divide-y divide-[rgba(28,36,48,0.1)]">
-              {captured.map((row) => (
-                <div
-                  key={row.label}
-                  className={`${jobsheet.ledgerRow} flex items-center justify-between gap-4 px-5 py-3`}
-                >
-                  <span className={`${jobsheet.mono} text-xs uppercase tracking-[0.12em] text-[#58524a]`}>
-                    {row.label}
-                  </span>
-                  <span className="text-right text-sm font-semibold text-[#181510]">{row.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        }
+        side={<DispatchLog />}
       />
 
       {/* The problem, in scenarios */}

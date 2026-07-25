@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/how-it-works", label: "How It Works" },
-  { href: "/demo", label: "Demo" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ];
@@ -83,7 +82,7 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden items-center gap-1 lg:flex">
-              {navLinks.slice(0, 3).map((link) => {
+              {navLinks.slice(0, 2).map((link) => {
                 const active = pathname === link.href;
 
                 return (
@@ -142,7 +141,7 @@ export default function Navbar() {
                 ) : null}
               </div>
 
-              {navLinks.slice(3).map((link) => {
+              {navLinks.slice(2).map((link) => {
                 const active = pathname === link.href;
 
                 return (
@@ -181,7 +180,7 @@ export default function Navbar() {
 
           {isOpen ? (
             <div className="mt-4 grid gap-2 border-t border-line-dark pt-4 lg:hidden">
-              {navLinks.map((link) => {
+              {navLinks.slice(0, 2).map((link) => {
                 const active = pathname === link.href;
 
                 return (
@@ -200,6 +199,21 @@ export default function Navbar() {
                 What We Automate
               </p>
               {pillarLinks.map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={getLinkClasses(active)}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+
+              {navLinks.slice(2).map((link) => {
                 const active = pathname === link.href;
 
                 return (
