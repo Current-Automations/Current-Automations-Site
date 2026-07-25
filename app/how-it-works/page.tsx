@@ -175,7 +175,7 @@ export default function HowItWorksPage() {
             <Link
               key={link.href}
               href={link.href}
-              className={`${jobsheet.ticket} ${jobsheet.ledgerRow} group flex items-center justify-between gap-4 p-6`}
+              className={`${jobsheet.ticket} group flex items-center justify-between gap-4 p-6 transition-colors hover:!bg-[rgba(20,150,118,0.07)]`}
             >
               <span>
                 <span className="block text-lg font-semibold tracking-tight text-[#181510] group-hover:text-[var(--color-brand-strong)]">
