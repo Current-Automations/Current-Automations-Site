@@ -123,6 +123,7 @@ export default function CallDispatchPage() {
         }
         description="Missed-call text back, speed to lead, intake, and booking. The moment a call rings out, the system texts the caller back, captures the job, and books it. Your customers get an answer in seconds. You get the job instead of losing it to whoever picked up."
         side={<DispatchLog />}
+        sideAlign="start"
       />
 
       {/* The problem, in scenarios */}
