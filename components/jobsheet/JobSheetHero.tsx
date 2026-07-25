@@ -37,7 +37,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
           <div className="grid gap-12 px-6 py-10 sm:px-9 sm:py-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-center lg:py-14">
             <div>
               <p className={`${styles.mono} text-xs uppercase tracking-[0.22em] text-[#58524a]`}>
-                Serving trades across the GTA
+                Serving trades across Ontario
               </p>
 
               <h1 className={`${styles.display} mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] text-[#181510]`}>
