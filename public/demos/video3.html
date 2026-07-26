@@ -47,22 +47,27 @@
   @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
   @keyframes slam{0%{opacity:0;transform:scale(1.4);filter:blur(8px)}55%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
   @keyframes holdGlow{0%,100%{text-shadow:0 0 46px rgba(79,208,173,.26)}50%{text-shadow:0 0 80px rgba(79,208,173,.44)}}
-  /* Scene 1 - 0 to 8.8s (hook line gets a long, emphasised hold) */
-  #s1{animation: sceneIn 8.8s 0s both}
+  /* Hero holds the frame alone in motion, not by clearing the setup lines: it
+     creeps up 15% across the hold while the setup dims back behind it. Both use
+     `forwards` (never `both`) so they stay inert during the entrance animations. */
+  @keyframes heroGrow{from{transform:scale(1)}to{transform:scale(1.15)}}
+  @keyframes setupDim{from{opacity:1}to{opacity:.42}}
+  /* Scene 1 - 0 to 8.05s (hook line gets a long, emphasised hold) */
+  #s1{animation:sceneIn 8.05s 0s both}
   #s1 .stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:1200px}
   #s1 .l{font:500 78px/1.05 var(--display);letter-spacing:-.01em;opacity:0;color:#fff}
-  #s1 .l1{animation: fadeUp .85s .3s ease-out both, fadeOut .5s 4.5s ease both}
-  #s1 .l2{animation: fadeUp .85s 1.3s ease-out both, fadeOut .5s 4.5s ease both}
-  #s1 .l3{animation: fadeUp .85s 2.3s ease-out both, fadeOut .5s 4.5s ease both}
-  #s1 .slam{font:500 104px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation: slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both, holdGlow 3.2s 4.3s ease-in-out infinite, fadeOut .5s 8.1s ease both}
-  /* Scene 2 - 8.8 to 26.8s */
-  #s2{animation: sceneIn 18s 8.8s both}
+  #s1 .l1{animation:fadeUp .85s .3s ease-out both, setupDim .6s 4.3s ease forwards}
+  #s1 .l2{animation:fadeUp .85s 1.3s ease-out both, setupDim .6s 4.3s ease forwards}
+  #s1 .l3{animation:fadeUp .85s 2.3s ease-out both, setupDim .6s 4.3s ease forwards}
+  #s1 .slam{font:500 104px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;transform-origin:left center;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both, holdGlow 3.2s 4.3s ease-in-out infinite, heroGrow 3.27s 4.3s ease-out forwards}
+  /* Scene 2 - 8.05 to 26.05s */
+  #s2{animation:sceneIn 18s 8.05s both}
   #s2 .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;height:100%;position:relative;transform:scale(var(--boost,1));transform-origin:top center}
-  #s2 h1{font:500 60px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation: fadeUp .8s 9.1s ease-out both;text-transform:none}
-  #s2 .sub{font:400 20px/1.4 var(--sans);color:var(--muted);letter-spacing:.005em;opacity:0;animation: fadeUp .8s 9.8s ease-out both}
+  #s2 h1{font:500 60px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s 8.35s ease-out both;text-transform:none}
+  #s2 .sub{font:400 20px/1.4 var(--sans);color:var(--muted);letter-spacing:.005em;opacity:0;animation:fadeUp .8s 9.05s ease-out both}
   #s2 .demo{margin-top:22px;display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:start;width:1240px}
-  .quotecard{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;box-shadow:0 20px 50px rgba(0,0,0,.4);animation: pop .55s 10.6s ease-out both, redPulse 1s 11.3s 1 ease both}
-  .quotecard::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation: borderRed .3s 11.3s ease forwards, borderTeal .5s 12.4s ease forwards}
+  .quotecard{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:pop .55s 9.85s ease-out both, redPulse 1s 10.55s 1 ease both}
+  .quotecard::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation:borderRed .3s 10.55s ease forwards, borderTeal .5s 11.65s ease forwards}
   @keyframes borderRed{to{background:var(--red);box-shadow:0 0 16px var(--red)}}
   @keyframes borderTeal{to{background:var(--teal);box-shadow:0 0 16px var(--teal)}}
   @keyframes redPulse{0%,100%{box-shadow:0 20px 50px rgba(0,0,0,.4)}50%{box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 0 6px var(--red-soft)}}
@@ -77,40 +82,40 @@
   /* Real, selectable, screen-reader-visible status pill: two DOM states crossfade in place. */
   .status .pillstack{position:relative;height:30px}
   .status .pill{position:absolute;top:0;right:0;font:700 13px/1 var(--sans);letter-spacing:.04em;padding:8px 12px;border-radius:8px;display:flex;align-items:center;gap:8px;white-space:nowrap}
-  .status .pill-noreply{background:var(--red-soft);color:var(--red);opacity:1;animation:pillOut .35s 18.8s ease forwards}
-  .status .pill-booked{background:var(--teal-soft);color:var(--teal);opacity:0;animation:pillIn .35s 18.8s ease forwards}
+  .status .pill-noreply{background:var(--red-soft);color:var(--red);opacity:1;animation:pillOut .35s 18.05s ease forwards}
+  .status .pill-booked{background:var(--teal-soft);color:var(--teal);opacity:0;animation:pillIn .35s 18.05s ease forwards}
   @keyframes pillOut{to{opacity:0;transform:scale(.92)}}
   @keyframes pillIn{to{opacity:1;transform:scale(1)}}
   .status .pill-booked .ch{width:14px;height:14px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#07111d;font:700 10px/1 var(--sans)}
   .quotecard .meta{margin-top:14px;font-family:var(--mono);font-weight:400;line-height:1.3;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.04em}
-  #s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation: fadeUp .5s 12.3s ease-out both}
-  #s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation: blink 1.2s 12.4s infinite ease-in-out}
+  #s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 11.55s ease-out both}
+  #s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 1.2s 11.65s infinite ease-in-out}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
   #s2 .thread{grid-column:2;display:flex;flex-direction:column;gap:12px;margin-top:12px;width:760px}
   .smsline{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:start;opacity:0}
   .smsline .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.14em;text-transform:uppercase;background:var(--teal-soft);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
   .smsline .bubble{background:#1a2638;border-radius:16px;padding:13px 17px;font:400 17px/1.4 var(--sans);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04);position:relative;max-width:560px}
   .smsline .bubble::before{content:"";position:absolute;left:-6px;top:16px;width:12px;height:12px;background:#1a2638;transform:rotate(45deg);border-radius:3px}
-  #s2 .d0{animation: slideRight .55s 13.3s cubic-bezier(.2,.9,.2,1) both}
-  #s2 .d2{animation: slideRight .55s 14.5s cubic-bezier(.2,.9,.2,1) both}
-  #s2 .d5{animation: slideRight .55s 15.7s cubic-bezier(.2,.9,.2,1) both}
-  .smsreply{display:grid;grid-template-columns:1fr 74px;gap:14px;align-items:start;opacity:0;animation: slideLeft .6s 17.2s cubic-bezier(.2,.9,.2,1) both}
+  #s2 .d0{animation:slideRight .55s 12.55s cubic-bezier(.2,.9,.2,1) both}
+  #s2 .d2{animation:slideRight .55s 13.75s cubic-bezier(.2,.9,.2,1) both}
+  #s2 .d5{animation:slideRight .55s 14.95s cubic-bezier(.2,.9,.2,1) both}
+  .smsreply{display:grid;grid-template-columns:1fr 74px;gap:14px;align-items:start;opacity:0;animation:slideLeft .6s 16.45s cubic-bezier(.2,.9,.2,1) both}
   .smsreply .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:#07111d;letter-spacing:.14em;text-transform:uppercase;background:var(--teal);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
   .smsreply .bubble{background:var(--teal);color:#07111d;border-radius:16px;padding:13px 17px;font:600 18px/1.4 var(--sans);box-shadow:0 16px 36px rgba(79,208,173,.25);position:relative;justify-self:end;max-width:480px}
   .smsreply .bubble::before{content:"";position:absolute;right:-6px;top:16px;width:12px;height:12px;background:var(--teal);transform:rotate(45deg);border-radius:3px}
-  #s2 .caption{position:absolute;bottom:-44px;left:0;right:0;text-align:center;font:500 22px/1.3 var(--display);color:#fff;letter-spacing:.005em;opacity:0;animation: fadeUp .8s 20.4s ease-out both;text-transform:none}
+  #s2 .caption{position:absolute;bottom:-44px;left:0;right:0;text-align:center;font:500 22px/1.3 var(--display);color:#fff;letter-spacing:.005em;opacity:0;animation:fadeUp .8s 19.65s ease-out both;text-transform:none}
   #s2 .caption em{font-style:normal;color:var(--teal)}
-  /* Scene 3 - 26.8 to 33.8s */
-  #s3{animation: sceneIn 7s 26.8s both}
+  /* Scene 3 - 26.05 to 33.05s */
+  #s3{animation:sceneIn 7s 26.05s both}
   #s3 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
-  #s3 .l1{font:500 60px/1.15 var(--display);color:#fff;letter-spacing:-.01em;opacity:0;animation: fadeUp .9s 27.3s ease-out both}
-  #s3 .l2{font:500 88px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation: fadeUp .9s 28.4s ease-out both}
-  #s3 .logo{margin-top:48px;font:500 64px/1 var(--display);color:#fff;letter-spacing:-.02em;opacity:0;animation: fadeUp .9s 30.2s ease-out both}
-  #s3 .url{font:500 22px/1 var(--mono);color:var(--teal);letter-spacing:-.005em;margin-top:8px;opacity:0;animation: fadeUp .9s 31.4s ease-out both}
-  #s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation: barIn 1.0s 32.2s cubic-bezier(.2,.9,.2,1) both}
+  #s3 .l1{font:500 60px/1.15 var(--display);color:#fff;letter-spacing:-.01em;opacity:0;animation:fadeUp .9s 26.55s ease-out both}
+  #s3 .l2{font:500 88px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:fadeUp .9s 27.65s ease-out both}
+  #s3 .logo{margin-top:48px;font:500 64px/1 var(--display);color:#fff;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s 29.45s ease-out both}
+  #s3 .url{font:500 22px/1 var(--mono);color:var(--teal);letter-spacing:-.005em;margin-top:8px;opacity:0;animation:fadeUp .9s 30.65s ease-out both}
+  #s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation:barIn 1.0s 31.45s cubic-bezier(.2,.9,.2,1) both}
   @keyframes barIn{from{width:0;opacity:0}to{width:300px;opacity:1}}
   .progressbar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:60}
-  .progressbar::after{content:"";position:absolute;left:0;top:0;height:100%;background:var(--teal);width:0;animation: progress 37s linear both}
+  .progressbar::after{content:"";position:absolute;left:0;top:0;height:100%;background:var(--teal);width:0;animation:progress 33.55s linear both}
   @keyframes progress{from{width:0}to{width:100%}}
   #stage.paused *{animation-play-state:paused!important}
   .playbar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:4px;padding:6px 10px;background:rgba(7,17,29,.82);border:1px solid rgba(79,208,173,.28);border-radius:999px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:.55;transition:opacity .2s}
@@ -232,7 +237,7 @@
     fitStage(f);
     schedulePillSwap(f);
   }
-  var loopTimer = setInterval(restartStage,37000);
+  var loopTimer = setInterval(restartStage,33550);
 
   document.addEventListener('visibilitychange', function(){
     var stage = document.getElementById('stage');

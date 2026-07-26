@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
 /* ============================================================
-   VIDEO 6 — DATABASE REACTIVATION  (39.8s autoplay + 3.2s pause = 43s loop)
+   VIDEO 6: DATABASE REACTIVATION  (39.05s autoplay + 0.5s tail = 39.55s loop)
    ============================================================ */
 @font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/barlow-400.woff2') format('woff2')}
 @font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/barlow-500.woff2') format('woff2')}
@@ -52,25 +52,25 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 @keyframes setupDim{from{opacity:1}to{opacity:.42}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
 
-/* ===== SCENE 1 — 0→8.8s (hook line gets a long, emphasised hold) ===== */
-#s1{animation:sceneIn 8.8s 0s both}
+/* ===== SCENE 1: 0 to 8.05s (hook line gets a long, emphasised hold) ===== */
+#s1{animation:sceneIn 8.05s 0s both}
 #s1 .stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:1200px}
 #s1 .l{font:500 78px/1.05 var(--display);letter-spacing:-.01em;opacity:0;color:#fff}
 #s1 .l1{animation:fadeUp .85s .3s ease-out both,setupDim .6s 4.3s ease forwards}
 #s1 .l2{animation:fadeUp .85s 1.3s ease-out both,setupDim .6s 4.3s ease forwards}
 #s1 .l3{animation:fadeUp .85s 2.3s ease-out both,setupDim .6s 4.3s ease forwards}
-#s1 .slam{font:500 110px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;transform-origin:left center;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both,holdGlow 3.2s 4.3s ease-in-out infinite,heroGrow 4.1s 4.3s ease-out forwards}
+#s1 .slam{font:500 110px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;transform-origin:left center;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both,holdGlow 3.2s 4.3s ease-in-out infinite,heroGrow 3.43s 4.3s ease-out forwards}
 
-/* ===== SCENE 2 — 8.8→32.8s ===== */
-#s2{animation:sceneIn 24s 8.8s both}
+/* ===== SCENE 2: 8.05 to 32.05s ===== */
+#s2{animation:sceneIn 24s 8.05s both}
 #s2 .wrap{display:flex;flex-direction:column;align-items:center;width:100%;transform:scale(var(--boost,1));transform-origin:top center}
-#s2 h1{font:500 58px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s 9.1s ease-out both}
-#s2 .sub{margin-top:10px;font:400 20px/1.4 var(--sans);color:var(--muted);opacity:0;animation:fadeUp .8s 9.8s ease-out both}
+#s2 h1{font:500 58px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s 8.35s ease-out both}
+#s2 .sub{margin-top:10px;font:400 20px/1.4 var(--sans);color:var(--muted);opacity:0;animation:fadeUp .8s 9.05s ease-out both}
 #s2 .demo{margin-top:40px;display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:start;width:1280px}
 
 /* Customer sheet row */
-.custrow{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;animation:pop .6s 10.7s ease-out both;box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.custrow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation:borderTeal .6s 12.2s ease forwards}
+.custrow{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;animation:pop .6s 9.95s ease-out both;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.custrow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation:borderTeal .6s 11.45s ease forwards}
 @keyframes borderTeal{to{background:var(--teal);box-shadow:0 0 16px var(--teal)}}
 .custrow .ttl{font-family:var(--sans);font-weight:600;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.2em;text-transform:uppercase;margin-bottom:11px}
 .custrow .biz{font:600 27px/1.15 var(--display);color:#fff;letter-spacing:-.005em;text-transform:none}
@@ -80,43 +80,43 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 .custrow .meta{margin-top:15px;font-family:var(--mono);font-weight:400;line-height:1.3;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.04em}
 
 /* Booked counter */
-.counter{margin-top:34px;display:flex;flex-direction:column;gap:10px;opacity:0;animation:fadeUp .6s 20.0s ease-out both}
+.counter{margin-top:34px;display:flex;flex-direction:column;gap:10px;opacity:0;animation:fadeUp .6s 19.25s ease-out both}
 .counter .lbl{font-family:var(--sans);font-weight:600;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.2em;text-transform:uppercase}
 .counter .val{display:flex;align-items:baseline;gap:14px}
-.counter .num{display:flex;height:88px;overflow:hidden;font:600 88px/88px var(--display);color:var(--teal);font-variant-numeric:lining-nums tabular-nums;text-shadow:0 0 50px rgba(79,208,173,.35);animation:tickPop 2s 22.8s 3 ease-out both}
-.counter .strip{display:flex;flex-direction:column;animation:tick 6s 20.8s steps(3) both}
+.counter .num{display:flex;height:88px;overflow:hidden;font:600 88px/88px var(--display);color:var(--teal);font-variant-numeric:lining-nums tabular-nums;text-shadow:0 0 50px rgba(79,208,173,.35);animation:tickPop 2s 22.05s 3 ease-out both}
+.counter .strip{display:flex;flex-direction:column;animation:tick 6s 20.05s steps(3) both}
 .counter .strip div{height:88px;display:flex;align-items:center;justify-content:center}
 @keyframes tick{from{transform:translateY(0)}to{transform:translateY(-264px)}}
 @keyframes tickPop{0%{transform:scale(1.16)}18%{transform:scale(1)}100%{transform:scale(1)}}
 .counter .word{font:400 22px/1 var(--sans);color:#fff}
 
 /* Drip label + thread */
-#s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 12.1s ease-out both}
-#s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 1.2s 12.2s infinite ease-in-out}
+#s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 11.35s ease-out both}
+#s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 1.2s 11.45s infinite ease-in-out}
 #s2 .thread{grid-column:2;display:flex;flex-direction:column;gap:14px;margin-top:16px;width:790px}
 .smsline{display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:start;opacity:0}
 .smsline .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.14em;text-transform:uppercase;background:var(--teal-soft);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
 .smsline .bubble{background:#1a2638;border-radius:16px;padding:13px 18px;font:400 18px/1.45 var(--sans);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.04);position:relative;max-width:600px}
 .smsline .bubble::before{content:"";position:absolute;left:-6px;top:17px;width:12px;height:12px;background:#1a2638;transform:rotate(45deg);border-radius:3px}
-#s2 .d0{animation:slideRight .55s 13.2s cubic-bezier(.2,.9,.2,1) both}
-#s2 .d5{animation:slideRight .55s 14.4s cubic-bezier(.2,.9,.2,1) both}
-#s2 .d12{animation:slideRight .55s 15.6s cubic-bezier(.2,.9,.2,1) both}
-.smsreply{display:grid;grid-template-columns:1fr 78px;gap:14px;align-items:start;opacity:0;animation:slideLeft .6s 17.8s cubic-bezier(.2,.9,.2,1) both}
+#s2 .d0{animation:slideRight .55s 12.45s cubic-bezier(.2,.9,.2,1) both}
+#s2 .d5{animation:slideRight .55s 13.65s cubic-bezier(.2,.9,.2,1) both}
+#s2 .d12{animation:slideRight .55s 14.85s cubic-bezier(.2,.9,.2,1) both}
+.smsreply{display:grid;grid-template-columns:1fr 78px;gap:14px;align-items:start;opacity:0;animation:slideLeft .6s 17.05s cubic-bezier(.2,.9,.2,1) both}
 .smsreply .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:#07111d;letter-spacing:.14em;text-transform:uppercase;background:var(--teal);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
 .smsreply .bubble{background:var(--teal);color:#07111d;border-radius:16px;padding:13px 18px;font:600 19px/1.45 var(--sans);box-shadow:0 16px 36px rgba(79,208,173,.25);position:relative;justify-self:end;max-width:540px}
 .smsreply .bubble::before{content:"";position:absolute;right:-6px;top:17px;width:12px;height:12px;background:var(--teal);transform:rotate(45deg);border-radius:3px}
 
-#s2 .caption{margin-top:52px;text-align:center;font:500 24px/1.3 var(--display);color:#fff;opacity:0;animation:fadeUp .8s 29.0s ease-out both;text-transform:none}
+#s2 .caption{margin-top:52px;text-align:center;font:500 24px/1.3 var(--display);color:#fff;opacity:0;animation:fadeUp .8s 28.25s ease-out both;text-transform:none}
 #s2 .caption em{font-style:normal;color:var(--teal)}
 
-/* ===== SCENE 3 — 32.8→39.8s ===== */
-#s3{animation:sceneIn 7s 32.8s both}
+/* ===== SCENE 3: 32.05 to 39.05s ===== */
+#s3{animation:sceneIn 7s 32.05s both}
 #s3 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
-#s3 .l1{font:500 62px/1.15 var(--display);color:#fff;letter-spacing:-.01em;opacity:0;animation:fadeUp .9s 33.3s ease-out both}
-#s3 .l2{font:500 92px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:fadeUp .9s 34.3s ease-out both}
-#s3 .logo{margin-top:48px;font:500 64px/1 var(--display);color:#fff;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s 36.2s ease-out both}
-#s3 .url{font:500 22px/1 var(--mono);color:var(--teal);margin-top:8px;opacity:0;animation:fadeUp .9s 37.3s ease-out both}
-#s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation:barIn 1s 38.1s cubic-bezier(.2,.9,.2,1) both}
+#s3 .l1{font:500 62px/1.15 var(--display);color:#fff;letter-spacing:-.01em;opacity:0;animation:fadeUp .9s 32.55s ease-out both}
+#s3 .l2{font:500 92px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:fadeUp .9s 33.55s ease-out both}
+#s3 .logo{margin-top:48px;font:500 64px/1 var(--display);color:#fff;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s 35.45s ease-out both}
+#s3 .url{font:500 22px/1 var(--mono);color:var(--teal);margin-top:8px;opacity:0;animation:fadeUp .9s 36.55s ease-out both}
+#s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation:barIn 1s 37.35s cubic-bezier(.2,.9,.2,1) both}
 @keyframes barIn{from{width:0;opacity:0}to{width:300px;opacity:1}}
 
 /* ===== PLAYBAR ===== */
@@ -146,7 +146,7 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 </div>
 </section>
 
-<!-- SCENE 2 — DEMO -->
+<!-- SCENE 2: DEMO -->
 <section class="frame" id="s2">
 <div class="wrap">
 <h1>Database Reactivation</h1>
@@ -156,7 +156,7 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 <div>
 <div class="custrow">
 <div class="ttl">Customer Record</div>
-<div class="biz">Marsh Roofing</div>
+<div class="biz">D. Marsh</div>
 <div class="row">
 <div class="k">Last job</div>
 <div class="v">18 months ago</div>
@@ -177,7 +177,7 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 <div class="thread">
 <div class="smsline d0">
 <div class="day">Day 0</div>
-<div class="bubble">Hi, it's been a while &mdash; just checking in on your roof.</div>
+<div class="bubble">Hi, it's been a while. Just checking in on your roof.</div>
 </div>
 <div class="smsline d5">
 <div class="day">Day 5</div>
@@ -198,7 +198,7 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 </div>
 </section>
 
-<!-- SCENE 3 — CLOSER -->
+<!-- SCENE 3: CLOSER -->
 <section class="frame" id="s3">
 <div class="wrap">
 <div class="l1">Names you forgot you had.</div>
@@ -215,11 +215,11 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 <button id="btnPlay" aria-label="Pause"><svg id="icoPause" viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" rx="1"></rect><rect x="9.5" y="2" width="3.5" height="12" rx="1"></rect></svg><svg id="icoPlay" viewBox="0 0 16 16" style="display:none"><path d="M4 2.5 13 8l-9 5.5z"></path></svg></button>
 <button id="btnRestart" aria-label="Restart"><svg viewBox="0 0 16 16"><path d="M8 2.6V.7L4.4 3.4 8 6.1V4.2a3.9 3.9 0 1 1-3.9 3.9H2.5A5.5 5.5 0 1 0 8 2.6z"></path></svg></button>
 <div id="track"><div id="fill"></div></div>
-<div id="time">0:00 / 0:43</div>
+<div id="time">0:00</div>
 </div>
 
 <script>
-const TOTAL = 40300;  // s3 ends 39.8s; 0.5s of black before the loop restarts
+const TOTAL = 39550;  // s3 ends 39.8s; 0.5s of black before the loop restarts
 const K_FLOOR = 0.5, BOOST_REF = 0.55, BOOST_CAP = 1.35;
 const viewport = document.getElementById('viewport');
 const fill = document.getElementById('fill');
@@ -260,7 +260,7 @@ function tick(now){
     elapsed += dt;
     if(elapsed >= TOTAL) restart();
     fill.style.width = (elapsed / TOTAL * 100) + '%';
-    timeEl.textContent = fmt(elapsed) + ' / 0:43';
+    timeEl.textContent = fmt(elapsed) + ' / ' + fmt(TOTAL);
   }
   requestAnimationFrame(tick);
 }
