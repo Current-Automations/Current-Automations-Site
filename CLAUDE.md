@@ -37,11 +37,16 @@ The lint run is fully clean. The previously documented unescaped-apostrophe erro
 
 ### Shared components
 
-- **`Section`**: the primary content wrapper. Props: `id`, `eyebrow`, `title`, `description`, `children`, `tone` (`"light"` | `"muted"` | `"dark"`), `align` (`"left"` | `"center"`). Controls background color and heading color automatically.
-- **`Hero`**: dark-gradient hero. Accepts `primaryCta`, `secondaryCta`, optional `children` (right column). When `children` is omitted the layout collapses to single-column; the grid and right `<div>` are conditionally rendered.
-- **`CTASection`**: full-width dark CTA band. All copy (eyebrow, title, description, button labels) is passed as props; nothing is hardcoded in the component.
-- **`FAQSection`**: accordion FAQ. Takes `items: FAQItem[]`, `tone`, `title`, `description`.
-- **`Navbar`** / **`Footer`**: site-wide chrome. CTA links point to the Google Calendar booking URL (see CTA convention below).
+The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`) — paper/ticket paperwork styling, not the earlier dark-gradient "Section/Hero" system.
+
+- **`JobSheetSection`**: the primary content wrapper. Props: `id`, `code`, `label` (rendered as a `FormTab`), `title`, `description`, `children`, `tone` (`"paper"` | `"carbon"` | `"ink"`).
+- **`JobSheetHero`** / **`JobSheetPageHero`**: homepage vs. interior-page hero variants.
+- **`JobSheetCTA`**: full-width CTA band. All copy (code, label, title, description, button labels) is passed as props.
+- **`JobSheetFAQ`**: accordion FAQ. Takes `items: FAQItem[]`, `code`, `label`, `title`, `description`, `tone`.
+- **`TicketCard`**: the signature card surface (punch hole, ticket-ref corner label).
+- **`Stamp`**: rubber-stamp badge (`tone: "rust" | "teal"`).
+- **`PunchButton`**: the in-page CTA (`variant: "solid" | "ghost"`, `onDark`).
+- **`Navbar`** / **`Footer`**: site-wide chrome, outside the Job Sheet system. CTA links point to the Google Calendar booking URL (see CTA convention below).
 
 ### Shared data
 

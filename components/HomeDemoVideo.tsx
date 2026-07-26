@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type Props = {
   src: string;
@@ -9,26 +9,74 @@ type Props = {
 
 /**
  * 16:9 demo-video embed with an expand button that opens a cinema-style
- * modal. Mirrors the expand pattern used in DemoVideos.tsx so the homepage
- * embed behaves consistently.
+ * modal. Shared by the homepage and every lane page, so there is one
+ * implementation of the view-triggered play, focus trap, and modal
+ * behaviour instead of several near-copies.
  */
 export default function HomeDemoVideo({
   src,
   title = "Current Automations - demo",
 }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
   const close = useCallback(() => setExpanded(false), []);
+
+  // Demos loop from page load, so a video embedded below the fold is often
+  // mid-scene (or sitting in its dead tail) by the time anyone scrolls to
+  // it. Ask it to restart once it actually comes into view, one time.
+  useEffect(() => {
+    const el = iframeRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const frame = entry.target as HTMLIFrameElement;
+            frame.contentWindow?.postMessage({ type: "ca-demo-play" }, window.location.origin);
+            io.disconnect();
+          }
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!expanded) return;
+    lastFocusedRef.current = document.activeElement as HTMLElement;
+    closeButtonRef.current?.focus();
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") {
+        close();
+        return;
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      lastFocusedRef.current?.focus();
     };
   }, [expanded, close]);
 
@@ -36,9 +84,11 @@ export default function HomeDemoVideo({
     <>
       <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
         <iframe
+          ref={iframeRef}
           src={src}
           title={title}
           allow="autoplay"
+          loading="lazy"
           scrolling="no"
           className="absolute inset-0 h-full w-full border-0"
         />
@@ -77,10 +127,12 @@ export default function HomeDemoVideo({
           aria-label={title}
         >
           <div
-            className="relative w-full max-w-5xl"
+            ref={dialogRef}
+            className="relative w-full max-w-[1200px]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={close}
               aria-label="Close expanded view"
@@ -113,6 +165,7 @@ export default function HomeDemoVideo({
                   src={src}
                   title={title}
                   allow="autoplay"
+                  loading="lazy"
                   scrolling="no"
                   className="absolute inset-0 h-full w-full border-0"
                 />

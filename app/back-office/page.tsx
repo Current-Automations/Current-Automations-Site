@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import HomeDemoVideo from "@/components/HomeDemoVideo";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
@@ -138,9 +139,26 @@ export default function BackOfficePage() {
         </p>
       </JobSheetSection>
 
-      {/* Where the lane is heading */}
+      {/* Proof: the invoice follow-up demo */}
       <JobSheetSection
         code="BO-03"
+        label="Watch it chase"
+        title="An overdue invoice, followed up automatically until it's paid."
+        description="This demo shows exactly what happens on your side: the invoice sitting overdue, the automated reminder going out, and the moment it flips to paid."
+        tone="ink"
+      >
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <div className={`${jobsheet.ticket} !border-white/15 overflow-hidden p-0`}>
+              <HomeDemoVideo src="/demos/video4.html" />
+            </div>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      {/* Where the lane is heading */}
+      <JobSheetSection
+        code="BO-04"
         label="Where this lane is heading"
         title="Invoicing first. The rest of the desk next."
         description="We build this lane the same way we build everything: one proven system at a time, shaped by what real clients ask for. Here is what's on the board."
@@ -179,7 +197,7 @@ export default function BackOfficePage() {
       </JobSheetSection>
 
       <JobSheetCTA
-        code="BO-04"
+        code="BO-05"
         label="Get your evenings back"
         title="Tell us what the desk work costs you."
         description="A free 30-minute audit. We find the admin job eating the most hours and tell you exactly what automating it would look like."

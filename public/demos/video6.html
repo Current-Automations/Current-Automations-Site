@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Current Automations - Database Reactivation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+/* ============================================================
+   VIDEO 6 — DATABASE REACTIVATION  (39.8s autoplay + 3.2s pause = 43s loop)
+   ============================================================ */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/barlow-400.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/barlow-500.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/barlow-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/barlow-700.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/barlow-condensed-500.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/barlow-condensed-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/barlow-condensed-700.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/plex-mono-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/plex-mono-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/plex-mono-600.woff2') format('woff2')}
+:root{
+  --teal:#4fd0ad;--teal-soft:rgba(79,208,173,.18);
+  --navy:#07111d;--ink:#fff;--muted:rgba(255,255,255,.62);--dim:rgba(255,255,255,.5);
+  --display:'Barlow Condensed','Barlow Condensed Fallback',sans-serif;
+  --sans:'Barlow','Barlow Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','IBM Plex Mono Fallback',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--navy);color:var(--ink);font-family:var(--sans);overflow:hidden}
+body{-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
+#viewport{position:fixed;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#0a1726 0%,#07111d 60%,#050c15 100%)}
+#stage{width:1600px;height:900px;position:absolute;left:50%;top:50%;overflow:hidden;transform-origin:center center;transform:translate(-50%,-50%) scale(1)}
+#stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:50;background:radial-gradient(120% 90% at 50% 50%,transparent 62%,rgba(0,0,0,.32) 100%),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px)}
+#stage.paused *,#stage.paused::before{animation-play-state:paused!important}
+.sigil{position:absolute;top:36px;left:40px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;line-height:1;font-size:max(13px,calc(11px / var(--stagek,1)));letter-spacing:.18em;text-transform:uppercase;color:var(--dim);z-index:40}
+.sigil .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal)}
+.frame{position:absolute;inset:0;display:grid;place-items:center;opacity:0;padding:76px}
+
+@keyframes sceneIn{0%{opacity:0}4%{opacity:1}96%{opacity:1}100%{opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes slam{0%{opacity:0;transform:scale(1.4);filter:blur(8px)}55%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes holdGlow{0%,100%{text-shadow:0 0 46px rgba(79,208,173,.26)}50%{text-shadow:0 0 80px rgba(79,208,173,.44)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ===== SCENE 1 — 0→8.8s (hook line gets a long, emphasised hold) ===== */
+#s1{animation:sceneIn 8.8s 0s both}
+#s1 .stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:1200px}
+#s1 .l{font:500 78px/1.05 var(--display);letter-spacing:-.01em;opacity:0;color:#fff}
+#s1 .l1{animation:fadeUp .85s .3s ease-out both,fadeOut .5s 4.5s ease both}
+#s1 .l2{animation:fadeUp .85s 1.3s ease-out both,fadeOut .5s 4.5s ease both}
+#s1 .l3{animation:fadeUp .85s 2.3s ease-out both,fadeOut .5s 4.5s ease both}
+#s1 .slam{font:500 110px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both,holdGlow 3.2s 4.3s ease-in-out infinite,fadeOut .5s 8.1s ease both}
+
+/* ===== SCENE 2 — 8.8→32.8s ===== */
+#s2{animation:sceneIn 24s 8.8s both}
+#s2 .wrap{display:flex;flex-direction:column;align-items:center;width:100%;transform:scale(var(--boost,1));transform-origin:top center}
+#s2 h1{font:500 58px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s 9.1s ease-out both}
+#s2 .sub{margin-top:10px;font:400 20px/1.4 var(--sans);color:var(--muted);opacity:0;animation:fadeUp .8s 9.8s ease-out both}
+#s2 .demo{margin-top:40px;display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:start;width:1280px}
+
+/* Customer sheet row */
+.custrow{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;animation:pop .6s 10.7s ease-out both;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.custrow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation:borderTeal .6s 12.2s ease forwards}
+@keyframes borderTeal{to{background:var(--teal);box-shadow:0 0 16px var(--teal)}}
+.custrow .ttl{font-family:var(--sans);font-weight:600;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.2em;text-transform:uppercase;margin-bottom:11px}
+.custrow .biz{font:600 27px/1.15 var(--display);color:#fff;letter-spacing:-.005em;text-transform:none}
+.custrow .row{margin-top:16px;display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px dashed rgba(255,255,255,.08)}
+.custrow .row .k{font-family:var(--sans);font-weight:600;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+.custrow .row .v{font:600 21px/1 var(--display);color:#fff;text-transform:none}
+.custrow .meta{margin-top:15px;font-family:var(--mono);font-weight:400;line-height:1.3;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.04em}
+
+/* Booked counter */
+.counter{margin-top:34px;display:flex;flex-direction:column;gap:10px;opacity:0;animation:fadeUp .6s 20.0s ease-out both}
+.counter .lbl{font-family:var(--sans);font-weight:600;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.2em;text-transform:uppercase}
+.counter .val{display:flex;align-items:baseline;gap:14px}
+.counter .num{display:flex;height:88px;overflow:hidden;font:600 88px/88px var(--display);color:var(--teal);font-variant-numeric:lining-nums tabular-nums;text-shadow:0 0 50px rgba(79,208,173,.35);animation:tickPop 2s 22.8s 3 ease-out both}
+.counter .strip{display:flex;flex-direction:column;animation:tick 6s 20.8s steps(3) both}
+.counter .strip div{height:88px;display:flex;align-items:center;justify-content:center}
+@keyframes tick{from{transform:translateY(0)}to{transform:translateY(-264px)}}
+@keyframes tickPop{0%{transform:scale(1.16)}18%{transform:scale(1)}100%{transform:scale(1)}}
+.counter .word{font:400 22px/1 var(--sans);color:#fff}
+
+/* Drip label + thread */
+#s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 12.1s ease-out both}
+#s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 1.2s 12.2s infinite ease-in-out}
+#s2 .thread{grid-column:2;display:flex;flex-direction:column;gap:14px;margin-top:16px;width:790px}
+.smsline{display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:start;opacity:0}
+.smsline .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.14em;text-transform:uppercase;background:var(--teal-soft);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
+.smsline .bubble{background:#1a2638;border-radius:16px;padding:13px 18px;font:400 18px/1.45 var(--sans);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.04);position:relative;max-width:600px}
+.smsline .bubble::before{content:"";position:absolute;left:-6px;top:17px;width:12px;height:12px;background:#1a2638;transform:rotate(45deg);border-radius:3px}
+#s2 .d0{animation:slideRight .55s 13.2s cubic-bezier(.2,.9,.2,1) both}
+#s2 .d5{animation:slideRight .55s 14.4s cubic-bezier(.2,.9,.2,1) both}
+#s2 .d12{animation:slideRight .55s 15.6s cubic-bezier(.2,.9,.2,1) both}
+.smsreply{display:grid;grid-template-columns:1fr 78px;gap:14px;align-items:start;opacity:0;animation:slideLeft .6s 17.8s cubic-bezier(.2,.9,.2,1) both}
+.smsreply .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:#07111d;letter-spacing:.14em;text-transform:uppercase;background:var(--teal);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
+.smsreply .bubble{background:var(--teal);color:#07111d;border-radius:16px;padding:13px 18px;font:600 19px/1.45 var(--sans);box-shadow:0 16px 36px rgba(79,208,173,.25);position:relative;justify-self:end;max-width:540px}
+.smsreply .bubble::before{content:"";position:absolute;right:-6px;top:17px;width:12px;height:12px;background:var(--teal);transform:rotate(45deg);border-radius:3px}
+
+#s2 .caption{margin-top:52px;text-align:center;font:500 24px/1.3 var(--display);color:#fff;opacity:0;animation:fadeUp .8s 29.0s ease-out both;text-transform:none}
+#s2 .caption em{font-style:normal;color:var(--teal)}
+
+/* ===== SCENE 3 — 32.8→39.8s ===== */
+#s3{animation:sceneIn 7s 32.8s both}
+#s3 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+#s3 .l1{font:500 62px/1.15 var(--display);color:#fff;letter-spacing:-.01em;opacity:0;animation:fadeUp .9s 33.3s ease-out both}
+#s3 .l2{font:500 92px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:fadeUp .9s 34.3s ease-out both}
+#s3 .logo{margin-top:48px;font:500 64px/1 var(--display);color:#fff;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s 36.2s ease-out both}
+#s3 .url{font:500 22px/1 var(--mono);color:var(--teal);margin-top:8px;opacity:0;animation:fadeUp .9s 37.3s ease-out both}
+#s3 .bar{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin-top:12px;animation:barIn 1s 38.1s cubic-bezier(.2,.9,.2,1) both}
+@keyframes barIn{from{width:0;opacity:0}to{width:300px;opacity:1}}
+
+/* ===== PLAYBAR ===== */
+#playbar{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:10px 14px;border-radius:999px;background:rgba(10,20,32,.82);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.45);z-index:200;opacity:.35;transition:opacity .35s ease}
+#playbar:hover{opacity:1}
+#playbar button{width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.06);color:var(--teal);display:grid;place-items:center;cursor:pointer;transition:background .2s ease,transform .15s ease}
+#playbar button:hover{background:var(--teal-soft);transform:scale(1.06)}
+#playbar button svg{width:15px;height:15px;fill:currentColor}
+#track{position:relative;width:260px;height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden;cursor:pointer}
+#fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--teal);box-shadow:0 0 10px rgba(79,208,173,.6)}
+#time{font:600 12px/1 var(--mono);color:var(--dim);letter-spacing:.06em;min-width:74px;text-align:right}
+
+</style>
+</head>
+<body>
+<div id="viewport">
+<div id="stage">
+<div class="sigil"><span class="dot"></span>Current Automations</div>
+
+<!-- SCENE 1 -->
+<section class="frame" id="s1">
+<div class="stack">
+<div class="l l1">Your old customer list.</div>
+<div class="l l2">Sitting in a spreadsheet.</div>
+<div class="l l3">Doing nothing.</div>
+<div class="slam">That list is money.</div>
+</div>
+</section>
+
+<!-- SCENE 2 — DEMO -->
+<section class="frame" id="s2">
+<div class="wrap">
+<h1>Database Reactivation</h1>
+<div class="sub">One dormant list. A steady drip. New jobs booked.</div>
+
+<div class="demo">
+<div>
+<div class="custrow">
+<div class="ttl">Customer Record</div>
+<div class="biz">Marsh Roofing</div>
+<div class="row">
+<div class="k">Last job</div>
+<div class="v">18 months ago</div>
+</div>
+<div class="meta">imported from customers.xlsx &middot; row 214</div>
+</div>
+
+<div class="counter">
+<div class="lbl">Jobs booked</div>
+<div class="val">
+<div class="num"><div class="strip"><div>0</div><div>1</div><div>2</div><div>3</div></div></div>
+<div class="word">from one list</div>
+</div>
+</div>
+</div>
+
+<div class="actlbl"><span class="pip"></span>Drip campaign activated</div>
+<div class="thread">
+<div class="smsline d0">
+<div class="day">Day 0</div>
+<div class="bubble">Hi, it's been a while &mdash; just checking in on your roof.</div>
+</div>
+<div class="smsline d5">
+<div class="day">Day 5</div>
+<div class="bubble">Happy to swing by for a free inspection if it's ever useful.</div>
+</div>
+<div class="smsline d12">
+<div class="day">Day 12</div>
+<div class="bubble">No pressure, we're here whenever you need us.</div>
+</div>
+<div class="smsreply">
+<div class="bubble">Actually yes, we've been meaning to call. Can you come by Friday?</div>
+<div class="day">Reply</div>
+</div>
+</div>
+</div>
+
+<div class="caption">Old customers. New jobs. <em>Zero manual outreach.</em></div>
+</div>
+</section>
+
+<!-- SCENE 3 — CLOSER -->
+<section class="frame" id="s3">
+<div class="wrap">
+<div class="l1">Names you forgot you had.</div>
+<div class="l2">Booked again.</div>
+<div class="logo">Current Automations</div>
+<div class="url">currentautomations.ca</div>
+<div class="bar"></div>
+</div>
+</section>
+</div>
+</div>
+
+<div id="playbar">
+<button id="btnPlay" aria-label="Pause"><svg id="icoPause" viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" rx="1"></rect><rect x="9.5" y="2" width="3.5" height="12" rx="1"></rect></svg><svg id="icoPlay" viewBox="0 0 16 16" style="display:none"><path d="M4 2.5 13 8l-9 5.5z"></path></svg></button>
+<button id="btnRestart" aria-label="Restart"><svg viewBox="0 0 16 16"><path d="M8 2.6V.7L4.4 3.4 8 6.1V4.2a3.9 3.9 0 1 1-3.9 3.9H2.5A5.5 5.5 0 1 0 8 2.6z"></path></svg></button>
+<div id="track"><div id="fill"></div></div>
+<div id="time">0:00 / 0:43</div>
+</div>
+
+<script>
+const TOTAL = 43000;
+const K_FLOOR = 0.5, BOOST_REF = 0.55, BOOST_CAP = 1.35;
+const viewport = document.getElementById('viewport');
+const fill = document.getElementById('fill');
+const timeEl = document.getElementById('time');
+const btnPlay = document.getElementById('btnPlay');
+const icoPlay = document.getElementById('icoPlay');
+const icoPause = document.getElementById('icoPause');
+
+let live = document.getElementById('stage');
+let playing = true, elapsed = 0, last = performance.now();
+
+function fitStage(){
+  const kRaw = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+  const k = Math.max(kRaw, K_FLOOR);
+  const boost = Math.min(BOOST_CAP, Math.max(1, BOOST_REF / kRaw));
+  live.style.transform = 'translate(-50%,-50%) scale(' + k + ')';
+  viewport.style.setProperty('--boost', boost);
+  viewport.style.setProperty('--stagek', k);
+}
+fitStage();
+window.addEventListener('resize', fitStage);
+
+function restart(){
+  const clone = live.cloneNode(true);
+  clone.classList.toggle('paused', !playing);
+  live.parentNode.replaceChild(clone, live);
+  live = clone;
+  fitStage();
+  elapsed = 0;
+}
+function fmt(ms){
+  const s = Math.floor(ms / 1000);
+  return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+function tick(now){
+  const dt = now - last; last = now;
+  if(playing && !document.hidden){
+    elapsed += dt;
+    if(elapsed >= TOTAL) restart();
+    fill.style.width = (elapsed / TOTAL * 100) + '%';
+    timeEl.textContent = fmt(elapsed) + ' / 0:43';
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+document.addEventListener('visibilitychange', () => {
+  last = performance.now();
+  if (document.hidden) {
+    live.classList.add('paused');
+  } else if (playing) {
+    live.classList.remove('paused');
+  }
+});
+
+btnPlay.addEventListener('click', () => {
+  playing = !playing;
+  live.classList.toggle('paused', !playing);
+  icoPlay.style.display = playing ? 'none' : 'block';
+  icoPause.style.display = playing ? 'block' : 'none';
+  btnPlay.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+});
+document.getElementById('btnRestart').addEventListener('click', restart);
+document.getElementById('track').addEventListener('click', restart);
+
+/* Parent frame can request (re)start once this iframe scrolls into view. */
+window.addEventListener('message', (e) => {
+  if (!e.data || e.data.type !== 'ca-demo-play') return;
+  restart();
+  playing = true;
+  live.classList.remove('paused');
+  icoPlay.style.display = 'none';
+  icoPause.style.display = 'block';
+});
+</script>
+</body>
+</html>

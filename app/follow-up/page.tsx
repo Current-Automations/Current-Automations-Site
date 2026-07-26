@@ -184,8 +184,25 @@ export default function FollowUpPage() {
         </div>
       </JobSheetSection>
 
-      <JobSheetCTA
+      {/* Proof: the database reactivation demo */}
+      <JobSheetSection
         code="FU-05"
+        label="Old list, new jobs"
+        title="A dormant customer list, quietly turned back into booked work."
+        description="No cold-call script, no manual outreach. A steady drip to names already in your system, until a few of them reply."
+        tone="ink"
+      >
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <div className={`${jobsheet.ticket} !border-white/15 overflow-hidden p-0`}>
+              <HomeDemoVideo src="/demos/video6.html" />
+            </div>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      <JobSheetCTA
+        code="FU-06"
         label="Stop the quiet losses"
         title="Find out which follow-ups you're missing."
         description="A free 30-minute audit. We look at where your leads and quotes actually go quiet, and tell you which system would recover the most."
