@@ -65,7 +65,8 @@
   #s2 .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;height:100%;position:relative;transform:scale(var(--boost,1));transform-origin:top center}
   #s2 h1{font:500 60px/1 var(--display);color:var(--teal);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s 8.35s ease-out both;text-transform:none}
   #s2 .sub{font:400 20px/1.4 var(--sans);color:var(--muted);letter-spacing:.005em;opacity:0;animation:fadeUp .8s 9.05s ease-out both}
-  #s2 .demo{margin-top:22px;display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:start;width:1240px}
+  #s2 .demo>:first-child{grid-column:1;grid-row:1/span 2}
+#s2 .demo{margin-top:22px;display:grid;grid-template-columns:380px 1fr;gap:0 48px;align-items:start;width:1240px}
   .quotecard{position:relative;background:linear-gradient(180deg,#0e1a2a,#0a1422);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;opacity:0;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:pop .55s 9.85s ease-out both, redPulse 1s 10.55s 1 ease both}
   .quotecard::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:rgba(255,255,255,.1);animation:borderRed .3s 10.55s ease forwards, borderTeal .5s 11.65s ease forwards}
   @keyframes borderRed{to{background:var(--red);box-shadow:0 0 16px var(--red)}}
@@ -88,10 +89,10 @@
   @keyframes pillIn{to{opacity:1;transform:scale(1)}}
   .status .pill-booked .ch{width:14px;height:14px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#07111d;font:700 10px/1 var(--sans)}
   .quotecard .meta{margin-top:14px;font-family:var(--mono);font-weight:400;line-height:1.3;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--dim);letter-spacing:.04em}
-  #s2 .actlbl{grid-column:2;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 11.55s ease-out both}
+  #s2 .actlbl{grid-column:2;grid-row:1;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;line-height:1;font-size:max(12px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.18em;text-transform:uppercase;opacity:0;animation:fadeUp .5s 11.55s ease-out both}
   #s2 .actlbl .pip{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 1.2s 11.65s infinite ease-in-out}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-  #s2 .thread{grid-column:2;display:flex;flex-direction:column;gap:12px;margin-top:12px;width:760px}
+  #s2 .thread{grid-column:2;grid-row:2;display:flex;flex-direction:column;gap:12px;margin-top:12px;width:760px}
   .smsline{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:start;opacity:0}
   .smsline .day{font-family:var(--sans);font-weight:700;line-height:1;font-size:max(11px,calc(10px / (var(--stagek,1) * var(--boost,1))));color:var(--teal);letter-spacing:.14em;text-transform:uppercase;background:var(--teal-soft);border-radius:7px;padding:9px 0;text-align:center;margin-top:6px}
   .smsline .bubble{background:#1a2638;border-radius:16px;padding:13px 17px;font:400 17px/1.4 var(--sans);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04);position:relative;max-width:560px}
