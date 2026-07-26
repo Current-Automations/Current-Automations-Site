@@ -1,5 +1,5 @@
 /*
-  Job Sheet visual system — paper/dispatch-ticket aesthetic.
+  Job Sheet visual system: paper/dispatch-ticket aesthetic.
   Scoped entirely via CSS Modules; nothing here touches globals.css
   or any class name used by shared chrome (Navbar/Footer/StickyCTA)
   or other routes.

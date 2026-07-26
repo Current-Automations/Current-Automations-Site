@@ -6,7 +6,6 @@ import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
-import FormTab from "@/components/jobsheet/FormTab";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -72,18 +71,10 @@ export default function DemoPage() {
         }
       />
 
-      {/* Video demos keep their existing dark treatment and built-in intro copy for
-          continuity with the site's dark chrome; just file it under a form code
-          so it still reads as part of the same paperwork system. */}
-      <div className={`${jobsheet.root} ${jobsheet.inkTexture} relative pt-14 sm:pt-16`}>
-        <div className="container-shell relative">
-          <FormTab code="DM-02" label="Three demos, three minutes" onDark />
-        </div>
-      </div>
       <DemoVideos />
 
       <JobSheetCTA
-        code="DM-03"
+        code="DM-04"
         label="Ready to see your own numbers?"
         title="Want to see this running on your business's own call flow?"
         description="Book a free audit and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."

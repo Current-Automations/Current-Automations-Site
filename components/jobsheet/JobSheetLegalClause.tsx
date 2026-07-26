@@ -11,7 +11,7 @@ type JobSheetLegalClauseProps = {
 /**
  * A single filed clause in a legal document: a dashed-divided row with a
  * mono clause code, used for Privacy/Terms so the legal copy reads as
- * paperwork on file rather than a generic prose block. Presentation only —
+ * paperwork on file rather than a generic prose block. Presentation only,
  * never alters the clause text itself. Optional `id` supports anchor-linked
  * clause indexes on long documents (privacy, terms).
  */

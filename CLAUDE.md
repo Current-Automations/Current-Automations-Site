@@ -33,51 +33,20 @@ The lint run is fully clean. The previously documented unescaped-apostrophe erro
 
 **Stack:** Next.js 16.2.1 App Router · TypeScript · React 19 · Tailwind CSS v4 · Google Fonts (Manrope + Fraunces)
 
-### Route structure
-
-| Route | File | Notes |
-|-------|------|-------|
-| `/` | `app/page.tsx` | Homepage |
-| `/about` | `app/about/page.tsx` | |
-| `/how-it-works` | `app/how-it-works/page.tsx` | |
-| `/demo` | `app/demo/page.tsx` | |
-| `/pricing` | `app/pricing/page.tsx` | |
-| `/privacy-policy` | `app/privacy-policy/page.tsx` | |
-| `/privacy` | `app/privacy/page.tsx` | Legacy, pre-existing lint errors |
-| `/terms` | `app/terms/page.tsx` | Pre-existing lint errors |
-| `/contact` | `app/contact/page.tsx` | General, support, and billing contact |
-| `/book-a-demo` | `app/book-a-demo/page.tsx` | Server-side `redirect()` to Google Calendar |
-
 `app/layout.tsx` wraps every page with `<Navbar>`, `<main>`, and `<Footer>`. It also holds the global `metadata` object (title template `"%s | Current Automations"`). Pages that need a title bypassing the template use `title: { absolute: "..." }`.
 
 ### Shared components
 
-- **`Section`**: the primary content wrapper. Props: `id`, `eyebrow`, `title`, `description`, `children`, `tone` (`"light"` | `"muted"` | `"dark"`), `align` (`"left"` | `"center"`). Controls background color and heading color automatically.
-- **`Hero`**: dark-gradient hero. Accepts `primaryCta`, `secondaryCta`, optional `children` (right column). When `children` is omitted the layout collapses to single-column; the grid and right `<div>` are conditionally rendered.
-- **`CTASection`**: full-width dark CTA band. All copy (eyebrow, title, description, button labels) is passed as props; nothing is hardcoded in the component.
-- **`FAQSection`**: accordion FAQ. Takes `items: FAQItem[]`, `tone`, `title`, `description`.
-- **`Navbar`** / **`Footer`**: site-wide chrome. CTA links point to the Google Calendar booking URL (see CTA convention below).
+The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`) — paper/ticket paperwork styling, not the earlier dark-gradient "Section/Hero" system.
 
-### Design tokens (globals.css)
-
-All color values are CSS custom properties. Use them by name in Tailwind arbitrary values:
-
-| Token | Value |
-|-------|-------|
-| `--color-ink` | `#07111d` (near-black) |
-| `--color-brand` | `#4fd0ad` (teal) |
-| `--color-brand-strong` | `#149676` (dark teal) |
-| `--color-muted` | `#62748b` |
-| `--color-line` | `rgba(15,27,44,0.12)` |
-
-Key utility classes defined in `@layer components`:
-- `.surface-card`: frosted white card with soft shadow
-- `.dark-card`: dark gradient card with teal radial glow
-- `.btn-primary`: teal gradient pill button
-- `.btn-secondary`: bordered ghost pill button
-- `.pill-label`: small teal-tinted eyebrow badge (use `bg-white/[0.08] text-white/70` overrides when on a dark background)
-- `.container-shell`: max-w-7xl centered wrapper
-- `.section-spacing`: standard vertical padding
+- **`JobSheetSection`**: the primary content wrapper. Props: `id`, `code`, `label` (rendered as a `FormTab`), `title`, `description`, `children`, `tone` (`"paper"` | `"carbon"` | `"ink"`).
+- **`JobSheetHero`** / **`JobSheetPageHero`**: homepage vs. interior-page hero variants.
+- **`JobSheetCTA`**: full-width CTA band. All copy (code, label, title, description, button labels) is passed as props.
+- **`JobSheetFAQ`**: accordion FAQ. Takes `items: FAQItem[]`, `code`, `label`, `title`, `description`, `tone`.
+- **`TicketCard`**: the signature card surface (punch hole, ticket-ref corner label).
+- **`Stamp`**: rubber-stamp badge (`tone: "rust" | "teal"`).
+- **`PunchButton`**: the in-page CTA (`variant: "solid" | "ghost"`, `onDark`).
+- **`Navbar`** / **`Footer`**: site-wide chrome, outside the Job Sheet system. CTA links point to the Google Calendar booking URL (see CTA convention below).
 
 ### Shared data
 

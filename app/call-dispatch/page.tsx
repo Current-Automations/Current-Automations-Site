@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import HomeDemoVideo from "@/components/HomeDemoVideo";
 import CountUp from "@/components/motion/CountUp";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
@@ -180,9 +181,26 @@ export default function CallDispatchPage() {
         </p>
       </JobSheetSection>
 
-      {/* Why speed matters: stats + decay */}
+      {/* Proof: illustrated AI voice call flow (not footage of the real line) */}
       <JobSheetSection
         code="CD-04"
+        label="See it answer"
+        title="An after-hours call, answered and booked without you."
+        description="An illustrated call flow, not a recording of the live line above, just what happens when it rings after hours."
+        tone="ink"
+      >
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <div className={`${jobsheet.ticket} !border-white/15 overflow-hidden p-0`}>
+              <HomeDemoVideo src="/demos/video7.html" />
+            </div>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      {/* Why speed matters: stats + decay */}
+      <JobSheetSection
+        code="CD-05"
         label="The cost of a missed call"
         title="Every minute you do not respond, the job gets colder."
         description="Most callers who reach voicemail never leave a message. They just dial the next company on Google. Here is what the research on response speed says happens."
@@ -259,7 +277,7 @@ export default function CallDispatchPage() {
 
       {/* The Tuesday scenario, moved from how-it-works */}
       <JobSheetSection
-        code="CD-05"
+        code="CD-06"
         label="A Tuesday morning, logged"
         title="Here is what this looks like for an HVAC company on a busy Tuesday."
         description="A representative scenario based on the kind of situation local service teams deal with every week, written up the way the system actually logs it."

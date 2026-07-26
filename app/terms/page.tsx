@@ -162,7 +162,7 @@ export default function TermsPage() {
                     Growth $397 CAD/mo: Everything in Pro, plus Database Reactivation, No Show and Cancellation Recovery, and Weekly ROI Report.
                   </li>
                   <li className="list-disc">
-                    Elite $597 CAD/mo: Everything in Growth, plus Retell AI Outbound Call and Inbound AI Call Handling. Retell AI requires a separate subscription.
+                    Elite $597 CAD/mo: Everything in Growth, plus Retell AI Outbound Call and Inbound AI Call Handling. Includes an allowance of AI call minutes as set out in clause 3.6.
                   </li>
                   <li className="list-disc">
                     A la carte: individual automation scenarios are available from $49 CAD/mo and can be added to any tier.
@@ -207,6 +207,15 @@ export default function TermsPage() {
                 <p>
                   3.5 Promotional Pricing and Trial Periods: Promotional rates apply only for the period stated at the time of offer.
                   At conclusion of any trial period, billing commences at the standard plan rate.
+                </p>
+                <p>
+                  3.6 AI Call Minutes: Plans that include AI voice handling (Retell AI Outbound Call and Inbound AI Call Handling, whether purchased in the Elite tier or a la carte)
+                  include an allowance of 300 AI call minutes per billing month. Current Automations holds and pays for the underlying AI voice platform account; the Client is not
+                  required to open or pay for a separate account with any voice provider.
+                  Usage above the allowance is billed in arrears at $0.35 CAD per minute, on the next monthly invoice.
+                  Unused minutes do not carry over between billing months. Minutes are measured by the underlying voice platform&apos;s connected-call duration, and those records are the
+                  reference used to calculate any overage. Current Automations will notify the Client by email before invoicing any overage above $50 CAD in a single month, and may
+                  adjust the allowance or per-minute rate on the same 30 days written notice required for price changes under clause 3.3.
                 </p>
               </JobSheetLegalClause>
 

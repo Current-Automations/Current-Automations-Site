@@ -11,7 +11,7 @@ export type CartScenario = {
   name: string;
   price: number;
   priceId: string;
-  requiresRetell?: boolean;
+  hasCallMinutes?: boolean;
 };
 
 type Props = {
@@ -88,9 +88,9 @@ export default function CartSelector({ scenarios }: Props) {
                   <p className="text-sm font-medium leading-5 text-[#181510]">
                     {scenario.name}
                   </p>
-                  {scenario.requiresRetell && (
+                  {scenario.hasCallMinutes && (
                     <span className="text-xs italic text-[#58524a]">
-                      Retell subscription required separately
+                      Includes 300 AI call minutes a month, $0.35/min after
                     </span>
                   )}
                 </div>

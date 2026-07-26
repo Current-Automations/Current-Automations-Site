@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import HomeDemoVideo from "@/components/HomeDemoVideo";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
@@ -196,9 +197,26 @@ export default function LeadGenerationPage() {
         </div>
       </JobSheetSection>
 
-      {/* Deliverables ledger */}
+      {/* Proof: illustrated pipeline run (mechanism, not a real client's list) */}
       <JobSheetSection
         code="LG-04"
+        label="See it run"
+        title="What the pipeline actually does, start to finish."
+        description="An illustrated walkthrough of the mechanism: an ICP goes in, matches stream back enriched and verified. Placeholder companies, not a real client's list, the same honesty rule as everything else on this page."
+        tone="ink"
+      >
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <div className={`${jobsheet.ticket} !border-white/15 overflow-hidden p-0`}>
+              <HomeDemoVideo src="/demos/video5.html" />
+            </div>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      {/* Deliverables ledger */}
+      <JobSheetSection
+        code="LG-05"
         label="What you get"
         title="A list your sales team will actually use."
         description="The output is not a spreadsheet of scraped names. It is a working asset, qualified and verified before it reaches you."
@@ -221,7 +239,7 @@ export default function LeadGenerationPage() {
 
       {/* Where it stands + engagement terms: honest capability framing, no invented results */}
       <JobSheetSection
-        code="LG-05"
+        code="LG-06"
         label="Where this stands"
         title="We built it for ourselves first."
         tone="carbon"
@@ -273,7 +291,7 @@ export default function LeadGenerationPage() {
       </JobSheetSection>
 
       <JobSheetCTA
-        code="LG-06"
+        code="LG-07"
         label="Open a file"
         title="Tell us who you sell to. We will find them."
         description="A free 30-minute call. You describe the ideal customer, we scope the pipeline, and you get an honest read on whether it fits your market."
