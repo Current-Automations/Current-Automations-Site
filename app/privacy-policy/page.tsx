@@ -3,6 +3,7 @@ import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetLegalClause from "@/components/jobsheet/JobSheetLegalClause";
+import { siteContact } from "@/data/siteContent";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -54,10 +55,10 @@ export default function PrivacyPolicyPage() {
               <p>
                 For privacy-related questions, contact{" "}
                 <a
-                  href="mailto:info@currentautomations.ca"
+                  href={`mailto:${siteContact.email}`}
                   className="font-medium text-[var(--color-brand-strong)] hover:underline"
                 >
-                  info@currentautomations.ca
+                  {siteContact.email}
                 </a>
                 .
               </p>
