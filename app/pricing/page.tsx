@@ -38,11 +38,6 @@ const pricingFaqItems: FAQItem[] = [
       "Yes. You can start with a tier and add individual scenarios on top, or go fully a la carte. We will recommend the most cost-effective combination based on your needs.",
   },
   {
-    question: "What is the Retell subscription for Elite?",
-    answer:
-      "Elite includes T04 and T05, AI voice automations powered by Retell AI. Retell requires its own subscription (separate from your Current Automations plan) to handle AI call minutes.",
-  },
-  {
     question: "Can the pricing change after I sign up?",
     answer:
       "Current pricing is locked in for active subscribers. Any future pricing changes would be communicated in advance and would not apply retroactively.",
@@ -61,7 +56,6 @@ type Tier = {
   tagline: string;
   savings: number;
   badge?: string;
-  note?: string;
   scenarios: string[];
   priceId: string;
 };
@@ -117,7 +111,6 @@ const tiers: Tier[] = [
     price: 597,
     tagline: "For contractors who want a fully autonomous front office with AI voice",
     savings: 149,
-    note: "Retell subscription required separately",
     scenarios: [
       "Everything in Growth, plus:",
       "T04 Retell AI Outbound Call",
@@ -171,10 +164,10 @@ const scenarioGroups: ScenarioGroup[] = [
   },
   {
     label: "Premium AI Voice",
-    description: "Retell AI, requires separate Retell subscription",
+    description: "A real voice answers, books, and logs the call",
     scenarios: [
-      { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE", requiresRetell: true },
-      { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4", requiresRetell: true },
+      { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE", hasCallMinutes: true },
+      { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4", hasCallMinutes: true },
     ],
   },
 ];
@@ -309,7 +302,6 @@ export default function PricingPage() {
                 price={tier.price}
                 tagline={tier.tagline}
                 scenarios={tier.scenarios}
-                note={tier.note}
                 featured={!!tier.badge}
               >
                 <BuyNowButton priceId={tier.priceId} />

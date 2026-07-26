@@ -7,7 +7,6 @@ type PricingTicketProps = {
   price: number;
   tagline: string;
   scenarios: string[];
-  note?: string;
   featured?: boolean;
   children: ReactNode;
 };
@@ -17,7 +16,6 @@ export default function PricingTicket({
   price,
   tagline,
   scenarios,
-  note,
   featured = false,
   children,
 }: PricingTicketProps) {
@@ -59,8 +57,6 @@ export default function PricingTicket({
           </li>
         ))}
       </ul>
-
-      {note ? <p className="mt-4 text-xs italic text-[#58524a]">{note}</p> : null}
 
       <div className="mt-6 flex flex-col gap-2">{children}</div>
     </div>
