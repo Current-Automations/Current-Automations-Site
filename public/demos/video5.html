@@ -46,15 +46,20 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slam{0%{opacity:0;transform:scale(1.4);filter:blur(8px)}55%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
 @keyframes holdGlow{0%,100%{text-shadow:0 0 46px rgba(79,208,173,.26)}50%{text-shadow:0 0 80px rgba(79,208,173,.44)}}
+/* Hero holds the frame alone in motion, not by clearing the setup lines: it
+   creeps up 15% across the hold while the setup dims back behind it. Both use
+   `forwards` (never `both`) so they stay inert during the entrance animations. */
+@keyframes heroGrow{from{transform:scale(1)}to{transform:scale(1.15)}}
+@keyframes setupDim{from{opacity:1}to{opacity:.42}}
 
 /* ===== SCENE 1 — 0→8.8s (hook line gets a long, emphasised hold) ===== */
 #s1{animation:sceneIn 8.8s 0s both}
 #s1 .stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:1240px}
 #s1 .l{font:500 74px/1.06 var(--display);letter-spacing:-.01em;opacity:0;color:#fff}
-#s1 .l1{animation:fadeUp .85s .3s ease-out both,fadeOut .5s 4.5s ease both}
-#s1 .l2{animation:fadeUp .85s 1.3s ease-out both,fadeOut .5s 4.5s ease both}
-#s1 .l3{animation:fadeUp .85s 2.3s ease-out both,fadeOut .5s 4.5s ease both}
-#s1 .slam{font:500 108px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both,holdGlow 3.2s 4.3s ease-in-out infinite,fadeOut .5s 8.1s ease both}
+#s1 .l1{animation:fadeUp .85s .3s ease-out both,setupDim .6s 4.3s ease forwards}
+#s1 .l2{animation:fadeUp .85s 1.3s ease-out both,setupDim .6s 4.3s ease forwards}
+#s1 .l3{animation:fadeUp .85s 2.3s ease-out both,setupDim .6s 4.3s ease forwards}
+#s1 .slam{font:500 108px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;transform-origin:left center;animation:slam .7s 3.6s cubic-bezier(.2,.9,.2,1) both,holdGlow 3.2s 4.3s ease-in-out infinite,heroGrow 4s 4.3s ease-out forwards}
 
 /* ===== SCENE 2 — 8.8→28.8s ===== */
 #s2{animation:sceneIn 20s 8.8s both}

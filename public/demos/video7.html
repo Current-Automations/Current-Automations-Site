@@ -46,16 +46,21 @@ a{color:var(--teal);text-decoration:none}a:hover{color:#7fe3c8}
 @keyframes slideLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
 @keyframes slam{0%{opacity:0;transform:scale(1.4);filter:blur(8px)}55%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
 @keyframes holdGlow{0%,100%{text-shadow:0 0 46px rgba(79,208,173,.26)}50%{text-shadow:0 0 80px rgba(79,208,173,.44)}}
+/* Hero holds the frame alone in motion, not by clearing the setup lines: it
+   creeps up 15% across the hold while the setup dims back behind it. Both use
+   `forwards` (never `both`) so they stay inert during the entrance animations. */
+@keyframes heroGrow{from{transform:scale(1)}to{transform:scale(1.15)}}
+@keyframes setupDim{from{opacity:1}to{opacity:.42}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ===== SCENE 1 — 0→7.8s (hook line gets a long, emphasised hold) ===== */
 #s1{animation:sceneIn 7.8s 0s both}
 #s1 .stack{display:flex;flex-direction:column;gap:20px;align-items:flex-start;max-width:1200px}
 #s1 .l{font:500 76px/1.05 var(--display);letter-spacing:-.01em;opacity:0;color:#fff}
-#s1 .l1{animation:fadeUp .8s .25s ease-out both,fadeOut .4s 3.6s ease both}
-#s1 .l2{animation:fadeUp .8s 1.05s ease-out both,fadeOut .4s 3.6s ease both}
-#s1 .l3{animation:fadeUp .8s 1.85s ease-out both,fadeOut .4s 3.6s ease both}
-#s1 .slam{font:500 106px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;animation:slam .65s 2.9s cubic-bezier(.2,.9,.2,1) both,holdGlow 3s 3.55s ease-in-out infinite,fadeOut .5s 7.1s ease both}
+#s1 .l1{animation:fadeUp .8s .25s ease-out both,setupDim .55s 3.55s ease forwards}
+#s1 .l2{animation:fadeUp .8s 1.05s ease-out both,setupDim .55s 3.55s ease forwards}
+#s1 .l3{animation:fadeUp .8s 1.85s ease-out both,setupDim .55s 3.55s ease forwards}
+#s1 .slam{font:500 106px/1.05 var(--display);color:var(--teal);letter-spacing:-.02em;text-shadow:0 0 60px rgba(79,208,173,.3);opacity:0;transform-origin:left center;animation:slam .65s 2.9s cubic-bezier(.2,.9,.2,1) both,holdGlow 3s 3.55s ease-in-out infinite,heroGrow 3.85s 3.55s ease-out forwards}
 
 /* ===== SCENE 2 — 7.8→22.8s ===== */
 #s2{animation:sceneIn 15s 7.8s both}
