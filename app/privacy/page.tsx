@@ -4,6 +4,7 @@ import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetLegalClause from "@/components/jobsheet/JobSheetLegalClause";
+import { siteContact, siteContacts } from "@/data/siteContent";
 
 export const metadata: Metadata = {
   title: {
@@ -51,7 +52,7 @@ export default function PrivacyPage() {
           </span>
         }
         title="Privacy Policy"
-        description="EFFECTIVE DATE: May 7, 2025 | VERSION: 1.0 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: info@currentautomations.ca | +1 (365) 513-7474"
+        description={`EFFECTIVE DATE: May 7, 2025 | VERSION: 1.0 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
@@ -93,8 +94,8 @@ export default function PrivacyPage() {
                   <p>
                     For the purposes of this Privacy Policy, Current Automations is the organization
                     responsible for the personal information we collect and process in connection with
-                    our website and services. We can be reached at info@currentautomations.ca or
-                    +1 (365) 513-7474.
+                    our website and services. We can be reached at {siteContacts.general} or
+                    {siteContact.phoneDisplay}.
                   </p>
                 </JobSheetLegalClause>
 
@@ -360,7 +361,7 @@ export default function PrivacyPage() {
                     priv.gc.ca or by calling 1-800-282-1376.
                   </p>
                   <p>
-                    To exercise any of these rights, contact us at info@currentautomations.ca with the
+                    To exercise any of these rights, contact us at {siteContacts.general} with the
                     subject line Privacy Request. We will acknowledge your request within 5 business
                     days.
                   </p>
@@ -394,7 +395,7 @@ export default function PrivacyPage() {
                     Our services are designed for business owners and operators and are not directed at
                     individuals under the age of 18. We do not knowingly collect personal information
                     from minors. If you believe we have inadvertently collected information from a minor,
-                    contact us immediately at info@currentautomations.ca and we will delete it
+                    contact us immediately at {siteContacts.general} and we will delete it
                     promptly.
                   </p>
                 </JobSheetLegalClause>
@@ -412,7 +413,7 @@ export default function PrivacyPage() {
                               <JobSheetLegalClause id="clause-15" code="15" title="Contact Us">
                   <p>
                     For any questions, concerns, or requests regarding this Privacy Policy or our
-                    privacy practices, contact us at info@currentautomations.ca or +1 (365) 513-7474 or
+                    privacy practices, contact us at {siteContacts.general} or {siteContact.phoneDisplay} or
                     at currentautomations.ca. We will respond to all privacy inquiries within 5 business
                     days. If you are not satisfied with our response, you have the right to contact the
                     Office of the Privacy Commissioner of Canada at priv.gc.ca or 1-800-282-1376.

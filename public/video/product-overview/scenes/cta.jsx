@@ -103,8 +103,8 @@ function CTAContent() {
           <span style={{color:'rgba(140,240,224,0.4)'}}>/</span>
           <span>Month-to-month</span>
           <span style={{color:'rgba(140,240,224,0.4)'}}>/</span>
-          <a href="mailto:admin@currentautomations.ca"
-             style={{color:BRAND.crest, textDecoration:'none'}}>admin@currentautomations.ca</a>
+          <a href="mailto:info@currentautomations.ca"
+             style={{color:BRAND.crest, textDecoration:'none'}}>info@currentautomations.ca</a>
           <span style={{color:'rgba(140,240,224,0.4)'}}>/</span>
           <a href="tel:+13655137474"
              style={{color:BRAND.crest, textDecoration:'none'}}>365 · 513 · 7474</a>

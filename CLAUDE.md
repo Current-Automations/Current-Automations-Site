@@ -27,17 +27,23 @@ There is **no test suite**.
 
 ## Lint status
 
-The lint run is fully clean. The previously documented unescaped-apostrophe errors in `app/privacy/page.tsx` and `app/terms/page.tsx` were fixed in the 2026-06 refresh.
+One error in app source: `components/Navbar.tsx` calls `setState` synchronously inside an effect (`react-hooks/set-state-in-effect`). Pre-existing, not a regression.
+
+The unescaped-apostrophe errors previously documented in `app/privacy/page.tsx` and `app/terms/page.tsx` were fixed in the 2026-06 refresh.
+
+Lint also walks `public/` and `.claude/worktrees/`, so a bare `npm run lint` reports issues in `public/video/product-overview/*.jsx` and in any stale worktrees. Neither is part of the Next.js app. To lint only app source: `node ./node_modules/eslint/bin/eslint.js app components data`.
 
 ## Architecture
 
-**Stack:** Next.js 16.2.1 App Router · TypeScript · React 19 · Tailwind CSS v4 · Google Fonts (Manrope + Fraunces)
+**Stack:** Next.js 16.2.1 App Router · TypeScript · React 19 · Tailwind CSS v4 · Stripe Checkout
+
+**Fonts are two systems.** `app/layout.tsx` loads Manrope + Fraunces for global chrome (Navbar, Footer, StickyCTA) and exposes them as `--font-manrope` / `--font-fraunces`, consumed in `app/globals.css`. The Job Sheet system loads Barlow, Barlow Condensed and IBM Plex Mono in `components/jobsheet/fonts.ts`, applied by wrapping a page in `jobsheetFonts`. Both are live; do not remove either assuming it is dead.
 
 `app/layout.tsx` wraps every page with `<Navbar>`, `<main>`, and `<Footer>`. It also holds the global `metadata` object (title template `"%s | Current Automations"`). Pages that need a title bypassing the template use `title: { absolute: "..." }`.
 
 ### Shared components
 
-The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`) — paper/ticket paperwork styling, not the earlier dark-gradient "Section/Hero" system.
+The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`), paper/ticket paperwork styling, not the earlier dark-gradient "Section/Hero" system.
 
 - **`JobSheetSection`**: the primary content wrapper. Props: `id`, `code`, `label` (rendered as a `FormTab`), `title`, `description`, `children`, `tone` (`"paper"` | `"carbon"` | `"ink"`).
 - **`JobSheetHero`** / **`JobSheetPageHero`**: homepage vs. interior-page hero variants.
@@ -51,17 +57,33 @@ The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`
 ### Shared data
 
 `data/siteContent.ts` is the single source of truth for:
-- `siteContact`: primary public email (`info@currentautomations.ca`), phone display/href, notes — used in Footer and anywhere a single contact appears
-- `siteContacts`: all inboxes by role:
-  - `general` — `info@currentautomations.ca` — front door, site contact form, warm inbound
-  - `support` — `support@currentautomations.ca` — existing client issues and change requests
-  - `billing` — `billing@currentautomations.ca` — invoices, refunds, card changes, billing questions
-  - `noReply` — `no-reply@currentautomations.ca` — automated one-way sends (receipts, confirmations); never monitored
-  - `admin@currentautomations.ca` — internal only (domain/registrar/account admin); never appears on the public site
+- `siteContact`: primary public email (`info@currentautomations.ca`), phone display/href, and notes. Used in the Footer and anywhere a single contact appears.
+- `siteContacts`: all inboxes by role.
+  - `general` (`info@currentautomations.ca`): front door, site contact form, warm inbound
+  - `support` (`support@currentautomations.ca`): existing client issues and change requests
+  - `billing` (`billing@currentautomations.ca`): invoices, refunds, card changes, billing questions
+  - `noReply` (`no-reply@currentautomations.ca`): automated one-way sends (receipts, confirmations); never monitored
+  - `admin@currentautomations.ca`: internal only (domain/registrar/account admin). Never appears on the public site, and that includes static files under `public/`, which are served at the site root.
 - `faqItems`: homepage FAQ entries
 - `FAQItem` type
 
 Import `siteContact` for the single-email use case. Import `siteContacts` for the contact page or anywhere inbox-specific routing matters. Never hardcode email addresses.
+
+### Demo videos
+
+Seven self-contained HTML animations in `public/demos/` (`video1.html` to `video7.html`), embedded through `components/HomeDemoVideo.tsx`. Each is a fixed 1600x900 stage scaled to its container, with fonts served from `public/demos/fonts/` so nothing is fetched at runtime.
+
+Three rules when editing them:
+
+1. **Timing changes must be scripted, not hand-edited.** Every animation delay is absolute from page load, so shortening one scene means shifting every delay after it, plus `TOTAL` (or the `setInterval` loop in `video1`/`video2`/`video3`) and the progress bar. Parse the animation shorthand paren-aware and treat the second time token in each comma-separated segment as the delay. Watch for `calc(Xs + var(--i)*1s)` staggers where only the base should move, and bare `animation-delay:` properties.
+2. **Derived values must stay derived.** Playbar totals compute from `TOTAL`; scene comments and header durations are regenerated from the scene CSS. They were hardcoded once and silently drifted.
+3. **`heroGrow` and `setupDim` use `forwards`, never `both`.** With `both`, the backwards fill applies from t=0 and pins the hero at `scale(1)` through its slam entrance, killing the overshoot.
+
+The scene-1 pattern is shared across all seven: setup lines fade up and stay, dimming to 42% while the hook line lands on `slam` and grows 15% across its hold.
+
+The playbar overlays roughly the bottom 80px of the frame, so geometric centering still reads as crowded. Leave about 95px of clearance below the last line of text.
+
+`HomeDemoVideo` restarts a demo when it scrolls into view, since they loop from page load and a below-fold embed would otherwise be mid-scene. Its Expand button uses the Fullscreen API with a modal fallback for browsers that refuse (notably iOS Safari, which allows fullscreen on `<video>` but not arbitrary elements). Iframe `allow` is semicolon-separated: `allow="autoplay; fullscreen"`.
 
 ### CTA convention
 
