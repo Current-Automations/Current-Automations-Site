@@ -1,10 +1,12 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import {
-  AI_VOICE_PRICE_IDS,
+  RECEPTIONIST_MODE_PRICE_ID,
   SETUP_FEE_CENTS,
-  VOICE_CONFIG_FEE_CENTS,
+  T12_PRICE_ID,
   includesAiVoice,
+  includesReceptionistMode,
+  voiceConfigFeeFor,
 } from "@/data/pricing";
 
 const SETUP_FEE_PRICE_ID = "price_1TYDaJFbHh7D2pR6LF1A1ovY";
@@ -41,6 +43,7 @@ const ALLOWED_PRICE_IDS = new Set([
   "price_1TYDbaFbHh7D2pR6Kt85mIAE",
   "price_1TYDbkFbHh7D2pR6N7FPebE4",
   "price_1TwsOOFbHh7D2pR6sazpj7db",
+  RECEPTIONIST_MODE_PRICE_ID,
 ]);
 // TODO: To support staging environments, replace BASE_URL with process.env.NEXT_PUBLIC_SITE_URL
 
@@ -76,24 +79,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid price ID" }, { status: 400 });
     }
 
-    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =
-      (priceIds as string[]).map((priceId) => ({ price: priceId, quantity: 1 }));
-
-    const sessionParams: Stripe.Checkout.SessionCreateParams = {
-      mode: "subscription",
-      line_items: lineItems,
-      success_url: `${BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${BASE_URL}/pricing`,
-      // Stripe Tax needs an address to pick a jurisdiction, so the billing address
-      // is collected rather than optional. HST is added on top of listed prices,
-      // matching terms 3.4 ("fees are exclusive of applicable taxes").
-      automatic_tax: { enabled: true },
-      billing_address_collection: "required",
-    };
-
     let existingCustomerId: string | undefined;
     let isExistingClient = false;
-    let alreadyConfiguredForVoice = false;
+    // Every price the customer already pays for on a live subscription. Used to
+    // decide what onboarding work has already been done and paid for.
+    const existingPriceIds: string[] = [];
 
     if (customerEmail) {
       // Checkout used to create a fresh customer record per session, so one email
@@ -114,15 +104,53 @@ export async function POST(request: Request) {
         if (liveSubscriptions.length > 0) {
           existingCustomerId = customer.id;
           isExistingClient = true;
-          // Someone who already runs voice has already had the Retell build done,
-          // so adding the other voice scenario must not bill configuration twice.
-          alreadyConfiguredForVoice = liveSubscriptions.some((s) =>
-            s.items.data.some((item) => item.price?.id && AI_VOICE_PRICE_IDS.has(item.price.id))
-          );
+          for (const subscription of liveSubscriptions) {
+            for (const item of subscription.items.data) {
+              if (item.price?.id) existingPriceIds.push(item.price.id);
+            }
+          }
           break;
         }
       }
     }
+
+    // Receptionist Mode only raises the minute pool and deepens an existing agent.
+    // Sold on its own it would bill $350/mo against nothing to run.
+    if (
+      includesReceptionistMode(priceIds as string[]) &&
+      !includesAiVoice(priceIds as string[]) &&
+      !includesAiVoice(existingPriceIds)
+    ) {
+      return NextResponse.json(
+        { error: "Receptionist Mode requires an AI voice scenario" },
+        { status: 400 }
+      );
+    }
+
+    // T12 monitoring is bundled into Receptionist Mode, so buying both would
+    // charge for it twice. An unattended front desk needs the alarm either way.
+    const buyingReceptionist = includesReceptionistMode(priceIds as string[]);
+    const billablePriceIds = buyingReceptionist
+      ? (priceIds as string[]).filter((id) => id !== T12_PRICE_ID)
+      : (priceIds as string[]);
+
+    if (buyingReceptionist && existingPriceIds.includes(T12_PRICE_ID)) {
+      console.warn(
+        `[checkout] ${customerEmail} is buying Receptionist Mode while already paying for T12 separately. T12 is bundled, so remove the standalone T12 item from their subscription.`
+      );
+    }
+
+    const sessionParams: Stripe.Checkout.SessionCreateParams = {
+      mode: "subscription",
+      line_items: billablePriceIds.map((priceId) => ({ price: priceId, quantity: 1 })),
+      success_url: `${BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${BASE_URL}/pricing`,
+      // Stripe Tax needs an address to pick a jurisdiction, so the billing address
+      // is collected rather than optional. HST is added on top of listed prices,
+      // matching terms 3.4 ("fees are exclusive of applicable taxes").
+      automatic_tax: { enabled: true },
+      billing_address_collection: "required",
+    };
 
     if (existingCustomerId) {
       sessionParams.customer = existingCustomerId;
@@ -133,9 +161,15 @@ export async function POST(request: Request) {
       sessionParams.customer_email = customerEmail;
     }
 
-    const buyingVoice = includesAiVoice(priceIds as string[]);
     const chargeSetupFee = !isExistingClient;
-    const chargeVoiceConfigFee = buyingVoice && !alreadyConfiguredForVoice;
+
+    // Configuration is billed as a difference, never a repeat. A second voice
+    // scenario owes nothing, and upgrading overflow voice to Receptionist Mode
+    // owes the $250 gap rather than the full $450.
+    const configFeeOwed = voiceConfigFeeFor([...(priceIds as string[]), ...existingPriceIds]);
+    const configFeeAlreadyPaid = voiceConfigFeeFor(existingPriceIds);
+    const voiceConfigFeeCents = Math.max(0, configFeeOwed - configFeeAlreadyPaid) * 100;
+    const chargeVoiceConfigFee = voiceConfigFeeCents > 0;
 
     if (chargeSetupFee || chargeVoiceConfigFee) {
       const setupFeePrice = await stripe.prices.retrieve(SETUP_FEE_PRICE_ID);
@@ -161,7 +195,7 @@ export async function POST(request: Request) {
           price_data: {
             currency: "cad",
             product: VOICE_CONFIG_PRODUCT_ID,
-            unit_amount: VOICE_CONFIG_FEE_CENTS,
+            unit_amount: voiceConfigFeeCents,
             tax_behavior: "exclusive",
           },
           quantity: 1,

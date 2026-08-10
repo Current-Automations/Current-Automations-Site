@@ -5,7 +5,7 @@ import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import {
   AI_VOICE_OVERAGE_RATE,
   SETUP_FEE,
-  VOICE_CONFIG_FEE,
+  voiceConfigFeeFor,
   voiceMinutesFor,
 } from "@/data/pricing";
 
@@ -20,6 +20,7 @@ export default function BuyNowButton({ priceId, label = "Get Started" }: Props) 
   const [error, setError] = useState<string | null>(null);
 
   const voiceMinutes = voiceMinutesFor([priceId]);
+  const voiceConfigFee = voiceConfigFeeFor([priceId]);
 
   async function handleClick() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -55,7 +56,8 @@ export default function BuyNowButton({ priceId, label = "Get Started" }: Props) 
           <p className="mt-1 text-xs text-[#58524a]">
             Past {voiceMinutes} minutes, calls bill at ${AI_VOICE_OVERAGE_RATE.toFixed(2)} CAD/min
             on your next invoice. One-time fees at checkout: ${SETUP_FEE} setup plus $
-            {VOICE_CONFIG_FEE} AI voice configuration.
+            {voiceConfigFee} AI voice configuration. Anything you have already paid for is deducted
+            at checkout, so existing clients are never billed the same fee twice.
           </p>
         </div>
       )}

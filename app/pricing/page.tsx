@@ -12,6 +12,14 @@ import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import PricingTicket from "@/components/jobsheet/PricingTicket";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
+import {
+  AI_VOICE_OVERAGE_RATE,
+  FAILOVER_TIMEOUT_SECONDS,
+  RECEPTIONIST_MODE_PRICE,
+  VOICE_CONFIG_FEE,
+  VOICE_CONFIG_FEE_RECEPTIONIST,
+  VOICE_MINUTES_RECEPTIONIST,
+} from "@/data/pricing";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -25,7 +33,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the setup fee for?",
     answer:
-      "A one-time $150 CAD fee covers full build and configuration of your automations, onboarding, and initial testing. It is charged once per account, so adding scenarios later does not trigger it again. Plans that include AI voice (Retell AI Outbound Call or Inbound AI Call Handling, in Elite or a la carte) add a separate one-time $200 CAD voice configuration fee, because the call flow, knowledge base, and live testing are built for you rather than templated. If you add AI voice later, you pay only the $200. There are no recurring setup costs either way.",
+      "A one-time $150 CAD fee covers full build and configuration of your automations, onboarding, and initial testing. It is charged once per account, so adding scenarios later does not trigger it again. Plans that include AI voice (Retell AI Outbound Call or Inbound AI Call Handling, in Elite or a la carte) add a separate one-time $200 CAD voice configuration fee, because the call flow, knowledge base, and live testing are built for you rather than templated. If you add AI voice later, you pay only the $200. Receptionist Mode carries a $450 configuration fee instead, and existing voice clients upgrading to it pay only the $250 difference. There are no recurring setup costs either way.",
   },
   {
     question: "How long does it take to go live?",
@@ -321,6 +329,39 @@ export default function PricingPage() {
         tone="carbon"
       >
         <CartSelector scenarios={allScenarios} />
+
+        <div className="mt-8 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.02)] p-6 sm:p-8">
+          <span className={`${jobsheet.mono} text-xs uppercase tracking-wider text-[#a8452f]`}>
+            Upgrade, sold by conversation
+          </span>
+          <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[#181510]">
+            Receptionist Mode, +${RECEPTIONIST_MODE_PRICE}/mo
+          </h3>
+          <p className="mt-4 text-base leading-8 text-[#58524a]">
+            The AI voice scenarios above are built as overflow. Someone on your team is still first
+            to the phone, and the AI catches what they cannot get to. Most owners want it that way
+            to start.
+          </p>
+          <p className="mt-4 text-base leading-8 text-[#58524a]">
+            Once you trust it enough to let it answer everything, Receptionist Mode raises your
+            pooled allowance to {VOICE_MINUTES_RECEPTIONIST.toLocaleString()} minutes a month, and
+            we rebuild the agent to handle a real front desk rather than a backstop. It includes
+            System Anomaly Alert monitoring at no extra charge, plus a hard failover: if the AI does
+            not pick up within {FAILOVER_TIMEOUT_SECONDS} seconds, the call forwards to a real
+            number you nominate. Overage past the pool stays at $
+            {AI_VOICE_OVERAGE_RATE.toFixed(2)} CAD/min.
+          </p>
+          <p className="mt-4 text-base leading-8 text-[#58524a]">
+            One-time configuration is ${VOICE_CONFIG_FEE_RECEPTIONIST} instead of $
+            {VOICE_CONFIG_FEE}, and if you already run AI voice with us you pay only the $
+            {VOICE_CONFIG_FEE_RECEPTIONIST - VOICE_CONFIG_FEE} difference. We do not sell this at
+            first checkout, because handing over the phone is a decision worth making after you have
+            watched the thing work.
+          </p>
+          <div className="mt-6">
+            <PunchButton href={BOOK_URL} label="Book a Call" variant="ghost" />
+          </div>
+        </div>
       </JobSheetSection>
 
       <JobSheetSection

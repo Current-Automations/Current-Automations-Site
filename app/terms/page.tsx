@@ -92,7 +92,7 @@ export default function TermsPage() {
                 <ul className="space-y-3 pl-6">
                   <li className="list-disc">
                     Monthly Subscription: Billing starts the day you sign up and renews automatically each month.
-                    Cancel anytime with 5 business days notice before your next billing date. A one-time $150 CAD setup fee applies at signup, plus a one-time $200 CAD AI voice configuration fee on plans that include AI voice (both non-refundable once onboarding begins; may be waived or reduced at our discretion).
+                    Cancel anytime with 5 business days notice before your next billing date. A one-time $150 CAD setup fee applies at signup, plus a one-time $200 CAD AI voice configuration fee on plans that include AI voice, or $450 CAD with Receptionist Mode (all non-refundable once onboarding begins; may be waived or reduced at our discretion).
                   </li>
                   <li className="list-disc">
                     No Refunds Once Charged: Monthly fees are non-refundable. If you cancel mid-month you keep access until the period ends.
@@ -171,7 +171,9 @@ export default function TermsPage() {
                 </ul>
                 <p>
                   2.2 Setup and Onboarding: A one-time setup fee of $150 CAD is charged at checkout, covering full build, configuration, onboarding, and initial testing. The setup fee is charged once per Client account, regardless of how many scenarios are purchased and regardless of whether they are purchased together or added later.
-                  Plans that include AI voice handling (Retell AI Outbound Call or Inbound AI Call Handling, whether purchased in the Elite tier or a la carte) are additionally charged a one-time AI voice configuration fee of $200 CAD, covering call flow design, knowledge base build, and live call testing, which are non-templated and specific to each Client. This fee is likewise charged once per Client account: a Client who already runs AI voice is not charged again when adding a further voice scenario, and a Client who adds AI voice after signup pays only the configuration fee, not a second setup fee.                  There are no recurring setup or configuration costs. Both fees are non-refundable once onboarding has begun, including if you later cancel the Service or request a refund. Current Automations reserves the right to waive or reduce either fee at its sole discretion, for example as part of a promotional offer.
+                  Plans that include AI voice handling (Retell AI Outbound Call or Inbound AI Call Handling, whether purchased in the Elite tier or a la carte) are additionally charged a one-time AI voice configuration fee of $200 CAD, covering call flow design, knowledge base build, and live call testing, which are non-templated and specific to each Client. This fee is likewise charged once per Client account: a Client who already runs AI voice is not charged again when adding a further voice scenario, and a Client who adds AI voice after signup pays only the configuration fee, not a second setup fee.
+                  Where Receptionist Mode (clause 3.7) is purchased, the AI voice configuration fee is $450 CAD rather than $200 CAD, reflecting the deeper per-Client build that mode requires. A Client already running AI voice who upgrades to Receptionist Mode is charged only the $250 CAD difference, not a second configuration fee.
+                  There are no recurring setup or configuration costs. Both fees are non-refundable once onboarding has begun, including if you later cancel the Service or request a refund. Current Automations reserves the right to waive or reduce either fee at its sole discretion, for example as part of a promotional offer.
                   Current Automations will begin setup upon receipt of a completed intake form and signed Letter of Authorization.
                   Target go-live time is 2 to 3 business days from receipt of all required information. This timeline is an estimate only and is subject to carrier processing times and completeness of information provided by the Client.
                 </p>
@@ -213,13 +215,19 @@ export default function TermsPage() {
                 <p>
                   3.6 AI Call Minutes: Plans that include AI voice handling (Retell AI Outbound Call and Inbound AI Call Handling, whether purchased in the Elite tier or a la carte)
                   include a pooled allowance of AI call minutes per billing month, shared across the Client&apos;s account regardless of how many AI voice scenarios are active.
-                  The allowance is 450 minutes for AI voice scenarios purchased a la carte and 600 minutes for the Elite tier.
+                  The allowance is 450 minutes for AI voice scenarios purchased a la carte, 600 minutes for the Elite tier, and 1,500 minutes where Receptionist Mode is active (clause 3.7).
                   Current Automations holds and pays for the underlying AI voice platform account; the Client is not
                   required to open or pay for a separate account with any voice provider.
                   Usage above the allowance is billed in arrears at $0.35 CAD per minute, on the next monthly invoice.
                   Unused minutes do not carry over between billing months. Minutes are measured by the underlying voice platform&apos;s connected-call duration, and those records are the
                   reference used to calculate any overage. Current Automations will notify the Client by email before invoicing any overage above $50 CAD in a single month, and may
                   adjust the allowance or per-minute rate on the same 30 days written notice required for price changes under clause 3.3.
+                </p>
+                <p>
+                  3.7 Receptionist Mode: Receptionist Mode is an optional add-on billed at $350 CAD per month on top of the Client&apos;s existing plan. It requires at least one active AI voice scenario and cannot be purchased on its own.
+                  While active, it raises the pooled AI call minute allowance under clause 3.6 to 1,500 minutes per billing month, and includes System Anomaly Alert monitoring at no additional charge. A Client already paying for System Anomaly Alert separately should contact {siteContacts.billing} to have that charge removed.
+                  Receptionist Mode includes call failover: where the AI voice agent fails to answer within the configured timeout, the call is forwarded to a telephone number nominated by the Client at onboarding. The Client is responsible for providing and maintaining a working failover number, and for notifying Current Automations of any change to it.
+                  Receptionist Mode does not alter clause 2.3. Current Automations does not guarantee that the AI voice agent will answer, understand, or correctly handle every call, and the Client remains responsible for its own call handling obligations.
                 </p>
               </JobSheetLegalClause>
 
