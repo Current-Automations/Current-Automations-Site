@@ -29,7 +29,7 @@ Owner-operated trades and local service businesses broadly (not narrowed to the 
   - Primary CTA target: Google Calendar booking link (see `site/CLAUDE.md` CTA convention), button label stays **"Book Free Audit"**.
   - Demo line: **+1 365 601 7474** (missed-call automation demo, calls go to voicemail, triggers a text within 60s).
   - Business phone: **+1 (365) 513-7474**.
-  - Pricing tiers (Starter $197, Pro $297, Growth $397, Elite $597/mo) and **$150 CAD one-time setup fee**. Exact numbers and Stripe `priceId`s must match `data/siteContent.ts` / `app/pricing/page.tsx`, don't invent new prices.
+  - Pricing tiers (Starter $197, Pro $297, Growth $397, Elite $597/mo) and Stripe `priceId`s must match `app/pricing/page.tsx`, don't invent new prices. **All one-time fees, AI voice minute allowances, and the overage rate live in `data/pricing.ts` and are the single source of truth.** Read them from there rather than restating them here, which is what let the old flat "$150 setup fee" line in this brief go stale.
   - Contact inboxes (`data/siteContent.ts` → `siteContacts`), never hardcode emails.
   - Legal page **copy** (privacy/terms) is fixed content, a redesign pass isn't rewriting privacy/terms text, just how it's presented if that page is touched at all (it's out of scope this round, see Pages below).
 

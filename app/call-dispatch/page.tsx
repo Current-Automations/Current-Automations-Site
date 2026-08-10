@@ -451,7 +451,7 @@ export default function CallDispatchPage() {
         </div>
 
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
-          The systems in this lane start at $49/month plus a $150 one-time setup.{" "}
+          The systems in this lane start at $49/month plus a $150 one-time setup. AI voice adds a separate $200 one-time configuration fee.{" "}
           <Link href="/pricing#tiers" className="font-medium text-[var(--color-brand-strong)] hover:underline">
             See full pricing &#8594;
           </Link>

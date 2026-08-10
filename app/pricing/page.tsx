@@ -23,9 +23,9 @@ const pricingFaqItems: FAQItem[] = [
       "All monthly plans run month-to-month with no long-term contract required. You can cancel at any time.",
   },
   {
-    question: "What is the $150 setup fee for?",
+    question: "What is the setup fee for?",
     answer:
-      "The one-time setup fee covers full build and configuration of your automations, onboarding, and initial testing. There are no recurring setup costs.",
+      "A one-time $150 CAD fee covers full build and configuration of your automations, onboarding, and initial testing. It is charged once per account, so adding scenarios later does not trigger it again. Plans that include AI voice (Retell AI Outbound Call or Inbound AI Call Handling, in Elite or a la carte) add a separate one-time $200 CAD voice configuration fee, because the call flow, knowledge base, and live testing are built for you rather than templated. If you add AI voice later, you pay only the $200. There are no recurring setup costs either way.",
   },
   {
     question: "How long does it take to go live?",
@@ -164,10 +164,10 @@ const scenarioGroups: ScenarioGroup[] = [
   },
   {
     label: "Premium AI Voice",
-    description: "A real voice answers, books, and logs the call",
+    description: "A real voice picks up what your team cannot get to, books it, and logs the call",
     scenarios: [
-      { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE", hasCallMinutes: true },
-      { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4", hasCallMinutes: true },
+      { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE" },
+      { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4" },
     ],
   },
 ];

@@ -3,6 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
+import {
+  AI_VOICE_OVERAGE_RATE,
+  SETUP_FEE,
+  VOICE_CONFIG_FEE,
+  includesAiVoice,
+  voiceMinutesFor,
+} from "@/data/pricing";
 
 const BOOK_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
@@ -11,7 +18,6 @@ export type CartScenario = {
   name: string;
   price: number;
   priceId: string;
-  hasCallMinutes?: boolean;
 };
 
 type Props = {
@@ -20,6 +26,7 @@ type Props = {
 
 export default function CartSelector({ scenarios }: Props) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,15 +46,22 @@ export default function CartSelector({ scenarios }: Props) {
     .filter((s) => selected.has(s.priceId))
     .reduce((sum, s) => sum + s.price, 0);
 
+  const hasVoiceScenario = includesAiVoice(selected);
+  const voiceMinutes = voiceMinutesFor(selected);
+
   async function handleCheckout() {
     if (selected.size === 0) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Enter a valid email to continue.");
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceIds: [...selected], hasSetupFee: true }),
+        body: JSON.stringify({ priceIds: [...selected], email }),
       });
       const data = (await res.json()) as { url?: string; error?: string };
       if (!res.ok || !data.url) throw new Error(data.error ?? "Unexpected error");
@@ -88,11 +102,6 @@ export default function CartSelector({ scenarios }: Props) {
                   <p className="text-sm font-medium leading-5 text-[#181510]">
                     {scenario.name}
                   </p>
-                  {scenario.hasCallMinutes && (
-                    <span className="text-xs italic text-[#58524a]">
-                      Includes 300 AI call minutes a month, $0.35/min after
-                    </span>
-                  )}
                 </div>
               </div>
               <span className={`${jobsheet.mono} ml-4 shrink-0 text-sm font-semibold text-[#181510]`}>
@@ -111,8 +120,36 @@ export default function CartSelector({ scenarios }: Props) {
           </span>
         </div>
         <p className="mt-1 text-xs text-[#58524a]">
-          + one-time $150 CAD setup fee added at checkout
+          + one-time ${SETUP_FEE} CAD setup fee added at checkout
         </p>
+        {hasVoiceScenario && (
+          <p className="mt-1 text-xs text-[#58524a]">
+            + one-time ${VOICE_CONFIG_FEE} CAD AI voice configuration fee
+          </p>
+        )}
+        {voiceMinutes !== null && (
+          <div className="mt-3 rounded border border-[#a8452f]/40 bg-[#a8452f]/5 px-3 py-2">
+            <p className="text-xs font-medium text-[#a8452f]">
+              Includes {voiceMinutes} AI call minutes per month, pooled across your account
+            </p>
+            <p className="mt-1 text-xs text-[#58524a]">
+              Minutes are shared no matter how many voice scenarios you run. Past{" "}
+              {voiceMinutes} minutes, calls bill at ${AI_VOICE_OVERAGE_RATE.toFixed(2)} CAD/min on
+              your next invoice. The separate configuration fee covers Retell setup (call flow,
+              knowledge base, live testing), which is custom work per client rather than templated
+              like the other automations.
+            </p>
+          </div>
+        )}
+
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@company.com"
+          disabled={loading}
+          className="mt-4 w-full rounded border border-[#a39a86] bg-white px-3 py-2 text-sm text-[#181510] disabled:cursor-not-allowed disabled:opacity-60"
+        />
 
         {error && <p className="mt-3 text-xs text-[#a8452f]">{error}</p>}
 
