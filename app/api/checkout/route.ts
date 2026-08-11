@@ -153,9 +153,55 @@ export async function POST(request: Request) {
       );
     }
 
+    const chargeSetupFee = !isExistingClient;
+
+    // Configuration is billed as a difference, never a repeat. A second voice
+    // scenario owes nothing, and upgrading overflow voice to Receptionist Mode
+    // owes the $250 gap rather than the full $450.
+    const configFeeOwed = voiceConfigFeeFor([...(priceIds as string[]), ...existingPriceIds]);
+    const configFeeAlreadyPaid = voiceConfigFeeFor(existingPriceIds);
+    const voiceConfigFeeCents = Math.max(0, configFeeOwed - configFeeAlreadyPaid) * 100;
+    const chargeVoiceConfigFee = voiceConfigFeeCents > 0;
+
+    // One-time fees ride in line_items alongside the recurring prices. Checkout in
+    // subscription mode puts any non-recurring line item on the first invoice only.
+    // subscription_data.add_invoice_items is rejected outright by the current API
+    // version, which is what broke every buy button once the key was finally set.
+    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = billablePriceIds.map(
+      (priceId) => ({ price: priceId, quantity: 1 })
+    );
+
+    if (chargeSetupFee) {
+      const setupFeePrice = await stripe.prices.retrieve(SETUP_FEE_PRICE_ID);
+      const setupFeeProduct =
+        typeof setupFeePrice.product === "string" ? setupFeePrice.product : setupFeePrice.product.id;
+
+      lineItems.push({
+        price_data: {
+          currency: "cad",
+          product: setupFeeProduct,
+          unit_amount: SETUP_FEE_CENTS,
+          tax_behavior: "exclusive",
+        },
+        quantity: 1,
+      });
+    }
+
+    if (chargeVoiceConfigFee) {
+      lineItems.push({
+        price_data: {
+          currency: "cad",
+          product: VOICE_CONFIG_PRODUCT_ID,
+          unit_amount: voiceConfigFeeCents,
+          tax_behavior: "exclusive",
+        },
+        quantity: 1,
+      });
+    }
+
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
       mode: "subscription",
-      line_items: billablePriceIds.map((priceId) => ({ price: priceId, quantity: 1 })),
+      line_items: lineItems,
       success_url: `${BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${BASE_URL}/pricing`,
       // Stripe Tax needs an address to pick a jurisdiction, so the billing address
@@ -172,54 +218,6 @@ export async function POST(request: Request) {
       sessionParams.customer_update = { address: "auto" };
     } else if (customerEmail) {
       sessionParams.customer_email = customerEmail;
-    }
-
-    const chargeSetupFee = !isExistingClient;
-
-    // Configuration is billed as a difference, never a repeat. A second voice
-    // scenario owes nothing, and upgrading overflow voice to Receptionist Mode
-    // owes the $250 gap rather than the full $450.
-    const configFeeOwed = voiceConfigFeeFor([...(priceIds as string[]), ...existingPriceIds]);
-    const configFeeAlreadyPaid = voiceConfigFeeFor(existingPriceIds);
-    const voiceConfigFeeCents = Math.max(0, configFeeOwed - configFeeAlreadyPaid) * 100;
-    const chargeVoiceConfigFee = voiceConfigFeeCents > 0;
-
-    if (chargeSetupFee || chargeVoiceConfigFee) {
-      const setupFeePrice = await stripe.prices.retrieve(SETUP_FEE_PRICE_ID);
-      const setupFeeProduct =
-        typeof setupFeePrice.product === "string" ? setupFeePrice.product : setupFeePrice.product.id;
-
-      const invoiceItems: { price_data: Record<string, unknown>; quantity: number }[] = [];
-
-      if (chargeSetupFee) {
-        invoiceItems.push({
-          price_data: {
-            currency: "cad",
-            product: setupFeeProduct,
-            unit_amount: SETUP_FEE_CENTS,
-            tax_behavior: "exclusive",
-          },
-          quantity: 1,
-        });
-      }
-
-      if (chargeVoiceConfigFee) {
-        invoiceItems.push({
-          price_data: {
-            currency: "cad",
-            product: VOICE_CONFIG_PRODUCT_ID,
-            unit_amount: voiceConfigFeeCents,
-            tax_behavior: "exclusive",
-          },
-          quantity: 1,
-        });
-      }
-
-      // Cast required: add_invoice_items is a valid Stripe Checkout API parameter but is
-      // absent from SessionCreateParams.SubscriptionData in stripe-node v21 types.
-      sessionParams.subscription_data = {
-        add_invoice_items: invoiceItems,
-      } as unknown as Stripe.Checkout.SessionCreateParams.SubscriptionData;
     }
 
     const session = await stripe.checkout.sessions.create(sessionParams);
