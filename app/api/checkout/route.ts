@@ -53,6 +53,19 @@ function getStripe() {
 }
 
 export async function POST(request: Request) {
+  // Without this the Stripe constructor throws a generic authenticator error and
+  // every buy button on the site reports "something went wrong", which says
+  // nothing about the actual cause being an unset environment variable.
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error(
+      "[checkout] STRIPE_SECRET_KEY is not set in this environment. Checkout cannot work until it is added to the Vercel project (Production scope) and the project is redeployed."
+    );
+    return NextResponse.json(
+      { error: "Checkout is not configured. Please book a call and we will take it from there." },
+      { status: 503 }
+    );
+  }
+
   const stripe = getStripe();
   try {
     const body = await request.json();

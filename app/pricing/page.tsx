@@ -332,7 +332,7 @@ export default function PricingPage() {
 
         <div className="mt-8 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.02)] p-6 sm:p-8">
           <span className={`${jobsheet.mono} text-xs uppercase tracking-wider text-[#a8452f]`}>
-            Upgrade, sold by conversation
+            Upgrade, available on request
           </span>
           <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[#181510]">
             Receptionist Mode, +${RECEPTIONIST_MODE_PRICE}/mo
@@ -354,9 +354,9 @@ export default function PricingPage() {
           <p className="mt-4 text-base leading-8 text-[#58524a]">
             One-time configuration is ${VOICE_CONFIG_FEE_RECEPTIONIST} instead of $
             {VOICE_CONFIG_FEE}, and if you already run AI voice with us you pay only the $
-            {VOICE_CONFIG_FEE_RECEPTIONIST - VOICE_CONFIG_FEE} difference. We do not sell this at
-            first checkout, because handing over the phone is a decision worth making after you have
-            watched the thing work.
+            {VOICE_CONFIG_FEE_RECEPTIONIST - VOICE_CONFIG_FEE} difference. This upgrade is not
+            offered at first checkout, because handing over the phone is a decision worth making
+            after you have watched the thing work.
           </p>
           <div className="mt-6">
             <PunchButton href={BOOK_URL} label="Book a Call" variant="ghost" />

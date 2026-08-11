@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import BuyNowButton from "@/components/BuyNowButton";
 import Reveal from "@/components/Reveal";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
+import PunchButton from "@/components/jobsheet/PunchButton";
 import {
   AI_VOICE_OVERAGE_RATE,
   FAILOVER_TIMEOUT_SECONDS,
   RECEPTIONIST_MODE_PRICE,
-  RECEPTIONIST_MODE_PRICE_ID,
   VOICE_CONFIG_FEE,
   VOICE_CONFIG_FEE_RECEPTIONIST,
   VOICE_MINUTES_A_LA_CARTE,
   VOICE_MINUTES_RECEPTIONIST,
 } from "@/data/pricing";
+
+const BOOK_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 // Deliberately unlinked from the nav, the footer and every sitemap surface.
 // Receptionist Mode is sold in a conversation with a client who already runs
@@ -74,12 +76,12 @@ export default function ReceptionistModePage() {
               {VOICE_CONFIG_FEE_RECEPTIONIST - VOICE_CONFIG_FEE}.
             </p>
             <div className="mt-6">
-              <BuyNowButton priceId={RECEPTIONIST_MODE_PRICE_ID} label="Upgrade to Receptionist Mode" />
+              <PunchButton href={BOOK_URL} label="Talk to Us About Upgrading" />
             </div>
             <p className="mt-4 text-xs leading-5 text-[#58524a]">
-              Use the same email as your existing account so your plan and paid fees are
-              recognized. Receptionist Mode cannot be bought on its own, it needs an AI voice
-              scenario already running.
+              We set this up with you rather than through a checkout page, so the credit for what
+              you have already paid is applied correctly and your failover number is captured
+              before the agent goes live.
             </p>
           </div>
         }
