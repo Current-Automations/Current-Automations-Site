@@ -35,8 +35,6 @@ Lint also walks `public/` and `.claude/worktrees/`, so a bare `npm run lint` rep
 
 ## Architecture
 
-**Stack:** Next.js 16.2.1 App Router · TypeScript · React 19 · Tailwind CSS v4 · Stripe Checkout
-
 **Fonts are two systems.** `app/layout.tsx` loads Manrope + Fraunces for global chrome (Navbar, Footer, StickyCTA) and exposes them as `--font-manrope` / `--font-fraunces`, consumed in `app/globals.css`. The Job Sheet system loads Barlow, Barlow Condensed and IBM Plex Mono in `components/jobsheet/fonts.ts`, applied by wrapping a page in `jobsheetFonts`. Both are live; do not remove either assuming it is dead.
 
 `app/layout.tsx` wraps every page with `<Navbar>`, `<main>`, and `<Footer>`. It also holds the global `metadata` object (title template `"%s | Current Automations"`). Pages that need a title bypassing the template use `title: { absolute: "..." }`.
