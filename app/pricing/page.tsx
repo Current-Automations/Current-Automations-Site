@@ -26,34 +26,33 @@ const BOOK_URL =
 
 const guaranteeTerms = [
   {
-    label: "The bar",
-    heading: "One reply. That is it.",
-    body: "A single text back from someone the system messaged, inside 7 days of the missed call or form fill that triggered it. One is enough to clear the bar, so if the phones are ringing at all, we expect to clear it easily.",
-  },
-  {
-    label: "The refund",
+    label: "The promise",
     heading: "Your whole first month back.",
-    body: "The full monthly subscription fee, refunded. The $150 setup fee stays, because that work is already done and yours to keep. And the system keeps running while we fix whatever went wrong.",
+    body: "Thirty days in, if nobody ever texted you back, the system did not do its job and you should not be paying for it. The full monthly fee is refunded. The setup fee stays, because that build is finished and it is yours either way.",
   },
   {
     label: "The proof",
     heading: "You can check it yourself.",
-    body: "Every message we send and every reply that comes back lands in a shared lead sheet you have access to from day one, timestamped. Neither of us has to take the other's word for it.",
+    body: "Every message we send and every reply that comes back lands in a shared lead sheet, timestamped, that you have access to from day one. Neither of us has to take the other's word for how the month went.",
+  },
+  {
+    label: "The boundary",
+    heading: "Replies, not booked jobs.",
+    body: "We keep the lead alive and warm so it is still there when you call back. Closing it is your job, and we are not going to pretend otherwise by promising you work we do not control.",
   },
 ];
 
 const guaranteeExclusions = [
-  "Booked jobs. We keep the lead alive and warm. Closing it is still your job.",
-  "AI voice of any kind, including Elite and Receptionist Mode. Voice is priced separately and excluded here.",
-  "Opt-outs. A STOP or UNSUBSCRIBE reply does not count as a reply, and neither does a number you mark as wrong or spam.",
+  "AI voice of any kind, including Elite and Receptionist Mode. Voice is priced and configured separately.",
+  "Opt-outs. Somebody replying STOP is not somebody getting back to you, and neither is a number you flag as wrong or spam.",
   "Months where the service was paused, disabled, or pointed at a line that takes no calls.",
 ];
 
 const pricingFaqItems: FAQItem[] = [
   {
-    question: "What is the first month reply guarantee?",
+    question: "What is the first month guarantee?",
     answer:
-      "If you sign up for Starter and 30 days pass with nobody ever texting you back, we refund your first monthly subscription fee in full. One qualifying reply clears it: any inbound text from a number the system messaged, received within 7 days of the missed call or form submission that triggered it. Opt-outs like STOP do not count, and neither does a number you mark as a wrong number or spam. The shared lead sheet is the record either of us checks, so nothing rests on memory. The setup fee is not refunded, AI voice is not covered, and we are only offering this to our first three clients. Full wording is clause 2.4.1 of the terms.",
+      "If you sign up for Starter and 30 days pass without a single person getting back to you, we refund your first monthly subscription fee in full. What counts is a reply: any inbound text from a number the system messaged, received within 7 days of the missed call or form submission that triggered it. Opt-outs like STOP are not replies, and neither is a number you flag as wrong or spam. Everything sent and everything received sits in a shared lead sheet you can see from day one, so a claim is settled by reading it rather than by either of us remembering. The setup fee is not refunded, since that build is done and yours to keep, and AI voice is not covered. Full wording is clause 2.4.1 of the terms.",
   },
   {
     question: "Is there a contract or minimum commitment?",
@@ -353,9 +352,9 @@ export default function PricingPage() {
       <JobSheetSection
         id="guarantee"
         code="CA-P4"
-        label="Launch guarantee"
-        title="One reply in your first 30 days, or the month is free."
-        description="New offer, and we are only extending it to our first three clients. If the Starter plan runs for 30 days and nobody ever texts you back, we refund your first month in full. The system stays on while we fix it."
+        label="First month guarantee"
+        title="If it doesn't work in your first month, you don't pay for the month."
+        description="Every Starter client gets this. Run it for 30 days, and if nobody ever gets back to you, we refund the month in full and keep the system running while we work out why. We would rather carry that risk ourselves than ask you to take our word for it."
         tone="ink"
       >
         <div className="grid gap-px overflow-hidden rounded border-2 border-dashed border-white/20 sm:grid-cols-3">
@@ -383,14 +382,15 @@ export default function PricingPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
-            Written down, not just said out loud. The full wording is clause 2.4.1 of our{" "}
+            Written down, not just said out loud. Exactly what counts, exactly what does not, and how a
+            claim gets made are all set out in clause 2.4.1 of our{" "}
             <a
               href="/terms#clause-02"
               className="underline decoration-[rgba(243,237,225,0.4)] underline-offset-4 hover:text-[#f3ede1]"
             >
               terms of service
             </a>
-            , including how a claim gets made.
+            . Read it before you sign anything, not after.
           </p>
         </div>
       </JobSheetSection>
