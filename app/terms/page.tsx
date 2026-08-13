@@ -95,13 +95,14 @@ export default function TermsPage() {
                     Cancel anytime with 5 business days notice before your next billing date. A one-time $150 CAD setup fee applies at signup, plus a one-time $200 CAD AI voice configuration fee on plans that include AI voice, or $450 CAD with Receptionist Mode (all non-refundable once onboarding begins; may be waived or reduced at our discretion).
                   </li>
                   <li className="list-disc">
-                    No Refunds Once Charged: Monthly fees are non-refundable. If you cancel mid-month you keep access until the period ends.
+                    No Refunds Once Charged: Monthly fees are non-refundable, with one exception. If we offered you the First Month Reply Guarantee in writing, your first month is refundable on the terms in clause 2.4.1. If you cancel mid-month you keep access until the period ends.
                   </li>
                   <li className="list-disc">
                     No Guarantee of Results: The system helps you respond faster to missed calls. Whether that converts to bookings and revenue depends entirely on your own operations and follow-through.
+                    The one thing we will put in writing is a reply. Where we have offered you the First Month Reply Guarantee, if not a single person texts you back in your first 30 days, that month is on us. It covers text and automation plans, not AI voice, and clause 2.4.1 spells out exactly how it is counted and settled.
                   </li>
                   <li className="list-disc">
-                    AI Is Not Perfect: Transcriptions and urgency tags can have errors. You are responsible for reviewing all outputs and making your own business decisions.
+                    AI Is Not Perfect: Transcriptions and urgency tags can have errors. Where your plan includes AI voice handling, the assistant can also get something wrong when speaking to a caller. It is built to refuse rather than guess, and to hand anything it was not given to a human callback, but it is not infallible. You are responsible for reviewing all outputs and for the accuracy of the business facts you give us to work from.
                   </li>
                   <li className="list-disc">
                     Your Number Stays Yours: We port your number into our system so automation works seamlessly. When you leave, we initiate the return port within 5 business days of your written request.
@@ -182,8 +183,25 @@ export default function TermsPage() {
                   Current Automations makes no guarantee that the Service will capture every missed call, deliver every SMS, or accurately transcribe every voicemail.
                 </p>
                 <p>
+                  2.3.1 AI Voice Accuracy and Scope of Statements: Where a plan includes AI voice handling, the assistant is configured to answer only from the business information the Client supplies, and to decline rather than speculate on anything outside it.
+                  It is instructed not to quote prices, commit to arrival times or job durations, state warranty or guarantee terms, assert licensing, insurance or certification, give code, legal or compliance opinions, confirm services or service areas it was not given, or state accepted payment methods. Where a caller asks any of these, the assistant takes a callback rather than answering.
+                  The assistant cannot transfer a live call and will not represent that it is doing so.
+                  The Client is responsible for the accuracy and currency of the business information provided, including hours, service area, services offered, and any fees, and for notifying Current Automations when those facts change.
+                  Current Automations does not warrant that the assistant will never state something inaccurate, and the Client remains responsible for its own communications with its customers.
+                </p>
+                <p>
                   2.4 No Guarantee of Results: Current Automations does not guarantee any specific business outcomes, revenue increases, booking volume, lead conversion rates, or return on investment from use of the Service.
                   Business results depend entirely on the Client&apos;s own operations, responsiveness, and follow-through.
+                  Clause 2.4 is subject to one exception, set out in clause 2.4.1, and to no others.
+                </p>
+                <p>
+                  2.4.1 First Month Reply Guarantee, where offered: This guarantee applies only where Current Automations has expressly offered it to the Client in writing at or before signup. Where it applies, and notwithstanding clause 2.4 and clause 4.2, if the Client receives no qualifying reply during the first 30 days of active service, Current Automations will refund the Client&apos;s first monthly subscription fee in full.
+                  A qualifying reply is any inbound text message from a number the Service texted, received within 7 days of the missed call or form submission that triggered the outbound message. Opt-out messages such as STOP or UNSUBSCRIBE do not count as a reply. Neither does any message the Client marks as a wrong number or spam in the shared lead record described below.
+                  The shared lead record is the record of truth for this guarantee. Current Automations maintains a lead sheet for the Client and the Client has access to it for the duration of the Service. Every captured lead carries an Outcome value in that sheet, updated automatically when a reply arrives, and a claim under this clause is settled by reading that column. The Client is responsible for keeping its own wrong-number and spam markings current, since those exclusions depend on them.
+                  What is refunded: the first monthly subscription fee only. The one-time setup fee and any AI voice configuration fee remain non-refundable under clause 2.2.
+                  What is not covered: AI voice handling of any kind, whether in the Elite tier, purchased a la carte, or with Receptionist Mode under clause 3.7. AI call minutes are consumed as the month runs and cannot be returned. This guarantee covers text and automation service only.
+                  Conditions: the Service must have remained active and enabled for the full 30 days, and the Client must have supplied a working telephone number and not diverted, disabled, or otherwise prevented the Service from sending its messages. A refund under this clause is claimed by emailing {siteContacts.billing} within 14 days of the end of the first 30 day period.
+                  A refund under this clause does not cancel the Service. The subscription continues month to month until the Client cancels under clause 4.1, and clause 2.4 applies in full to every month after the first.
                 </p>
                 <p>
                   2.5 No Professional Advice: The Service, including any AI-generated transcriptions, urgency summaries, or automated message content, does not constitute legal, financial, medical, or any other form of professional advice.
@@ -237,11 +255,12 @@ export default function TermsPage() {
                   Cancellation requests must be received at least 5 business days before the next billing date.
                 </p>
                 <p>
-                  4.2 No Refunds on Monthly Fees: All monthly subscription fees are non-refundable once charged. No pro-rated refunds for partial months.
+                  4.2 No Refunds on Monthly Fees: All monthly subscription fees are non-refundable once charged, except as provided in clause 4.3. No pro-rated refunds for partial months.
                 </p>
                 <p>
                   4.3 Refund Exceptions: Refunds considered only if the Service was never activated due to a verified error on our part, or if a billing error resulted in a duplicate or incorrect charge.
                   Requests must be submitted within 7 days.
+                  In addition, where the First Month Reply Guarantee has been expressly offered to the Client in writing, the Client&apos;s first monthly subscription fee is refundable on the terms and within the deadline set out in clause 2.4.1. That clause governs the guarantee in full, including what counts as a reply, what is excluded, and the conditions that apply.
                 </p>
                 <p>
                   4.4 Cancellation by Current Automations: We reserve the right to suspend or terminate accounts for non-payment after a 7-day grace period, breach of these Terms, violation of applicable law including CASL or PIPEDA, misuse spam harassment or fraud, or abusive behaviour toward staff.
