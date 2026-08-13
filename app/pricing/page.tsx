@@ -24,7 +24,37 @@ import {
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
+const guaranteeTerms = [
+  {
+    label: "The bar",
+    heading: "One reply. That is it.",
+    body: "A single text back from someone the system messaged, inside 7 days of the missed call or form fill that triggered it. One is enough to clear the bar, so if the phones are ringing at all, we expect to clear it easily.",
+  },
+  {
+    label: "The refund",
+    heading: "Your whole first month back.",
+    body: "The full monthly subscription fee, refunded. The $150 setup fee stays, because that work is already done and yours to keep. And the system keeps running while we fix whatever went wrong.",
+  },
+  {
+    label: "The proof",
+    heading: "You can check it yourself.",
+    body: "Every message we send and every reply that comes back lands in a shared lead sheet you have access to from day one, timestamped. Neither of us has to take the other's word for it.",
+  },
+];
+
+const guaranteeExclusions = [
+  "Booked jobs. We keep the lead alive and warm. Closing it is still your job.",
+  "AI voice of any kind, including Elite and Receptionist Mode. Voice is priced separately and excluded here.",
+  "Opt-outs. A STOP or UNSUBSCRIBE reply does not count as a reply, and neither does a number you mark as wrong or spam.",
+  "Months where the service was paused, disabled, or pointed at a line that takes no calls.",
+];
+
 const pricingFaqItems: FAQItem[] = [
+  {
+    question: "What is the first month reply guarantee?",
+    answer:
+      "If you sign up for Starter and 30 days pass with nobody ever texting you back, we refund your first monthly subscription fee in full. One qualifying reply clears it: any inbound text from a number the system messaged, received within 7 days of the missed call or form submission that triggered it. Opt-outs like STOP do not count, and neither does a number you mark as a wrong number or spam. The shared lead sheet is the record either of us checks, so nothing rests on memory. The setup fee is not refunded, AI voice is not covered, and we are only offering this to our first three clients. Full wording is clause 2.4.1 of the terms.",
+  },
   {
     question: "Is there a contract or minimum commitment?",
     answer:
@@ -321,8 +351,53 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
-        id="a-la-carte"
+        id="guarantee"
         code="CA-P4"
+        label="Launch guarantee"
+        title="One reply in your first 30 days, or the month is free."
+        description="New offer, and we are only extending it to our first three clients. If the Starter plan runs for 30 days and nobody ever texts you back, we refund your first month in full. The system stays on while we fix it."
+        tone="ink"
+      >
+        <div className="grid gap-px overflow-hidden rounded border-2 border-dashed border-white/20 sm:grid-cols-3">
+          {guaranteeTerms.map((item) => (
+            <div key={item.heading} className="bg-white/[0.04] p-6 sm:p-7">
+              <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]`}>
+                {item.label}
+              </span>
+              <h3 className="mt-3 text-xl font-semibold tracking-tight text-[#f3ede1]">{item.heading}</h3>
+              <p className="mt-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">{item.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded border-2 border-dashed border-white/20 bg-white/[0.04] p-6 sm:p-8">
+          <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.2em] text-[rgba(243,237,225,0.5)]`}>
+            What it does not cover
+          </span>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {guaranteeExclusions.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
+                <span className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[rgba(243,237,225,0.35)]" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
+            Written down, not just said out loud. The full wording is clause 2.4.1 of our{" "}
+            <a
+              href="/terms#clause-02"
+              className="underline decoration-[rgba(243,237,225,0.4)] underline-offset-4 hover:text-[#f3ede1]"
+            >
+              terms of service
+            </a>
+            , including how a claim gets made.
+          </p>
+        </div>
+      </JobSheetSection>
+
+      <JobSheetSection
+        id="a-la-carte"
+        code="CA-P5"
         label="A la carte"
         title="Just need one fix? Pick a single workflow."
         description="Each scenario runs independently and can be added to any tier. Start with the one problem that hurts most; bundles save money once you are running three or more."
@@ -365,7 +440,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
-        code="CA-P5"
+        code="CA-P6"
         label="Why teams choose this"
         title="Why service businesses choose Current Automations."
         description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."
@@ -401,7 +476,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
-        code="CA-P6"
+        code="CA-P7"
         label="Selling to other businesses?"
         title="Lead generation is priced separately."
         description="Everything above is built for trades and service businesses. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
@@ -417,7 +492,7 @@ export default function PricingPage() {
 
       <JobSheetFAQ
         items={pricingFaqItems}
-        code="CA-P7"
+        code="CA-P8"
         label="Frequently Asked Questions"
         title="Common questions about pricing and contracts."
         description="Straightforward answers to what most owners want to know before committing."
@@ -425,7 +500,7 @@ export default function PricingPage() {
       />
 
       <JobSheetCTA
-        code="CA-P8"
+        code="CA-P9"
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
