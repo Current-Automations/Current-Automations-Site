@@ -28,7 +28,7 @@ const guaranteeTerms = [
   {
     label: "The promise",
     heading: "Your whole first month back.",
-    body: "Thirty days in, if nobody ever texted you back, the system did not do its job and you should not be paying for it. The full monthly fee is refunded. The setup fee stays, because that build is finished and it is yours either way.",
+    body: "Thirty days in, if it isn't working, you shouldn't be paying for it. The full monthly fee is refunded. The setup fee stays, because that build is finished and it is yours either way.",
   },
   {
     label: "The proof",
@@ -52,7 +52,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the first month guarantee?",
     answer:
-      "If you sign up for Starter and 30 days pass without a single person getting back to you, we refund your first monthly subscription fee in full. Opt-outs like STOP don't count as someone getting back to you, and neither does a number you flag as wrong or spam. Everything sent and everything received sits in a shared lead sheet you can see from day one, so a claim is settled by reading it rather than by either of us remembering. The setup fee is not refunded, since that build is done and yours to keep, and AI voice is not covered. Full wording is clause 2.4.1 of the terms.",
+      "If you sign up for Starter and it isn't working after 30 days, we refund your first monthly subscription fee in full. Everything sent and everything received sits in a shared lead sheet you can see from day one, so a claim is settled by reading it rather than by either of us remembering. The setup fee is not refunded, since that build is done and yours to keep, and AI voice is not covered. Full wording is clause 2.4.1 of the terms.",
   },
   {
     question: "Is there a contract or minimum commitment?",
@@ -354,7 +354,7 @@ export default function PricingPage() {
         code="CA-P4"
         label="First month guarantee"
         title="If it doesn't work in your first month, you don't pay for the month."
-        description="Every Starter client gets this. Run it for 30 days, and if nobody ever gets back to you, we refund the month in full and keep the system running while we work out why. We would rather carry that risk ourselves than ask you to take our word for it."
+        description="Every Starter client gets this. Run it for 30 days, and if it isn't working, we refund the month in full and keep the system running while we work out why. We would rather carry that risk ourselves than ask you to take our word for it."
         tone="ink"
       >
         <div className="grid gap-px overflow-hidden rounded border-2 border-dashed border-white/20 sm:grid-cols-3">
