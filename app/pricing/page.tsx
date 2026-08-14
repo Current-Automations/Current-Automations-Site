@@ -52,7 +52,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the first month guarantee?",
     answer:
-      "If you sign up for Starter and 30 days pass without a single person getting back to you, we refund your first monthly subscription fee in full. What counts is a reply: any inbound text from a number the system messaged, received within 7 days of the missed call or form submission that triggered it. Opt-outs like STOP are not replies, and neither is a number you flag as wrong or spam. Everything sent and everything received sits in a shared lead sheet you can see from day one, so a claim is settled by reading it rather than by either of us remembering. The setup fee is not refunded, since that build is done and yours to keep, and AI voice is not covered. Full wording is clause 2.4.1 of the terms.",
+      "If you sign up for Starter and 30 days pass without a single person getting back to you, we refund your first monthly subscription fee in full. Opt-outs like STOP don't count as someone getting back to you, and neither does a number you flag as wrong or spam. Everything sent and everything received sits in a shared lead sheet you can see from day one, so a claim is settled by reading it rather than by either of us remembering. The setup fee is not refunded, since that build is done and yours to keep, and AI voice is not covered. Full wording is clause 2.4.1 of the terms.",
   },
   {
     question: "Is there a contract or minimum commitment?",
