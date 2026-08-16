@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Current Automations - LinkedIn Icon 500x500</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  :root {
+    --navy:  #07111d;
+    --teal:  #4fd0ad;
+    --blue:  #2a90d6;
+  }
+
+  html, body {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .stage {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 560px 560px at 50% 50%, rgba(79,208,173,0.14) 0%, transparent 62%),
+      linear-gradient(135deg, var(--navy) 0%, #0b1929 55%, #091521 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  .icon-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79,208,173,0.30) 0%, rgba(42,144,214,0.10) 45%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon-glow2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79,208,173,0.22) 0%, transparent 65%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon {
+    width: 410px;
+    height: 410px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter:
+      drop-shadow(0 0 36px rgba(79,208,173,0.45))
+      drop-shadow(0 0 14px rgba(42,144,214,0.30));
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="grain"></div>
+  <div class="icon-glow"></div>
+  <div class="icon-glow2"></div>
+  <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+</div>
+
+</body>
+</html>
