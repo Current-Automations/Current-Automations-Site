@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     absolute: "About | Current Automations",
   },
   description:
-    "Current Automations finds where trades and service businesses leak revenue, then builds and maintains the systems that fix it. Based in Ontario. Every engagement starts with a free audit.",
+    "Current Automations finds where trades and service businesses leak revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free audit.",
 };
 
 const fileFacts = [
@@ -24,7 +24,7 @@ const fileFacts = [
   { label: "Based in", value: "Ontario, Canada" },
   { label: "Serves", value: "Durham Region + GTA, remote across Ontario" },
   { label: "First step", value: "Free 30-minute audit" },
-  { label: "Typical go-live", value: "Within 48 hours" },
+  { label: "Go-live", value: "Within 48 hours of your approval" },
 ];
 
 const leakRows = [
@@ -49,17 +49,17 @@ const workOrderRows = [
   {
     code: "01",
     title: "Audit",
-    body: "A free 30-minute conversation about how your business actually runs. We find where the biggest opportunities are and recommend the one system with the most immediate impact. No generic recommendations, no upsell pressure.",
+    body: "A free 30-minute conversation about how your business actually runs. I find where the biggest opportunities are and recommend the one system with the most immediate impact. No generic recommendations, no upsell pressure.",
   },
   {
     code: "02",
     title: "Build",
-    body: "We install it, configure it, and tune it until it sounds like you. Full build and testing on our end. There is no technical work on yours.",
+    body: "I install it, configure it, and tune it until it sounds like you. Full build and testing on my end. There is no technical work on yours.",
   },
   {
     code: "03",
     title: "Maintain",
-    body: "Every system we build stays maintained on our side. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
+    body: "Every system I build stays maintained on my side. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
   },
 ];
 
@@ -72,12 +72,12 @@ export default function AboutPage() {
         kicker="Who you're dealing with"
         title={
           <>
-            We find where your business is losing money.
+            I find where your business is losing money.
             <br />
-            Then we fix it.
+            Then I fix it.
           </>
         }
-        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for trades and service businesses across Ontario. Every engagement starts with a free audit that finds your highest-impact fix, and we build from there."
+        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for trades and service businesses across Ontario. It starts with a free audit that finds your highest-impact fix, and I build from there."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -109,7 +109,7 @@ export default function AboutPage() {
       <JobSheetSection
         code="AB-02"
         label="Where the money leaks"
-        title="Almost every audit finds the same three leaks."
+        title="Three leaks, and almost every service business has all three."
         description="Different trades, same paperwork. The details change but the places revenue quietly disappears do not."
         tone="carbon"
       >
@@ -133,7 +133,7 @@ export default function AboutPage() {
         code="AB-03"
         label="How every job runs"
         title="One work order. Audit, build, maintain."
-        description="We do not sell software and leave you to figure it out. Every engagement follows the same three lines, and we stay on the file after go-live."
+        description="I do not sell software and leave you to figure it out. Every job follows the same three lines, and I stay on the file after go-live."
         tone="ink"
       >
         <Reveal>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       <JobSheetSection
         code="AB-04"
         label="The guy behind it"
-        title="One founder. One point of contact."
+        title="You deal with the person who built it."
         description="No account managers, no ticket queue. The person who builds your system is the person who answers when something needs adjusting."
         tone="paper"
       >
@@ -205,12 +205,11 @@ export default function AboutPage() {
                 <p className={`${jobsheet.mono} mt-4 text-xs leading-6 text-[var(--color-brand-strong)]`}>
                   One-on-one with the owner, every time
                 </p>
-                <p className={`${jobsheet.mono} mt-4 border-t border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-xs leading-6 text-[#58524a]`}>
-                  B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
-                </p>
-                <p className={`${jobsheet.mono} mt-2 text-xs leading-6 text-[#58524a]`}>
-                  AI Automation Society
-                </p>
+                <div className={`${jobsheet.mono} mt-4 border-t border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-[0.8rem] font-medium leading-7 text-[#3a352c]`}>
+                  <p>B.Eng. Chemical Engineering &amp; Computer Technology, University of Ottawa</p>
+                  <p className="mt-1">AI &amp; Machine Learning, Florida International University</p>
+                  <p className={`${jobsheet.mono} mt-2 text-xs leading-6 text-[#58524a]`}>AI Automation Society, Member</p>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -218,10 +217,10 @@ export default function AboutPage() {
           <Reveal delay={110}>
             <TicketCard refCode="STORY" className="h-full">
               <p className="text-base leading-8 text-[#3a352c]">
-                I started Current Automations after seeing how often good trades and service businesses were leaking revenue to unanswered phones, forgotten follow&#8209;ups, and manual admin work. With a background in industrial operations and applied AI, I build practical systems that answer every lead, follow up reliably, and keep owners out of the inbox.
+                You get the person who built your system, not a support queue. When you call about it, I already know how it&apos;s put together.
               </p>
               <p className="mt-6 text-base leading-8 text-[#3a352c]">
-                My approach is hands&#8209;on: we map your real&#8209;world workflow, pick the highest&#8209;impact problem, then build and maintain the automation around it. No buzzwords, no clunky dashboards, just lean systems that pay for themselves in saved time and recovered jobs.
+                I&apos;ve worked in plants and on construction sites. Plants had fires to fight and I fought plenty, but the repetitive work ran itself. On the job sites nothing did, and I spent half my time chasing subs for paperwork they&apos;d already filled out and never sent. Closing that gap is the whole job.
               </p>
             </TicketCard>
           </Reveal>
@@ -249,6 +248,9 @@ export default function AboutPage() {
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
                 Every system I build is maintained on my side. If something needs adjusting, you reach out and it gets handled. As your business changes, I review performance with you, spot new bottlenecks, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
+              </p>
+              <p className="text-base leading-8 text-[#3a352c]">
+                None of that asks you to take my word for it. You approve the setup in writing before it touches your real line, billing is month to month so you are never locked in, and the system itself runs on the same carrier infrastructure the big providers run on. It answers your calls at two in the morning whether I am awake or not.
               </p>
               <p className="border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-5 text-base font-semibold leading-8 text-[#181510]">
                 The relationship is ongoing, not a one-time transaction.
