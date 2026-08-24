@@ -24,7 +24,7 @@ const BOOK_URL =
 export const metadata: Metadata = {
   title: { absolute: "Receptionist Mode | Current Automations" },
   description:
-    "Upgrade your AI voice from overflow cover to a full front desk: 1,000 pooled minutes, a deeper agent build, and hard failover to a real number.",
+    "Upgrade your AI voice from overflow cover to a full front desk: 750 pooled minutes, a deeper agent build, and hard failover to a real number.",
   robots: { index: false, follow: false },
 };
 
@@ -91,7 +91,7 @@ export default function ReceptionistModePage() {
       <JobSheetSection
         code="RM-02"
         label="What changes"
-        title="What you actually get for the extra $350."
+        title={`What you actually get for the extra $${RECEPTIONIST_MODE_PRICE}.`}
         description="Four things, and the reason each one exists."
         tone="carbon"
       >

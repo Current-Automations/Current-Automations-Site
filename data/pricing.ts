@@ -30,12 +30,12 @@ export const VOICE_COST_CAD_PER_MIN = 0.172;
 
 export const VOICE_MINUTES_A_LA_CARTE = 450;
 export const VOICE_MINUTES_ELITE = 600;
-export const VOICE_MINUTES_RECEPTIONIST = 1000;
+export const VOICE_MINUTES_RECEPTIONIST = 750;
 
 // Receptionist Mode: sold by conversation as an upgrade, not offered at first
 // checkout. The AI is positioned as overflow behind a human; taking over the
 // front desk is a later decision once the client trusts it.
-export const RECEPTIONIST_MODE_PRICE = 350;
+export const RECEPTIONIST_MODE_PRICE = 250;
 export const RECEPTIONIST_MODE_PRICE_ID = "price_1U30zLFbHh7D2pR6AXpkiDVu";
 
 // Seconds the AI has to answer before the call forwards to the client's
@@ -96,13 +96,18 @@ export function voiceConfigFeeFor(priceIds: Iterable<string>): number {
   return hasVoice ? VOICE_CONFIG_FEE : 0;
 }
 
-// Receptionist Mode bundles 1000 minutes into a $350 add-on, which prices the pool at
-// exactly the overage rate. No arbitrage either way, and both margins land on the same
-// number. The LLM is a dropdown in Retell and swings the cost basis by more than 2x
-// across the model list, so a model change is the way this goes underwater. Nothing else
-// in the codebase notices, so fail the build rather than discover it on an invoice.
+// Receptionist Mode bundles 750 minutes into a $250 add-on, so the pool prices at $0.333
+// a minute against a $0.35 overage rate. Buying the pool is very slightly cheaper than
+// running over it, which is the direction that arbitrage should point. The LLM is a
+// dropdown in Retell and swings the cost basis by more than 2x across the model list, so
+// a model change is the way this goes underwater. Nothing else in the codebase notices,
+// so fail the build rather than discover it on an invoice.
 //
-// The bundle was 1500 minutes until 2026-08-23, which left 26.3% and sat under this floor.
+// History, all figures measuring the add-on alone rather than the full client stack:
+// 1500 min at $350 left 26.3% and sat under this floor. 1000 min at $350 was 50.9%.
+// Cut to 750 at $250 on 2026-08-23 to bring the Receptionist entry price under $400,
+// since the a la carte voice scenario underneath it makes the real sticker $399, and
+// the pool ladder has to stay above Elite's 600 minutes to read as an upgrade.
 const MARGIN_FLOOR = 0.45;
 
 const RECEPTIONIST_MARGIN =

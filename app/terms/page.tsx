@@ -233,7 +233,7 @@ export default function TermsPage() {
                 <p>
                   3.6 AI Call Minutes: Plans that include AI voice handling (Retell AI Outbound Call and Inbound AI Call Handling, whether purchased in the Elite tier or a la carte)
                   include a pooled allowance of AI call minutes per billing month, shared across the Client&apos;s account regardless of how many AI voice scenarios are active.
-                  The allowance is 450 minutes for AI voice scenarios purchased a la carte, 600 minutes for the Elite tier, and 1,000 minutes where Receptionist Mode is active (clause 3.7).
+                  The allowance is 450 minutes for AI voice scenarios purchased a la carte, 600 minutes for the Elite tier, and 750 minutes where Receptionist Mode is active (clause 3.7).
                   Current Automations holds and pays for the underlying AI voice platform account; the Client is not
                   required to open or pay for a separate account with any voice provider.
                   Usage above the allowance is billed in arrears at $0.35 CAD per minute, on the next monthly invoice.
@@ -242,8 +242,8 @@ export default function TermsPage() {
                   adjust the allowance or per-minute rate on the same 30 days written notice required for price changes under clause 3.3.
                 </p>
                 <p>
-                  3.7 Receptionist Mode: Receptionist Mode is an optional add-on billed at $350 CAD per month on top of the Client&apos;s existing plan. It requires at least one active AI voice scenario and cannot be purchased on its own.
-                  While active, it raises the pooled AI call minute allowance under clause 3.6 to 1,000 minutes per billing month, and includes System Anomaly Alert monitoring at no additional charge. A Client already paying for System Anomaly Alert separately should contact {siteContacts.billing} to have that charge removed.
+                  3.7 Receptionist Mode: Receptionist Mode is an optional add-on billed at $250 CAD per month on top of the Client&apos;s existing plan. It requires at least one active AI voice scenario and cannot be purchased on its own.
+                  While active, it raises the pooled AI call minute allowance under clause 3.6 to 750 minutes per billing month, and includes System Anomaly Alert monitoring at no additional charge. A Client already paying for System Anomaly Alert separately should contact {siteContacts.billing} to have that charge removed.
                   Receptionist Mode includes call failover: where the AI voice agent fails to answer within the configured timeout, the call is forwarded to a telephone number nominated by the Client at onboarding. The Client is responsible for providing and maintaining a working failover number, and for notifying Current Automations of any change to it.
                   Receptionist Mode does not alter clause 2.3. Current Automations does not guarantee that the AI voice agent will answer, understand, or correctly handle every call, and the Client remains responsible for its own call handling obligations.
                 </p>
