@@ -15,12 +15,22 @@ export const VOICE_CONFIG_FEE_RECEPTIONIST = 450;
 export const SETUP_FEE_CENTS = SETUP_FEE * 100;
 
 // Charged only on minutes past the monthly pool, billed in arrears.
-// Cost basis is roughly $0.18 CAD/min all-in (Retell voice + TTS + LLM + Twilio).
 export const AI_VOICE_OVERAGE_RATE = 0.35;
+
+// The LLM is a dropdown in Retell, and its price swings the cost basis by more than
+// 2x across the model list. This constant is the only thing tying the number below to
+// the model actually configured in ops/retell-agents/*.json. Change one, change both.
+export const VOICE_MODEL = "gpt-4.1";
+
+// Retell voice infra 0.055 + TTS 0.015 + knowledge base 0.005 + LLM 0.045, plus Twilio
+// Canada SIP origination 0.0045. USD 0.1245 at 1.38. Verified against both price sheets
+// 2026-08-21; the previous 0.18 figure was written before the model list was checked and
+// held only for the cheap end of it.
+export const VOICE_COST_CAD_PER_MIN = 0.172;
 
 export const VOICE_MINUTES_A_LA_CARTE = 450;
 export const VOICE_MINUTES_ELITE = 600;
-export const VOICE_MINUTES_RECEPTIONIST = 1500;
+export const VOICE_MINUTES_RECEPTIONIST = 1000;
 
 // Receptionist Mode: sold by conversation as an upgrade, not offered at first
 // checkout. The AI is positioned as overflow behind a human; taking over the
@@ -84,4 +94,29 @@ export function voiceConfigFeeFor(priceIds: Iterable<string>): number {
     if (AI_VOICE_PRICE_IDS.has(id)) hasVoice = true;
   }
   return hasVoice ? VOICE_CONFIG_FEE : 0;
+}
+
+// Receptionist Mode bundles 1000 minutes into a $350 add-on, which prices the pool at
+// exactly the overage rate. No arbitrage either way, and both margins land on the same
+// number. The LLM is a dropdown in Retell and swings the cost basis by more than 2x
+// across the model list, so a model change is the way this goes underwater. Nothing else
+// in the codebase notices, so fail the build rather than discover it on an invoice.
+//
+// The bundle was 1500 minutes until 2026-08-23, which left 26.3% and sat under this floor.
+const MARGIN_FLOOR = 0.45;
+
+const RECEPTIONIST_MARGIN =
+  1 - (VOICE_MINUTES_RECEPTIONIST * VOICE_COST_CAD_PER_MIN) / RECEPTIONIST_MODE_PRICE;
+const OVERAGE_MARGIN = 1 - VOICE_COST_CAD_PER_MIN / AI_VOICE_OVERAGE_RATE;
+
+if (RECEPTIONIST_MARGIN < MARGIN_FLOOR) {
+  throw new Error(
+    `Receptionist Mode margin is ${(RECEPTIONIST_MARGIN * 100).toFixed(1)}% on ${VOICE_MODEL}, below the ${MARGIN_FLOOR * 100}% floor. Raise RECEPTIONIST_MODE_PRICE, cut VOICE_MINUTES_RECEPTIONIST, or pick a cheaper model.`,
+  );
+}
+
+if (OVERAGE_MARGIN < MARGIN_FLOOR) {
+  throw new Error(
+    `AI voice overage margin is ${(OVERAGE_MARGIN * 100).toFixed(1)}% on ${VOICE_MODEL}, below the ${MARGIN_FLOOR * 100}% floor. Raise AI_VOICE_OVERAGE_RATE or pick a cheaper model.`,
+  );
 }

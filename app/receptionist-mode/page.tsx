@@ -24,7 +24,7 @@ const BOOK_URL =
 export const metadata: Metadata = {
   title: { absolute: "Receptionist Mode | Current Automations" },
   description:
-    "Upgrade your AI voice from overflow cover to a full front desk: 1,500 pooled minutes, a deeper agent build, and hard failover to a real number.",
+    "Upgrade your AI voice from overflow cover to a full front desk: 1,000 pooled minutes, a deeper agent build, and hard failover to a real number.",
   robots: { index: false, follow: false },
 };
 
