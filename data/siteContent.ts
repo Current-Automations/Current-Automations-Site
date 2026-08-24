@@ -13,6 +13,15 @@ export const siteContact = {
     "You can email or call directly and most inquiries receive a reply within 1 business day.",
 };
 
+// The public demo line, deliberately separate from the business line (513) and the sales
+// line (661). Swapping it is a routine op: buy the number, point it at the demo Studio Flow,
+// rebind the Retell agent, then change these two values. Nothing else on the site knows the
+// digits, so there is no seventh reference to forget.
+export const demoLine = {
+  display: "1 365 601 7474",
+  href: "tel:+13656017474",
+};
+
 export const siteContacts = {
   general: "info@currentautomations.ca",
   support: "support@currentautomations.ca",
