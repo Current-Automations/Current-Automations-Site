@@ -37,7 +37,7 @@ Trustworthy, direct, quietly confident. Industrial-tool-brand restraint (Basecam
 - Anything that reads "tech startup" instead of "a guy who fixes a real problem for trades"
 
 ## Design Principles
-- Proof you can dial: the live demo line (1-365-601-7474) is the strongest honest proof; surface it like a product
+- Proof you can dial: the live demo line (1-365-299-3366) is the strongest honest proof; surface it like a product
 - Show the flow, don't claim the outcome: missed call → text in seconds → booked job, made visible
 - One front door: every page funnels to "Book Free Audit"
 - Premium through craft, not noise: depth, rhythm, and typography inside the existing Job Sheet paper/ticket system (`DESIGN.md`); teal stays scarce

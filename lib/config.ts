@@ -1,6 +1,6 @@
 // Business phone numbers
 // Business line (website, GBP, client-facing): +1 (365) 513-7474
-// Demo line (sales demos, prospect testing): +1 (365) 601-7474
+// Demo line (sales demos, prospect testing): +1 (365) 299-3366
 // Outreach line (cold calls, cold SMS - internal only, never client-facing): +1 (365) 661-7474
 //
 // The client-facing business line is exposed through `siteContact` in

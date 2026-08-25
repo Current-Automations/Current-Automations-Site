@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Current Automations - vertical wrapper</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- ============================================================
+     VERTICAL WRAPPER  1080x1920  (9:16, for Reels / Shorts / TikTok)
+
+     Capture target, not a site page. Nothing links here.
+
+     Wraps an existing 1600x900 demo without modifying it: the video is
+     iframed at exactly 1080x608, which is 1600x900 scaled by 0.675, so the
+     demo's own fitStage() lands on k=0.675 and fills the frame with no
+     letterboxing of its own. A hook headline sits above it, readable at
+     frame one, which fixes the buried-hook problem the demos have on their
+     own (their hook lands ~3s in, and a scroll feed gives you about one).
+
+     Usage:  wrap.html?v=video7
+             wrap.html?v=video7&h=Custom%20headline
+             wrap.html?v=video7&tel=1%20365%20555%200000
+
+     Each video has a default headline below, so ?v= alone is enough.
+
+     ---------------------------------------------------------------
+     THE DEMO NUMBER LIVES HERE, AND HERE ONLY IN THIS FILE.
+     One constant, one line. This is a static file in public/ so it cannot
+     import demoLine from data/siteContent.ts. When the number changes,
+     it changes in siteContent.ts AND in DEMO_TEL below. Two places total.
+     Never bake it into a video: that would make it seven re-renders.
+     ---------------------------------------------------------------
+
+     Layout keeps everything clear of Instagram's own UI, which eats roughly
+     the bottom 250px and a strip down the right side.
+     ============================================================ -->
+<style>
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:block;src:url('fonts/barlow-500.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:block;src:url('fonts/barlow-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:block;src:url('fonts/barlow-condensed-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:block;src:url('fonts/barlow-condensed-700.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:block;src:url('fonts/plex-mono-500.woff2') format('woff2')}
+
+:root{
+  --teal:#4fd0ad;
+  --navy:#07111d;
+  --ink:#fff;
+  --muted:rgba(255,255,255,.62);
+  --dim:rgba(255,255,255,.5);
+  --display:'Barlow Condensed',sans-serif;
+  --sans:'Barlow',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden}
+
+/* Scaled to fit whatever window it is opened in, same trick the demos use,
+   so OBS can capture at 1080x1920 or the page can be eyeballed in a browser. */
+#viewport{position:fixed;inset:0;overflow:hidden;background:#000;display:grid;place-items:center}
+#frame{
+  width:1080px;height:1920px;position:absolute;left:50%;top:50%;
+  transform-origin:center center;transform:translate(-50%,-50%) scale(1);
+  background:var(--navy);
+  background-image:radial-gradient(120% 60% at 50% 0%,#0a1726 0%,#07111d 55%,#050c15 100%);
+  overflow:hidden;
+  font-family:var(--sans);color:var(--ink);
+}
+/* Same vignette + scanline treatment as the demos, so the wrapper reads as
+   one piece with the video rather than a border around it. */
+#frame::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:60;
+  background:
+    radial-gradient(120% 90% at 50% 50%,transparent 62%,rgba(0,0,0,.32) 100%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);
+}
+
+/* ---- wordmark, top ---- */
+.sigil{
+  position:absolute;top:78px;left:0;right:0;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  font-family:var(--sans);font-weight:600;font-size:24px;line-height:1;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--dim);z-index:40;
+}
+.sigil .dot{width:12px;height:12px;border-radius:50%;background:var(--teal);box-shadow:0 0 20px var(--teal)}
+
+/* ---- hook headline, above the video ---- */
+.hook{
+  position:absolute;top:190px;left:80px;right:80px;height:380px;
+  display:flex;flex-direction:column;justify-content:center;
+  z-index:30;
+}
+.hook h1{
+  font:700 88px/1.04 var(--display);
+  letter-spacing:-.015em;color:#fff;
+}
+.hook h1 em{font-style:normal;color:var(--teal);text-shadow:0 0 56px rgba(79,208,173,.32)}
+
+/* ---- the demo, 1600x900 scaled 0.675 ---- */
+#stagewrap{
+  position:absolute;top:620px;left:0;width:1080px;height:608px;
+  overflow:hidden;z-index:20;
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+#stagewrap iframe{width:1080px;height:608px;border:0;display:block}
+
+/* ---- CTA, below the video, clear of Instagram's bottom UI ---- */
+.cta{
+  position:absolute;top:1320px;left:80px;right:80px;
+  text-align:center;z-index:30;
+}
+.cta .ask{font:600 46px/1.2 var(--display);color:#fff;letter-spacing:-.01em}
+.cta .tel{
+  margin-top:22px;font-family:var(--mono);font-weight:500;font-size:60px;line-height:1;
+  color:var(--teal);letter-spacing:.02em;text-shadow:0 0 50px rgba(79,208,173,.3);
+}
+.cta .note{margin-top:20px;font:500 28px/1.4 var(--sans);color:var(--muted)}
+.cta .url{
+  margin-top:46px;font-family:var(--mono);font-weight:500;font-size:26px;
+  color:var(--dim);letter-spacing:.08em;
+}
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="frame">
+    <div class="sigil"><span class="dot"></span><span>Current Automations</span></div>
+    <div class="hook"><h1 id="hook"></h1></div>
+    <div id="stagewrap"><iframe id="demo" title="demo" scrolling="no"></iframe></div>
+    <div class="cta">
+      <div class="ask">Want to try it?</div>
+      <div class="tel" id="tel"></div>
+      <div class="note">Call it. Hang up. Watch what happens.</div>
+      <div class="url">currentautomations.ca</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== THE ONE PLACE THE NUMBER LIVES IN THIS FILE ===== */
+const DEMO_TEL = '1 365 299 3366';
+/* ======================================================= */
+
+/* Default hook per video, drawn from each one's own scene 1 so the wrapper
+   and the animation are saying the same thing. Override with ?h= */
+const HOOKS = {
+  video1: 'A missed call<br>becomes a <em>booked job</em>.',
+  video2: 'Every way a lead<br>reaches you.<br><em>Handled.</em>',
+  video3: 'The quote went quiet.<br><em>So you moved on.</em>',
+  video4: 'The invoice went out.<br><em>Nobody chased it.</em>',
+  video5: 'Finding subs who qualify<br><em>takes hours.</em>',
+  video6: 'Your old customer list<br><em>is money.</em>',
+  video7: "It's 9pm.<br>A customer calls.<br><em>You're asleep.</em>"
+};
+
+const q = new URLSearchParams(location.search);
+const v = (q.get('v') || 'video7').replace(/[^a-z0-9]/gi, '');
+
+/* The HOOKS above are ours and carry markup on purpose. Anything arriving in
+   ?h= is a stranger's, and this file is served from the live domain, so a
+   crafted link could otherwise make currentautomations.ca render arbitrary
+   HTML. Escape it, then hand back only the two tags a headline needs. */
+function safeHook(raw){
+  const esc = raw.replace(/[&<>"']/g, c => (
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+  ));
+  return esc
+    .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
+    .replace(/&lt;(\/?)em&gt;/gi, '<$1em>');
+}
+
+const override = q.get('h');
+document.getElementById('hook').innerHTML =
+  override ? safeHook(override) : (HOOKS[v] || '');
+document.getElementById('tel').textContent = q.get('tel') || DEMO_TEL;
+
+const demo = document.getElementById('demo');
+demo.src = v + '.html';
+
+/* Two things in the demo are correct on the site and wrong inside a wrapper:
+   the playbar, and its own .sigil wordmark, which would sit directly under the
+   wrapper's wordmark and read as a duplicate. Same origin, so strip both once
+   the iframe is up. Wrapped in try/catch: if it ever fails the capture still
+   works, it just carries a faint pill and a second wordmark. */
+demo.addEventListener('load', () => {
+  try {
+    const d = demo.contentDocument;
+    const s = d.createElement('style');
+    s.textContent = '#playbar,.sigil{display:none!important}';
+    d.head.appendChild(s);
+  } catch (e) {
+    console.warn('wrapper could not strip demo chrome:', e);
+  }
+});
+
+/* Fit 1080x1920 into the window, so this is viewable in a normal browser and
+   capturable at full size in OBS. */
+function fit(){
+  const k = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+  document.getElementById('frame').style.transform =
+    'translate(-50%,-50%) scale(' + k + ')';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

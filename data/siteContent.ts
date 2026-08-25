@@ -18,8 +18,8 @@ export const siteContact = {
 // rebind the Retell agent, then change these two values. Nothing else on the site knows the
 // digits, so there is no seventh reference to forget.
 export const demoLine = {
-  display: "1 365 601 7474",
-  href: "tel:+13656017474",
+  display: "1 365 299 3366",
+  href: "tel:+13652993366",
 };
 
 export const siteContacts = {

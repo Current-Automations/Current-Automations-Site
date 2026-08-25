@@ -12,6 +12,7 @@ import DispatchLog from "@/components/jobsheet/DispatchLog";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
+import { demoLine } from "@/data/siteContent";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -174,8 +175,8 @@ export default function CallDispatchPage() {
         </div>
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
           Want to feel it yourself? Call the live demo line:{" "}
-          <a href="tel:+13656017474" className="font-medium text-[var(--color-brand-strong)] hover:underline">
-            1 365 601 7474
+          <a href={demoLine.href} className="font-medium text-[var(--color-brand-strong)] hover:underline">
+            {demoLine.display}
           </a>
           . Let it ring out and watch your phone.
         </p>
@@ -462,7 +463,7 @@ export default function CallDispatchPage() {
         code="CD-07"
         label="Hear it yourself"
         title="Call the demo line, then book your free audit."
-        description="The demo line is live at 1 365 601 7474. Let it ring out and the text you get back is the product. When you're ready, the audit finds where your calls are leaking."
+        description={`The demo line is live at ${demoLine.display}. Let it ring out and the text you get back is the product. When you're ready, the audit finds where your calls are leaking.`}
         primaryHref={BOOK_URL}
         primaryLabel="Book Free Audit"
         secondaryHref="/demo"

@@ -10,7 +10,7 @@ import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
-import { caseStudies, faqItems } from "@/data/siteContent";
+import { caseStudies, faqItems, demoLine } from "@/data/siteContent";
 
 const CAL_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -154,11 +154,11 @@ export default function Home() {
                   <Stamp label="Live demo line" tone="teal" />
                 </div>
                 <a
-                  href="tel:+13656017474"
+                  href={demoLine.href}
                   className={`${jobsheet.mono} block text-[clamp(2rem,4vw,2.8rem)] font-semibold text-[#181510] transition-colors hover:text-[var(--color-brand-strong)]`}
-                  aria-label="Call the demo line at 1 365 601 7474"
+                  aria-label={`Call the demo line at ${demoLine.display}`}
                 >
-                  1 365 601 7474
+                  {demoLine.display}
                 </a>
                 <p className="mt-2 text-xs text-[#58524a]">Tap to call on mobile</p>
                 <p className="mt-4 text-base leading-8 text-[#58524a]">

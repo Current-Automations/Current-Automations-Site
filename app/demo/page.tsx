@@ -6,6 +6,7 @@ import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
+import { demoLine } from "@/data/siteContent";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const testSteps = [
-  { time: "0:00", label: "Call +1 365 601 7474" },
+  { time: "0:00", label: `Call +${demoLine.display}` },
   { time: "0:00", label: "Say something if you want, or just let it ring" },
   { time: "~0:30", label: "A text lands on the number you called from" },
   { time: "any time", label: "Reply and the qualifying questions start" },
@@ -44,15 +45,15 @@ export default function DemoPage() {
             </div>
             <div className="px-6 py-7 text-center">
               <a
-                href="tel:+13656017474"
+                href={demoLine.href}
                 className={`${jobsheet.mono} block text-[clamp(1.7rem,4vw,2.3rem)] font-semibold text-[#181510] transition-colors hover:text-[var(--color-brand-strong)]`}
-                aria-label="Call the demo line at 1 365 601 7474"
+                aria-label={`Call the demo line at ${demoLine.display}`}
               >
-                +1 365 601 7474
+                +{demoLine.display}
               </a>
               <p className="mt-1.5 text-xs text-[#58524a]">Tap to call on mobile</p>
               <div className="mt-6 flex flex-col gap-3">
-                <PunchButton href="tel:+13656017474" label="Call Now" />
+                <PunchButton href={demoLine.href} label="Call Now" />
                 <PunchButton href={BOOK_URL} label="Book Free Audit" variant="ghost" external />
               </div>
             </div>
