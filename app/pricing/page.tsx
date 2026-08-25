@@ -14,6 +14,8 @@ import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
 import {
   AI_VOICE_OVERAGE_RATE,
+  ELITE_TIER_PRICE,
+  VOICE_SCENARIO_PRICE,
   FAILOVER_TIMEOUT_SECONDS,
   RECEPTIONIST_MODE_PRICE,
   VOICE_CONFIG_FEE,
@@ -103,7 +105,7 @@ const tiers: Tier[] = [
     name: "Starter",
     price: 197,
     tagline: "For solo operators who just want to stop losing leads",
-    savings: 30,
+    savings: 29,
     scenarios: [
       "T01 Missed Call Text Back",
       "T02 Web Form Speed to Lead",
@@ -117,7 +119,7 @@ const tiers: Tier[] = [
     name: "Pro",
     price: 297,
     tagline: "For growing shops actively working leads and following up",
-    savings: 68,
+    savings: 146,
     badge: "Most popular",
     scenarios: [
       "Everything in Starter, plus:",
@@ -132,7 +134,7 @@ const tiers: Tier[] = [
     name: "Growth",
     price: 397,
     tagline: "For established contractors who want the full revenue recovery system",
-    savings: 107,
+    savings: 392,
     scenarios: [
       "Everything in Pro, plus:",
       "T09 No Show and Cancellation Recovery",
@@ -145,9 +147,9 @@ const tiers: Tier[] = [
   {
     id: "elite",
     name: "Elite",
-    price: 597,
+    price: ELITE_TIER_PRICE,
     tagline: "For contractors who want a fully autonomous front office with AI voice",
-    savings: 149,
+    savings: 580,
     scenarios: [
       "Everything in Growth, plus:",
       "T04 Retell AI Outbound Call",
@@ -203,8 +205,8 @@ const scenarioGroups: ScenarioGroup[] = [
     label: "Premium AI Voice",
     description: "A real voice picks up what your team cannot get to, books it, and logs the call",
     scenarios: [
-      { code: "T04", name: "Retell AI Outbound Call", price: 149, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE" },
-      { code: "T05", name: "Inbound AI Call Handling", price: 149, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4" },
+      { code: "T04", name: "Retell AI Outbound Call", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE" },
+      { code: "T05", name: "Inbound AI Call Handling", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4" },
     ],
   },
 ];

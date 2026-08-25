@@ -14,8 +14,11 @@ export const VOICE_CONFIG_FEE_RECEPTIONIST = 450;
 
 export const SETUP_FEE_CENTS = SETUP_FEE * 100;
 
-// Charged only on minutes past the monthly pool, billed in arrears.
-export const AI_VOICE_OVERAGE_RATE = 0.35;
+// Charged only on minutes past the monthly pool, billed in arrears. This rate has to
+// sit ABOVE what the Receptionist Mode uplift charges per minute, or a client does the
+// arithmetic, finds that running over the pool is cheaper than upgrading, and the
+// upgrade never sells. At 0.35 the uplift was the worse deal and the ladder was broken.
+export const AI_VOICE_OVERAGE_RATE = 0.45;
 
 // The LLM is a dropdown in Retell, and its price swings the cost basis by more than
 // 2x across the model list. This constant is the only thing tying the number below to
@@ -28,9 +31,19 @@ export const VOICE_MODEL = "gpt-4.1";
 // held only for the cheap end of it.
 export const VOICE_COST_CAD_PER_MIN = 0.172;
 
+// One pool for every plan that carries AI voice, whether that is a single a la carte
+// scenario or the Elite tier. Elite used to carry its own 600, which meant the top tier
+// pooled fewer minutes than a cheaper Receptionist configuration and read as the worst
+// deal on the page. Elite's voice benefit is that it INCLUDES both voice scenarios,
+// worth $338 a la carte, not that it holds a different number here.
 export const VOICE_MINUTES_A_LA_CARTE = 450;
-export const VOICE_MINUTES_ELITE = 600;
-export const VOICE_MINUTES_RECEPTIONIST = 750;
+export const VOICE_MINUTES_RECEPTIONIST = 1150;
+
+// The two prices the margin guard below depends on. They live here rather than only in
+// app/pricing/page.tsx so a price edit cannot silently drift away from the guard that
+// is supposed to be watching it.
+export const VOICE_SCENARIO_PRICE = 169;
+export const ELITE_TIER_PRICE = 547;
 
 // Receptionist Mode: sold by conversation as an upgrade, not offered at first
 // checkout. The AI is positioned as overflow behind a human; taking over the
@@ -72,13 +85,13 @@ export function includesReceptionistMode(priceIds: Iterable<string>): boolean {
 }
 
 // Minutes are pooled per account, not per scenario. Buying both T04 and T05 still
-// draws from one 450 minute pool. Returns null when nothing uses voice.
+// draws from one 450 minute pool, and so does Elite, which carries both. Returns null
+// when nothing uses voice.
 export function voiceMinutesFor(priceIds: Iterable<string>): number | null {
   let minutes: number | null = null;
   for (const id of priceIds) {
     if (id === RECEPTIONIST_MODE_PRICE_ID) return VOICE_MINUTES_RECEPTIONIST;
-    if (id === ELITE_PRICE_ID) minutes = VOICE_MINUTES_ELITE;
-    else if (AI_VOICE_PRICE_IDS.has(id) && minutes === null) minutes = VOICE_MINUTES_A_LA_CARTE;
+    if (AI_VOICE_PRICE_IDS.has(id) && minutes === null) minutes = VOICE_MINUTES_A_LA_CARTE;
   }
   return minutes;
 }
@@ -96,32 +109,80 @@ export function voiceConfigFeeFor(priceIds: Iterable<string>): number {
   return hasVoice ? VOICE_CONFIG_FEE : 0;
 }
 
-// Receptionist Mode bundles 750 minutes into a $250 add-on, so the pool prices at $0.333
-// a minute against a $0.35 overage rate. Buying the pool is very slightly cheaper than
-// running over it, which is the direction that arbitrage should point. The LLM is a
-// dropdown in Retell and swings the cost basis by more than 2x across the model list, so
-// a model change is the way this goes underwater. Nothing else in the codebase notices,
-// so fail the build rather than discover it on an invoice.
+// Voice minutes are effectively the entire cost structure. Everything else the platform
+// runs is rounding error: a non-voice scenario costs about a dollar a month in Make
+// credits and Twilio SMS against a $49 to $99 price, so Starter, Pro and Growth all sit
+// above 94% margin and nothing in this file can move them. Only the voice configurations
+// are worth guarding, and all four are guarded now rather than only Receptionist Mode.
 //
-// History, all figures measuring the add-on alone rather than the full client stack:
-// 1500 min at $350 left 26.3% and sat under this floor. 1000 min at $350 was 50.9%.
-// Cut to 750 at $250 on 2026-08-23 to bring the Receptionist entry price under $400,
-// since the a la carte voice scenario underneath it makes the real sticker $399, and
-// the pool ladder has to stay above Elite's 600 minutes to read as an upgrade.
+// The previous guard divided the whole pool's cost by RECEPTIONIST_MODE_PRICE alone,
+// ignoring the voice scenario clause 3.7 forces underneath it. That understated the
+// margin by about a third and drove the pool down to 750 on 2026-08-23.
+//
+// The LLM is a dropdown in Retell and swings the cost basis by more than 2x across the
+// model list, so a model change is the way this goes underwater. Nothing else in the
+// codebase notices, so fail the build rather than discover it on an invoice.
 const MARGIN_FLOOR = 0.45;
 
-const RECEPTIONIST_MARGIN =
-  1 - (VOICE_MINUTES_RECEPTIONIST * VOICE_COST_CAD_PER_MIN) / RECEPTIONIST_MODE_PRICE;
-const OVERAGE_MARGIN = 1 - VOICE_COST_CAD_PER_MIN / AI_VOICE_OVERAGE_RATE;
+// Non-voice cost to serve per month, CAD, at the volume a mid-sized trades client runs.
+// Derived 2026-08-23 from the Make blueprints (modules per run = credits, at Make Core
+// $10.59 per 10k) and Twilio Canadian long code rates ($0.0083 plus carrier surcharge
+// per outbound segment, $1.15 a month for the number). Rounded up.
+const NON_VOICE_COGS_VOICE_ONLY = 3;
+const NON_VOICE_COGS_FULL_STACK = 21;
 
-if (RECEPTIONIST_MARGIN < MARGIN_FLOOR) {
-  throw new Error(
-    `Receptionist Mode margin is ${(RECEPTIONIST_MARGIN * 100).toFixed(1)}% on ${VOICE_MODEL}, below the ${MARGIN_FLOOR * 100}% floor. Raise RECEPTIONIST_MODE_PRICE, cut VOICE_MINUTES_RECEPTIONIST, or pick a cheaper model.`,
-  );
+const VOICE_CONFIGS = [
+  {
+    name: "AI voice scenario a la carte",
+    revenue: VOICE_SCENARIO_PRICE,
+    minutes: VOICE_MINUTES_A_LA_CARTE,
+    otherCosts: NON_VOICE_COGS_VOICE_ONLY,
+  },
+  {
+    name: "Elite",
+    revenue: ELITE_TIER_PRICE,
+    minutes: VOICE_MINUTES_A_LA_CARTE,
+    otherCosts: NON_VOICE_COGS_FULL_STACK,
+  },
+  {
+    name: "Receptionist Mode on an a la carte scenario",
+    revenue: VOICE_SCENARIO_PRICE + RECEPTIONIST_MODE_PRICE,
+    minutes: VOICE_MINUTES_RECEPTIONIST,
+    otherCosts: NON_VOICE_COGS_VOICE_ONLY,
+  },
+  {
+    name: "Receptionist Mode on Elite",
+    revenue: ELITE_TIER_PRICE + RECEPTIONIST_MODE_PRICE,
+    minutes: VOICE_MINUTES_RECEPTIONIST,
+    otherCosts: NON_VOICE_COGS_FULL_STACK,
+  },
+];
+
+for (const config of VOICE_CONFIGS) {
+  const cost = config.minutes * VOICE_COST_CAD_PER_MIN + config.otherCosts;
+  const margin = 1 - cost / config.revenue;
+  if (margin < MARGIN_FLOOR) {
+    throw new Error(
+      `${config.name} runs at ${(margin * 100).toFixed(1)}% margin on ${VOICE_MODEL} ($${cost.toFixed(2)} to serve $${config.revenue}), below the ${MARGIN_FLOOR * 100}% floor. Raise the price, cut the minute pool, or pick a cheaper model.`,
+    );
+  }
 }
+
+const OVERAGE_MARGIN = 1 - VOICE_COST_CAD_PER_MIN / AI_VOICE_OVERAGE_RATE;
 
 if (OVERAGE_MARGIN < MARGIN_FLOOR) {
   throw new Error(
     `AI voice overage margin is ${(OVERAGE_MARGIN * 100).toFixed(1)}% on ${VOICE_MODEL}, below the ${MARGIN_FLOOR * 100}% floor. Raise AI_VOICE_OVERAGE_RATE or pick a cheaper model.`,
+  );
+}
+
+// Buying the Receptionist uplift has to beat running over the pool, otherwise the
+// upgrade is a worse deal than doing nothing and a client who checks will never take it.
+const UPLIFT_MINUTES = VOICE_MINUTES_RECEPTIONIST - VOICE_MINUTES_A_LA_CARTE;
+const UPLIFT_RATE = RECEPTIONIST_MODE_PRICE / UPLIFT_MINUTES;
+
+if (UPLIFT_RATE >= AI_VOICE_OVERAGE_RATE) {
+  throw new Error(
+    `Receptionist Mode prices its ${UPLIFT_MINUTES} extra minutes at $${UPLIFT_RATE.toFixed(3)}/min, at or above the $${AI_VOICE_OVERAGE_RATE} overage rate. The upgrade would cost a client more than simply running over the pool. Raise AI_VOICE_OVERAGE_RATE, cut RECEPTIONIST_MODE_PRICE, or raise VOICE_MINUTES_RECEPTIONIST.`,
   );
 }
