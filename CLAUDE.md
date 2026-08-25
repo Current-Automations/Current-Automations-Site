@@ -69,6 +69,8 @@ Import `siteContact` for the single-email use case. Import `siteContacts` for th
 
 ### Demo videos
 
+**Building or briefing a new one: see `DEMO-VIDEO-SPEC.md`.** It holds the full house style (stage, palette, keyframe vocabulary, the three-scene skeleton and its exact timings) plus a fill-in-the-blanks scene brief. The rules below are the ones that bite when editing an existing file.
+
 Seven self-contained HTML animations in `public/demos/` (`video1.html` to `video7.html`), embedded through `components/HomeDemoVideo.tsx`. Each is a fixed 1600x900 stage scaled to its container, with fonts served from `public/demos/fonts/` so nothing is fetched at runtime.
 
 Three rules when editing them:
