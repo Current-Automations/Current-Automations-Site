@@ -209,6 +209,12 @@ export async function POST(request: Request) {
       // matching terms 3.4 ("fees are exclusive of applicable taxes").
       automatic_tax: { enabled: true },
       billing_address_collection: "required",
+      // The testimonial offer (setup waived, voice config $50 instead of $200) is a
+      // Stripe coupon restricted by applies_to to the two one-time fee products, not
+      // logic here, so the fee stays undiscountable by a hand-rolled POST and the offer
+      // can be changed or revoked from the dashboard without a deploy. Promotion codes
+      // are private: they do nothing unless the buyer was given the code.
+      allow_promotion_codes: true,
     };
 
     if (existingCustomerId) {
