@@ -8,10 +8,8 @@ import Stamp from "@/components/jobsheet/Stamp";
 import { siteContact, siteContacts } from "@/data/siteContent";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Terms of Service | Current Automations",
-    template: "%s",
-  },
+  alternates: { canonical: "/terms" },
+  title: { absolute: "Terms of Service | Current Automations" },
   description:
     "Terms of Service for Current Automations covering subscriptions, billing, service limitations, and legal obligations.",
 };

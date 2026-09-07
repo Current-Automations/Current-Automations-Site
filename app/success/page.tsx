@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: { absolute: "You Are All Set | Current Automations" },
   description:
     "Your subscription is confirmed. Expect an onboarding email within 24 hours.",
+  // Only reachable with a Stripe session id. Indexing it would surface a
+  // post-checkout confirmation to people who never checked out.
+  robots: { index: false, follow: false },
 };
 
 export default function SuccessPage() {

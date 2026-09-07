@@ -14,6 +14,7 @@ const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/back-office" },
   title: "Back-Office & Admin",
   description:
     "Paperwork handled. Automations for the admin work that eats your evenings, starting with invoice and payment follow-up that chases overdue invoices politely and on schedule.",
