@@ -49,7 +49,7 @@ const tradeLanes = [
   },
 ];
 
-const auditSteps = [
+const walkthroughSteps = [
   {
     number: "01",
     heading: "We ask about your business",
@@ -90,7 +90,7 @@ export default function Home() {
         secondaryHref="/pricing"
         ctaNote={
           <>
-            A free 30-minute audit. No pitch. No obligation.{" "}
+            A free 30-minute walkthrough. No pitch. No obligation.{" "}
             <a
               href="tel:+13655137474"
               className="font-semibold text-[var(--color-brand-strong)] underline-offset-2 hover:underline"
@@ -206,7 +206,7 @@ export default function Home() {
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
           Want to see it with your own call flow?{" "}
           <Link href={CAL_URL} className="font-medium text-[var(--color-brand-strong)] hover:underline" target="_blank" rel="noopener noreferrer">
-            Book a free audit.
+            Book a free walkthrough.
           </Link>{" "}
           Or see the{" "}
           <Link href="/demo" className="font-medium text-[var(--color-brand-strong)] hover:underline">
@@ -216,16 +216,16 @@ export default function Home() {
         </p>
       </JobSheetSection>
 
-      {/* The audit, compressed to a strip */}
+      {/* The walkthrough, compressed to a strip */}
       <JobSheetSection
         code="CA-04"
-        label="The free audit"
+        label="The free walkthrough"
         title="30 minutes. No jargon. You leave knowing where the money leaks."
         description="This is where every engagement starts, and where most owners get the most value, even the ones who never hire us."
         tone="ink"
       >
         <div className="grid gap-px overflow-hidden rounded border-2 border-dashed border-white/20 sm:grid-cols-3">
-          {auditSteps.map((step) => (
+          {walkthroughSteps.map((step) => (
             <div key={step.number} className="bg-white/[0.04] p-6 sm:p-7">
               <span className={`${jobsheet.mono} text-2xl font-semibold text-[var(--color-brand)]`}>
                 {step.number}
@@ -237,7 +237,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <PunchButton href={CAL_URL} label="Book Free Audit" onDark external />
+          <PunchButton href={CAL_URL} label="Book a Free Walkthrough" onDark external />
           <p className="text-sm text-[rgba(243,237,225,0.72)]">A free 30-minute discovery call. No pitch, no obligation.</p>
         </div>
       </JobSheetSection>
@@ -316,10 +316,10 @@ export default function Home() {
       <JobSheetCTA
         code="CA-08"
         label="Not sure where to start?"
-        title="Book a free audit and we will figure it out together."
+        title="Book a free walkthrough and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
         primaryHref={CAL_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

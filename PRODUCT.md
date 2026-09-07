@@ -8,9 +8,9 @@ brand
 Owner-operated trades businesses (plumbing, HVAC, electrical, cleaning, landscaping) in Durham Region + GTA, remote across Ontario. A 45-year-old owner who answers his own phone, is skeptical of tech, and responds to clarity over cleverness. He lands here from cold email or a call and decides in seconds whether this is real or another agency pitch.
 
 ## Product Purpose
-Sell one front-door offer: a free audit that finds where the business leaks revenue (missed calls, slow follow-up, manual admin, intake bottlenecks). The site's job is to get the audit booked. Missed-call recovery is the flagship symptom, not the whole story. Success = "Book Free Audit" clicks and demo-line calls.
+Sell one front-door offer: a free walkthrough that finds where the business leaks revenue (missed calls, slow follow-up, manual admin, intake bottlenecks). The site's job is to get the audit booked. Missed-call recovery is the flagship symptom, not the whole story. Success = "Book a Free Walkthrough" clicks and demo-line calls.
 
-One front door for all four pillars. Lead generation is a different audience on a different pricing track, but its scoping call is the same free 30-minute audit and the same "Book Free Audit" CTA. Do not invent a second booking flow for it.
+One front door for all four pillars. Lead generation is a different audience on a different pricing track, but its scoping call is the same free 30-minute walkthrough and the same "Book a Free Walkthrough" CTA. Do not invent a second booking flow for it.
 
 ## The Four Pillars
 
@@ -39,7 +39,7 @@ Trustworthy, direct, quietly confident. Industrial-tool-brand restraint (Basecam
 ## Design Principles
 - Proof you can dial: the live demo line (1-365-299-3366) is the strongest honest proof; surface it like a product
 - Show the flow, don't claim the outcome: missed call → text in seconds → booked job, made visible
-- One front door: every page funnels to "Book Free Audit"
+- One front door: every page funnels to "Book a Free Walkthrough"
 - Premium through craft, not noise: depth, rhythm, and typography inside the existing Job Sheet paper/ticket system (`DESIGN.md`); teal stays scarce
 - Write for the truck, not the boardroom
 

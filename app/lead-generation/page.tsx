@@ -26,7 +26,7 @@ const specRows = [
   { label: "Deliverable", value: "Verified, enriched contact lists" },
   { label: "Built on", value: "Enterprise data platforms + custom code" },
   { label: "Engagement", value: "Scoped per ICP and volume" },
-  { label: "First step", value: "Free 30-minute audit" },
+  { label: "First step", value: "Free 30-minute walkthrough" },
 ];
 
 const pipelineStages = [
@@ -279,12 +279,12 @@ export default function LeadGenerationPage() {
                 fixed quote before anything is built.
               </p>
               <p className="mt-6 text-base leading-8 text-[#3a352c]">
-                The scoping call is the same free 30-minute audit we run for
+                The scoping call is the same free 30-minute walkthrough we run for
                 every engagement. Bring a description of your ideal customer
                 and we will tell you what the pipeline can do with it.
               </p>
               <div className="mt-8">
-                <PunchButton href={BOOK_URL} label="Book Free Audit" external />
+                <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" external />
               </div>
             </TicketCard>
           </Reveal>
@@ -297,7 +297,7 @@ export default function LeadGenerationPage() {
         title="Tell us who you sell to. We will find them."
         description="A free 30-minute call. You describe the ideal customer, we scope the pipeline, and you get an honest read on whether it fits your market."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/about"
         secondaryLabel="Who You're Dealing With"
       />

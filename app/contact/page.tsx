@@ -150,9 +150,9 @@ export default function ContactPage() {
         code="CN-04"
         label="Not sure where to start?"
         title="Not sure where to start?"
-        description="Book a free 30-minute audit and we will map exactly where your business is losing time and money."
+        description="Book a free 30-minute walkthrough and we will map exactly where your business is losing time and money."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"
       />

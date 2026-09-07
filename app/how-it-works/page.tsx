@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/how-it-works" },
   title: "How It Works",
   description:
-    "From first conversation to running system: how every Current Automations engagement runs. Free audit, we build it for you, we maintain it. No app, no portal, nothing to learn.",
+    "From first conversation to running system: how every Current Automations engagement runs. Free walkthrough, we build it for you, we maintain it. No app, no portal, nothing to learn.",
 };
 
 const steps = [
@@ -93,7 +93,7 @@ export default function HowItWorksPage() {
             to running system.
           </>
         }
-        description="Every engagement starts with a free audit that finds where your business is losing time and money. Then we install it, tune it, and hand you a working system. You don't touch the tech."
+        description="Every engagement starts with a free walkthrough that finds where your business is losing time and money. Then we install it, tune it, and hand you a working system. You don't touch the tech."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -196,9 +196,9 @@ export default function HowItWorksPage() {
         code="HW-04"
         label="Want this with your details?"
         title="Find out where your business is leaving money behind."
-        description="We audit your business, find the highest-impact opportunities, and build the systems that fix them."
+        description="We walk through your business, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

@@ -33,12 +33,12 @@ export const faqItems: FAQItem[] = [
   {
     question: "How do you decide what to automate first?",
     answer:
-      "We start every engagement with a free audit, a 30-minute discovery call where we map exactly where your business is losing time and money. From there, we recommend the one or two systems with the highest impact. Speed to Lead is the most common starting point, but it is not always the first fix.",
+      "We start every engagement with a free walkthrough, a 30-minute call where we map exactly where your business is losing time and money. From there, we recommend the one or two systems with the highest impact. Speed to Lead is the most common starting point, but it is not always the first fix.",
   },
   {
     question: "What if my main problem is not missed calls?",
     answer:
-      "That is exactly why we audit first. Missed calls are common, but some businesses lose more to slow follow-up, manual admin, or intake bottlenecks. We will figure out where your biggest opportunity is during the free audit and build around that.",
+      "That is exactly why we start with a walkthrough. Missed calls are common, but some businesses lose more to slow follow-up, manual admin, or intake bottlenecks. We will figure out where your biggest opportunity is during the free walkthrough and build around that.",
   },
   {
     question: "How long does setup take?",

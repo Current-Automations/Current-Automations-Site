@@ -90,7 +90,7 @@ fit its embed via `transform: scale()`. Shared conventions across all seven:
 
 ## Hard rules (unchanged)
 
-- Primary CTA always "Book Free Audit" → Google Calendar URL (see `CLAUDE.md`), `target="_blank"` + `rel="noopener noreferrer"`
+- Primary CTA always "Book a Free Walkthrough" → Google Calendar URL (see `CLAUDE.md`), `target="_blank"` + `rel="noopener noreferrer"`
 - Phone +1 (365) 513-7474 · Demo line 1-365-299-3366
 - Copy voice: 45-year-old trades owner, concrete, no jargon, "AI" never the lead, no emojis, no em dashes, no fabricated testimonials
 - $7,200 / 18-jobs stat phrased as "one contractor reported", no client name

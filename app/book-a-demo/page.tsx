@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 // not control into search results under our own domain.
 export const metadata: Metadata = {
   title: { absolute: "Book a Demo | Current Automations" },
-  description: "Book a free 30-minute audit with Current Automations.",
+  description: "Book a free 30-minute walkthrough with Current Automations.",
   robots: { index: false, follow: false },
 };
 

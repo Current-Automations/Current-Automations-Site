@@ -80,7 +80,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           >
-            We audit it free, build the system that fixes it, then run it for you.
+            A free walkthrough, then we build the system that fixes it and run it for you.
           </div>
         </div>
 

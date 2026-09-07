@@ -18,7 +18,7 @@ const routes = [
     href: "/how-it-works",
     code: "NF-02",
     label: "How It Works",
-    body: "Free audit, we build it, we maintain it.",
+    body: "Free walkthrough, we build it, we maintain it.",
   },
   {
     href: "/pricing",
@@ -85,7 +85,7 @@ export default function NotFound() {
       >
         <div className="mt-9 flex flex-wrap gap-4">
           <PunchButton href="/" label="Back to Home" />
-          <PunchButton href={BOOK_URL} label="Book Free Audit" variant="ghost" external />
+          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" variant="ghost" external />
         </div>
       </JobSheetPageHero>
 

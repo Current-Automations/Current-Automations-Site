@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     absolute: "About | Current Automations",
   },
   description:
-    "Current Automations finds where a business leaks revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free audit.",
+    "Current Automations finds where a business leaks revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free walkthrough.",
 };
 
 const fileFacts = [
   { label: "Founder", value: "Jarrett Goodwin" },
   { label: "Based in", value: "Ontario, Canada" },
   { label: "Serves", value: "Durham Region + GTA, remote across Ontario" },
-  { label: "First step", value: "Free 30-minute audit" },
+  { label: "First step", value: "Free 30-minute walkthrough" },
   { label: "Go-live", value: "Within 48 hours of your approval" },
 ];
 
@@ -49,7 +49,7 @@ const leakRows = [
 const workOrderRows = [
   {
     code: "01",
-    title: "Audit",
+    title: "Walkthrough",
     body: "A free 30-minute conversation about how your business actually runs. I find where the biggest opportunities are and recommend the one system with the most immediate impact. No generic recommendations, no upsell pressure.",
   },
   {
@@ -78,7 +78,7 @@ export default function AboutPage() {
             Then I fix it.
           </>
         }
-        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free audit that finds your highest-impact fix, and I build from there."
+        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free walkthrough that finds your highest-impact fix, and I build from there."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -106,7 +106,7 @@ export default function AboutPage() {
         }
       />
 
-      {/* Where the money leaks: a ledger, the same three lines on every audit */}
+      {/* Where the money leaks: a ledger, the same three lines on every walkthrough */}
       <JobSheetSection
         code="AB-02"
         label="Where the money leaks"
@@ -133,7 +133,7 @@ export default function AboutPage() {
       <JobSheetSection
         code="AB-03"
         label="How every job runs"
-        title="One work order. Audit, build, maintain."
+        title="One work order. Walkthrough, build, maintain."
         description="I do not sell software and leave you to figure it out. Every job follows the same three lines, and I stay on the file after go-live."
         tone="ink"
       >
@@ -265,9 +265,9 @@ export default function AboutPage() {
         code="AB-06"
         label="Open a file"
         title="Find out where your business is leaving money behind."
-        description="A free 30-minute audit. We find the highest-impact leak, tell you exactly what would fix it, and you decide from there."
+        description="A free 30-minute walkthrough. We find the highest-impact leak, tell you exactly what would fix it, and you decide from there."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

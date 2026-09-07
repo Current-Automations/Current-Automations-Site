@@ -55,7 +55,7 @@ export default function DemoPage() {
               <p className="mt-1.5 text-xs text-[#58524a]">Tap to call on mobile</p>
               <div className="mt-6 flex flex-col gap-3">
                 <PunchButton href={demoLine.href} label="Call Now" />
-                <PunchButton href={BOOK_URL} label="Book Free Audit" variant="ghost" external />
+                <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" variant="ghost" external />
               </div>
             </div>
             <div className="divide-y divide-[rgba(28,36,48,0.1)] border-t-2 border-dashed border-[rgba(28,36,48,0.24)]">
@@ -79,9 +79,9 @@ export default function DemoPage() {
         code="DM-04"
         label="Ready to see your own numbers?"
         title="Want to see this running on your business's own call flow?"
-        description="Book a free audit and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."
+        description="Book a free walkthrough and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

@@ -2,7 +2,7 @@
 
 Marketing website for [currentautomations.ca](https://currentautomations.ca). Current Automations finds where a trades or service business is losing time and money, then builds and runs the automation that fixes it.
 
-The site sells one front door: a free 30-minute audit. Missed-call recovery is the flagship symptom, not the whole offer. See `PRODUCT.md` for positioning and `DESIGN.md` for the visual system.
+The site sells one front door: a free 30-minute walkthrough. Missed-call recovery is the flagship symptom, not the whole offer. See `PRODUCT.md` for positioning and `DESIGN.md` for the visual system.
 
 ## Tech Stack
 

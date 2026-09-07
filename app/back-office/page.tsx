@@ -193,7 +193,7 @@ export default function BackOfficePage() {
           ))}
         </div>
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
-          Need one of these sooner than later? Say so in the audit. Client demand sets the build order.
+          Need one of these sooner than later? Say so in the walkthrough. Client demand sets the build order.
         </p>
       </JobSheetSection>
 
@@ -201,9 +201,9 @@ export default function BackOfficePage() {
         code="BO-05"
         label="Get your evenings back"
         title="Tell us what the desk work costs you."
-        description="A free 30-minute audit. We find the admin job eating the most hours and tell you exactly what automating it would look like."
+        description="A free 30-minute walkthrough. We find the admin job eating the most hours and tell you exactly what automating it would look like."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

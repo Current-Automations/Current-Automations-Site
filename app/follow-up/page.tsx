@@ -206,9 +206,9 @@ export default function FollowUpPage() {
         code="FU-06"
         label="Stop the quiet losses"
         title="Find out which follow-ups you're missing."
-        description="A free 30-minute audit. We look at where your leads and quotes actually go quiet, and tell you which system would recover the most."
+        description="A free 30-minute walkthrough. We look at where your leads and quotes actually go quiet, and tell you which system would recover the most."
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
       />

@@ -273,7 +273,7 @@ export default function CallDispatchPage() {
             Speed to Lead replies in under{" "}
             <span className="text-[var(--color-brand)]">60 seconds</span>, automatically.
           </p>
-          <PunchButton href={BOOK_URL} label="Book Free Audit" onDark external className="shrink-0" />
+          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" onDark external className="shrink-0" />
         </div>
       </JobSheetSection>
 
@@ -463,10 +463,10 @@ export default function CallDispatchPage() {
       <JobSheetCTA
         code="CD-07"
         label="Hear it yourself"
-        title="Call the demo line, then book your free audit."
-        description={`The demo line is live at ${demoLine.display}. Let it ring out and the text you get back is the product. When you're ready, the audit finds where your calls are leaking.`}
+        title="Call the demo line, then book your free walkthrough."
+        description={`The demo line is live at ${demoLine.display}. Let it ring out and the text you get back is the product. When you're ready, the walkthrough finds where your calls are leaking.`}
         primaryHref={BOOK_URL}
-        primaryLabel="Book Free Audit"
+        primaryLabel="Book a Free Walkthrough"
         secondaryHref="/demo"
         secondaryLabel="See the Demo"
       />
