@@ -226,17 +226,6 @@ export default function CallDispatchPage() {
             <p className="mt-8 max-w-md text-base leading-8 text-[rgba(243,237,225,0.72)]">
               MIT and InsideSales research: businesses that responded to inbound leads within five minutes were 21&#215; more likely to qualify them than businesses that waited thirty minutes. 78% of customers buy from the first business that responds.
             </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-[rgba(243,237,225,0.4)]">
-              Source &middot;{" "}
-              <a
-                href="https://resources.rework.com/libraries/lead-management/lead-response-time"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-2 hover:text-[var(--color-brand)] hover:underline"
-              >
-                MIT / InsideSales Lead Response Study &#8599;
-              </a>
-            </p>
           </div>
 
           <TicketCard onDark refCode="LOG-DECAY">

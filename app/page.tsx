@@ -267,7 +267,7 @@ export default function Home() {
         code="CA-06"
         label="Proof it works"
         title="In practice."
-        description="These aren't Current Automations clients yet. They're real examples of the same approach, missed calls and support gaps closed with the right system. We're building the same thing for businesses around here right now."
+        description="Published results from companies that closed the same gaps with the same systems. This is the benchmark for what this work is worth when it runs properly."
         tone="ink"
       >
         <div className="grid gap-6 sm:grid-cols-2">
@@ -294,10 +294,6 @@ export default function Home() {
                     <dd className="mt-1 text-sm font-medium leading-7 text-[#f3ede1]">{item.result}</dd>
                   </div>
                 </dl>
-                <p className="mt-6 border-t border-dashed border-white/15 pt-4 text-xs leading-6 text-[rgba(243,237,225,0.4)]">
-                  Source: {item.source}.{" "}
-                  {!item.isClient ? "Industry example, not a Current Automations client." : null}
-                </p>
               </TicketCard>
             </Reveal>
           ))}

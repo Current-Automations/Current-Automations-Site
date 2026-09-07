@@ -4,6 +4,7 @@ import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetLegalClause from "@/components/jobsheet/JobSheetLegalClause";
+import PunchButton from "@/components/jobsheet/PunchButton";
 import { siteContact, siteContacts } from "@/data/siteContent";
 
 export const metadata: Metadata = {
@@ -450,6 +451,22 @@ export default function PrivacyPage() {
                   </p>
                 </JobSheetLegalClause>
             </div>
+          </div>
+
+          <div className={`${jobsheet.ticket} mt-10 flex flex-col gap-6 p-7 sm:p-9 lg:flex-row lg:items-center lg:justify-between`}>
+            <div className="max-w-xl">
+              <p className={`${jobsheet.mono} text-xs uppercase tracking-[0.18em] text-[#58524a]`}>
+                Reference file
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[#181510]">
+                Sources of truth
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[#58524a]">
+                Every statistic, study and published result quoted anywhere on this site, listed with
+                where it came from.
+              </p>
+            </div>
+            <PunchButton href="/sources" label="Sources of Truth" />
           </div>
         </div>
       </section>
