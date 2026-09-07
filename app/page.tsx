@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HomeDemoVideo from "@/components/HomeDemoVideo";
@@ -11,6 +12,12 @@ import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
 import { caseStudies, faqItems, demoLine } from "@/data/siteContent";
+
+// Title, description and OG come from the root layout. Only the canonical is
+// page-specific, and it cannot live at the root without leaking to every child.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const CAL_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -260,7 +267,7 @@ export default function Home() {
         code="CA-06"
         label="Proof it works"
         title="In practice."
-        description="These aren't Current Automations clients yet. They're real examples of the same approach, missed calls and support gaps closed with the right system. We're building the same thing for trades businesses right now."
+        description="These aren't Current Automations clients yet. They're real examples of the same approach, missed calls and support gaps closed with the right system. We're building the same thing for businesses around here right now."
         tone="ink"
       >
         <div className="grid gap-6 sm:grid-cols-2">

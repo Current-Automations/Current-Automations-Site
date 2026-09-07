@@ -216,6 +216,7 @@ const allScenarios: CartScenario[] = scenarioGroups
   .sort((a, b) => a.code.localeCompare(b.code));
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
     "Transparent, tiered pricing for service business automation. Choose a bundle or build your own with individual scenarios starting at $49/month.",
@@ -481,7 +482,7 @@ export default function PricingPage() {
         code="CA-P7"
         label="Selling to other businesses?"
         title="Lead generation is priced separately."
-        description="Everything above is built for trades and service businesses. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
+        description="Everything above is built for businesses that run on inbound calls and bookings. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
         tone="carbon"
       >
         <div className="flex flex-col items-start gap-4 rounded border-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.02)] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">

@@ -65,9 +65,9 @@ export default function Navbar() {
             <Link href="/" className="flex shrink-0 items-center gap-3">
               <Image
                 src="/current-automations-icon-transparent.png"
-                alt="Current Automations icon"
-                width={380}
-                height={380}
+                alt="Current Automations logo, a stylised current mark"
+                width={256}
+                height={256}
                 priority
                 className="h-[3.9rem] w-[3.9rem] rounded-full sm:h-[4.2rem] sm:w-[4.2rem]"
               />

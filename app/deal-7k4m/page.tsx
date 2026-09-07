@@ -39,9 +39,9 @@ export default function DealPage() {
       <JobSheetPageHero
         docLabel="OFFER SHEET"
         docCode="FORM OF-01"
-        kicker="Twenty seconds to see if it's real"
-        title="Call the number. Hang up. Watch what happens."
-        description="I'm Jarrett. I'm local, and I build systems that stop trades and service businesses from losing jobs to missed calls and slow follow-up. Whether you got my card or we just spoke, don't take my word for any of it. The line below is live right now."
+        kicker="Why I left this on your windshield"
+        title="I'm Jarrett, and I'm starting a business in this neighbourhood."
+        description="I build systems that stop businesses from losing jobs to missed calls and slow follow-up. Whether you got my card or we just spoke, don't take my word for any of it. Call the line below and hang up. Watch what happens."
         sideAlign="start"
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
@@ -94,12 +94,12 @@ export default function DealPage() {
         <TicketCard refCode="CONTACT">
           <p className="text-base leading-8 text-[#3a352c]">
             <a
-              href={siteContact.phoneHref}
+              href={`tel:${siteContact.phoneHref}`}
               className="font-semibold text-[#181510] hover:text-[var(--color-brand-strong)]"
             >
               {siteContact.phoneDisplay}
             </a>
-            <span className="mx-2 text-[#a39b8c]">&middot;</span>
+            <span className="mx-2 text-[#58524a]">&middot;</span>
             <a
               href={`mailto:${siteContact.email}`}
               className="font-semibold text-[#181510] hover:text-[var(--color-brand-strong)]"
@@ -126,7 +126,7 @@ export default function DealPage() {
             I don&apos;t know your business yet. Give me fifteen minutes to learn it, and I can
             usually tell you where it&apos;s leaking.
           </p>
-          <p className={`${jobsheet.mono} mt-5 border-t border-dashed border-[rgba(255,255,255,0.18)] pt-4 text-xs leading-6 text-[#a39b8c]`}>
+          <p className={`${jobsheet.mono} mt-5 border-t border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-xs leading-6 text-[#58524a]`}>
             B.Eng. Chemical Engineering &amp; Computer Technology, uOttawa
             <br />
             AI &amp; Machine Learning, Florida International University

@@ -18,9 +18,10 @@ const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/call-dispatch" },
   title: "Call & Dispatch Handling",
   description:
-    "Every call answered. Missed-call text back, speed to lead, intake, and booking for trades and service businesses. The call that used to ring out becomes a booked job.",
+    "Every call answered. Missed-call text back, speed to lead, intake, and booking. The call that used to ring out becomes a booked job.",
 };
 
 const problemRows = [
@@ -435,7 +436,7 @@ export default function CallDispatchPage() {
                 {row.name}
               </p>
               <p className="text-sm leading-7 text-[#58524a]">
-                <span className="mb-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#58524a]/70 lg:hidden">
+                <span className="mb-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#58524a] lg:hidden">
                   Where it leaks
                 </span>
                 {row.leak}

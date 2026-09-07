@@ -12,11 +12,12 @@ const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: {
     absolute: "About | Current Automations",
   },
   description:
-    "Current Automations finds where trades and service businesses leak revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free audit.",
+    "Current Automations finds where a business leaks revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free audit.",
 };
 
 const fileFacts = [
@@ -77,7 +78,7 @@ export default function AboutPage() {
             Then I fix it.
           </>
         }
-        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for trades and service businesses across Ontario. It starts with a free audit that finds your highest-impact fix, and I build from there."
+        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free audit that finds your highest-impact fix, and I build from there."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
