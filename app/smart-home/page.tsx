@@ -22,31 +22,49 @@ const myHouse = [
     code: "SH-01",
     label: "Lights",
     state: "Running",
-    body: "Whole rooms on one tap, on a schedule, or by voice. Working now.",
+    body: "Whole rooms on one tap, on a schedule, or by voice.",
   },
   {
     code: "SH-02",
     label: "Video doorbell",
     state: "Running",
-    body: "See and talk to whoever is at the door from anywhere. Working now.",
+    body: "See and talk to whoever is at the door from anywhere.",
   },
   {
     code: "SH-03",
-    label: "Siri shortcuts",
+    label: "Outdoor cameras",
     state: "Running",
-    body: "One phrase runs a whole routine instead of six taps across three apps. Working now.",
+    body: "Around the house and in the garage, recording and viewable from the phone.",
   },
   {
     code: "SH-04",
+    label: "Garage doors",
+    state: "Running",
+    body: "Opened from the garage cameras, so there is one less remote to lose.",
+  },
+  {
+    code: "SH-05",
+    label: "Siri shortcuts",
+    state: "Running",
+    body: "One phrase runs a whole routine instead of six taps across three apps.",
+  },
+  {
+    code: "SH-06",
     label: "Thermostat",
     state: "Going in",
     body: "Learns the house, backs off when nobody is home, and pays for itself on the gas bill.",
   },
   {
-    code: "SH-05",
+    code: "SH-07",
     label: "Side door lock",
     state: "Going in",
     body: "Unlock with a phone or a fingerprint. No key under the mat.",
+  },
+  {
+    code: "SH-08",
+    label: "Camera bridge",
+    state: "Going in",
+    body: "Pulling the Wyze doorbell and cameras into Apple Home so everything sits under one roof.",
   },
 ];
 
@@ -85,6 +103,11 @@ const scope = [
     code: "07",
     label: "Blinds and shades",
     body: "Open with the sun, close at dusk, or on one tap from bed.",
+  },
+  {
+    code: "08",
+    label: "Getting stubborn gear to join in",
+    body: "Some brands do not talk to Apple Home or Google at all. Wyze is the common one. Rather than telling you to throw it out and buy again, I bridge it in so it lands beside everything else.",
   },
 ];
 
@@ -278,10 +301,11 @@ export default function SmartHomePage() {
           ))}
         </div>
 
-        <p className="mt-6 max-w-2xl text-sm leading-7 text-[#58524a]">
+        <p className="mt-6 max-w-3xl text-sm leading-7 text-[#58524a]">
           The thermostat and the side door lock are on order. When they are in and filmed, this
           section becomes footage instead of a list.
         </p>
+
       </JobSheetSection>
 
       <JobSheetSection
