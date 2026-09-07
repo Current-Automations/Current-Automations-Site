@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteContact, siteContacts } from "@/data/siteContent";
+import ContactForm from "@/components/ContactForm";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
@@ -9,6 +10,7 @@ const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Reach the right person at Current Automations: general questions, client support, or billing.",
@@ -118,8 +120,34 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section
+        id="message"
+        className={`${jobsheet.root} ${jobsheet.paperTexture} relative pb-16 sm:pb-20`}
+      >
+        <div className="container-shell relative">
+          <div className="mb-1">
+            <span className={jobsheet.formTab}>
+              <span className={`${jobsheet.mono} ${jobsheet.formTabCode}`}>CN-03</span>
+              <span className={jobsheet.formTabLabel}>Or just write it here</span>
+            </span>
+          </div>
+          <div className="max-w-3xl border-t-2 border-[rgba(28,36,48,0.28)] pt-6">
+            <h2 className={`${jobsheet.display} text-[clamp(1.9rem,4vw,3.1rem)] leading-[1.04]`}>
+              Send a message.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-[#3a352c]">
+              Goes straight to the General desk. {siteContact.responseExpectation}.
+            </p>
+          </div>
+
+          <div className="mt-10 max-w-3xl">
+            <ContactForm fallbackEmail={siteContacts.general} />
+          </div>
+        </div>
+      </section>
+
       <JobSheetCTA
-        code="CN-03"
+        code="CN-04"
         label="Not sure where to start?"
         title="Not sure where to start?"
         description="Book a free 30-minute audit and we will map exactly where your business is losing time and money."
