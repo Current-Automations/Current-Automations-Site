@@ -39,6 +39,30 @@ Lint also walks `public/` and `.claude/worktrees/`, so a bare `npm run lint` rep
 
 `app/layout.tsx` wraps every page with `<Navbar>`, `<main>`, and `<Footer>`. It also holds the global `metadata` object (title template `"%s | Current Automations"`). Pages that need a title bypassing the template use `title: { absolute: "..." }`.
 
+**Never set `alternates.canonical` in the root layout.** Metadata inherits, so a root canonical points every child page at the homepage and de-indexes the site. Each indexable page declares its own; `app/page.tsx` exists as a metadata export solely to carry `"/"`.
+
+**Never add a title as `{ default: "X | Current Automations", template: "%s" }`.** The root template still applies on top and renders `"X | Current Automations | Current Automations"`. Use `title: { absolute: ... }`.
+
+### Consent, analytics and tracking
+
+Anything that sets a cookie or identifies a visitor loads from `components/CookieConsent.tsx` and **only after an explicit "granted"**. That currently covers Google Analytics 4 and the leadsy.ai visitor identification tag. Do not add a tracking `<Script>` to `app/layout.tsx` directly; leadsy used to live there, unconditionally, and it contradicted privacy clause 11.
+
+The GA4 measurement ID lives in `lib/site.ts` as `GA_MEASUREMENT_ID`, not in an environment variable. It is a public identifier that ships in the page HTML, so there is nothing to protect and no reason for it to differ per environment. Never also paste Google's copy-paste gtag snippet into the document head: that would double-count every page view and bypass the consent gate.
+
+Vercel Analytics and Speed Insights stay ungated on purpose: cookieless, no identifier, no consent required. Both 404 in local dev, which is expected.
+
+`lib/consent.ts` owns the stored choice. It is read through `useSyncExternalStore` rather than an effect, so the banner does not flash at visitors who already answered and lint's `set-state-in-effect` rule stays satisfied. `CookieSettingsButton` in the Footer clears the choice to reopen the banner.
+
+Changing what loads behind consent means updating **privacy clause 11** (`app/privacy/page.tsx`) and bumping its VERSION and EFFECTIVE DATE in the same commit.
+
+### Contact form
+
+`components/ContactForm.tsx` posts to `app/api/contact/route.ts`. Validation is duplicated client and server; the server copy is authoritative. Spam defences are a honeypot (`companyWebsite`), a minimum fill time of 3s measured from mount, and a per-instance IP rate limit of 5/hour. Delivery is a plain `fetch` to the Resend REST API, no SDK. With `RESEND_API_KEY` unset the route returns 503 with copy telling the visitor to email `info@` directly, so the form never silently swallows a message.
+
+### Accessibility floor
+
+`app/globals.css` colour tokens are set to clear WCAG AA (4.5:1). `--color-brand-strong` is `#0e7359`, darkened from `#149676` which measured 3.19:1 both as link text on paper and as the `PunchButton` fill behind `#f3ede1` labels. axe-core runs clean across every route; keep it that way when adding colours.
+
 ### Shared components
 
 The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`), paper/ticket paperwork styling, not the earlier dark-gradient "Section/Hero" system.
