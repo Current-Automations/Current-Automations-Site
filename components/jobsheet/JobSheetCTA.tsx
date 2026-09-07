@@ -28,7 +28,7 @@ export default function JobSheetCTA({
     <section className={`${styles.root} ${styles.inkTexture} relative py-16 sm:py-20`}>
       <div className="container-shell relative">
         <div className={`${styles.ticket} !bg-[rgba(255,255,255,0.05)] !border-white/15 p-8 sm:p-10 lg:p-12`}>
-          <span className={`${styles.mono} ${styles.ticketRef} !text-white/40`}>
+          <span className={`${styles.mono} ${styles.ticketRef} !text-white/60`}>
             {code} &middot; {label.toUpperCase()}
           </span>
           <span className={styles.ticketHole} aria-hidden="true" />

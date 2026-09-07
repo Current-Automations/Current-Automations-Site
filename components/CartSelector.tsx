@@ -81,7 +81,7 @@ export default function CartSelector({ scenarios }: Props) {
                   type="checkbox"
                   checked={isChecked}
                   onChange={() => toggle(scenario.priceId)}
-                  className="h-4 w-4 rounded border-[#a39a86] accent-[#149676]"
+                  className="h-4 w-4 rounded border-[#a39a86] accent-[#0e7359]"
                 />
                 <div>
                   <span className={`${jobsheet.mono} text-xs text-[#58524a]`}>

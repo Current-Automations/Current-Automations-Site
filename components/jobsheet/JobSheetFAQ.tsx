@@ -31,7 +31,7 @@ export default function JobSheetFAQ({
             }`}
           >
             <span className={styles.ticketHole} aria-hidden="true" />
-            <span className={`${styles.mono} ${styles.ticketRef} ${onDark ? "!text-white/40" : ""}`}>
+            <span className={`${styles.mono} ${styles.ticketRef} ${onDark ? "!text-white/60" : ""}`}>
               Q-{String(i + 1).padStart(2, "0")}
             </span>
             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 pr-12 text-left">

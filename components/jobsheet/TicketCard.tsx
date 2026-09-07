@@ -23,7 +23,7 @@ export default function TicketCard({
     >
       <span className={styles.ticketHole} aria-hidden="true" />
       {refCode ? (
-        <span className={`${styles.mono} ${styles.ticketRef} ${onDark ? "!text-white/40" : ""}`}>
+        <span className={`${styles.mono} ${styles.ticketRef} ${onDark ? "!text-white/60" : ""}`}>
           {refCode}
         </span>
       ) : null}

@@ -10,7 +10,7 @@
   --color-muted: #62748b;
   --color-line: rgba(4, 9, 26, 0.12);
   --color-brand: #4fd0ad;
-  --color-brand-strong: #149676;
+  --color-brand-strong: #0e7359;
   --color-brand-crest: #8cf0e0;
   --color-blue-current: #2e8fd6;
   --color-blue-deep: #1652a8;
@@ -32,11 +32,13 @@
   --radius-card-lg: 1.9rem;
   --radius-shell: 2.25rem;
 
-  /* 4-step text-on-dark scale */
+  /* 4-step text-on-dark scale. Every step clears WCAG AA (4.5:1) against the
+     #04091a ink ground: faint sat at 0.4 and measured 3.75:1, which failed for
+     the footer copyright and every uppercase column heading using it. */
   --color-on-dark-strong: rgba(255, 255, 255, 0.92);
   --color-on-dark: rgba(255, 255, 255, 0.72);
-  --color-on-dark-muted: rgba(255, 255, 255, 0.55);
-  --color-on-dark-faint: rgba(255, 255, 255, 0.4);
+  --color-on-dark-muted: rgba(255, 255, 255, 0.58);
+  --color-on-dark-faint: rgba(255, 255, 255, 0.52);
 
   /* 3-step surface-on-dark scale */
   --color-surface-dark-1: rgba(255, 255, 255, 0.04);
@@ -101,6 +103,19 @@
 @layer components {
   .site-shell {
     @apply relative flex min-h-screen flex-col overflow-x-clip;
+  }
+
+  /* Keyboard-only escape from the navbar, which is otherwise 10 tab stops deep
+     on every page before the content starts. */
+  .skip-link {
+    @apply absolute left-4 top-4 z-[70] -translate-y-[200%] rounded-full px-5 py-3 text-sm font-semibold;
+    background: var(--color-panel);
+    color: var(--color-copy);
+    transition: transform 160ms ease;
+  }
+
+  .skip-link:focus-visible {
+    @apply translate-y-0;
   }
 
   .container-shell {

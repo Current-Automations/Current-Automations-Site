@@ -193,7 +193,7 @@
 }
 
 .stampTeal {
-  color: var(--color-brand-strong, #149676);
+  color: var(--color-brand-strong, #0e7359);
   background: rgba(20, 150, 118, 0.08);
 }
 
@@ -250,7 +250,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.92rem;
-  background: var(--color-brand-strong, #149676);
+  background: var(--color-brand-strong, #0e7359);
   color: #f3ede1;
   border: none;
   border-radius: 0.35rem;
