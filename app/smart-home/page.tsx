@@ -15,99 +15,51 @@ export const metadata: Metadata = {
     "Smart home setup and installation in Durham Region and the GTA. Lights, locks, thermostats, doorbells and voice control, installed and working before we leave. You do not need to buy the gear first.",
 };
 
-// Only what is actually running in Jarrett's own house, plus what is on order.
-// No client work exists yet, so nothing here may imply a completed job.
-const myHouse = [
-  {
-    code: "SH-01",
-    label: "Lights",
-    state: "Running",
-    body: "Whole rooms on one tap, on a schedule, or by voice.",
-  },
-  {
-    code: "SH-02",
-    label: "Video doorbell",
-    state: "Running",
-    body: "See and talk to whoever is at the door from anywhere.",
-  },
-  {
-    code: "SH-03",
-    label: "Outdoor cameras",
-    state: "Running",
-    body: "Around the house and in the garage, recording and viewable from the phone.",
-  },
-  {
-    code: "SH-04",
-    label: "Garage doors",
-    state: "Running",
-    body: "Opened from the garage cameras, so there is one less remote to lose.",
-  },
-  {
-    code: "SH-05",
-    label: "Siri shortcuts",
-    state: "Running",
-    body: "One phrase runs a whole routine instead of six taps across three apps.",
-  },
-  {
-    code: "SH-06",
-    label: "Thermostat",
-    state: "Going in",
-    body: "Learns the house, backs off when nobody is home, and pays for itself on the gas bill.",
-  },
-  {
-    code: "SH-07",
-    label: "Side door lock",
-    state: "Going in",
-    body: "Unlock with a phone or a fingerprint. No key under the mat.",
-  },
-  {
-    code: "SH-08",
-    label: "Camera bridge",
-    state: "Going in",
-    body: "Pulling the Wyze doorbell and cameras into Apple Home so everything sits under one roof.",
-  },
-];
-
-const scope = [
+const setups = [
   {
     code: "01",
     label: "Lighting",
-    body: "Bulbs, switches, whole rooms, scenes. Dimming and schedules that follow your day rather than a timer you have to remember.",
+    body: "Whole rooms on one tap, on a schedule, or by voice. Bulbs, switches, dimming, scenes.",
   },
   {
     code: "02",
     label: "Locks and entry",
-    body: "Smart deadbolts and lever locks. Unlock by phone, fingerprint, or code. Give a cleaner or a contractor access for one afternoon without cutting a key.",
+    body: "Deadbolts and lever locks. Phone, fingerprint or code. Let a cleaner in for one afternoon without cutting a key.",
   },
   {
     code: "03",
     label: "Heating and cooling",
-    body: "A thermostat that knows when the house is empty. This is the one that shows up on a bill.",
+    body: "A thermostat that knows when the house is empty. The one that shows up on a bill.",
   },
   {
     code: "04",
     label: "Doorbells and cameras",
-    body: "See who is at the door from anywhere. Get told when a parcel lands instead of finding it in the rain.",
+    body: "See and speak to whoever is at the door from anywhere. Get told when a parcel lands.",
   },
   {
     code: "05",
-    label: "Sensors",
-    body: "Door, window, motion, temperature, and water leak. A twenty dollar sensor beside the water heater is the cheapest insurance in the house.",
+    label: "Garage doors",
+    body: "Opened from your phone or straight from the camera, so there is one less remote to lose.",
   },
   {
     code: "06",
-    label: "Voice and shortcuts",
-    body: "Siri, Alexa or Google, plus the routines behind them, so one phrase does the work of a dozen taps.",
+    label: "Sensors",
+    body: "Door, window, motion, temperature and water leak. A leak sensor by the water heater is the cheapest insurance in the house.",
   },
   {
     code: "07",
+    label: "Voice and shortcuts",
+    body: "Siri, Alexa or Google, and the routines behind them, so one phrase does the work of a dozen taps.",
+  },
+  {
+    code: "08",
     label: "Blinds and shades",
     body: "Open with the sun, close at dusk, or on one tap from bed.",
   },
   {
-    code: "08",
-    label: "Getting stubborn gear to join in",
-    body: "Some brands do not talk to Apple Home or Google at all. Wyze is the common one. Rather than telling you to throw it out and buy again, I bridge it in so it lands beside everything else.",
+    code: "09",
+    label: "Gear that will not cooperate",
+    body: "Some brands do not speak to Apple Home or Google at all. Rather than telling you to bin it and buy again, I bridge it in.",
   },
 ];
 
@@ -178,7 +130,7 @@ const faqItems = [
   {
     question: "Can I add to it later?",
     answer:
-      "That is the point of setting it up on one standard rather than five apps. Adding a lock or a sensor later is a small job, not a rebuild. My own house is still growing, which is exactly how it should work.",
+      "That is the point of setting it up on one standard rather than five apps. Adding a lock or a sensor later is a small job, not a rebuild, and it does not mean redoing what is already there.",
   },
   {
     question: "How far do you travel?",
@@ -186,9 +138,9 @@ const faqItems = [
       "In-home work is Durham Region and the GTA. If you are further out, ask anyway. Some of it, voice assistants, shortcuts and troubleshooting, I can do remotely, and I would rather help than turn you away over a postcode.",
   },
   {
-    question: "Am I your first customer?",
+    question: "What happens if something goes wrong after you leave?",
     answer:
-      "Possibly, and you should know that going in. The automation side of Current Automations has been running systems for businesses. Home installs are new, so what you get is my own house as the reference and honest pricing rather than a portfolio of other people's kitchens.",
+      "You call me and I fix it. If it is something I installed or configured, sorting it out is part of the job, not a new one. If a piece of hardware fails, I handle the warranty claim with the manufacturer rather than handing you a support number.",
   },
 ];
 
@@ -244,37 +196,16 @@ export default function SmartHomePage() {
 
       <JobSheetSection
         code="SH-02"
-        label="Read this first"
-        title="This side of the business is new."
-        description="Current Automations has been building call handling and follow-up systems for businesses. Home installs are new, and I would rather tell you that than dress up a portfolio I do not have."
-        tone="paper"
-      >
-        <TicketCard refCode="HONESTY">
-          <p className="text-base leading-8 text-[#3a352c]">
-            So there are no customer photos on this page and no testimonials, because there are no
-            customers yet. What there is instead: my own house, which runs on the same gear I would
-            fit in yours, and pricing published in the open so you can decide without a sales call.
-          </p>
-          <p className="mt-5 text-base leading-8 text-[#3a352c]">
-            If being early bothers you, wait and check back. If it does not, you get someone who
-            will actually answer the phone and who cares a great deal about the first few jobs
-            going right.
-          </p>
-        </TicketCard>
-      </JobSheetSection>
-
-      <JobSheetSection
-        code="SH-03"
-        label="The reference house"
-        title="What runs in my own place."
-        description="Not a showroom. An actual house, partly finished, which is what a real one looks like."
+        label="What I set up"
+        title="Everything on one app, not five."
+        description="Most houses end up with a different app per gadget and nothing talking to anything else. The job is one system, whichever brands are already in the house."
         tone="carbon"
       >
         <div
           className={`${jobsheet.ticket} divide-y divide-[rgba(28,36,48,0.14)] overflow-hidden p-0`}
         >
-          <div className="hidden border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 lg:grid lg:grid-cols-[5rem_12rem_8rem_minmax(0,1fr)] lg:gap-6">
-            {["Ref", "What", "Status", "What it does"].map((h) => (
+          <div className="hidden border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 lg:grid lg:grid-cols-[5rem_16rem_minmax(0,1fr)] lg:gap-6">
+            {["Ref", "What", "What it does"].map((h) => (
               <span
                 key={h}
                 className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}
@@ -284,49 +215,24 @@ export default function SmartHomePage() {
             ))}
           </div>
 
-          {myHouse.map((item) => (
+          {setups.map((item) => (
             <div
               key={item.code}
-              className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-2 px-6 py-6 sm:px-8 lg:grid-cols-[5rem_12rem_8rem_minmax(0,1fr)] lg:items-baseline lg:gap-6`}
+              className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-2 px-6 py-6 sm:px-8 lg:grid-cols-[5rem_16rem_minmax(0,1fr)] lg:items-baseline lg:gap-6`}
             >
               <span className={`${jobsheet.mono} text-xs font-semibold text-[#a8452f]`}>
                 {item.code}
               </span>
               <p className="text-lg font-semibold tracking-tight text-[#181510]">{item.label}</p>
-              <div>
-                <Stamp tone={item.state === "Running" ? "teal" : "rust"} label={item.state} />
-              </div>
               <p className="text-sm leading-7 text-[#58524a]">{item.body}</p>
             </div>
           ))}
         </div>
 
-        <p className="mt-6 max-w-3xl text-sm leading-7 text-[#58524a]">
-          The thermostat and the side door lock are on order. When they are in and filmed, this
-          section becomes footage instead of a list.
-        </p>
-
       </JobSheetSection>
 
       <JobSheetSection
-        code="SH-04"
-        label="What I can set up"
-        title="Everything on one app, not five."
-        description="Most homes end up with a different app per gadget and nothing talking to anything else. The job is one system, whichever brands are already in the house."
-        tone="paper"
-      >
-        <div className="grid gap-6 sm:grid-cols-2">
-          {scope.map((item) => (
-            <TicketCard key={item.code} refCode={item.code}>
-              <h3 className="text-xl font-semibold tracking-tight text-[#181510]">{item.label}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#58524a]">{item.body}</p>
-            </TicketCard>
-          ))}
-        </div>
-      </JobSheetSection>
-
-      <JobSheetSection
-        code="SH-05"
+        code="SH-03"
         label="The gear question"
         title="You do not need to buy anything first."
         description="Most installers are labour only and expect you to have already bought the right hardware. Guessing wrong is expensive and it is the main reason people never start."
@@ -356,7 +262,7 @@ export default function SmartHomePage() {
       </JobSheetSection>
 
       <JobSheetSection
-        code="SH-06"
+        code="SH-04"
         label="Pricing"
         title="Published, so you can decide before you call."
         description="These are setup and labour. Hardware, if you need any, is quoted separately at cost plus a small markup. No hourly rate, no surprise on the invoice."
@@ -385,14 +291,13 @@ export default function SmartHomePage() {
         </div>
 
         <p className="mt-8 max-w-3xl text-sm leading-7 text-[#58524a]">
-          Prices are honest about where they came from: this side of the business is new, so expect
-          them to move once a few real jobs have told me how long the work actually takes. Whatever
-          you are quoted before I start is what you pay.
+          Prices move as the work teaches me what it actually takes, so treat these as current rather
+          than carved. Whatever you are quoted before I start is what you pay.
         </p>
       </JobSheetSection>
 
       <JobSheetSection
-        code="SH-07"
+        code="SH-05"
         label="How it goes"
         title="Four steps, and the first one is a text."
         description="No form to fill in, no discovery call, no visit until we both know it is worth one."
@@ -416,7 +321,7 @@ export default function SmartHomePage() {
       </JobSheetSection>
 
       <JobSheetFAQ
-        code="SH-08"
+        code="SH-06"
         label="Before you ask"
         title="The questions people actually have."
         items={faqItems}
@@ -424,7 +329,7 @@ export default function SmartHomePage() {
       />
 
       <JobSheetSection
-        code="SH-09"
+        code="SH-07"
         label="Start here"
         title="Send me a photo and I will tell you what it needs."
         description="That is genuinely the whole first step. If it is not worth doing, I will say so and it costs you nothing."
