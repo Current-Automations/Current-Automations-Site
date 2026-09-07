@@ -8,6 +8,9 @@ import { useEffect, useRef, useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  // Slots 2+ render after the "What We Automate" dropdown, which is the business
+  // lane. Smart Home is the other lane, so it leads that group.
+  { href: "/smart-home", label: "Smart Home" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
@@ -22,7 +25,7 @@ const pillarLinks = [
 
 function getLinkClasses(active: boolean) {
   return [
-    "rounded-full px-4 py-2 text-sm font-medium",
+    "whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium",
     active
       ? "bg-surface-dark-3 text-white"
       : "text-on-dark hover:bg-surface-dark-2 hover:text-white",
@@ -81,7 +84,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-1 lg:flex">
+            <nav className="hidden items-center gap-1 xl:flex">
               {navLinks.slice(0, 2).map((link) => {
                 const active = pathname === link.href;
 
@@ -157,15 +160,15 @@ export default function Navbar() {
               })}
             </nav>
 
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                Book Free Audit
+                Book a Free Walkthrough
               </Link>
             </div>
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line-dark bg-surface-dark-1 text-white lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line-dark bg-surface-dark-1 text-white xl:hidden"
               aria-label="Toggle navigation"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((open) => !open)}
@@ -179,7 +182,7 @@ export default function Navbar() {
           </div>
 
           {isOpen ? (
-            <div className="mt-4 grid gap-2 border-t border-line-dark pt-4 lg:hidden">
+            <div className="mt-4 grid gap-2 border-t border-line-dark pt-4 xl:hidden">
               {navLinks.slice(0, 2).map((link) => {
                 const active = pathname === link.href;
 
@@ -235,7 +238,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
               >
-                Book Free Audit
+                Book a Free Walkthrough
               </Link>
             </div>
           ) : null}

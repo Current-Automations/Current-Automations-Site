@@ -29,6 +29,7 @@ type SitemapRoute = {
 
 export const SITEMAP_ROUTES: SitemapRoute[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/smart-home", changeFrequency: "monthly", priority: 0.9 },
   { path: "/how-it-works", changeFrequency: "monthly", priority: 0.9 },
   { path: "/pricing", changeFrequency: "monthly", priority: 0.9 },
   { path: "/call-dispatch", changeFrequency: "monthly", priority: 0.8 },

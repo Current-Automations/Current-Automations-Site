@@ -22,7 +22,7 @@ export default function StickyCTA() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line-dark bg-[rgba(7,17,29,0.94)] px-4 py-3 backdrop-blur-md transition-transform duration-300 lg:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line-dark bg-[rgba(7,17,29,0.94)] px-4 py-3 backdrop-blur-md transition-transform duration-300 xl:hidden ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
@@ -40,7 +40,7 @@ export default function StickyCTA() {
           rel="noopener noreferrer"
           className="btn-primary flex-1 justify-center"
         >
-          Book Free Audit
+          Book a Free Walkthrough
         </a>
       </div>
     </div>

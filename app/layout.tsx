@@ -76,7 +76,7 @@ export default function RootLayout({
           </main>
           <Footer />
           {/* Mobile bottom spacer so the sticky CTA never covers footer content */}
-          <div className="h-20 lg:hidden" aria-hidden="true" />
+          <div className="h-20 xl:hidden" aria-hidden="true" />
           <StickyCTA />
         </div>
         {/* Cookieless and identifier-free, so both run without a consent gate.
