@@ -7,10 +7,8 @@ import JobSheetLegalClause from "@/components/jobsheet/JobSheetLegalClause";
 import { siteContact, siteContacts } from "@/data/siteContent";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Privacy Policy | Current Automations",
-    template: "%s",
-  },
+  alternates: { canonical: "/privacy" },
+  title: { absolute: "Privacy Policy | Current Automations" },
   description:
     "Privacy Policy for Current Automations covering how we collect, use, and protect personal information in compliance with PIPEDA and CASL.",
 };
@@ -52,7 +50,7 @@ export default function PrivacyPage() {
           </span>
         }
         title="Privacy Policy"
-        description={`EFFECTIVE DATE: May 7, 2025 | VERSION: 1.0 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
+        description={`EFFECTIVE DATE: September 7, 2026 | VERSION: 1.1 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
@@ -166,8 +164,14 @@ export default function PrivacyPage() {
                   </ul>
                   <p>
                     This information is collected through standard web analytics tools for the purpose of
-                    understanding how our website is used and improving its content. We do not use this
-                    information to identify individual visitors.
+                    understanding how our website is used and improving its content.
+                  </p>
+                  <p>
+                    3.4 Business Identification: if you consent to optional cookies, we also use a
+                    third-party visitor identification service that attempts to match your IP address to
+                    the organisation it belongs to, so we can see which businesses are researching us.
+                    This is aimed at organisations, not individuals, and it does not run at all unless
+                    you accept optional cookies. Clause 11 sets out how to accept or refuse it.
                   </p>
                 </JobSheetLegalClause>
 
@@ -369,15 +373,41 @@ export default function PrivacyPage() {
 
                               <JobSheetLegalClause id="clause-11" code="11" title="Cookies and Website Tracking">
                   <p>
-                    Our website may use cookies and similar tracking technologies to improve your
-                    browsing experience and analyze site traffic. We may use strictly necessary cookies
-                    required for the website to function correctly, and analytics cookies that help us
-                    understand how visitors interact with our website using aggregate data only and not
-                    to identify individuals.
+                    11.1 Strictly necessary. We store your cookie choice in your browser so we do not ask
+                    again on every page. Nothing in this category identifies you, and it cannot be turned
+                    off without breaking the consent banner itself.
                   </p>
                   <p>
-                    You can control or disable cookies through your browser settings. We do not use
-                    cookies for advertising or cross-site tracking purposes.
+                    11.2 Always on, and cookieless. We use Vercel Analytics and Vercel Speed Insights to
+                    count page views and measure how fast pages load. Neither sets a cookie, neither
+                    stores a persistent identifier, and neither follows you to other websites, so they run
+                    without asking. They tell us that a page was slow, not who was on it.
+                  </p>
+                  <p>
+                    11.3 Optional, and off until you accept. Two things only load after you press Accept
+                    on the cookie banner:
+                  </p>
+                  <ul className="space-y-3 pl-6">
+                    <li className="list-disc">
+                      Google Analytics 4, which sets cookies and records how visitors move through the
+                      site. IP anonymisation is enabled.
+                    </li>
+                    <li className="list-disc">
+                      Leadsy.ai visitor identification, which attempts to match a visitor&apos;s IP address
+                      to the business it belongs to and tells us which companies have been reading our
+                      pages. It is aimed at identifying organisations rather than named individuals.
+                    </li>
+                  </ul>
+                  <p>
+                    11.4 Changing your mind. Choose Decline on the banner and neither of the optional
+                    services is loaded at all. If you already accepted, use the Cookie Settings link in
+                    the footer of any page to bring the banner back and change your answer. You can also
+                    block or delete cookies through your browser settings at any time.
+                  </p>
+                  <p>
+                    11.5 What we do not do. We do not sell your personal information, we do not run
+                    advertising cookies, and we do not use cookies to retarget you with ads on other
+                    websites.
                   </p>
                 </JobSheetLegalClause>
 

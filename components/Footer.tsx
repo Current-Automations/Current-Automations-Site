@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 import { siteContact } from "@/data/siteContent";
 
 const companyLinks = [
@@ -61,9 +62,9 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-4">
               <Image
                 src="/current-automations-icon-transparent.png"
-                alt="Current Automations icon"
-                width={380}
-                height={380}
+                alt="Current Automations logo, a stylised current mark"
+                width={256}
+                height={256}
                 className="h-14 w-14 rounded-full"
               />
               <div>
@@ -71,7 +72,7 @@ export default function Footer() {
                   CURRENT AUTOMATIONS
                 </p>
                 <p className="text-xs text-on-dark-muted">
-                  AI systems for trades and service businesses across Ontario
+                  AI systems for businesses across Ontario
                 </p>
               </div>
             </Link>
@@ -128,6 +129,7 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <CookieSettingsButton className="text-left text-sm text-on-dark hover:text-white" />
             </div>
           </div>
         </div>
