@@ -50,17 +50,17 @@ const workOrderRows = [
   {
     code: "01",
     title: "Walkthrough",
-    body: "A free 30-minute conversation about how your business actually runs. I find where the biggest opportunities are and recommend the one system with the most immediate impact. No generic recommendations, no upsell pressure.",
+    body: "A free 30-minute conversation about how your business actually runs. We find where the biggest opportunities are and recommend the one system with the most immediate impact. No generic recommendations, no upsell pressure.",
   },
   {
     code: "02",
     title: "Build",
-    body: "I install it, configure it, and tune it until it sounds like you. Full build and testing on my end. There is no technical work on yours.",
+    body: "We install it, configure it, and tune it until it sounds like you. Full build and testing on our end. There is no technical work on yours.",
   },
   {
     code: "03",
     title: "Maintain",
-    body: "Every system I build stays maintained on my side. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
+    body: "Every system we build stays maintained on our side. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
   },
 ];
 
@@ -73,12 +73,12 @@ export default function AboutPage() {
         kicker="Who you're dealing with"
         title={
           <>
-            I find where your business is losing money.
+            We find what could be running without you.
             <br />
-            Then I fix it.
+            Then we build it.
           </>
         }
-        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free walkthrough that finds your highest-impact fix, and I build from there."
+        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free walkthrough that finds your highest-impact fix, and we build from there."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -134,7 +134,7 @@ export default function AboutPage() {
         code="AB-03"
         label="How every job runs"
         title="One work order. Walkthrough, build, maintain."
-        description="I do not sell software and leave you to figure it out. Every job follows the same three lines, and I stay on the file after go-live."
+        description="We do not sell software and leave you to figure it out. Every job follows the same three lines, and we stay on the file after go-live."
         tone="ink"
       >
         <Reveal>
@@ -232,7 +232,7 @@ export default function AboutPage() {
       <JobSheetSection
         code="AB-05"
         label="After go-live"
-        title="I am not here to sell you a tool and disappear."
+        title="We are not here to sell you a tool and disappear."
         tone="carbon"
       >
         <Reveal>
@@ -242,19 +242,19 @@ export default function AboutPage() {
             </div>
             <div className="max-w-3xl space-y-6">
               <p className="text-base leading-8 text-[#3a352c]">
-                Most software companies hand you a login and leave you to figure it out. I work differently.
+                Most software companies hand you a login and leave you to figure it out. We work differently.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
-                Before I build anything, I spend time understanding how your business actually runs day to day: the calls, the estimates, and the spots where work falls through the cracks. From there, we design a system that fits into your existing process instead of forcing you into a generic software workflow.
+                Before we build anything, we spend time understanding how your business actually runs day to day: the calls, the estimates, and the spots where work falls through the cracks. From there, we design a system that fits into your existing process instead of forcing you into a generic software workflow.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
-                Every system I build is maintained on my side. If something needs adjusting, you reach out and it gets handled. As your business changes, I review performance with you, spot new bottlenecks, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
+                Every system we build is maintained on our side. If something needs adjusting, you reach out and it gets handled. As your business changes, we review performance with you, spot new bottlenecks, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
-                None of that asks you to take my word for it. You approve the setup in writing before it touches your real line, billing is month to month so you are never locked in, and the system itself runs on the same carrier infrastructure the big providers run on. It answers your calls at two in the morning whether I am awake or not.
+                None of that asks you to take our word for it. You approve the setup in writing before it touches your real line, billing is month to month so you are never locked in, and the system itself runs on the same carrier infrastructure the big providers run on. It answers your calls at two in the morning whether we are awake or not.
               </p>
               <p className="border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-5 text-base font-semibold leading-8 text-[#181510]">
-                The relationship is ongoing, not a one-time transaction.
+                For business systems the relationship is ongoing, not a one-time transaction.
               </p>
             </div>
           </TicketCard>

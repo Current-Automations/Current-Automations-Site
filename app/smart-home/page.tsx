@@ -59,7 +59,7 @@ const setups = [
   {
     code: "09",
     label: "Gear that will not cooperate",
-    body: "Some brands do not speak to Apple Home or Google at all. Rather than telling you to bin it and buy again, I bridge it in.",
+    body: "Some brands do not speak to Apple Home or Google at all. Rather than telling you to bin it and buy again, we bridge it in.",
   },
 ];
 
@@ -92,17 +92,17 @@ const steps = [
   {
     code: "01",
     title: "You text or call",
-    body: "Send a photo of the room, the thermostat, or the door. That is usually enough for me to tell you what it needs and roughly what it costs.",
+    body: "Send a photo of the room, the thermostat, or the door. That is usually enough for us to tell you what it needs and roughly what it costs.",
   },
   {
     code: "02",
     title: "We scope it on the phone",
-    body: "What you already own, what you would need, what it will actually do. If it is not worth doing I will say so.",
+    body: "What you already own, what you would need, what it will actually do. If it is not worth doing we will say so.",
   },
   {
     code: "03",
-    title: "I come out and install it",
-    body: "Gear arrives, I fit it, connect it, and test it. Nothing gets left half-configured for you to finish.",
+    title: "We come out and install it",
+    body: "Gear arrives, we fit it, connect it, and test it. Nothing gets left half-configured for you to finish.",
   },
   {
     code: "04",
@@ -115,12 +115,12 @@ const faqItems = [
   {
     question: "Do I need to buy anything before you come?",
     answer:
-      "No. If you already own the gear I will set up what you have. If you do not, I source it and it goes on the quote at cost plus a small markup, so you are not paying retail on top of labour. A deposit covers the hardware before I buy it, and the rest is due when the job is done.",
+      "No. If you already own the gear we will set up what you have. If you do not, we source it and it goes on the quote at cost plus a small markup, so you are not paying retail on top of labour. A deposit covers the hardware before we buy it, and the rest is due when the job is done.",
   },
   {
     question: "Will it work with an iPhone and an Android in the same house?",
     answer:
-      "Yes, but worth being precise about how. The gear I fit speaks Matter, which is the standard Apple, Google and Amazon all agreed on, so it works with all three. Apple Home itself is iPhone only, so an Android user in the house uses Google Home or the device app instead. Same devices, same automations, different app on their phone.",
+      "Yes, but worth being precise about how. The gear we fit speaks Matter, which is the standard Apple, Google and Amazon all agreed on, so it works with all three. Apple Home itself is iPhone only, so an Android user in the house uses Google Home or the device app instead. Same devices, same automations, different app on their phone.",
   },
   {
     question: "What if the internet goes down?",
@@ -135,12 +135,12 @@ const faqItems = [
   {
     question: "How far do you travel?",
     answer:
-      "In-home work is Durham Region and the GTA. If you are further out, ask anyway. Some of it, voice assistants, shortcuts and troubleshooting, I can do remotely, and I would rather help than turn you away over a postcode.",
+      "In-home work is Durham Region and the GTA. If you are further out, ask anyway. Some of it, voice assistants, shortcuts and troubleshooting, we can do remotely, and we would rather help than turn you away over a postcode.",
   },
   {
     question: "What happens if something goes wrong after you leave?",
     answer:
-      "You call me and I fix it. If it is something I installed or configured, sorting it out is part of the job, not a new one. If a piece of hardware fails, I handle the warranty claim with the manufacturer rather than handing you a support number.",
+      "You call us and we fix it. If it is something we installed or configured, sorting it out is part of the job, not a new one. If a piece of hardware fails, we handle the warranty claim with the manufacturer rather than handing you a support number.",
   },
 ];
 
@@ -152,7 +152,7 @@ export default function SmartHomePage() {
         docCode="FORM SH-01"
         kicker="Smart home setup, Durham and the GTA"
         title="Your house should do the boring parts on its own."
-        description="Lights, locks, the thermostat, the doorbell, all working together and all on one app instead of five. I install it, test it, and show you how to change it. You do not need to buy anything first."
+        description="Lights, locks, the thermostat, the doorbell, all working together and all on one app instead of five. We install it, test it, and show you how to change it. You do not need to buy anything first."
         sideAlign="start"
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
@@ -166,7 +166,7 @@ export default function SmartHomePage() {
             </div>
             <div className="px-6 py-7 text-center">
               <p className="text-sm leading-7 text-[#3a352c]">
-                Text me a photo of the room, the thermostat, or the door.
+                Text us a photo of the room, the thermostat, or the door.
               </p>
               <a
                 href={`sms:${siteContact.phoneHref}`}
@@ -186,7 +186,7 @@ export default function SmartHomePage() {
                 </a>
               </div>
               <p className="mt-4 text-xs leading-6 text-[#58524a]">
-                No appointment needed to ask a question. I only come out once we both know it is
+                No appointment needed to ask a question. We only come out once we both know it is
                 worth a visit.
               </p>
             </div>
@@ -196,7 +196,7 @@ export default function SmartHomePage() {
 
       <JobSheetSection
         code="SH-02"
-        label="What I set up"
+        label="What we set up"
         title="Everything on one app, not five."
         description="Most houses end up with a different app per gadget and nothing talking to anything else. The job is one system, whichever brands are already in the house."
         tone="carbon"
@@ -244,8 +244,8 @@ export default function SmartHomePage() {
               If you already own it
             </h3>
             <p className="mt-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
-              I set up what you have. No pressure to replace working gear, and if something you own
-              will not play nicely with the rest, I will tell you before you have paid for anything.
+              We set up what you have. No pressure to replace working gear, and if something you own
+              will not play nicely with the rest, we will tell you before you have paid for anything.
             </p>
           </TicketCard>
           <TicketCard onDark refCode="GEAR-02">
@@ -253,8 +253,8 @@ export default function SmartHomePage() {
               If you do not own it
             </h3>
             <p className="mt-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
-              I spec it and source it. Hardware goes on the quote at cost plus a small markup, so
-              you are not paying full retail on top of labour. A deposit covers the gear before I
+              We spec it and source it. Hardware goes on the quote at cost plus a small markup, so
+              you are not paying full retail on top of labour. A deposit covers the gear before we
               buy it, the balance is due when it is working.
             </p>
           </TicketCard>
@@ -331,8 +331,8 @@ export default function SmartHomePage() {
       <JobSheetSection
         code="SH-07"
         label="Start here"
-        title="Send me a photo and I will tell you what it needs."
-        description="That is genuinely the whole first step. If it is not worth doing, I will say so and it costs you nothing."
+        title="Send us a photo and we will tell you what it needs."
+        description="That is genuinely the whole first step. If it is not worth doing, we will say so and it costs you nothing."
         tone="ink"
       >
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
