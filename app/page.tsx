@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const CAL_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
-const tradeLanes = [
+const lanes = [
   {
     code: "PILLAR 01",
     stamp: "Every call answered",
@@ -101,17 +101,53 @@ export default function Home() {
         }
       />
 
-      {/* The pillars: 3 trades lanes + 1 B2B lane */}
+      {/* Option C fork: business / home, immediately below the hero */}
+      <JobSheetSection
+        code="CA-01"
+        label="Two lanes"
+        title="For your business, or for your home."
+        description="Same promise either way: we scope it, install it, and keep it running, and you never touch the tech. Pick the side that fits."
+        tone="paper"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Reveal variant="up">
+            <TicketCard refCode="LANE-BIZ">
+              <div className="mb-4">
+                <Stamp label="For business" tone="teal" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">Run the office on autopilot</h3>
+              <p className="mt-4 text-base leading-8 text-[#58524a]">
+                Missed-call text back, speed to lead, follow-up that chases quiet quotes, and overdue-invoice nudges. The desk work that eats your evenings, handled.
+              </p>
+              <LaneLink href="#what-we-automate" label="See what we automate" />
+            </TicketCard>
+          </Reveal>
+          <Reveal variant="up" delay={120}>
+            <TicketCard refCode="LANE-HOME">
+              <div className="mb-4">
+                <Stamp label="For home" tone="teal" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">A house that runs itself</h3>
+              <p className="mt-4 text-base leading-8 text-[#58524a]">
+                Lights, locks, thermostats, doorbells, cameras and voice control, installed and working before we leave. You do not need to buy the gear first.
+              </p>
+              <LaneLink href="/smart-home" label="See smart home setup" />
+            </TicketCard>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      {/* The pillars */}
       <JobSheetSection
         id="what-we-automate"
         code="CA-02"
         label="What we automate"
-        title="Three lanes for your trade. Start with the one that hurts most."
+        title="Start with the lane that hurts most."
         description="Each lane is its own set of small systems. You never buy the department; you start with one fix, see it work, and grow into the rest."
         tone="carbon"
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          {tradeLanes.map((lane, i) => (
+          {lanes.map((lane, i) => (
             <Reveal key={lane.code} variant="up" delay={i * 120} className={[jobsheet.tiltA, jobsheet.tiltC, jobsheet.tiltB][i]}>
               <TicketCard refCode={lane.code}>
                 <div className="mb-4">
@@ -136,7 +172,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">Lead generation</h3>
               <p className="mt-4 text-base leading-8 text-[#58524a]">
-                Not a trades tool. Automated pipelines that find and qualify decision-makers at companies matching your exact ICP. For corporate, construction management, and B2B service companies.
+                A B2B-only program. Automated pipelines that find and qualify decision-makers at companies matching your exact ICP. For corporate, construction management, and B2B service companies.
               </p>
               <LaneLink href="/lead-generation" label="See the lead-gen program" />
             </div>
@@ -304,7 +340,7 @@ export default function Home() {
         items={faqItems}
         code="CA-07"
         label="Frequently Asked Questions"
-        title="Questions service business owners usually ask first."
+        title="Questions most people ask first."
         description="A straightforward overview of how Current Automations fits into your existing process."
         tone="paper"
       />
