@@ -50,20 +50,6 @@
       width: 520px;
     }
 
-    /* Subtle radial teal glow behind icon */
-    .lockup-wrap::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(79,208,173,0.13) 0%, transparent 68%);
-      pointer-events: none;
-    }
-
     /* ── Icon ── */
     .icon {
       width: 72px;
@@ -71,8 +57,6 @@
       flex-shrink: 0;
       position: relative;
       z-index: 1;
-      /* subtle glow ring */
-      filter: drop-shadow(0 0 12px rgba(79,208,173,0.22));
     }
 
     /* ── Divider ── */
@@ -134,9 +118,6 @@
     .lockup-wrap.on-light .sep {
       background: linear-gradient(to bottom, transparent, rgba(20,150,118,0.35), transparent);
     }
-    .lockup-wrap.on-light::before {
-      background: radial-gradient(circle, rgba(79,208,173,0.08) 0%, transparent 68%);
-    }
 
     /* Separator between samples */
     .rule {
@@ -155,7 +136,7 @@
 
   <!-- LARGE dark -->
   <div class="lockup-wrap">
-    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <img class="icon" src="./current-automations-mark.svg" alt="Current Automations">
     <div class="sep"></div>
     <div class="wordmark">
       <span class="wordmark-top">CURRENT</span>
@@ -169,7 +150,7 @@
 
   <!-- COMPACT dark (navbar scale) -->
   <div class="lockup-wrap compact">
-    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <img class="icon" src="./current-automations-mark.svg" alt="Current Automations">
     <div class="sep"></div>
     <div class="wordmark">
       <span class="wordmark-top">CURRENT</span>
@@ -183,7 +164,7 @@
 
   <!-- LARGE light -->
   <div class="lockup-wrap on-light">
-    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <img class="icon" src="./current-automations-mark.svg" alt="Current Automations">
     <div class="sep"></div>
     <div class="wordmark">
       <span class="wordmark-top">CURRENT</span>

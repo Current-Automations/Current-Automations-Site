@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<style>
+  html, body { margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  :root {
+    --bg-deep: #06101f; --bg-navy: #0b1828; --bg-card: #0f1f33;
+    --ink-100: #ffffff; --ink-80: #cfe1f0; --ink-50: #7f95ad;
+    --teal-100: #8cf0e0; --teal-200: #5dd6cb; --teal-300: #3bb6c7;
+    --blue-400: #2e8fd6; --blue-500: #1e6ec4; --blue-600: #1652a8;
+    --grad-wave: linear-gradient(90deg, #8cf0e0 0%, #3bb6c7 38%, #2e8fd6 75%, #1652a8 100%);
+  }
+  .stage { width: 100vw; height: 100vh; overflow: hidden; }
+  .lockup { display: inline-flex; align-items: center; gap: var(--gap, 18px); color: var(--ink-100); }
+  .lockup .mark { width: var(--mark, 72px); height: var(--mark, 72px); flex: 0 0 auto; display: block; }
+  .lockup .mark img { width: 100%; height: 100%; display: block; }
+  .wordmark { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 0.95; font-size: var(--word, 42px); white-space: nowrap; }
+  .wordmark .current { color: var(--ink-100); }
+  .wordmark .automations { color: var(--teal-200); font-weight: 500; }
+  .tagline { font-family: 'Inter', sans-serif; color: var(--ink-50); font-size: var(--tag, 13px); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.55em; }
+
+  .banner { position: relative; width: 100%; height: 100%; overflow: hidden; background: radial-gradient(120% 140% at 12% 50%, #11304a 0%, #08152a 55%, #04091a 100%); display: flex; align-items: center; color: var(--ink-100); }
+  .banner .grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(140,240,224,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(140,240,224,0.05) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(80% 100% at 50% 50%, #000 0%, transparent 78%); }
+  .banner h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--ink-100); margin: 0; }
+  .banner h1 .accent { background: var(--grad-wave); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .banner .meta { display: flex; align-items: center; justify-content: center; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-50); letter-spacing: 0.1em; text-transform: uppercase; }
+  .banner .meta .sep { color: rgba(140,240,224,0.4); }
+  .banner-b { justify-content: center; text-align: center; }
+  .banner-b .content { padding-left: 0; max-width: 1400px; }
+  .banner-b .lockup { margin: 0 auto 26px; }
+
+  /* Facebook cover safe zone: desktop overlaps the profile photo + name in the
+     bottom-left roughly 200px tall, mobile crops top/bottom of a 16:9 source
+     down to about a 9:5 visible strip. Keep everything inside a centered band
+     well clear of both edges and the bottom-left corner. */
+  .safe { padding: 0 220px; }
+</style>
+</head>
+<body style="width:2048px;height:1152px;overflow:hidden;background:#000">
+<title>Facebook cover</title>
+<div class="banner banner-b stage">
+  <div class="grid-lines"></div>
+  <div style="position:absolute;left:-100px;top:50%;transform:translateY(-50%)"><svg width="820" height="410" viewBox="0 0 520 220" fill="none" style="opacity:0.30">
+    <defs><linearGradient id="wg1" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#8cf0e0"/><stop offset="0.45" stop-color="#3bb6c7"/><stop offset="1" stop-color="#1652a8"/></linearGradient></defs>
+    <path d="M0 60 C 110 30, 220 100, 330 60 S 520 30, 520 60" stroke="url(#wg1)" stroke-width="2" stroke-opacity="0.85" fill="none" stroke-linecap="round"/><path d="M0 82 C 110 52, 220 122, 330 82 S 520 52, 520 82" stroke="url(#wg1)" stroke-width="1.75" stroke-opacity="0.7" fill="none" stroke-linecap="round"/><path d="M0 104 C 110 74, 220 144, 330 104 S 520 74, 520 104" stroke="url(#wg1)" stroke-width="1.5" stroke-opacity="0.55" fill="none" stroke-linecap="round"/><path d="M0 126 C 110 96, 220 166, 330 126 S 520 96, 520 126" stroke="url(#wg1)" stroke-width="1.25" stroke-opacity="0.4" fill="none" stroke-linecap="round"/><path d="M0 148 C 110 118, 220 188, 330 148 S 520 118, 520 148" stroke="url(#wg1)" stroke-width="1" stroke-opacity="0.25" fill="none" stroke-linecap="round"/>
+  </svg></div>
+  <div style="position:absolute;right:-100px;top:50%;transform:translateY(-50%) scaleX(-1)"><svg width="820" height="410" viewBox="0 0 520 220" fill="none" style="opacity:0.30">
+    <defs><linearGradient id="wg1" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#8cf0e0"/><stop offset="0.45" stop-color="#3bb6c7"/><stop offset="1" stop-color="#1652a8"/></linearGradient></defs>
+    <path d="M0 60 C 110 30, 220 100, 330 60 S 520 30, 520 60" stroke="url(#wg1)" stroke-width="2" stroke-opacity="0.85" fill="none" stroke-linecap="round"/><path d="M0 82 C 110 52, 220 122, 330 82 S 520 52, 520 82" stroke="url(#wg1)" stroke-width="1.75" stroke-opacity="0.7" fill="none" stroke-linecap="round"/><path d="M0 104 C 110 74, 220 144, 330 104 S 520 74, 520 104" stroke="url(#wg1)" stroke-width="1.5" stroke-opacity="0.55" fill="none" stroke-linecap="round"/><path d="M0 126 C 110 96, 220 166, 330 126 S 520 96, 520 126" stroke="url(#wg1)" stroke-width="1.25" stroke-opacity="0.4" fill="none" stroke-linecap="round"/><path d="M0 148 C 110 118, 220 188, 330 148 S 520 118, 520 148" stroke="url(#wg1)" stroke-width="1" stroke-opacity="0.25" fill="none" stroke-linecap="round"/>
+  </svg></div>
+  <div class="content safe">
+    <div class="lockup" style="--mark:130px;--word:76px;--gap:26px;">
+      <span class="mark"><img src="./current-automations-mark.svg" alt="" /></span>
+      <span class="wordmark"><span class="current">Current</span> <span class="automations">Automations</span></span>
+    </div>
+    <h1 style="margin-top:34px;font-size:46px;line-height:1.15">Automation without the headache.<br/>We install it, we maintain it, <span class="accent">you never touch it.</span></h1>
+    <div class="meta" style="margin-top:30px">
+      <span>For businesses</span><span class="sep">/</span><span>For home</span><span class="sep">/</span><span>Durham Region &amp; the GTA</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

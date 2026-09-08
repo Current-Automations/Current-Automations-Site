@@ -81,44 +81,43 @@
     }
 
     /* ─────────────────────────────────────────
-       LEFT - ICON SECTION
+       LEFT - PROFILE PHOTO RESERVE
+
+       LinkedIn floats the circular profile photo over the lower-left of a
+       personal background, roughly the first 300px. Nothing may live in
+       .photo-safe. Everything else stays inside the 1350x220 centred safe
+       zone, which is what a mobile viewport crops to.
+
+       The icon sits to the RIGHT of .photo-safe, never inside it. It belongs
+       here because the profile photo is a headshot, so this is the only place
+       the mark appears. Contrast the company cover, where LinkedIn floats the
+       logo tile and the cover therefore carries no icon at all.
     ───────────────────────────────────────── */
+    .photo-safe {
+      width: 300px;
+      flex-shrink: 0;
+      height: 100%;
+    }
+
     .left {
       position: relative;
       z-index: 2;
       flex-shrink: 0;
-      width: 360px;
+      width: 170px;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
     }
 
-    .icon-glow {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(79,208,173,0.18) 0%, transparent 65%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
     .icon {
-      width: 210px;
-      height: 210px;
+      width: 148px;
+      height: 148px;
       display: block;
       position: relative;
       z-index: 1;
-      filter:
-        drop-shadow(0 0 28px rgba(79,208,173,0.30))
-        drop-shadow(0 0 8px  rgba(42,144,214,0.20));
     }
 
-    /* ─────────────────────────────────────────
-       VERTICAL DIVIDER
-    ───────────────────────────────────────── */
     .vdivider {
       width: 1px;
       height: 200px;
@@ -140,7 +139,7 @@
       position: relative;
       z-index: 2;
       flex: 1;
-      padding: 0 52px 0 56px;
+      padding: 0 40px 0 40px;
     }
 
     .wordmark {
@@ -149,7 +148,7 @@
 
     .word-current {
       display: block;
-      font-size: 96px;
+      font-size: 82px;
       font-weight: 800;
       letter-spacing: 0.13em;
       line-height: 0.94;
@@ -168,7 +167,7 @@
     .word-automations {
       display: block;
       margin-top: 4px;
-      font-size: 38px;
+      font-size: 33px;
       font-weight: 500;
       letter-spacing: 0.32em;
       text-transform: uppercase;
@@ -185,18 +184,12 @@
     }
 
     .tagline {
-      margin-top: 14px;
-      font-size: 17px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.58);
-      line-height: 1.5;
-    }
-
-    .tagline em {
-      font-style: normal;
-      color: rgba(255,255,255,0.82);
+      margin-top: 16px;
+      font-size: 26px;
       font-weight: 600;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.4;
     }
 
     /* ─────────────────────────────────────────
@@ -206,8 +199,8 @@
       position: relative;
       z-index: 2;
       flex-shrink: 0;
-      width: 240px;
-      padding-right: 56px;
+      width: 320px;
+      padding-right: 117px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -238,17 +231,6 @@
       line-height: 1.8;
     }
 
-    /* Small teal dot separator */
-    .dot-sep {
-      display: inline-block;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--teal);
-      opacity: 0.5;
-      vertical-align: middle;
-      margin: 0 5px;
-    }
   </style>
 </head>
 <body>
@@ -298,14 +280,16 @@
   <!-- Right edge stripe -->
   <div class="edge-stripe"></div>
 
-  <!-- LEFT: Icon -->
+  <!-- LEFT: reserved for the profile photo LinkedIn floats here -->
+  <div class="photo-safe"></div>
+
+  <!-- Icon -->
   <div class="left">
-    <div class="icon-glow"></div>
-    <img class="icon" src="./current-automations-icon-only.png" alt="Current Automations">
+    <img class="icon" src="./current-automations-mark.svg" alt="Current Automations">
   </div>
 
-  <!-- Divider -->
   <div class="vdivider"></div>
+
 
   <!-- CENTER: Wordmark + tagline -->
   <div class="center">
@@ -314,12 +298,7 @@
       <span class="word-automations">Automations</span>
     </div>
     <div class="accent-bar"></div>
-    <p class="tagline">
-      <em>Catch every missed call.</em>
-      <span class="dot-sep"></span>
-      Win every job.
-      <br>Automation for HVAC &bull; Plumbing &bull; Electrical &bull; Service Businesses
-    </p>
+    <p class="tagline">Automation without the headache.</p>
   </div>
 
   <!-- RIGHT: URL + service area -->
