@@ -71,45 +71,6 @@ const decayRows = [
   { time: "60 min+", bar: 3, label: "Effectively lost" },
 ];
 
-const industryRows = [
-  {
-    code: "TR-01",
-    name: "Plumbing",
-    leak: "On-site all day, hands in a job. No way to catch the next caller before they redial the next plumber on Google.",
-    automate: "Auto-text within 60 seconds of a missed call, with job-type capture and an urgency flag for after-hours.",
-  },
-  {
-    code: "TR-02",
-    name: "HVAC",
-    leak: "Heat-wave Tuesdays bring 4x volume. The phone can't physically keep up with the inbound.",
-    automate: "Speed-to-lead plus after-hours intake routes urgent jobs to the right tech with the address already captured.",
-  },
-  {
-    code: "TR-03",
-    name: "Electrical",
-    leak: "Jobs run back-to-back. By the time you check voicemail, the lead has already booked someone else.",
-    automate: "Voicemail transcript plus an AI-generated reply tailored to the actual issue, not a generic auto-response.",
-  },
-  {
-    code: "TR-04",
-    name: "Cleaning",
-    leak: "Volume of small-job inquiries you cannot realistically quote one by one during your busiest hours.",
-    automate: "Web-form intake auto-quotes routine jobs and books straight into your calendar with no manual coordination.",
-  },
-  {
-    code: "TR-05",
-    name: "Landscaping",
-    leak: "Mowers running, phones in the truck. Three hours can disappear silently while leads cool off.",
-    automate: "Missed-call SMS keeps every lead engaged until the crew breaks for lunch and checks the truck.",
-  },
-  {
-    code: "TR-06",
-    name: "Other local trades",
-    leak: "Any business where speed of response decides who wins the job.",
-    automate: "We map your actual workflow first, then build the system around it. No template installs.",
-  },
-];
-
 export default function CallDispatchPage() {
   return (
     <div className={jobsheetFonts}>
@@ -397,57 +358,14 @@ export default function CallDispatchPage() {
         </div>
       </JobSheetSection>
 
-      {/* Industries */}
-      <JobSheetSection
-        code="CD-06"
-        label="Industries served"
-        title="Built for the way service businesses actually run."
-        description="If your day is mostly hands-on work, your phone is your business. Here is what we automate first for each trade."
-        tone="carbon"
-      >
-        <p className="mb-6 text-sm leading-7 text-[#58524a]">
-          Currently serving businesses across Ajax, Whitby, Oshawa, Pickering, and the surrounding GTA.
-        </p>
-
-        <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
-          <div className="hidden border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-6 py-3 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6">
-            <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>Trade</span>
-            <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>Where it leaks</span>
-            <span className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[#58524a]`}>What runs automatically</span>
-          </div>
-
-          {industryRows.map((row) => (
-            <div
-              key={row.code}
-              className={`${jobsheet.ledgerRow} grid grid-cols-1 gap-2 border-b border-[rgba(28,36,48,0.12)] px-6 py-5 last:border-b-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1.6fr)] lg:gap-6 lg:py-6`}
-            >
-              <p className="text-lg font-semibold tracking-tight text-[#181510]">
-                {row.name}
-              </p>
-              <p className="text-sm leading-7 text-[#58524a]">
-                <span className="mb-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[#58524a] lg:hidden">
-                  Where it leaks
-                </span>
-                {row.leak}
-              </p>
-              <p className="text-sm leading-7 text-[#3a352c]">
-                <span className="mb-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-strong)] lg:hidden">
-                  What we automate
-                </span>
-                <span className="font-medium text-[var(--color-brand-strong)]">&#8594; </span>
-                {row.automate}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
+      <div className="container-shell py-12 text-center">
+        <p className="text-sm leading-7 text-[#58524a]">
           The systems in this lane start at $49/month plus a $150 one-time setup. AI voice adds a separate $200 one-time configuration fee.{" "}
           <Link href="/pricing#tiers" className="font-medium text-[var(--color-brand-strong)] hover:underline">
             See full pricing &#8594;
           </Link>
         </p>
-      </JobSheetSection>
+      </div>
 
       <JobSheetCTA
         code="CD-07"
