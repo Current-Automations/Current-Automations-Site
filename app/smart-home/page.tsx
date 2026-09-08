@@ -291,8 +291,8 @@ export default function SmartHomePage() {
         </div>
 
         <p className="mt-8 max-w-3xl text-sm leading-7 text-[#58524a]">
-          Prices move as the work teaches me what it actually takes, so treat these as current rather
-          than carved. Whatever you are quoted before I start is what you pay.
+          Whatever you are quoted before we start is what you pay. No change orders once the work
+          begins.
         </p>
       </JobSheetSection>
 
