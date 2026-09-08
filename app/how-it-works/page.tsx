@@ -21,42 +21,42 @@ const steps = [
   {
     number: "01",
     title: "Discovery call",
-    body: "We start with a free 30-minute conversation. No pitch. We ask about your day, where time gets lost, where leads fall through, and what would make the biggest difference.",
+    body: "We start with a free 30-minute conversation. No pitch. We ask about your day, where time gets lost, what keeps getting dropped, and what would make the biggest difference.",
   },
   {
     number: "02",
     title: "Opportunity map",
-    body: "Based on what we hear, we identify exactly where your business is leaking the most revenue. For most service businesses this is missed call recovery. For others it is follow-up, admin, or scheduling. You get a clear recommendation, not a list of software options.",
+    body: "Based on what we hear, we point at the one or two things worth fixing first. In a business that is usually missed calls, follow-up, or admin. In a home it is the lights, the lock, the thermostat, or the routine you keep doing by hand. You get a clear recommendation, not a list of products.",
   },
   {
     number: "03",
     title: "We build it for you",
-    body: "Once we agree on the right system, we build and configure everything. You do not touch the technology. Most clients are live within 48 hours.",
+    body: "Once we agree on the right system, we build and configure everything, and install it if there is hardware involved. You do not touch the technology. Most setups are running within days.",
   },
   {
     number: "04",
     title: "It runs in the background",
-    body: "The system runs automatically from day one. Missed calls get caught. Follow-ups go out. Leads get captured. Your team gets notified. And if you want the final say, it starts with approvals on: nothing sends until you OK it, until you're ready to hand over control.",
+    body: "The system runs on its own from day one. Missed calls get caught, follow-ups go out, or the lights come on and the door locks itself, depending on what we built. And where something sends on your behalf, it can start with approvals on: nothing goes out until you OK it, until you're ready to hand over control.",
   },
   {
     number: "05",
-    title: "We maintain everything",
-    body: "We monitor and maintain the system on our end. If something needs adjusting, we handle it. You focus on the work. We keep the system working.",
+    title: "We keep it working",
+    body: "We monitor and maintain what we built. If something needs adjusting, we handle it. Business systems we watch on our end; home setups we come back to when something changes or you add to it.",
   },
 ];
 
 const guarantees = [
   "No technical knowledge required at any stage",
-  "Systems are maintained and monitored on our end",
-  "Most clients see measurable impact within 30 days",
-  "The relationship is ongoing, not a one-time install",
+  "We maintain what we build, you are not left with it",
+  "Most setups are running within days, not months",
+  "Business systems run on a monthly plan; home installs are one-time",
 ];
 
 const heroChecklist = [
-  "A clear picture of where your business leaks revenue",
+  "A clear picture of what could be running on its own",
   "A recommended system built for your specific situation",
-  "Fast implementation with no disruption to how you work",
-  "Ongoing maintenance so nothing breaks on you",
+  "Fast installation with no disruption to how you live or work",
+  "Ongoing support so nothing breaks on you",
 ];
 
 const pillarPointers = [
@@ -64,6 +64,7 @@ const pillarPointers = [
   { href: "/follow-up", label: "Auto-replies & follow-up", note: "Watch a quiet quote get chased to a yes" },
   { href: "/back-office", label: "Back-office & admin", note: "Invoice follow-up, from due date to paid" },
   { href: "/lead-generation", label: "Lead generation", note: "B2B only: pipelines that find your next customers" },
+  { href: "/smart-home", label: "Smart home setup", note: "Lights, locks, thermostats and voice, installed and working" },
 ];
 
 function CheckBox() {
@@ -93,7 +94,7 @@ export default function HowItWorksPage() {
             to running system.
           </>
         }
-        description="Every engagement starts with a free walkthrough that finds where your business is losing time and money. Then we install it, tune it, and hand you a working system. You don't touch the tech."
+        description="Every job starts with a free walkthrough that finds what could be running on its own, in your business or your home. Then we install it, tune it, and hand you a working system. You don't touch the tech."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -166,9 +167,9 @@ export default function HowItWorksPage() {
       {/* Pointer to the pillar deep dives */}
       <JobSheetSection
         code="HW-03"
-        label="See it in a real week"
-        title="Want the play-by-play? Each pillar has its own page."
-        description="This page is the process. The pillar pages show what actually runs: logged scenarios, the systems in each lane, and what they cost."
+        label="See it in practice"
+        title="Want the play-by-play? Each lane has its own page."
+        description="This page is the process. The lane pages show what actually runs: logged scenarios, the systems in each lane, and what they cost."
         tone="paper"
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -195,8 +196,8 @@ export default function HowItWorksPage() {
       <JobSheetCTA
         code="HW-04"
         label="Want this with your details?"
-        title="Find out where your business is leaving money behind."
-        description="We walk through your business, find the highest-impact opportunities, and build the systems that fix them."
+        title="Find out what could be running without you."
+        description="We walk through your business or your home, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"

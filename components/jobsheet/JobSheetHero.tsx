@@ -43,7 +43,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               <h1 className={`${styles.display} mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] text-[#181510]`}>
                 The automation department
                 <br />
-                your business doesn&apos;t have.
+                you don&apos;t have.
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -55,11 +55,10 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </div>
 
               <p className="mt-7 max-w-xl text-base leading-8 text-[#3a352c] sm:text-lg">
-                We find where your business is losing time and money, then we
-                build the fix: small systems that answer missed calls, chase
-                quiet quotes, nudge overdue invoices, and follow up so you
-                don&apos;t have to. Installed in days. We run and maintain it
-                for you.
+                We find what could run on its own, in your business or your
+                home, then build and install the system that does it. It goes
+                in within days, and we tune it and keep it running from our
+                side. You never touch the tech.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
