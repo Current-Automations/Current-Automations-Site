@@ -506,7 +506,7 @@ export default function PricingPage() {
         code="CA-P9"
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
-        description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
+        description="No pressure. No pitch. Just a conversation about what could be running without you."
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/how-it-works"

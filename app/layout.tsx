@@ -20,9 +20,9 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
-const TITLE = "Current Automations | Find Where Your Business Is Losing Money";
+const TITLE = "Current Automations | Business and Home Automation, Done For You";
 const DESCRIPTION =
-  "Current Automations finds where your business is losing time and money, then builds and runs the automation that fixes it. Serving businesses across Ontario.";
+  "Current Automations builds and installs the systems that run your business and your home for you, then keeps them working out of sight. Durham Region and the GTA.";
 
 export const metadata: Metadata = {
   // Required for the generated OG and Twitter images to resolve to absolute URLs.

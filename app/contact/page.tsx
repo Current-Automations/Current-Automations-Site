@@ -150,7 +150,7 @@ export default function ContactPage() {
         code="CN-04"
         label="Not sure where to start?"
         title="Not sure where to start?"
-        description="Book a free 30-minute walkthrough and we will map exactly where your business is losing time and money."
+        description="Book a free 30-minute walkthrough and we will map exactly what could be running without you."
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/how-it-works"

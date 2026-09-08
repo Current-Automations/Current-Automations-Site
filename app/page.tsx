@@ -349,7 +349,7 @@ export default function Home() {
         code="CA-08"
         label="Not sure where to start?"
         title="Book a free walkthrough and we will figure it out together."
-        description="No pressure. No pitch. Just a conversation about where your business is losing time and money."
+        description="No pressure. No pitch. Just a conversation about what could be running without you."
         primaryHref={CAL_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"

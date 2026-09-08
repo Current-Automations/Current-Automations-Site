@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Current Automations: find where your business is losing time and money, then fix it.";
+  "Current Automations: find what could be running without you, then we build it.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -68,7 +68,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           >
-            Find where your business is losing money.
+            Find what could be running without you.
           </div>
           <div
             style={{
