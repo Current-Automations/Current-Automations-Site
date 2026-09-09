@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     absolute: "About | Current Automations",
   },
   description:
-    "Current Automations finds where a business leaks revenue, then builds and maintains the systems that fix it. Based in Ontario. It starts with a free walkthrough.",
+    "Current Automations builds the systems that run a business in the background, and the smart home and phone setups that do the same for a house. Based in Ontario. It starts with a free walkthrough.",
 };
 
 const fileFacts = [
@@ -60,7 +60,7 @@ const workOrderRows = [
   {
     code: "03",
     title: "Maintain",
-    body: "Every system we build stays maintained on our side. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
+    body: "Every system we build stays supported. Business systems we monitor on our side; home setups we come back to when something changes or you add to it. If something needs adjusting, you reach out and it gets handled. You see the results, not the plumbing.",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function AboutPage() {
             Then we build it.
           </>
         }
-        description="Current Automations builds the systems that catch missed calls, chase quiet quotes, and keep admin moving for businesses across Ontario. It starts with a free walkthrough that finds your highest-impact fix, and we build from there."
+        description="Current Automations builds two things: the systems that run a business in the background, missed calls, quiet quotes, admin, and the smart home and phone setups that do the same for a house. Both start with a free walkthrough that finds the highest-impact fix, and we build from there."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -110,8 +110,8 @@ export default function AboutPage() {
       <JobSheetSection
         code="AB-02"
         label="Where the money leaks"
-        title="Three leaks, and almost every service business has all three."
-        description="Different trades, same paperwork. The details change but the places revenue quietly disappears do not."
+        title="On the business side, it is almost always these three."
+        description="Different trades, same paperwork. The home side looks different, the lights, the lock, the thermostat, the routine you run by hand, but the idea is the same: find the thing quietly eating time or money and take it off your plate."
         tone="carbon"
       >
         <div className={`${jobsheet.ticket} divide-y divide-[rgba(28,36,48,0.14)] p-0`}>
@@ -134,7 +134,7 @@ export default function AboutPage() {
         code="AB-03"
         label="How every job runs"
         title="One work order. Walkthrough, build, maintain."
-        description="We do not sell software and leave you to figure it out. Every job follows the same three lines, and we stay on the file after go-live."
+        description="We do not sell software and leave you to figure it out. Every job follows the same three lines. Business systems run on a monthly plan and we watch them on our end; home installs are one-time and we come back when something changes."
         tone="ink"
       >
         <Reveal>
@@ -254,7 +254,7 @@ export default function AboutPage() {
                 None of that asks you to take our word for it. You approve the setup in writing before it touches your real line, billing is month to month so you are never locked in, and the system itself runs on the same carrier infrastructure the big providers run on. It answers your calls at two in the morning whether we are awake or not.
               </p>
               <p className="border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-5 text-base font-semibold leading-8 text-[#181510]">
-                For business systems the relationship is ongoing, not a one-time transaction.
+                For business systems the relationship is ongoing, not a one-time transaction. Home installs run the other way: paid once, set up properly, and we come back when you want to change or add to it.
               </p>
             </div>
           </TicketCard>
@@ -264,8 +264,8 @@ export default function AboutPage() {
       <JobSheetCTA
         code="AB-06"
         label="Open a file"
-        title="Find out where your business is leaving money behind."
-        description="A free 30-minute walkthrough. We find the highest-impact leak, tell you exactly what would fix it, and you decide from there."
+        title="Find out what could be running without you."
+        description="We walk through your business or your home, find the highest-impact opportunities, and build the systems that fix them."
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"

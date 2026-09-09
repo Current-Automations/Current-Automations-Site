@@ -129,7 +129,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">A house that runs itself</h3>
               <p className="mt-4 text-base leading-8 text-[#58524a]">
-                Lights, locks, thermostats, doorbells, cameras and voice control, installed and working before we leave. You do not need to buy the gear first.
+                Lights, locks, thermostats, doorbells, cameras and voice control, installed and working before we leave, or just your phone set up to run the routines. You do not need to buy the gear first.
               </p>
               <LaneLink href="/smart-home" label="See smart home setup" />
             </TicketCard>

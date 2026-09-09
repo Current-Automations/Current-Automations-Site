@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import TicketCard from "@/components/jobsheet/TicketCard";
+import ComingSoonCard from "@/components/jobsheet/ComingSoonCard";
 import Stamp from "@/components/jobsheet/Stamp";
 import { siteContact } from "@/data/siteContent";
 
@@ -192,7 +194,18 @@ export default function SmartHomePage() {
             </div>
           </div>
         }
-      />
+      >
+        <p className="mt-6 text-sm leading-7 text-[#3a352c]">
+          Not after hardware?{" "}
+          <Link
+            href="/everyday-automations"
+            className="font-semibold text-[var(--color-brand-strong)] hover:underline"
+          >
+            Everyday Automations
+          </Link>{" "}
+          is the phone side, shortcuts, tags and routines, set up remotely anywhere in Canada.
+        </p>
+      </JobSheetPageHero>
 
       <JobSheetSection
         code="SH-02"
@@ -330,6 +343,27 @@ export default function SmartHomePage() {
 
       <JobSheetSection
         code="SH-07"
+        label="On the roadmap"
+        title="Two more we are building out."
+        description="Not live yet. When they are, each gets its own page. For now they run as part of a full build."
+        tone="carbon"
+      >
+        <div className="grid gap-6 sm:grid-cols-2">
+          <ComingSoonCard
+            refCode="RS-01"
+            title="Security and cameras"
+            blurb="Doorbells, indoor and outdoor cameras, sensors and alerts, set up as one system instead of five apps."
+          />
+          <ComingSoonCard
+            refCode="RS-02"
+            title="Climate and energy"
+            blurb="Thermostats, smart vents, blinds and plugs tuned to cut what the house wastes when nobody is home."
+          />
+        </div>
+      </JobSheetSection>
+
+      <JobSheetSection
+        code="SH-08"
         label="Start here"
         title="Send us a photo and we will tell you what it needs."
         description="That is genuinely the whole first step. If it is not worth doing, we will say so and it costs you nothing."

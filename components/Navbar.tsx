@@ -5,23 +5,36 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+// Slots 0-1 (Home, About) render before the "What We Automate" dropdown, slots
+// 2+ after it. Both lanes now live inside the dropdown, grouped.
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  // Slots 2+ render after the "What We Automate" dropdown, which is the business
-  // lane. Smart Home is the other lane, so it leads that group.
-  { href: "/smart-home", label: "Smart Home" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ];
 
-const pillarLinks = [
-  { href: "/call-dispatch", label: "Call & Dispatch" },
-  { href: "/follow-up", label: "Auto-Replies & Follow-Up" },
-  { href: "/back-office", label: "Back-Office & Admin" },
-  { href: "/lead-generation", label: "Lead Generation (B2B)" },
+const automateGroups = [
+  {
+    heading: "For business",
+    links: [
+      { href: "/call-dispatch", label: "Call & Dispatch" },
+      { href: "/follow-up", label: "Auto-Replies & Follow-Up" },
+      { href: "/back-office", label: "Back-Office & Admin" },
+      { href: "/lead-generation", label: "Lead Generation (B2B)" },
+    ],
+  },
+  {
+    heading: "For home",
+    links: [
+      { href: "/smart-home", label: "Smart Home" },
+      { href: "/everyday-automations", label: "Everyday Automations" },
+    ],
+  },
 ];
+
+const automateLinks = automateGroups.flatMap((group) => group.links);
 
 function getLinkClasses(active: boolean) {
   return [
@@ -54,7 +67,7 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  const pillarActive = pillarLinks.some((link) => pathname === link.href);
+  const pillarActive = automateLinks.some((link) => pathname === link.href);
   const shellClasses = [
     "border border-line-dark bg-[rgba(7,17,29,0.72)] px-4 py-2.5 shadow-[0_12px_36px_rgba(2,6,23,0.18)] backdrop-blur-md sm:px-5",
     isOpen ? "rounded-card-lg" : "rounded-full",
@@ -122,24 +135,31 @@ export default function Navbar() {
                 </button>
 
                 {pillarsOpen ? (
-                  <div className="absolute left-0 top-full z-50 mt-2 min-w-[15rem] rounded-card-lg border border-line-dark bg-[rgba(7,17,29,0.94)] p-2 shadow-[0_18px_48px_rgba(2,6,23,0.4)] backdrop-blur-md">
-                    {pillarLinks.map((link) => {
-                      const active = pathname === link.href;
-                      return (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className={`block rounded-full px-4 py-2 text-sm font-medium ${
-                            active
-                              ? "bg-surface-dark-3 text-white"
-                              : "text-on-dark hover:bg-surface-dark-2 hover:text-white"
-                          }`}
-                          onClick={() => setPillarsOpen(false)}
-                        >
-                          {link.label}
-                        </Link>
-                      );
-                    })}
+                  <div className="absolute left-0 top-full z-50 mt-2 min-w-[16rem] rounded-card-lg border border-line-dark bg-[rgba(7,17,29,0.94)] p-2 shadow-[0_18px_48px_rgba(2,6,23,0.4)] backdrop-blur-md">
+                    {automateGroups.map((group, i) => (
+                      <div key={group.heading} className={i > 0 ? "mt-1 border-t border-line-dark pt-1" : ""}>
+                        <p className="px-4 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white/45">
+                          {group.heading}
+                        </p>
+                        {group.links.map((link) => {
+                          const active = pathname === link.href;
+                          return (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className={`block rounded-full px-4 py-2 text-sm font-medium ${
+                                active
+                                  ? "bg-surface-dark-3 text-white"
+                                  : "text-on-dark hover:bg-surface-dark-2 hover:text-white"
+                              }`}
+                              onClick={() => setPillarsOpen(false)}
+                            >
+                              {link.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ))}
                   </div>
                 ) : null}
               </div>
@@ -201,20 +221,27 @@ export default function Navbar() {
               <p className="mt-2 px-4 text-[0.65rem] font-semibold uppercase tracking-[0.26em] text-white/55">
                 What We Automate
               </p>
-              {pillarLinks.map((link) => {
-                const active = pathname === link.href;
+              {automateGroups.map((group) => (
+                <div key={group.heading} className="grid gap-2">
+                  <p className="px-4 pt-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-white/40">
+                    {group.heading}
+                  </p>
+                  {group.links.map((link) => {
+                    const active = pathname === link.href;
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={getLinkClasses(active)}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={getLinkClasses(active)}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              ))}
 
               {navLinks.slice(2).map((link) => {
                 const active = pathname === link.href;
