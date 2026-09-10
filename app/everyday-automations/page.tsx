@@ -8,6 +8,8 @@ import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import TicketCard from "@/components/jobsheet/TicketCard";
+import Link from "next/link";
+import { everydayAutomationsPricing } from "@/data/homePricing";
 
 const BOOK_URL =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
@@ -24,7 +26,7 @@ const heroFacts = [
   { label: "Coverage", value: "Anywhere in Canada" },
   { label: "Hardware", value: "None needed" },
   { label: "Typical job", value: "One session" },
-  { label: "From", value: "$79, one-time" },
+  { label: "From", value: everydayAutomationsPricing.from },
 ];
 
 const capabilities = [
@@ -266,11 +268,20 @@ export default function EverydayAutomationsPage() {
         tone="paper"
       />
 
+      <div className="container-shell py-12 text-center">
+        <p className="text-sm leading-7 text-[#58524a]">
+          Most setups run {everydayAutomationsPricing.range} one-time, {everydayAutomationsPricing.note}.{" "}
+          <Link href="/pricing#home-pricing" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+            See full pricing&nbsp;&#8594;
+          </Link>
+        </p>
+      </div>
+
       <JobSheetCTA
         code="EA-07"
         label="Book it"
         title="Tell us what the phone should be handling."
-        description="A quick screen-share, no visit needed. Most setups run $79 to $199 one-time, depending on how many routines and whether it is remote or in person."
+        description={`A quick screen-share, no visit needed. Most setups run ${everydayAutomationsPricing.range} one-time, ${everydayAutomationsPricing.note}.`}
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/smart-home"

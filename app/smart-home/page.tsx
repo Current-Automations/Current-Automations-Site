@@ -9,6 +9,7 @@ import TicketCard from "@/components/jobsheet/TicketCard";
 import ComingSoonCard from "@/components/jobsheet/ComingSoonCard";
 import Stamp from "@/components/jobsheet/Stamp";
 import { siteContact } from "@/data/siteContent";
+import { smartHomeTiers as tiers, HOME_PRICE_PROMISE } from "@/data/homePricing";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/smart-home" },
@@ -62,31 +63,6 @@ const setups = [
     code: "09",
     label: "Gear that will not cooperate",
     body: "Some brands do not speak to Apple Home or Google at all. Rather than telling you to bin it and buy again, we bridge it in.",
-  },
-];
-
-const tiers = [
-  {
-    code: "T1",
-    name: "One device or one room",
-    price: "$99 to $149",
-    body: "One thing installed, added to your phone, tested, and one automation built while you watch so you know how to change it later.",
-    fit: "A thermostat. A lock. A doorbell. The first thing.",
-  },
-  {
-    code: "T2",
-    name: "Whole-home starter",
-    price: "$349 to $599",
-    body: "Thermostat, one lock, and your lighting brought under one app. Hub set up, sensors placed where they matter, scenes built, and everyone in the house shown how it works.",
-    fit: "The usual starting point for a whole house.",
-    featured: true,
-  },
-  {
-    code: "T3",
-    name: "Full build",
-    price: "Quoted",
-    body: "Lighting throughout, shades, multiple locks, switch replacement, anything that needs an electrician alongside. Fixed quote before anything gets bought or opened.",
-    fit: "You want the whole thing done properly, once.",
   },
 ];
 
@@ -304,8 +280,10 @@ export default function SmartHomePage() {
         </div>
 
         <p className="mt-8 max-w-3xl text-sm leading-7 text-[#58524a]">
-          Whatever you are quoted before we start is what you pay. No change orders once the work
-          begins.
+          {HOME_PRICE_PROMISE}{" "}
+          <Link href="/pricing#home-pricing" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+            See full pricing&nbsp;&#8594;
+          </Link>
         </p>
       </JobSheetSection>
 

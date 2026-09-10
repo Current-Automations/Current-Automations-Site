@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import TicketCard from "@/components/jobsheet/TicketCard";
+import { smartHomeTiers, everydayAutomationsPricing, HOME_PRICE_PROMISE } from "@/data/homePricing";
 import BuyNowButton from "@/components/BuyNowButton";
 import CartSelector from "@/components/CartSelector";
 import type { CartScenario } from "@/components/CartSelector";
@@ -219,7 +222,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
-    "Transparent, tiered pricing for service business automation. Choose a bundle or build your own with individual scenarios starting at $49/month.",
+    "Published pricing for both lanes. Business systems run monthly from $197 a bundle or $49 a single workflow; home installs and phone routines are one-time from $79.",
 };
 
 export default function PricingPage() {
@@ -247,21 +250,14 @@ export default function PricingPage() {
               <h1 className={`${jobsheet.display} mt-5 max-w-3xl text-[clamp(2rem,5vw,3.6rem)] leading-[1.02] text-[#181510]`}>
                 Transparent pricing.
                 <br />
-                Pay only for what you use.
+                Published before you call.
               </h1>
               <Reveal variant="fade" delay={200}>
                 <p className="mt-7 max-w-2xl text-base leading-8 text-[#3a352c] sm:text-lg">
-                  Choose a bundled tier to save up to $149/month, or build your
-                  own stack with individual automation scenarios starting at
-                  $49/month.
-                </p>
-                <div className="mt-7 inline-block">
-                  <Stamp label="$150 CAD setup, one time" tone="rust" />
-                </div>
-                <p className="mt-4 text-sm text-[#58524a]">
-                  Full build, configuration, and onboarding included. Most
-                  plans pay for themselves with one or two recovered jobs a
-                  month.
+                  Business systems run monthly, from $197 for a bundle or $49
+                  for a single workflow. Home work is one-time, from $79 for
+                  phone routines and $99 for an install. Either way the number
+                  is on this page rather than behind a call.
                 </p>
               </Reveal>
             </div>
@@ -269,8 +265,60 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Two shapes of pricing on one page, so neither lane hits a dead end */}
       <JobSheetSection
         code="CA-P2"
+        label="Two ways this is priced"
+        title="Which side are you pricing?"
+        description="Business systems are a monthly plan because we run and watch them for you. Home work is paid once, because we set it up and it is yours. Jump to whichever applies."
+        tone="paper"
+      >
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Reveal variant="up">
+            <TicketCard refCode="PRICE-BIZ">
+              <div className="mb-4">
+                <Stamp label="For business" tone="teal" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">Monthly plans</h3>
+              <p className={`${jobsheet.mono} mt-4 text-[clamp(1.6rem,3vw,2rem)] font-semibold text-[#181510]`}>
+                From $197/mo
+              </p>
+              <p className="mt-4 text-base leading-8 text-[#58524a]">
+                Call handling, follow-up, and admin. Bundled tiers or single workflows from $49/month, plus a one-time $150 setup. Month to month, cancel any time.
+              </p>
+              <Link
+                href="#tiers"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
+              >
+                See the monthly plans&nbsp;&#8594;
+              </Link>
+            </TicketCard>
+          </Reveal>
+          <Reveal variant="up" delay={120}>
+            <TicketCard refCode="PRICE-HOME">
+              <div className="mb-4">
+                <Stamp label="For home" tone="teal" />
+              </div>
+              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">One-time work</h3>
+              <p className={`${jobsheet.mono} mt-4 text-[clamp(1.6rem,3vw,2rem)] font-semibold text-[#181510]`}>
+                From $79, once
+              </p>
+              <p className="mt-4 text-base leading-8 text-[#58524a]">
+                Smart home installs and phone routines. Paid once, no monthly fee, quoted before anything starts. Nothing to cancel later.
+              </p>
+              <Link
+                href="#home-pricing"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-brand-strong)] hover:underline"
+              >
+                See home pricing&nbsp;&#8594;
+              </Link>
+            </TicketCard>
+          </Reveal>
+        </div>
+      </JobSheetSection>
+
+      <JobSheetSection
+        code="CA-P3"
         label="Done for you"
         title="Cheap tools still leave you doing the work."
         description="Self-serve automation tools cost less on paper. Then you spend your evenings configuring them, connecting them to your phone system, and figuring out why the texts stopped sending. We install it, tune it, and hand you a working system. You don't touch the tech."
@@ -324,7 +372,7 @@ export default function PricingPage() {
 
       <JobSheetSection
         id="tiers"
-        code="CA-P3"
+        code="CA-P4"
         label="Bundled tiers"
         title="Start with a bundle. Save every month."
         description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $149/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
@@ -350,14 +398,21 @@ export default function PricingPage() {
             </Reveal>
           ))}
         </div>
+
+        <div className="mt-8 text-center">
+          <Stamp label="$150 CAD setup, one time" tone="rust" />
+          <p className="mt-4 text-sm leading-7 text-[#58524a]">
+            Full build, configuration, and onboarding included. Most plans pay for themselves with one or two recovered jobs a month.
+          </p>
+        </div>
       </JobSheetSection>
 
       <JobSheetSection
         id="guarantee"
-        code="CA-P4"
-        label="First month guarantee"
+        code="CA-P5"
+        label="First month guarantee, monthly plans"
         title="If it doesn't work in your first month, you don't pay for the month."
-        description="Every Starter client gets this. Run it for 30 days, and if it isn't working, we refund the month in full and keep the system running while we work out why. We would rather carry that risk ourselves than ask you to take our word for it."
+        description="Every Starter client gets this. Run it for 30 days, and if it isn't working, we refund the month in full and keep the system running while we work out why. We would rather carry that risk ourselves than ask you to take our word for it. Home installs are one-time work, so they carry a different promise: the quote holds."
         tone="ink"
       >
         <div className="grid gap-px overflow-hidden rounded border-2 border-dashed border-white/20 sm:grid-cols-3">
@@ -400,7 +455,7 @@ export default function PricingPage() {
 
       <JobSheetSection
         id="a-la-carte"
-        code="CA-P5"
+        code="CA-P6"
         label="A la carte"
         title="Just need one fix? Pick a single workflow."
         description="Each scenario runs independently and can be added to any tier. Start with the one problem that hurts most; bundles save money once you are running three or more."
@@ -443,10 +498,10 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
-        code="CA-P6"
+        code="CA-P7"
         label="Why teams choose this"
-        title="Why service businesses choose Current Automations."
-        description="You do not need a complicated rollout to fix a missed-call problem. You need something that fits how your team already works."
+        title="Why people choose Current Automations."
+        description="You do not need a complicated rollout to fix a missed-call problem, or a wiring diagram to get your lights behaving. You need something that fits how you already work."
         tone="paper"
       >
         <div className="grid gap-6 md:grid-cols-3">
@@ -479,7 +534,7 @@ export default function PricingPage() {
       </JobSheetSection>
 
       <JobSheetSection
-        code="CA-P7"
+        code="CA-P8"
         label="Selling to other businesses?"
         title="Lead generation is priced separately."
         description="Everything above is built for businesses that run on inbound calls and bookings. Our lead generation pipelines serve a different audience: corporate, construction management, and B2B service companies. Those engagements are scoped to your ICP and volume, with a fixed quote before anything is built."
@@ -493,17 +548,74 @@ export default function PricingPage() {
         </div>
       </JobSheetSection>
 
+      {/* Home lane: summary depth only. The lane pages are where someone decides. */}
+      <JobSheetSection
+        id="home-pricing"
+        code="CA-P9"
+        label="For your home"
+        title="Home work is paid once, not monthly."
+        description="Setup and labour, published the same way. Hardware, where any is needed, is quoted separately at cost plus a small markup rather than folded into these bands. There is no plan to cancel and no monthly fee."
+        tone="paper"
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {smartHomeTiers.map((tier, i) => (
+            <Reveal key={tier.code} delay={i * 70}>
+              <TicketCard refCode={tier.code} className="h-full">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-xl font-semibold tracking-tight text-[#181510]">{tier.name}</h3>
+                  {tier.featured ? <Stamp tone="teal" label="Most homes" /> : null}
+                </div>
+                <p className={`${jobsheet.mono} mt-4 text-[clamp(1.6rem,3vw,2rem)] font-semibold text-[#181510]`}>
+                  {tier.price}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[#58524a]">{tier.fit}</p>
+              </TicketCard>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={220}>
+          <div className={`${jobsheet.ticket} mt-6 p-7 sm:p-8`}>
+            <div className="mb-4">
+              <Stamp label="No hardware, no visit" tone="teal" />
+            </div>
+            <h3 className="text-xl font-semibold tracking-tight text-[#181510]">
+              Everyday automations, {everydayAutomationsPricing.range}
+            </h3>
+            <p className="mt-4 text-base leading-8 text-[#58524a]">
+              The phone side: shortcuts, tags, focus modes and routines, built with you over a screen share anywhere in Canada. Priced {everydayAutomationsPricing.note}.
+            </p>
+          </div>
+        </Reveal>
+
+        <p className="mt-8 max-w-3xl text-sm leading-7 text-[#58524a]">
+          {HOME_PRICE_PROMISE} What each band includes is on{" "}
+          <Link href="/smart-home" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+            Smart Home Setup
+          </Link>{" "}
+          and{" "}
+          <Link href="/everyday-automations" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+            Everyday Automations
+          </Link>
+          .
+        </p>
+
+        <div className="mt-7">
+          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" external />
+        </div>
+      </JobSheetSection>
+
       <JobSheetFAQ
         items={pricingFaqItems}
-        code="CA-P8"
+        code="CA-P10"
         label="Frequently Asked Questions"
-        title="Common questions about pricing and contracts."
-        description="Straightforward answers to what most owners want to know before committing."
+        title="Common questions about the monthly plans."
+        description="Straightforward answers to what most owners want to know before committing. Home installs are quoted one-time, so the contract and cancellation answers below do not apply to them."
         tone="paper"
       />
 
       <JobSheetCTA
-        code="CA-P9"
+        code="CA-P11"
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about what could be running without you."
