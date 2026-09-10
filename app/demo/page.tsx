@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/demo" },
   title: { absolute: "See It In Action | Current Automations" },
   description:
-    "Call the live demo line and watch the text come back within seconds, plus short demos of the lead-capture system and a home routine that runs itself.",
+    "Call the live demo line and watch the text come back within seconds, plus six short demos: three of the lead-capture system, three of a house running itself.",
 };
 
 const testSteps = [
@@ -31,9 +31,9 @@ export default function DemoPage() {
       <JobSheetPageHero
         docLabel="TEST SLIP"
         docCode="FORM DM-01"
-        kicker="Proof you can dial right now"
-        title="Call it yourself. The text you get back is the product."
-        description="No signup, no form, no sales call. Say something if you want, or just let it ring. Either way, watch what your customers would see after hours."
+        kicker="Proof you can watch, or dial"
+        title="Watch it run. Then dial the line and test it yourself."
+        description="Six short demos below, three for a business and three for a house. The business line is also live: call it, say something or just let it ring, and the text that comes back is the same one your customers would get after hours. No signup, no form, no sales call."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -76,10 +76,10 @@ export default function DemoPage() {
       <DemoVideos />
 
       <JobSheetCTA
-        code="DM-05"
-        label="Ready to see your own numbers?"
-        title="Want to see this running on your business's own call flow?"
-        description="Book a free walkthrough and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."
+        code="DM-06"
+        label="Ready to see it on yours?"
+        title="Want to see this running on your line, or in your house?"
+        description="Book a free walkthrough and we will find the thing worth fixing first, then show you what it would actually look like running for you. Calls, quotes and admin on the business side; lights, locks and routines on the home side."
         primaryHref={BOOK_URL}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
