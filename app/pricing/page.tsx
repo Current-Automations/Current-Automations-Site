@@ -84,9 +84,27 @@ const pricingFaqItems: FAQItem[] = [
       "Current pricing is locked in for active subscribers. Any future pricing changes would be communicated in advance and would not apply retroactively.",
   },
   {
-    question: "What happens if I cancel?",
+    question: "What happens if I cancel a monthly plan?",
     answer:
       "You can cancel your monthly plan at any time. Your automations will remain active through the end of the billing period you have already paid for.",
+  },
+  // Home questions live here rather than on the lane pages because they are all
+  // fork questions: someone asks them while deciding which side they are on, and
+  // the lane FAQs deliberately cover fit and logistics instead of money.
+  {
+    question: "Is there a monthly fee for home work?",
+    answer:
+      "No. Home installs and phone routines are paid once and that is the end of it. The monthly plans higher up this page are the business side, and they run monthly because we are running and watching a system for you. Nothing we set up at home bills you again.",
+  },
+  {
+    question: "Is hardware included in the home prices?",
+    answer:
+      "No, those bands are setup and labour. If you already own the gear there is no hardware line at all. If you do not, we source it and it goes on the quote at cost plus a small markup, listed separately so you can see what is the device and what is the work.",
+  },
+  {
+    question: "What does it cost to get a quote?",
+    answer:
+      "Nothing. The walkthrough is a short video call, and you come out of it with a number rather than a follow-up call. We do not visit the house until we both know it is worth one, and for a full build the quote goes in writing before anything is bought or opened.",
   },
 ];
 
@@ -608,8 +626,8 @@ export default function PricingPage() {
         items={pricingFaqItems}
         code="CA-P10"
         label="Frequently Asked Questions"
-        title="Common questions about the monthly plans."
-        description="Straightforward answers to what most owners want to know before committing. Home installs are quoted one-time, so the contract and cancellation answers below do not apply to them."
+        title="Common questions about pricing."
+        description="Straightforward answers to what people want to know before committing. The monthly business plans come first, then home work, which is priced and paid differently."
         tone="paper"
       />
 
