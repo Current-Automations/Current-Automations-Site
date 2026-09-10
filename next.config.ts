@@ -2,8 +2,13 @@ import type { NextConfig } from "next";
 
 const securityHeaders = [
   // preload is what gets the domain onto the browser-baked HSTS list, so the very
-  // first visit is HTTPS too rather than one redirect away from it. Submit the
-  // domain at hstspreload.org once this is live; the directive alone does nothing.
+  // first visit is HTTPS too rather than one redirect away from it. Submitted to
+  // hstspreload.org 2026-09-10, status pending; it lands whenever Chrome cuts a
+  // release that includes it, so weeks not days.
+  //
+  // Do not remove preload or includeSubDomains from here once it lands. Delisting
+  // ships inside browser binaries and takes months, and until then every subdomain
+  // must serve valid HTTPS or it is unreachable, with no click-through.
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
