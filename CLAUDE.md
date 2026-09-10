@@ -115,10 +115,8 @@ The playbar overlays roughly the bottom 80px of the frame, so geometric centerin
 
 ### CTA convention
 
-All primary CTAs across the site link to:
+All primary CTAs link to **`booking.path`** (`/book-a-demo`) from `data/siteContent.ts`, with the label **`booking.label`** ("Book a Free Walkthrough"). Never hardcode either, and never point a CTA at Google directly: that string lived in 16 files before it was hoisted, which is why changing the booking destination used to be an 18-file edit.
 
-```
-https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb
-```
+`/book-a-demo` embeds the Google appointment schedule so nobody leaves the site to pick a slot. `booking.googleUrl` and `booking.embedUrl` exist for that page alone (the embed form drops the `/u/0/` segment and adds `gv=true`; they are not interchangeable).
 
-with the label **"Book a Free Walkthrough"**. Always add `target="_blank" rel="noopener noreferrer"` since it opens an external page. Maintain this consistency when adding or editing CTA buttons. "Discovery call" may be used in descriptive body copy (e.g. "a free 30-minute discovery call") but is never a button label. Do not use "Revenue Leak Audit" phrasing anywhere.
+Do **not** add `target="_blank" rel="noopener noreferrer"` to a CTA any more. `PunchButton` derives that from the href (`external` prop still overrides), so an internal route correctly stays in the tab. The `external` flag on `JobSheetCTA` and `JobSheetHero` was removed for the same reason. "Discovery call" may be used in descriptive body copy (e.g. "a free 30-minute discovery call") but is never a button label. Do not use "Revenue Leak Audit" phrasing anywhere.

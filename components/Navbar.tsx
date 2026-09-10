@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { booking } from "@/data/siteContent";
 
 // Slots 0-1 (Home, About) render before the "What We Automate" dropdown, slots
 // 2+ after it. Both lanes now live inside the dropdown, grouped.
@@ -181,8 +182,8 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden xl:block">
-              <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                Book a Free Walkthrough
+              <Link href={booking.path} className="btn-primary">
+                {booking.label}
               </Link>
             </div>
 
@@ -259,13 +260,11 @@ export default function Navbar() {
               })}
 
               <Link
-                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb"
+                href={booking.path}
                 className="btn-primary mt-2"
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
               >
-                Book a Free Walkthrough
+                {booking.label}
               </Link>
             </div>
           ) : null}

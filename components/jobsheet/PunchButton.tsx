@@ -19,9 +19,14 @@ export default function PunchButton({
   label,
   variant = "solid",
   onDark = false,
-  external = false,
+  external,
   className = "",
 }: PunchButtonProps) {
+  // Derived rather than defaulted to false, so a button pointed at an internal
+  // route stops opening a new tab on its own. Booking moved from a Google URL
+  // to /book-a-demo across ~16 call sites; deriving meant the tab behaviour
+  // could not be left wrong on the ones nobody remembered to update.
+  const opensNewTab = external ?? /^https?:\/\//.test(href);
   const classes = [
     styles.punchButton,
     variant === "ghost" ? styles.punchButtonGhost : "",
@@ -36,7 +41,7 @@ export default function PunchButton({
     <Link
       href={href}
       className={classes}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(opensNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {label}
     </Link>

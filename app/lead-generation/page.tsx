@@ -10,9 +10,8 @@ import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
+import { booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/lead-generation" },
@@ -284,7 +283,7 @@ export default function LeadGenerationPage() {
                 and we will tell you what the pipeline can do with it.
               </p>
               <div className="mt-8">
-                <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" external />
+                <PunchButton href={booking.path} label="Book a Free Walkthrough" />
               </div>
             </TicketCard>
           </Reveal>
@@ -296,7 +295,7 @@ export default function LeadGenerationPage() {
         label="Open a file"
         title="Tell us who you sell to. We will find them."
         description="A free 30-minute call. You describe the ideal customer, we scope the pipeline, and you get an honest read on whether it fits your market."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/about"
         secondaryLabel="Who You're Dealing With"

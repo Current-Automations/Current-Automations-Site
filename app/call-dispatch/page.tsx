@@ -12,10 +12,8 @@ import DispatchLog from "@/components/jobsheet/DispatchLog";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
-import { demoLine } from "@/data/siteContent";
+import { demoLine, booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/call-dispatch" },
@@ -223,7 +221,7 @@ export default function CallDispatchPage() {
             Speed to Lead replies in under{" "}
             <span className="text-[var(--color-brand)]">60 seconds</span>, automatically.
           </p>
-          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" onDark external className="shrink-0" />
+          <PunchButton href={booking.path} label="Book a Free Walkthrough" onDark className="shrink-0" />
         </div>
       </JobSheetSection>
 
@@ -372,7 +370,7 @@ export default function CallDispatchPage() {
         label="Hear it yourself"
         title="Call the demo line, then book your free walkthrough."
         description={`The demo line is live at ${demoLine.display}. Let it ring out and the text you get back is the product. When you're ready, the walkthrough finds where your calls are leaking.`}
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/demo"
         secondaryLabel="See the Demo"

@@ -62,7 +62,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <PunchButton href={primaryHref} label="Book a Free Walkthrough" external />
+                <PunchButton href={primaryHref} label="Book a Free Walkthrough" />
                 <PunchButton href={secondaryHref} label="See Pricing" variant="ghost" />
               </div>
 

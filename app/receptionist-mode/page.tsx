@@ -5,6 +5,7 @@ import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import PunchButton from "@/components/jobsheet/PunchButton";
+import { booking } from "@/data/siteContent";
 import {
   AI_VOICE_OVERAGE_RATE,
   FAILOVER_TIMEOUT_SECONDS,
@@ -15,8 +16,6 @@ import {
   VOICE_MINUTES_RECEPTIONIST,
 } from "@/data/pricing";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 // Deliberately unlinked from the nav, the footer and every sitemap surface.
 // Receptionist Mode is sold in a conversation with a client who already runs
@@ -76,7 +75,7 @@ export default function ReceptionistModePage() {
               {VOICE_CONFIG_FEE_RECEPTIONIST - VOICE_CONFIG_FEE}.
             </p>
             <div className="mt-6">
-              <PunchButton href={BOOK_URL} label="Talk to Us About Upgrading" />
+              <PunchButton href={booking.path} label="Talk to Us About Upgrading" />
             </div>
             <p className="mt-4 text-xs leading-5 text-[#58524a]">
               We set this up with you rather than through a checkout page, so the credit for what

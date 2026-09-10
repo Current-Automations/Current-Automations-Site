@@ -15,6 +15,7 @@ import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import PricingTicket from "@/components/jobsheet/PricingTicket";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
+import { booking } from "@/data/siteContent";
 import {
   AI_VOICE_OVERAGE_RATE,
   ELITE_TIER_PRICE,
@@ -26,8 +27,6 @@ import {
   VOICE_MINUTES_RECEPTIONIST,
 } from "@/data/pricing";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 const guaranteeTerms = [
   {
@@ -393,7 +392,7 @@ export default function PricingPage() {
                 featured={!!tier.badge}
               >
                 <BuyNowButton priceId={tier.priceId} />
-                <PunchButton href={BOOK_URL} label="Book a Call Instead" variant="ghost" />
+                <PunchButton href={booking.path} label="Book a Call Instead" variant="ghost" />
               </PricingTicket>
             </Reveal>
           ))}
@@ -492,7 +491,7 @@ export default function PricingPage() {
             after you have watched the thing work.
           </p>
           <div className="mt-6">
-            <PunchButton href={BOOK_URL} label="Book a Call" variant="ghost" />
+            <PunchButton href={booking.path} label="Book a Call" variant="ghost" />
           </div>
         </div>
       </JobSheetSection>
@@ -601,7 +600,7 @@ export default function PricingPage() {
         </p>
 
         <div className="mt-7">
-          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" external />
+          <PunchButton href={booking.path} label="Book a Free Walkthrough" />
         </div>
       </JobSheetSection>
 
@@ -619,7 +618,7 @@ export default function PricingPage() {
         label="Not sure where to start?"
         title="Book a free discovery call and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about what could be running without you."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"

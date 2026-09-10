@@ -44,7 +44,7 @@ export default function JobSheetCTA({
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <PunchButton href={primaryHref} label={primaryLabel} onDark external />
+              <PunchButton href={primaryHref} label={primaryLabel} onDark />
               <PunchButton href={secondaryHref} label={secondaryLabel} variant="ghost" onDark />
             </div>
           </div>

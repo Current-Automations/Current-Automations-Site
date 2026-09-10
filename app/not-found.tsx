@@ -4,7 +4,7 @@ import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import PunchButton from "@/components/jobsheet/PunchButton";
-import { siteContact } from "@/data/siteContent";
+import { siteContact, booking } from "@/data/siteContent";
 
 export const metadata: Metadata = {
   title: { absolute: "Page Not Found | Current Automations" },
@@ -40,8 +40,6 @@ const routes = [
   },
 ];
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export default function NotFound() {
   return (
@@ -85,7 +83,7 @@ export default function NotFound() {
       >
         <div className="mt-9 flex flex-wrap gap-4">
           <PunchButton href="/" label="Back to Home" />
-          <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" variant="ghost" external />
+          <PunchButton href={booking.path} label="Book a Free Walkthrough" variant="ghost" />
         </div>
       </JobSheetPageHero>
 

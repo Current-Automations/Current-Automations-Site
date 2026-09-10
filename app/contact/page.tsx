@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { siteContact, siteContacts } from "@/data/siteContent";
+import { siteContact, siteContacts, booking } from "@/data/siteContent";
 import ContactForm from "@/components/ContactForm";
 import { jobsheetFonts } from "@/components/jobsheet/fonts";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
@@ -151,7 +149,7 @@ export default function ContactPage() {
         label="Not sure where to start?"
         title="Not sure where to start?"
         description="Book a free 30-minute walkthrough and we will map exactly what could be running without you."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/how-it-works"
         secondaryLabel="See How It Works"

@@ -51,7 +51,7 @@ export default function PrivacyPage() {
           </span>
         }
         title="Privacy Policy"
-        description={`EFFECTIVE DATE: September 7, 2026 | VERSION: 1.1 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
+        description={`EFFECTIVE DATE: September 10, 2026 | VERSION: 1.2 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
@@ -400,13 +400,24 @@ export default function PrivacyPage() {
                     </li>
                   </ul>
                   <p>
-                    11.4 Changing your mind. Choose Decline on the banner and neither of the optional
+                    11.4 The booking calendar, loaded only if you ask for it. Our booking page at
+                    /book-a-demo embeds Google Calendar&apos;s appointment scheduling so you can pick a
+                    time without leaving our site. Google sets its own cookies when that calendar
+                    loads, so we do not load it automatically. It stays behind a button, and nothing
+                    reaches Google until you press it. This is separate from the cookie banner on
+                    purpose: declining optional cookies does not stop you booking a call, and pressing
+                    the button does not switch on anything in 11.3. If you would rather not load it at
+                    all, the same booking page opens directly on Google from a link on that page, or
+                    you can email or phone us instead.
+                  </p>
+                  <p>
+                    11.5 Changing your mind. Choose Decline on the banner and neither of the optional
                     services is loaded at all. If you already accepted, use the Cookie Settings link in
                     the footer of any page to bring the banner back and change your answer. You can also
                     block or delete cookies through your browser settings at any time.
                   </p>
                   <p>
-                    11.5 What we do not do. We do not sell your personal information, we do not run
+                    11.6 What we do not do. We do not sell your personal information, we do not run
                     advertising cookies, and we do not use cookies to retarget you with ads on other
                     websites.
                   </p>

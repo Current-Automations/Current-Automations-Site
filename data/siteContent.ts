@@ -22,6 +22,24 @@ export const demoLine = {
   href: "tel:+13652993366",
 };
 
+// Every CTA on the site points at `booking.path`, an internal route, not at
+// Google. `/book-a-demo` embeds the appointment schedule so nobody has to leave
+// the site to pick a slot. The Google URLs live here because that page needs
+// them, and because a single string in one file is the difference between
+// changing the booking destination in one edit and in eighteen.
+//
+// `embedUrl` is NOT `googleUrl` with a query string bolted on: the embed form
+// drops the account-scoped `/u/0/` segment and adds `gv=true`. Google generates
+// it under Booking pages > Options > Sharing options > Website embed.
+export const booking = {
+  path: "/book-a-demo",
+  label: "Book a Free Walkthrough",
+  googleUrl:
+    "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb",
+  embedUrl:
+    "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb?gv=true",
+};
+
 export const siteContacts = {
   general: "info@currentautomations.ca",
   support: "support@currentautomations.ca",

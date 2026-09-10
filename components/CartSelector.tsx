@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import jobsheet from "@/components/jobsheet/jobsheet.module.css";
+import { booking } from "@/data/siteContent";
 
-const BOOK_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export type CartScenario = {
   code: string;
@@ -125,7 +125,7 @@ export default function CartSelector({ scenarios }: Props) {
           {loading ? "Redirecting..." : "Checkout"}
         </button>
 
-        <Link href={BOOK_URL} className={`${jobsheet.punchButton} ${jobsheet.punchButtonGhost} mt-3 w-full text-center`}>
+        <Link href={booking.path} className={`${jobsheet.punchButton} ${jobsheet.punchButtonGhost} mt-3 w-full text-center`}>
           Book a Call Instead
         </Link>
       </div>

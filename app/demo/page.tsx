@@ -6,10 +6,8 @@ import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
-import { demoLine } from "@/data/siteContent";
+import { demoLine, booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/demo" },
@@ -55,7 +53,7 @@ export default function DemoPage() {
               <p className="mt-1.5 text-xs text-[#58524a]">Tap to call on mobile</p>
               <div className="mt-6 flex flex-col gap-3">
                 <PunchButton href={demoLine.href} label="Call Now" />
-                <PunchButton href={BOOK_URL} label="Book a Free Walkthrough" variant="ghost" external />
+                <PunchButton href={booking.path} label="Book a Free Walkthrough" variant="ghost" />
               </div>
             </div>
             <div className="divide-y divide-[rgba(28,36,48,0.1)] border-t-2 border-dashed border-[rgba(28,36,48,0.24)]">
@@ -80,7 +78,7 @@ export default function DemoPage() {
         label="Ready to see it on yours?"
         title="Want to see this running on your line, or in your house?"
         description="Book a free walkthrough and we will find the thing worth fixing first, then show you what it would actually look like running for you. Calls, quotes and admin on the business side; lights, locks and routines on the home side."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"

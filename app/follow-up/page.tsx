@@ -9,9 +9,8 @@ import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import Stamp from "@/components/jobsheet/Stamp";
+import { booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/follow-up" },
@@ -207,7 +206,7 @@ export default function FollowUpPage() {
         label="Stop the quiet losses"
         title="Find out which follow-ups you're missing."
         description="A free 30-minute walkthrough. We look at where your leads and quotes actually go quiet, and tell you which system would recover the most."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"

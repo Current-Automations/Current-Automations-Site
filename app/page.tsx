@@ -11,7 +11,7 @@ import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import PunchButton from "@/components/jobsheet/PunchButton";
 import Stamp from "@/components/jobsheet/Stamp";
-import { caseStudies, faqItems, demoLine } from "@/data/siteContent";
+import { caseStudies, faqItems, demoLine, booking } from "@/data/siteContent";
 
 // Title, description and OG come from the root layout. Only the canonical is
 // page-specific, and it cannot live at the root without leaking to every child.
@@ -19,8 +19,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const CAL_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 const lanes = [
   {
@@ -86,7 +84,7 @@ export default function Home() {
     <div className={jobsheetFonts}>
       <JobSheetHero
         id="overview"
-        primaryHref={CAL_URL}
+        primaryHref={booking.path}
         secondaryHref="/pricing"
         ctaNote={
           <>
@@ -241,7 +239,7 @@ export default function Home() {
         </div>
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
           Want to see it with your own call flow?{" "}
-          <Link href={CAL_URL} className="font-medium text-[var(--color-brand-strong)] hover:underline" target="_blank" rel="noopener noreferrer">
+          <Link href={booking.path} className="font-medium text-[var(--color-brand-strong)] hover:underline">
             Book a free walkthrough.
           </Link>{" "}
           Or see the{" "}
@@ -296,7 +294,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <PunchButton href={CAL_URL} label="Book a Free Walkthrough" onDark external />
+          <PunchButton href={booking.path} label="Book a Free Walkthrough" onDark />
           <p className="text-sm text-[rgba(243,237,225,0.72)]">A free 30-minute discovery call. No pitch, no obligation.</p>
         </div>
       </JobSheetSection>
@@ -373,7 +371,7 @@ export default function Home() {
         label="Not sure where to start?"
         title="Book a free walkthrough and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about what could be running without you."
-        primaryHref={CAL_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"

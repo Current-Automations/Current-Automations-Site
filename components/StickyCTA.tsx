@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { booking } from "@/data/siteContent";
 
-const CAL_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 /**
  * Mobile-only sticky booking bar. Slides up after the user scrolls past the
@@ -35,9 +34,7 @@ export default function StickyCTA() {
           Call
         </a>
         <a
-          href={CAL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={booking.path}
           className="btn-primary flex-1 justify-center"
         >
           Book a Free Walkthrough

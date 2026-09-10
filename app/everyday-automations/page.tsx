@@ -10,9 +10,8 @@ import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import Link from "next/link";
 import { everydayAutomationsPricing } from "@/data/homePricing";
+import { booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/everyday-automations" },
@@ -282,7 +281,7 @@ export default function EverydayAutomationsPage() {
         label="Book it"
         title="Tell us what the phone should be handling."
         description={`A quick screen-share, no visit needed. Most setups run ${everydayAutomationsPricing.range} one-time, ${everydayAutomationsPricing.note}.`}
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/smart-home"
         secondaryLabel="See Smart Home Setup"

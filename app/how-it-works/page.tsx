@@ -6,9 +6,8 @@ import jobsheet from "@/components/jobsheet/jobsheet.module.css";
 import JobSheetPageHero from "@/components/jobsheet/JobSheetPageHero";
 import JobSheetSection from "@/components/jobsheet/JobSheetSection";
 import JobSheetCTA from "@/components/jobsheet/JobSheetCTA";
+import { booking } from "@/data/siteContent";
 
-const BOOK_URL =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0OTjmz9j1ktY0mE3akCYvLZ6qwzY3HKAd_IA4m4nqcqTzuzZJJQj8CzEw8p2jA7GKEkHyw_8wb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/how-it-works" },
@@ -198,7 +197,7 @@ export default function HowItWorksPage() {
         label="Want this with your details?"
         title="Find out what could be running without you."
         description="We walk through your business or your home, find the highest-impact opportunities, and build the systems that fix them."
-        primaryHref={BOOK_URL}
+        primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/pricing"
         secondaryLabel="See Pricing"
