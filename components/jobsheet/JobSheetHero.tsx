@@ -41,9 +41,9 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </p>
 
               <h1 className={`${styles.display} mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] text-[#181510]`}>
-                The automation department
+                The things that should run themselves,
                 <br />
-                you don&apos;t have.
+                finally do.
               </h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -73,7 +73,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               <div className={`${styles.ticket} p-0 overflow-hidden`}>
                 <div className="flex items-center justify-between border-b border-[var(--card-line,rgba(28,36,48,0.16))] bg-[rgba(28,36,48,0.03)] px-5 py-3">
                   <span className={`${styles.mono} text-xs tracking-widest text-[#58524a]`}>
-                    SERVICE BOARD
+                    FOR BUSINESS
                   </span>
                   <span className={`${styles.mono} text-xs tracking-widest text-[#58524a]`}>
                     4 PILLARS
@@ -104,7 +104,7 @@ export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }
               </div>
               <p className="mt-5 max-w-[26rem] text-sm leading-7 text-[#58524a]">
                 Four pillars, one department. Start with the one that hurts
-                most; add the rest as your business grows into them.
+                most; add the rest as you grow.
               </p>
             </Reveal>
           </div>
