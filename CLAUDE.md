@@ -61,7 +61,11 @@ Changing what loads behind consent means updating **privacy clause 11** (`app/pr
 
 ### Accessibility floor
 
-`app/globals.css` colour tokens are set to clear WCAG AA (4.5:1). `--color-brand-strong` is `#0e7359`, darkened from `#149676` which measured 3.19:1 both as link text on paper and as the `PunchButton` fill behind `#f3ede1` labels. axe-core runs clean across every route; keep it that way when adding colours.
+`app/globals.css` colour tokens are set to clear WCAG AA (4.5:1). `--color-brand-strong` is `#0e7359`, darkened from `#149676` which measured 3.19:1 both as link text on paper and as the `PunchButton` fill behind `#f3ede1` labels.
+
+**`--color-brand-strong` clears AA on the light surfaces only:** paper `#f3ede1` 4.98, ticket card `#faf7ee` 5.42, carbon `#ded5c2` **3.98, which fails**. So never put brand-strong text straight onto a `tone="carbon"` section background; keep it inside a `.ticket`. Both violations found so far, the homepage home-demo section and `/back-office`'s trailing pricing line, were fixed that way rather than by changing the token. `--paper-deep` `#e9e0cd` would fail too at 4.43 and is currently unused.
+
+axe-core was reported clean across every route, but that predates the two carbon findings above, so treat it as a past result rather than a guarantee. Measure a new colour against the surface it actually lands on, not against the token table.
 
 ### Shared components
 
