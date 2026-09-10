@@ -16,19 +16,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const whatHappens = [
-  {
-    time: "30 min",
-    label: "A conversation, not a pitch. We ask how things run now and where the time goes.",
-  },
-  {
-    time: "On the call",
-    label: "We point at the one or two things worth fixing first, business or home.",
-  },
-  {
-    time: "After",
-    label: "You leave knowing what would fix it, whether or not you hire us.",
-  },
+// Deliberately logistics, not a second version of the pitch. The booking page
+// itself carries what the call is about, and it renders a few hundred pixels
+// below this card, so anything restated here reads as a stutter.
+const bookingDetails = [
+  { label: "Where", value: "Google Meet. The link comes with your confirmation." },
+  { label: "Prep", value: "None. Nothing to pull together beforehand." },
+  { label: "Who", value: "Jarrett, who builds the systems, not a salesperson." },
+  { label: "Moving it", value: "Reschedule or cancel straight from the confirmation email." },
 ];
 
 export default function BookADemoPage() {
@@ -39,28 +34,28 @@ export default function BookADemoPage() {
         docCode="FORM BK-01"
         kicker="No pitch. No obligation."
         title="Book a free walkthrough."
-        description="Thirty minutes, on a call, about how your business or your home actually runs day to day. Pick a time below and it is booked, you never leave this page."
+        description="Pick a slot below and it is booked, without leaving this page. What you see is our real availability, so anything showing is genuinely open, and the confirmation lands in your inbox with the meeting link."
         sideAlign="start"
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
               <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
-                WHAT HAPPENS
+                THE DETAILS
               </span>
               <span className={`${jobsheet.mono} text-xs tracking-[0.18em] text-[#58524a]`}>
                 FREE
               </span>
             </div>
             <div className="divide-y divide-[rgba(28,36,48,0.1)]">
-              {whatHappens.map((row) => (
+              {bookingDetails.map((row) => (
                 <div
-                  key={row.time}
+                  key={row.label}
                   className={`${jobsheet.ledgerRow} grid grid-cols-[5.5rem_1fr] items-baseline gap-4 px-5 py-3.5`}
                 >
                   <span className={`${jobsheet.mono} text-[0.7rem] uppercase tracking-[0.14em] text-[#58524a]`}>
-                    {row.time}
+                    {row.label}
                   </span>
-                  <span className="text-sm leading-6 text-[#3a352c]">{row.label}</span>
+                  <span className="text-sm leading-6 text-[#3a352c]">{row.value}</span>
                 </div>
               ))}
             </div>
