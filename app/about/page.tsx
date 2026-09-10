@@ -245,10 +245,10 @@ export default function AboutPage() {
                 Most software companies hand you a login and leave you to figure it out. We work differently.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
-                Before we build anything, we spend time understanding how your business actually runs day to day: the calls, the estimates, and the spots where work falls through the cracks. From there, we design a system that fits into your existing process instead of forcing you into a generic software workflow.
+                Before we build anything, we spend time on how things work now: the calls and estimates in a business, the lights, locks and daily routines in a home, and the places where time leaks in either. From there we design a system that fits how your day already runs instead of forcing you into a generic workflow.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
-                Every system we build is maintained on our side. If something needs adjusting, you reach out and it gets handled. As your business changes, we review performance with you, spot new bottlenecks, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
+                Every system we build is maintained on our side. If something needs adjusting, you reach out and it gets handled. As your needs change, we review how it is working with you, spot what is next, and either refine what is in place or build the next piece. You get one point of contact who knows your setup inside and out.
               </p>
               <p className="text-base leading-8 text-[#3a352c]">
                 None of that asks you to take our word for it. You approve the setup in writing before it touches your real line, billing is month to month so you are never locked in, and the system itself runs on the same carrier infrastructure the big providers run on. It answers your calls at two in the morning whether we are awake or not.
