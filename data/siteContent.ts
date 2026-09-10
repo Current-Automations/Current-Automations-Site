@@ -38,17 +38,17 @@ export const faqItems: FAQItem[] = [
   {
     question: "What if my main problem is not missed calls?",
     answer:
-      "That is exactly why we start with a walkthrough. Missed calls are common, but some businesses lose more to slow follow-up, manual admin, or intake bottlenecks. We will figure out where your biggest opportunity is during the free walkthrough and build around that.",
+      "That is exactly why we start with a walkthrough. Missed calls are the common one, but plenty of businesses lose more to slow follow-up, manual admin, or intake. The home side works the same way: the first thing worth fixing is rarely the thing you came in asking about. We find where the biggest opportunity actually is, then build around that.",
   },
   {
     question: "How long does setup take?",
     answer:
-      "Most clients are live within 48 hours. Setup is handled for you.",
+      "Business systems are usually live within 48 hours of your approval, and the setup is handled for you. Home work runs on a booked visit instead: we scope what you need, source anything you do not already have, and most setups are running within days.",
   },
   {
-    question: "Is this only for certain industries?",
+    question: "Is this only for businesses?",
     answer:
-      "The core systems are built for trades and service businesses that rely on inbound calls. Plumbing, HVAC, electrical, cleaning, and landscaping are the most common fits. We also run a separate lead generation service for companies that sell to other businesses; see the Lead Generation page for that.",
+      "No. There are two sides to it. The business side is call handling, follow-up, and the admin that eats your evenings. The home side is smart home installs and the phone routines that run a day without you touching anything. The approach is the same either way: we scope it, we build it, and we keep it running. Lead generation is a separate program for companies that sell to other businesses; see the Lead Generation page for that.",
   },
   {
     question: "Do I need technical knowledge?",
@@ -56,26 +56,10 @@ export const faqItems: FAQItem[] = [
       "None. You will never touch the backend. If something needs adjusting, you contact us and it gets fixed.",
   },
   {
-    question: "Can this be customized for my business?",
+    question: "Can this be customized?",
     answer:
-      "Yes. The core system is the same but messaging, follow-up timing, and lead capture questions can all be adjusted to match how your business works.",
+      "Yes. The building blocks are the same, but what they do gets set around you. On the business side that is the wording, the follow-up timing, and the questions we ask a new lead. On the home side it is which lights come on, when, and what each routine actually triggers.",
   },
-];
-
-export const serviceIndustries = [
-  "Plumbing",
-  "HVAC",
-  "Electrical",
-  "Cleaning",
-  "Landscaping",
-  "Other local service businesses",
-];
-
-export const whyThisWorksPoints = [
-  "Customers often call more than one company.",
-  "The first fast response usually has the advantage.",
-  "Missed calls quietly turn into lost revenue.",
-  "Fast follow-up helps protect opportunities.",
 ];
 
 export type CaseStudy = {
