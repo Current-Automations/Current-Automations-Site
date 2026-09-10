@@ -132,10 +132,10 @@ export default function BackOfficePage() {
           </Reveal>
         </div>
 
-        <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
+        <p className={`${jobsheet.ticket} mx-auto mt-8 max-w-2xl px-6 py-4 text-center text-sm leading-7 text-[#58524a]`}>
           Invoice Payment Follow Up runs at $79/month, alone or inside the Growth tier.{" "}
           <Link href="/pricing#a-la-carte" className="font-medium text-[var(--color-brand-strong)] hover:underline">
-            See pricing &#8594;
+            See pricing&nbsp;&#8594;
           </Link>
         </p>
       </JobSheetSection>

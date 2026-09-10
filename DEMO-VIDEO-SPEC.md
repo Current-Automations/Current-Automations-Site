@@ -5,7 +5,7 @@ How the animations in `public/demos/` are built, and the template to brief a new
 Two parts. **Part 1** is the technical contract, which does not change between videos.
 **Part 2** is the brief you fill in, which is the only creative input needed.
 
-Derived from the seven existing videos, which share one format almost exactly. Six are
+Derived from the ten existing videos, which share one format almost exactly. Nine are
 three-scene. `video1` is the outlier at seven scenes and 89s, the full overview.
 
 **Prior art, and where it disagrees.** The vault holds the original per-video build
@@ -146,7 +146,7 @@ line of text** or it reads as crowded even when geometrically centred.
 
 ## Writing the lines
 
-The format lives or dies on the copy. Observed pattern across all seven:
+The format lives or dies on the copy. Observed pattern across all ten:
 
 - **Setup lines are very short.** "It's 9pm." / "A customer calls." / "You're not
   answering tonight." Present tense, second person, concrete nouns.
@@ -240,7 +240,7 @@ different rules, and it never goes on the website.
 
 ## Why it is separate
 
-All seven existing videos loop, but they fade to opacity 0, hold 500ms of black, then
+All ten existing videos loop, but they fade to opacity 0, hold 500ms of black, then
 hard-restart. On the site that is correct. On Reels a black gap reads as *the video
 ended*, and that forfeits the only real advantage of a short clip: repeat views count as
 watch time. A 6s clip watched three times outperforms a 40s clip abandoned at 30%.

@@ -10,7 +10,7 @@ import { siteContact, demoLine } from "@/data/siteContent";
 
 // Unlisted page. Not in Navbar, Footer, sitemap, or any other route, and noindexed
 // below. Two ways in: scanning the QR on a card, or a link Jarrett sends after a call.
-// The slug carries a random suffix on purpose — the reader this page must never reach
+// The slug carries a random suffix on purpose: the reader this page must never reach
 // is a paying client discovering the offer they didn't get. If it leaks, change the
 // four characters and reprint.
 //

@@ -35,7 +35,7 @@ The site sells one front door: a free 30-minute walkthrough. Missed-call recover
 
 ## Demo videos
 
-Seven self-contained HTML animations in `public/demos/`, embedded through `components/HomeDemoVideo.tsx`.
+Ten self-contained HTML animations in `public/demos/`, embedded through `components/HomeDemoVideo.tsx`.
 
 | File | Subject | Where it appears |
 |---|---|---|
@@ -46,6 +46,9 @@ Seven self-contained HTML animations in `public/demos/`, embedded through `compo
 | `video5.html` | Lead-gen pipeline | `/lead-generation` |
 | `video6.html` | Database reactivation | `/follow-up` |
 | `video7.html` | AI call answering | `/call-dispatch` |
+| `video8.html` | Bedtime routine (NFC tag) | `/everyday-automations` |
+| `video9.html` | Leaving home (location trigger) | `/everyday-automations` |
+| `video10.html` | Morning routine (schedule + one tap) | `/`, `/demo` |
 
 Each file is a fixed 1600x900 stage that scales to its container, with fonts self-hosted from `public/demos/fonts/` so nothing is fetched at runtime. They autoplay, loop, and expose a play/restart bar.
 

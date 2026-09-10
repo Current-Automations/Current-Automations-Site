@@ -14,7 +14,7 @@ stamp slam, peel-in reveals) rather than a generic SaaS shell.
 - References: manila folders, invoice pads, punch-card tickets, work orders
 - Anti-references: purple-gradient SaaS, glowing blobs, glossy card grids
 
-Demo videos (`public/demos/video1.html`–`video7.html`) are the one deliberate
+Demo videos (`public/demos/video1.html`–`video10.html`) are the one deliberate
 exception: they render inside a mounted dark "screen," legible against paper
 the way a phone or monitor on a desk would be. They use the same three
 typefaces as the rest of the site (see Typography) so the screen reads as
@@ -68,11 +68,11 @@ hairline rows.
 - Ledger rows (`.ledgerRow`) get a teal-tinted hover wash.
 - EVERYTHING gated behind `prefers-reduced-motion: reduce` → static, visible, no transforms (see `jobsheet.module.css` and `globals.css` reduced-motion blocks).
 
-## Demo videos (`public/demos/video1.html`–`video7.html`)
+## Demo videos (`public/demos/video1.html`–`video10.html`)
 
 Each is a fully self-contained HTML file (own `<style>`/`<script>`, no
 framework) authored on a fixed 1600×900 stage and uniformly downscaled to
-fit its embed via `transform: scale()`. Shared conventions across all seven:
+fit its embed via `transform: scale()`. Shared conventions across all ten:
 
 - **Fonts**: self-hosted Barlow / Barlow Condensed / IBM Plex Mono `woff2` files under `public/demos/fonts/`, `@font-face`'d at the top of each file. Keeps the demos on the same typeface system as the rest of the site.
 - **Legibility floor**: `fitStage()` clamps the stage scale to a floor (`K_FLOOR = 0.5`) rather than shrinking indefinitely at small embed widths, and exposes the raw and clamped scale as `--stagek` / the content wrapper's `--boost` CSS custom properties. Small/meta text (timestamps, labels) uses `font-size: max(<original>, calc(<floor>px / (var(--stagek) * var(--boost))))` so it never renders below a legible floor regardless of embed size.
@@ -92,7 +92,7 @@ fit its embed via `transform: scale()`. Shared conventions across all seven:
 
 - Primary CTA always "Book a Free Walkthrough" → Google Calendar URL (see `CLAUDE.md`), `target="_blank"` + `rel="noopener noreferrer"`
 - Phone +1 (365) 513-7474 · Demo line 1-365-299-3366
-- Copy voice: 45-year-old trades owner, concrete, no jargon, "AI" never the lead, no emojis, no em dashes, no fabricated testimonials
+- Copy voice: plain and concrete for a busy business owner or homeowner, no jargon, "AI" never the lead, no emojis, no em dashes, no fabricated testimonials. Site voice is "we" everywhere, the two exceptions being the founder-bio card on `/about` and all of `/deal-7k4m`
 - $7,200 / 18-jobs stat phrased as "one contractor reported", no client name
 - WCAG AA contrast; all interactive elements get `:focus-visible` 2px teal outline
 - Mobile: single column at 375px, tap-to-call numbers, sticky CTA bar

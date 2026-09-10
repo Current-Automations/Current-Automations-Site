@@ -95,7 +95,7 @@ Import `siteContact` for the single-email use case. Import `siteContacts` for th
 
 **Building or briefing a new one: see `DEMO-VIDEO-SPEC.md`.** It holds the full house style (stage, palette, keyframe vocabulary, the three-scene skeleton and its exact timings) plus a fill-in-the-blanks scene brief. The rules below are the ones that bite when editing an existing file.
 
-Seven self-contained HTML animations in `public/demos/` (`video1.html` to `video7.html`), embedded through `components/HomeDemoVideo.tsx`. Each is a fixed 1600x900 stage scaled to its container, with fonts served from `public/demos/fonts/` so nothing is fetched at runtime.
+Ten self-contained HTML animations in `public/demos/` (`video1.html` to `video10.html`), embedded through `components/HomeDemoVideo.tsx`. `video8`-`video10` are the home-lane scenes. Each is a fixed 1600x900 stage scaled to its container, with fonts served from `public/demos/fonts/` so nothing is fetched at runtime.
 
 Three rules when editing them:
 
@@ -103,7 +103,7 @@ Three rules when editing them:
 2. **Derived values must stay derived.** Playbar totals compute from `TOTAL`; scene comments and header durations are regenerated from the scene CSS. They were hardcoded once and silently drifted.
 3. **`heroGrow` and `setupDim` use `forwards`, never `both`.** With `both`, the backwards fill applies from t=0 and pins the hero at `scale(1)` through its slam entrance, killing the overshoot.
 
-The scene-1 pattern is shared across all seven: setup lines fade up and stay, dimming to 42% while the hook line lands on `slam` and grows 15% across its hold.
+The scene-1 pattern is shared across all ten: setup lines fade up and stay, dimming to 42% while the hook line lands on `slam` and grows 15% across its hold.
 
 The playbar overlays roughly the bottom 80px of the frame, so geometric centering still reads as crowded. Leave about 95px of clearance below the last line of text.
 
