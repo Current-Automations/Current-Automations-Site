@@ -67,6 +67,20 @@ export default function DemoVideos() {
           ))}
         </div>
       </JobSheetSection>
+
+      <JobSheetSection
+        code="DM-04"
+        label="One for the home side"
+        title="A morning that runs itself."
+        description="Not every automation is about calls. Some of it runs on a schedule, the rest waits for one tap in the kitchen."
+        tone="ink"
+      >
+        <Reveal>
+          <div className={`${jobsheet.ticket} !border-white/15 overflow-hidden p-0`}>
+            <HomeDemoVideo src="/demos/video10.html" title="A morning that runs itself" />
+          </div>
+        </Reveal>
+      </JobSheetSection>
     </>
   );
 }

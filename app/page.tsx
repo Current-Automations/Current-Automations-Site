@@ -252,9 +252,32 @@ export default function Home() {
         </p>
       </JobSheetSection>
 
-      {/* The walkthrough, compressed to a strip */}
+      {/* Home lane: a morning routine that runs itself */}
       <JobSheetSection
         code="CA-04"
+        label="The home side, running"
+        title="See a morning run itself."
+        description="No line to dial for this one. Watch a real morning routine: some of it runs on a schedule, the rest waits for one tap on the way through the kitchen."
+        tone="carbon"
+      >
+        <Reveal>
+          <div className={`${jobsheet.ticket} mx-auto max-w-3xl overflow-hidden p-0`}>
+            <HomeDemoVideo src="/demos/video10.html" />
+            <div className="p-6 text-center">
+              <p className="text-sm leading-7 text-[#58524a]">
+                Two steps run on their own. One tap handles the rest.{" "}
+                <Link href="/everyday-automations" className="font-medium text-[var(--color-brand-strong)] hover:underline">
+                  See how everyday automations work&nbsp;&#8594;
+                </Link>
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </JobSheetSection>
+
+      {/* The walkthrough, compressed to a strip */}
+      <JobSheetSection
+        code="CA-05"
         label="The free walkthrough"
         title="30 minutes. No jargon. You leave knowing where the money leaks."
         description="This is where every engagement starts, and where most owners get the most value, even the ones who never hire us."
@@ -280,7 +303,7 @@ export default function Home() {
 
       {/* Done for you, shortened */}
       <JobSheetSection
-        code="CA-05"
+        code="CA-06"
         label="Done for you"
         title="We install it, tune it, and hand you a working system."
         description="You don't touch the tech."
@@ -300,7 +323,7 @@ export default function Home() {
 
       {/* Proof / in-practice case studies */}
       <JobSheetSection
-        code="CA-06"
+        code="CA-07"
         label="Proof it works"
         title="In practice."
         description="Published results from companies that closed the same gaps with the same systems. This is the benchmark for what this work is worth when it runs properly."
@@ -338,7 +361,7 @@ export default function Home() {
 
       <JobSheetFAQ
         items={faqItems}
-        code="CA-07"
+        code="CA-08"
         label="Frequently Asked Questions"
         title="Questions most people ask first."
         description="A straightforward overview of how Current Automations fits into your existing process."
@@ -346,7 +369,7 @@ export default function Home() {
       />
 
       <JobSheetCTA
-        code="CA-08"
+        code="CA-09"
         label="Not sure where to start?"
         title="Book a free walkthrough and we will figure it out together."
         description="No pressure. No pitch. Just a conversation about what could be running without you."

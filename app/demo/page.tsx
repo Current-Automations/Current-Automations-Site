@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/demo" },
   title: { absolute: "See It In Action | Current Automations" },
   description:
-    "Call the live demo line and watch the text come back within seconds, plus three short demos of the full lead-capture system.",
+    "Call the live demo line and watch the text come back within seconds, plus short demos of the lead-capture system and a home routine that runs itself.",
 };
 
 const testSteps = [
@@ -76,7 +76,7 @@ export default function DemoPage() {
       <DemoVideos />
 
       <JobSheetCTA
-        code="DM-04"
+        code="DM-05"
         label="Ready to see your own numbers?"
         title="Want to see this running on your business's own call flow?"
         description="Book a free walkthrough and we will map exactly where your calls, quotes, and admin are leaking, then show you what running the system on your line would look like."
