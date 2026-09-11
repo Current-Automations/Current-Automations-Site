@@ -32,7 +32,7 @@ const setups = [
   {
     code: "03",
     label: "Heating and cooling",
-    body: "A thermostat that knows when the house is empty. The one that shows up on a bill.",
+    body: "A thermostat that knows when the house is empty. The one that shows up on a bill, and can qualify for a $125 provincial rebate.",
   },
   {
     code: "04",
@@ -119,6 +119,11 @@ const faqItems = [
     question: "What happens if something goes wrong after you leave?",
     answer:
       "You call us and we fix it. If it is something we installed or configured, sorting it out is part of the job, not a new one. If a piece of hardware fails, we handle the warranty claim with the manufacturer rather than handing you a support number.",
+  },
+  {
+    question: "Is there a rebate for a smart thermostat?",
+    answer:
+      "Often, yes. Ontario's Home Renovation Savings program pays $125 on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically, in a single or semi-detached home, row or townhome, or mobile home on a permanent foundation, and have not already claimed one through the program. We will tell you upfront whether the thermostat we are installing qualifies, and help you apply.",
   },
 ];
 
