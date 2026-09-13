@@ -47,6 +47,7 @@ next-env.d.ts
 .agents/
 skills-lock.json
 .playwright-mcp/
+.shots/
 
 # Agent local issue tracker / scratch working state
 .scratch/

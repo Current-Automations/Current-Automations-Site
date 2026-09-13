@@ -25,6 +25,23 @@ Add `$env:PATH = "C:\Program Files\nodejs;" + $env:PATH` before calling node if 
 
 There is **no test suite**.
 
+## Verification: screenshot loop
+
+Any change under `app/` or `components/` (tsx/jsx/css) gets verified before it is reported done:
+
+```bash
+node scripts/shots.mjs /smart-home /pricing   # routes touched; "home" for /
+node scripts/shots.mjs --all                  # full sweep
+```
+
+It reuses a dev server on :3000 or starts and stops its own. For each route at **375 / 768 / 1440** it writes a full-page PNG plus readable tiles to `.shots/` (gitignored, wiped each run), and exits 1 on content past the viewport edge, console errors, or non-200s. Consent is preset to "denied" so the banner stays out of the shots and GA/leadsy never load.
+
+A clean exit is not the verification. **Read the tiles for the sections you changed**: the full-page PNG shrinks to unreadable at phone width.
+
+Two things the checks rely on: the layout wrapper's `overflow-x-clip` (`globals.css:105`) hides page-level horizontal scroll, so overflow is detected per content element instead; and Git Bash rewrites `/pricing` into a Windows path, which the script undoes.
+
+A global Stop hook (`~/.claude/hooks/shots-gate.py`) blocks once if a UI file was edited after the last completed run.
+
 ## Lint status
 
 One error in app source: `components/Navbar.tsx` calls `setState` synchronously inside an effect (`react-hooks/set-state-in-effect`). Pre-existing, not a regression.
