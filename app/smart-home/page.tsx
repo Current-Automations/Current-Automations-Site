@@ -22,7 +22,7 @@ const setups = [
   {
     code: "01",
     label: "Lighting",
-    body: "Whole rooms on one tap, on a schedule, or by voice. Bulbs, switches, dimming, scenes.",
+    body: "Whole rooms on one tap, on a schedule, or by voice. Bulbs, wireless switches and buttons, dimming, scenes. Nothing rewired.",
   },
   {
     code: "02",
@@ -96,6 +96,11 @@ const faqItems = [
       "No. If you already own the gear we will set up what you have. If you do not, we source it and it goes on the quote at cost plus a small markup, so you are not paying retail on top of labour. A deposit covers the hardware before we buy it, and the rest is due when the job is done.",
   },
   {
+    question: "Do you replace the switches in the wall?",
+    answer:
+      "No. We do not open boxes or touch line-voltage wiring. For a room on one tap we use smart bulbs with a wireless switch or a switch cover over the existing one, which gets the same result with nothing rewired. If you want a hardwired smart switch, a licensed electrician installs it, or you do as the homeowner, and we set it up in the app after.",
+  },
+  {
     question: "Will it work with an iPhone and an Android in the same house?",
     answer:
       "Yes, but worth being precise about how. The gear we fit speaks Matter, which is the standard Apple, Google and Amazon all agreed on, so it works with all three. Apple Home itself is iPhone only, so an Android user in the house uses Google Home or the device app instead. Same devices, same automations, different app on their phone.",
@@ -159,7 +164,7 @@ export default function SmartHomePage() {
               </a>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
                 <a href={`sms:${siteContact.phoneHref}`} className={jobsheet.punchButton}>
-                  Text Me
+                  Text Us
                 </a>
                 <a
                   href={`tel:${siteContact.phoneHref}`}
@@ -369,7 +374,7 @@ export default function SmartHomePage() {
               href={`sms:${siteContact.phoneHref}`}
               className={`${jobsheet.punchButton} ${jobsheet.punchButtonOnDark}`}
             >
-              Text Me
+              Text Us
             </a>
             <a
               href={`tel:${siteContact.phoneHref}`}

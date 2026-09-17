@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
   title: { absolute: "Terms of Service | Current Automations" },
   description:
-    "Terms of Service for Current Automations covering subscriptions, billing, service limitations, and legal obligations.",
+    "Terms of Service for Current Automations covering subscriptions, billing, home installs and remote setup, service limitations, and legal obligations.",
 };
 
 const clauseIndex = [
@@ -29,6 +29,7 @@ const clauseIndex = [
   { code: "10", title: "Dispute Resolution" },
   { code: "11", title: "Amendments" },
   { code: "12", title: "Entire Agreement" },
+  { code: "13", title: "Home Installs and Remote Setup" },
   { code: "END", title: "Questions" },
 ];
 
@@ -51,7 +52,7 @@ export default function TermsPage() {
           </span>
         }
         title="Terms of Service"
-        description={`EFFECTIVE DATE: May 7, 2025 | VERSION: 1.3 | JURISDICTION: Province of Ontario, Canada | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
+        description={`EFFECTIVE DATE: September 17, 2026 | VERSION: 1.4 | JURISDICTION: Province of Ontario, Canada | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
@@ -64,7 +65,7 @@ export default function TermsPage() {
             >
               <div className="border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-4 py-3">
                 <span className={`${jobsheet.mono} text-[0.65rem] tracking-[0.16em] text-[#58524a]`}>
-                  15 CLAUSES ON FILE
+                  16 CLAUSES ON FILE
                 </span>
               </div>
               <ol className="max-h-[70vh] overflow-y-auto py-1">
@@ -109,6 +110,9 @@ export default function TermsPage() {
                     CASL Is Your Responsibility: You must have valid consent for every recipient of automated texts. We do not check your contact lists.
                   </li>
                   <li className="list-disc">
+                    Home Installs Are a One-Time Job: Smart home and everyday-automation work is quoted once and paid once, with no subscription. We fit devices that are battery powered, plug in, or run on low-voltage Class 2 wiring. We do not run cable or work on line-voltage wiring, so a hardwired switch or fixture is installed by a licensed electrician you hire, or by you as the homeowner, and we configure it after. A deposit covers hardware only and is fully refundable until the gear is ordered. Clause 13 has the detail.
+                  </li>
+                  <li className="list-disc">
                     Disputes, Ontario Courts: Contact us first and allow 14 business days to resolve anything before escalating.
                   </li>
                 </ul>
@@ -116,7 +120,7 @@ export default function TermsPage() {
 
               <JobSheetLegalClause id="clause-SIGN" code="SIGN" title="Electronic Acceptance">
                 <p>
-                  By subscribing to any Current Automations plan, completing the onboarding intake form, clicking I agree at checkout, or making payment, you agree to be legally bound by these Terms in full.
+                  By subscribing to any Current Automations plan, completing the onboarding intake form, clicking I agree at checkout, confirming a Home Work quote by text or email, or making payment, you agree to be legally bound by these Terms in full.
                   Electronic acceptance constitutes a binding signature.
                 </p>
               </JobSheetLegalClause>
@@ -139,6 +143,9 @@ export default function TermsPage() {
                 </p>
                 <p>
                   Ported Number means any telephone number transferred from a Client&apos;s existing carrier to Twilio as part of the onboarding process.
+                </p>
+                <p>
+                  Home Work means smart home installation and configuration performed at a residence, and Remote Setup performed over a screen share, each quoted and paid once rather than by Subscription, and governed by clause 13 in addition to these Terms generally.
                 </p>
                 <p>
                   Authorized Recipients means individuals who have provided valid express or implied consent under CASL to receive automated commercial electronic messages from the Client&apos;s business.
@@ -366,6 +373,47 @@ export default function TermsPage() {
                 <p>
                   These Terms together with the Client Authorization document and any signed Letter of Authorization constitute the entire agreement.
                   Electronic acceptance at checkout constitutes a valid and binding signature.
+                </p>
+              </JobSheetLegalClause>
+
+              <JobSheetLegalClause id="clause-13" code="13" title="Home Installs and Remote Setup">
+                <p>
+                  13.1 What This Clause Covers: This clause applies to Home Work. Where it conflicts with clauses 2 to 4 or 7, this clause governs Home Work. Everything else in these Terms applies to Home Work as written.
+                </p>
+                <p>
+                  13.2 Scope of In-Home Work: Our in-home work is limited to devices that are battery powered, plug into an existing outlet, or connect only to a low-voltage Class 2 supply as defined in the Ontario Electrical Safety Code. That covers thermostats on existing low-voltage wiring, smart locks, sensors, hubs and bridges, doorbell units on existing doorbell wiring, cameras, plug-in and battery lighting, smart bulbs, wireless switches and buttons, shades, and the configuration of any of these in your apps.
+                  We do not run cable, open junction boxes, replace in-wall switches, dimmers, receptacles or fixtures, or perform any other work on line-voltage wiring, and nothing in a quote or on our website is an offer to do so.
+                  Where a job calls for that kind of work, it is performed by a Licensed Electrical Contractor that you hire directly, or by you as the homeowner where Ontario law permits, and we configure the device after it is installed. Where you ask, we will coordinate timing with your electrician.
+                </p>
+                <p>
+                  13.3 Quotes and Pricing: Labour is quoted from the published price bands on our website at the time of the quote. Hardware we supply is listed separately at our cost plus a small markup stated on the quote. Whatever you are quoted before we start is what you pay. There are no change orders once work begins, no hourly rate, and no recurring fee unless you later choose one in writing. Prices are exclusive of HST, which is added where required by law.
+                </p>
+                <p>
+                  13.4 Deposit: Where we supply hardware, a deposit equal to the quoted hardware cost is due before we order it. Labour-only jobs take no deposit. The deposit is fully refundable if you cancel before the hardware is ordered. After it is ordered, the deposit is refunded less the actual costs of returning the hardware: unopened items are refunded in full once the return is accepted, and opened items are refunded at whatever the retailer or manufacturer refunds us.
+                </p>
+                <p>
+                  13.5 Completion and Payment: A device is complete when it is installed, connected in the agreed app, demonstrated working in front of you, and you have been shown how to use it. The job is complete when every quoted device is complete. You confirm completion by text or email on the day, and the balance is due the same day, payable by the methods stated on the quote. Where a payment is not made within 7 days of completion, clause 10.3 applies and we may suspend any remaining remote support until it is settled.
+                </p>
+                <p>
+                  13.6 Cancellation Mid-Job: If you cancel after work has started, you pay the published band for each device that has been installed and is working, and nothing for any device we have not started. Installed hardware stays with you and is paid for. The deposit terms in clause 13.4 apply to any hardware not yet installed.
+                </p>
+                <p>
+                  13.7 Hardware Defects: We do not warrant hardware. Every device we supply carries its manufacturer&apos;s warranty, and where a device we supplied fails we handle the warranty claim with the manufacturer on your behalf. Where a device we installed fails within 30 days of completion, we replace it at no labour charge once the replacement is in hand. After 30 days, replacing a device is a single-device job at the published band.
+                </p>
+                <p>
+                  13.8 Workmanship: If a device or automation we installed or configured stops working within 30 days of completion, we fix it remotely or return at no charge. This does not cover failures caused by a changed router or network, a factory reset, a new or replaced phone, changes you or a third party made to the configuration, or a hardware defect under clause 13.7. After 30 days, support is a new job at the published band.
+                </p>
+                <p>
+                  13.9 Your Own Gear: Where you already own devices, we will tell you before starting if any of them cannot be set up, for example because the device is unsupported, faulty, or locked to an account we cannot access. Where nothing can be done, there is no charge. Where part of the job can be done, you pay the per-device band for what works.
+                </p>
+                <p>
+                  13.10 Your Home, Network and Accounts: You provide safe access to the areas where work is being done, and an adult is present for the visit. Your internet service, Wi-Fi network, phones, and the third-party accounts and device clouds your devices depend on are yours to maintain. An outage or change in any of them, or a change a manufacturer makes to its app or service, is not a workmanship defect and is not covered by clause 13.8.
+                </p>
+                <p>
+                  13.11 Damage: Notwithstanding clause 7.1, we are responsible for direct physical damage to your property caused by our own work, up to the total price of the job on which it occurred. We are not responsible for pre-existing damage, for conditions we could not reasonably have seen, or for the consequential losses excluded by clause 7.2. Tell us about any damage within 7 days of the visit so it can be inspected.
+                </p>
+                <p>
+                  13.12 Remote Setup: Everyday-automation work done over a screen share takes no deposit and is paid on completion. It is complete when the agreed automation runs once in front of you during the session. Clauses 13.8, 13.9 and 13.10 apply to Remote Setup.
                 </p>
               </JobSheetLegalClause>
 
