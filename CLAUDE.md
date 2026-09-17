@@ -95,7 +95,7 @@ The site runs on the "Job Sheet" system (`components/jobsheet/`, see `DESIGN.md`
 - **`TicketCard`**: the signature card surface (punch hole, ticket-ref corner label).
 - **`Stamp`**: rubber-stamp badge (`tone: "rust" | "teal"`).
 - **`PunchButton`**: the in-page CTA (`variant: "solid" | "ghost"`, `onDark`).
-- **`Navbar`** / **`Footer`**: site-wide chrome, outside the Job Sheet system. CTA links point to the Google Calendar booking URL (see CTA convention below).
+- **`Navbar`** / **`Footer`**: site-wide chrome, outside the Job Sheet system. CTA links use `booking.path` / `booking.label` (see CTA convention below).
 
 ### Shared data
 

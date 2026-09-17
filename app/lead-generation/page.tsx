@@ -119,7 +119,7 @@ export default function LeadGenerationPage() {
         code="LG-02"
         label="Read this first"
         title="This is a different service for a different audience."
-        description="Most of this site is built for trades and service businesses chasing local jobs. This page is not. Lead generation pipelines work when your customers are other companies with a real digital footprint."
+        description="The rest of this site is built for businesses that run on inbound calls and bookings, and for homes. This page is not. Lead generation pipelines work when your customers are other companies with a real digital footprint."
         tone="carbon"
       >
         <div className="grid gap-6 md:grid-cols-2">

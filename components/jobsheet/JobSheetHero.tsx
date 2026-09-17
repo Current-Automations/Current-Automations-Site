@@ -16,7 +16,7 @@ const pillarBoard = [
   { code: "01", name: "Call & dispatch", promise: "Every call answered", href: "/call-dispatch" },
   { code: "02", name: "Auto-replies & follow-up", promise: "No lead goes cold", href: "/follow-up" },
   { code: "03", name: "Back-office & admin", promise: "Paperwork handled", href: "/back-office" },
-  { code: "04", name: "Lead generation", promise: "B2B only", href: "/lead-generation" },
+  { code: "04", name: "Lead generation", promise: "Decision-makers found", href: "/lead-generation" },
 ];
 
 export default function JobSheetHero({ id, primaryHref, secondaryHref, ctaNote }: JobSheetHeroProps) {

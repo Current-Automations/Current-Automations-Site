@@ -69,6 +69,16 @@ export default function BookADemoPage() {
                   {siteContact.phoneDisplay}
                 </a>
               </p>
+              <p className="mt-2 text-xs leading-6 text-[#58524a]">
+                Setting up a home? Skip the call and{" "}
+                <a
+                  href={`sms:${siteContact.phoneHref}`}
+                  className="font-medium text-[var(--color-brand-strong)] hover:underline"
+                >
+                  text us a photo of the room
+                </a>{" "}
+                instead.
+              </p>
             </div>
           </div>
         }

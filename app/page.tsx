@@ -324,7 +324,7 @@ export default function Home() {
         code="CA-07"
         label="Proof it works"
         title="In practice."
-        description="Published results from companies that closed the same gaps with the same systems. This is the benchmark for what this work is worth when it runs properly."
+        description="The benchmark for what this work is worth when it runs properly: published results from companies that closed the same gaps with the same systems."
         tone="ink"
       >
         <div className="grid gap-6 sm:grid-cols-2">
