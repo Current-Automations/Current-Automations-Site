@@ -226,7 +226,7 @@ SCENE 2
 
 SCENE 3
   Payoff 1: Every call answered.
-  Payoff 2: Every job booked.
+  Payoff 2: Even the 9pm ones. (was "Every job booked.", changed 2026-09-24: an absolute claim)
 ```
 
 Duration 28.55s. Scenes at 0 / 7.05 / 22.05.
