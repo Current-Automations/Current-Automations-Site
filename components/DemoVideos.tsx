@@ -15,7 +15,7 @@ const secondary = [
     src: "/demos/video2.html",
     title: "Capture Everywhere",
     description:
-      "Four lead channels, one system: missed calls, web forms, Google Business, and inbound AI calls all handled automatically.",
+      "Four lead channels, one system: missed calls, web forms, Google Business, and inbound calls all handled automatically.",
   },
   {
     src: "/demos/video3.html",

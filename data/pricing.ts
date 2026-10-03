@@ -57,7 +57,7 @@ export const RECEPTIONIST_MODE_PRICE_ID = "price_1U30zLFbHh7D2pR6AXpkiDVu";
 // so the number that appears in copy and in the build is the same number.
 export const FAILOVER_TIMEOUT_SECONDS = 18;
 
-const ELITE_PRICE_ID = "price_1TYDaxFbHh7D2pR6UGz2bypy";
+const ELITE_PRICE_ID = "price_1UMYt2FbHh7D2pR6XSxlOwIC";
 
 // Receptionist Mode bundles T12 monitoring at no extra charge, since an
 // unattended front desk needs a failure alarm and every tier already includes it.
@@ -65,8 +65,8 @@ export const T12_PRICE_ID = "price_1TYDcsFbHh7D2pR6r0F4Bsnx";
 
 // Any price ID here triggers the AI voice configuration fee and a minute pool.
 export const AI_VOICE_PRICE_IDS: ReadonlySet<string> = new Set([
-  "price_1TYDbaFbHh7D2pR6Kt85mIAE", // T04 Retell AI Outbound Call
-  "price_1TYDbkFbHh7D2pR6N7FPebE4", // T05 Inbound AI Call Handling
+  "price_1TYDbaFbHh7D2pR6Kt85mIAE", // T04 Automated Outbound Call
+  "price_1TYDbkFbHh7D2pR6N7FPebE4", // T05 Inbound Call Answering
   ELITE_PRICE_ID,
 ]);
 

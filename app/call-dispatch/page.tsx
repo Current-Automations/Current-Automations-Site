@@ -270,7 +270,7 @@ export default function CallDispatchPage() {
                   <span className={`${jobsheet.mono} text-xs font-semibold text-[#58524a]`}>10:14 AM</span>
                   <div>
                     <p className={`${jobsheet.mono} text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-strong)]`}>
-                      AI-generated response sent
+                      Tailored reply sent
                     </p>
                     <p className="mt-3 text-base leading-8 text-[#3a352c]">
                       Within seconds, the caller gets a text tailored to what they actually said, not a generic auto-reply.

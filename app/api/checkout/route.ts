@@ -29,7 +29,7 @@ const ALLOWED_PRICE_IDS = new Set([
   "price_1TYDaUFbHh7D2pR6HnZkAMIH",
   "price_1TYDaeFbHh7D2pR6fS50MB9m",
   "price_1TYDanFbHh7D2pR63S10aawu",
-  "price_1TYDaxFbHh7D2pR6UGz2bypy",
+  "price_1UMYt2FbHh7D2pR6XSxlOwIC",
   "price_1TYDb8FbHh7D2pR6daDOEzXl",
   "price_1TYDbHFbHh7D2pR6ygqSwCnP",
   "price_1TYDbuFbHh7D2pR6ZlkKBdsG",

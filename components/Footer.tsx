@@ -74,7 +74,7 @@ export default function Footer() {
                   CURRENT AUTOMATIONS
                 </p>
                 <p className="text-xs text-on-dark-muted">
-                  AI systems for businesses across Ontario
+                  Automation without the headache
                 </p>
               </div>
             </Link>

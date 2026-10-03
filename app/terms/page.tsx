@@ -169,7 +169,7 @@ export default function TermsPage() {
                     Growth $397 CAD/mo: Everything in Pro, plus Database Reactivation, No Show and Cancellation Recovery, and Weekly ROI Report.
                   </li>
                   <li className="list-disc">
-                    Elite $597 CAD/mo: Everything in Growth, plus Retell AI Outbound Call and Inbound AI Call Handling. Includes an allowance of AI call minutes as set out in clause 3.6.
+                    Elite $547 CAD/mo: Everything in Growth, plus Automated Outbound Call and Inbound Call Answering. Includes an allowance of AI call minutes as set out in clause 3.6.
                   </li>
                   <li className="list-disc">
                     A la carte: individual automation scenarios are available from $49 CAD/mo and can be added to any tier.
@@ -177,7 +177,7 @@ export default function TermsPage() {
                 </ul>
                 <p>
                   2.2 Setup and Onboarding: A one-time setup fee of $150 CAD is charged at checkout, covering full build, configuration, onboarding, and initial testing. The setup fee is charged once per Client account, regardless of how many scenarios are purchased and regardless of whether they are purchased together or added later.
-                  Plans that include AI voice handling (Retell AI Outbound Call or Inbound AI Call Handling, whether purchased in the Elite tier or a la carte) are additionally charged a one-time AI voice configuration fee of $200 CAD, covering call flow design, knowledge base build, and live call testing, which are non-templated and specific to each Client. This fee is likewise charged once per Client account: a Client who already runs AI voice is not charged again when adding a further voice scenario, and a Client who adds AI voice after signup pays only the configuration fee, not a second setup fee.
+                  Plans that include AI voice handling (Automated Outbound Call or Inbound Call Answering, whether purchased in the Elite tier or a la carte) are additionally charged a one-time AI voice configuration fee of $200 CAD, covering call flow design, knowledge base build, and live call testing, which are non-templated and specific to each Client. This fee is likewise charged once per Client account: a Client who already runs AI voice is not charged again when adding a further voice scenario, and a Client who adds AI voice after signup pays only the configuration fee, not a second setup fee.
                   Where Receptionist Mode (clause 3.7) is purchased, the AI voice configuration fee is $450 CAD rather than $200 CAD, reflecting the deeper per-Client build that mode requires. A Client already running AI voice who upgrades to Receptionist Mode is charged only the $250 CAD difference, not a second configuration fee.
                   There are no recurring setup or configuration costs. Both fees are non-refundable once onboarding has begun, including if you later cancel the Service or request a refund. Current Automations reserves the right to waive or reduce either fee at its sole discretion, for example as part of a promotional offer.
                   Current Automations will begin setup upon receipt of a completed intake form and signed Letter of Authorization.
@@ -236,7 +236,7 @@ export default function TermsPage() {
                   At conclusion of any trial period, billing commences at the standard plan rate.
                 </p>
                 <p>
-                  3.6 AI Call Minutes: Plans that include AI voice handling (Retell AI Outbound Call and Inbound AI Call Handling, whether purchased in the Elite tier or a la carte)
+                  3.6 AI Call Minutes: Plans that include AI voice handling (Automated Outbound Call and Inbound Call Answering, whether purchased in the Elite tier or a la carte)
                   include a pooled allowance of AI call minutes per billing month, shared across the Client&apos;s account regardless of how many AI voice scenarios are active.
                   The allowance is 450 minutes on any plan carrying AI voice, whether purchased a la carte or as part of the Elite tier, and 1,150 minutes where Receptionist Mode is active (clause 3.7).
                   Current Automations holds and pays for the underlying AI voice platform account; the Client is not

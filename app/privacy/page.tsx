@@ -86,7 +86,7 @@ export default function PrivacyPage() {
                               <JobSheetLegalClause id="clause-01" code="01" title="Who We Are">
                   <p>
                     Current Automations is a Canadian automation agency based in Ontario, Canada. We
-                    provide AI-powered communications automation systems for small and medium-sized
+                    provide communications automation systems for small and medium-sized
                     service businesses, including missed call recovery, voicemail transcription, SMS
                     follow-up, and call routing. Our website is located at currentautomations.ca.
                   </p>

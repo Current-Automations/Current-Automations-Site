@@ -66,7 +66,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "What is the setup fee for?",
     answer:
-      "A one-time $150 CAD fee covers full build and configuration of your automations, onboarding, and initial testing. It is charged once per account, so adding scenarios later does not trigger it again. Plans that include AI voice (Retell AI Outbound Call or Inbound AI Call Handling, in Elite or a la carte) add a separate one-time $200 CAD voice configuration fee, because the call flow, knowledge base, and live testing are built for you rather than templated. If you add AI voice later, you pay only the $200. Receptionist Mode carries a $450 configuration fee instead, and existing voice clients upgrading to it pay only the $250 difference. There are no recurring setup costs either way.",
+      "A one-time $150 CAD fee covers full build and configuration of your automations, onboarding, and initial testing. It is charged once per account, so adding scenarios later does not trigger it again. Plans that include AI voice (Automated Outbound Call or Inbound Call Answering, in Elite or a la carte) add a separate one-time $200 CAD voice configuration fee, because the call flow, knowledge base, and live testing are built for you rather than templated. If you add AI voice later, you pay only the $200. Receptionist Mode carries a $450 configuration fee instead, and existing voice clients upgrading to it pay only the $250 difference. There are no recurring setup costs either way.",
   },
   {
     question: "How long does it take to go live?",
@@ -168,14 +168,14 @@ const tiers: Tier[] = [
     id: "elite",
     name: "Elite",
     price: ELITE_TIER_PRICE,
-    tagline: "For contractors who want a fully autonomous front office with AI voice",
+    tagline: "For contractors who want the phone covered too",
     savings: 580,
     scenarios: [
       "Everything in Growth, plus:",
-      "T04 Retell AI Outbound Call",
-      "T05 Inbound AI Call Handling",
+      "T04 Automated Outbound Call",
+      "T05 Inbound Call Answering",
     ],
-    priceId: "price_1TYDaxFbHh7D2pR6UGz2bypy",
+    priceId: "price_1UMYt2FbHh7D2pR6XSxlOwIC",
   },
 ];
 
@@ -213,8 +213,8 @@ const scenarioGroups: ScenarioGroup[] = [
     ],
   },
   {
-    label: "AI Powered",
-    description: "OpenAI calls, JSON parsing, reporting",
+    label: "Reports and Monitoring",
+    description: "Weekly reporting, alerts, payment follow-up",
     scenarios: [
       { code: "T11", name: "Weekly Client ROI Report", price: 99, priceId: "price_1TYDchFbHh7D2pR6JVe7Nyz8" },
       { code: "T12", name: "System Anomaly Alert", price: 79, priceId: "price_1TYDcsFbHh7D2pR6r0F4Bsnx" },
@@ -222,11 +222,11 @@ const scenarioGroups: ScenarioGroup[] = [
     ],
   },
   {
-    label: "Premium AI Voice",
-    description: "A real voice picks up what your team cannot get to, books it, and logs the call",
+    label: "Voice",
+    description: "An AI voice picks up what your team cannot get to, books it, and logs the call",
     scenarios: [
-      { code: "T04", name: "Retell AI Outbound Call", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE" },
-      { code: "T05", name: "Inbound AI Call Handling", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4" },
+      { code: "T04", name: "Automated Outbound Call", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbaFbHh7D2pR6Kt85mIAE" },
+      { code: "T05", name: "Inbound Call Answering", price: VOICE_SCENARIO_PRICE, priceId: "price_1TYDbkFbHh7D2pR6N7FPebE4" },
     ],
   },
 ];
@@ -488,7 +488,7 @@ export default function PricingPage() {
             Receptionist Mode, +${RECEPTIONIST_MODE_PRICE}/mo
           </h3>
           <p className="mt-4 text-base leading-8 text-[#58524a]">
-            The AI voice scenarios above are built as overflow. Someone on your team is still first
+            Automated Outbound Call and Inbound Call Answering are handled by an AI voice, built as overflow. Someone on your team is still first
             to the phone, and the AI catches what they cannot get to. Most owners want it that way
             to start.
           </p>
