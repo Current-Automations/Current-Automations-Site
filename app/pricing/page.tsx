@@ -392,7 +392,7 @@ export default function PricingPage() {
         code="CA-P4"
         label="Bundled tiers"
         title="Start with a bundle. Save every month."
-        description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $149/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
+        description="Bundles are the cheapest way to run several systems at once: each tier stacks on the last and saves up to $580/month versus a la carte. If you only need one fix, a single workflow below starts at $49/month."
         tone="paper"
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">

@@ -52,7 +52,7 @@ export default function TermsPage() {
           </span>
         }
         title="Terms of Service"
-        description={`EFFECTIVE DATE: September 17, 2026 | VERSION: 1.4 | JURISDICTION: Province of Ontario, Canada | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
+        description={`EFFECTIVE DATE: October 3, 2026 | VERSION: 1.5 | JURISDICTION: Province of Ontario, Canada | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>

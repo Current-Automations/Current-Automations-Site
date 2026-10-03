@@ -51,7 +51,7 @@ export default function PrivacyPage() {
           </span>
         }
         title="Privacy Policy"
-        description={`EFFECTIVE DATE: September 10, 2026 | VERSION: 1.2 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
+        description={`EFFECTIVE DATE: October 3, 2026 | VERSION: 1.3 | JURISDICTION: Province of Ontario, Canada | GOVERNING LAW: PIPEDA, CASL, Ontario privacy legislation | CONTACT: ${siteContacts.general} | ${siteContact.phoneDisplay}`}
       />
 
       <section className={`${jobsheet.root} ${jobsheet.paperTexture} relative py-16 sm:py-20`}>
