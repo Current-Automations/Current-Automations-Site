@@ -41,7 +41,7 @@ const availability = load("availability");
 const bot = load("bot");
 const commands = load("commands");
 
-const icsDir = "C:/Users/Jarre/OneDrive/Desktop/Life OS/Calendar/Weekly Schedule";
+const icsDir = "C:/Users/Jarre/tools/ca-schedule/weeks";
 const w41 = ["2026-W41.ics", "2026-W41-patch1.ics"].map((f) => fs.readFileSync(path.join(icsDir, f), "utf8"));
 
 let passed = 0;
@@ -62,9 +62,9 @@ const T = (y, m, d, h, mi = 0) => time.torontoToUtc({ y, m, d, h, mi });
 await check("ics: real W41 week + patch parse", () => {
   const events = w41.flatMap(ics.parseIcs);
   assert.equal(events.length, 19);
-  const shift = events.find((e) => e.summary === "Server shift");
+  const shift = events.find((e) => e.summary === "Shift");
   assert.equal(time.isoLocal(shift.start), "2026-10-05T11:00");
-  assert.equal(events.find((e) => /Job apply/.test(e.summary)).category, "Work");
+  assert.ok(events.every((e) => e.summary === "Shift" || e.summary === "Busy"), "only Shift/Busy leave the vault");
 });
 
 await check("time: iso week and DST-safe local conversion", () => {

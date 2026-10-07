@@ -57,12 +57,21 @@ export async function POST(request: Request) {
     return twiml();
   }
 
+  // Our other lines answer texts automatically, so a reply to one of them loops
+  // (2026-10-07: the 513 relay and this bot texted each other five rounds).
+  if (OWN_LINES.has(from)) {
+    console.warn(`[sms-demo] ignored text from our own line ${from}`);
+    return twiml();
+  }
+
   if (!body && !media.length) return twiml();
 
   const inbound: Inbound = { from, body, sid: params.get("MessageSid") ?? "", media };
   waitUntil(handleProspect(botEnv, inbound, deps).catch((err) => console.error("[sms-demo] prospect turn failed", err)));
   return twiml();
 }
+
+const OWN_LINES = new Set(["+13655137474", "+13656617474", "+13656017474", "+13652993366"]);
 
 export function GET() {
   return new Response(null, { status: 405 });

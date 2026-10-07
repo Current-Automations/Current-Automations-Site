@@ -1,5 +1,5 @@
-const REPO = "JarrettGoodwin/life-os";
-const DIR = "Calendar/Weekly Schedule";
+const REPO = "Current-Automations/ca-schedule";
+const DIR = "weeks";
 
 function headers(token: string, raw = false): HeadersInit {
   return {

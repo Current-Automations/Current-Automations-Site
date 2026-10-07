@@ -14,7 +14,7 @@ export function readEnv(): OwnerEnv | null {
   return {
     twilio: { accountSid, authToken },
     anthropicKey,
-    githubToken: env("GITHUB_TOKEN_LIFEOS"),
+    githubToken: env("GITHUB_TOKEN_SCHEDULE"),
     makeUrl: env("MAKE_EVENTS_WEBHOOK_URL"),
     demoLine,
     cell,
