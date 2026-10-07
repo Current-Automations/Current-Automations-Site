@@ -59,3 +59,5 @@ export const HOME_TAX = "+ HST";
 // The one line every home surface leads with. The number is the whole offer.
 export const FIRST_DEVICE_OFFER = "$99 + HST: your first smart device set up and working on your phone.";
 export const FIRST_DEVICE_SCOPE = "Nothing in the walls. Plug-in, battery and Wi-Fi devices only.";
+// The second price, under the first and never written as "from" (his call 2026-10-07).
+export const FIRST_DEVICE_SWAP = "Simple swap, like a doorbell on existing wiring: $59 + HST.";

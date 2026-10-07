@@ -9,7 +9,7 @@ import TicketCard from "@/components/jobsheet/TicketCard";
 import ComingSoonCard from "@/components/jobsheet/ComingSoonCard";
 import Stamp from "@/components/jobsheet/Stamp";
 import { homeTextLine } from "@/data/siteContent";
-import { smartHomeTiers as tiers, HOME_PRICE_PROMISE, FIRST_DEVICE_OFFER, FIRST_DEVICE_SCOPE, HOME_TAX } from "@/data/homePricing";
+import { smartHomeTiers as tiers, HOME_PRICE_PROMISE, FIRST_DEVICE_OFFER, FIRST_DEVICE_SCOPE, FIRST_DEVICE_SWAP, HOME_TAX } from "@/data/homePricing";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/smart-home" },
@@ -155,6 +155,9 @@ export default function SmartHomePage() {
             <div className="px-6 py-7 text-center">
               <p className="text-lg font-semibold leading-7 tracking-tight text-[#181510]">
                 {FIRST_DEVICE_OFFER}
+              </p>
+              <p className="mt-1 text-base font-medium leading-7 text-[#181510]">
+                {FIRST_DEVICE_SWAP}
               </p>
               <p className="mt-2 text-sm leading-7 text-[#3a352c]">
                 {FIRST_DEVICE_SCOPE} Text a photo of the device and we will tell you what it needs.
