@@ -58,3 +58,6 @@ Current Automations*.html
 
 # Retell agent config exports (contain live Make.com webhook URLs)
 /agents/
+
+# sms bot check build
+/.sms-bot-build/

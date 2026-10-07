@@ -8,8 +8,8 @@ import JobSheetFAQ from "@/components/jobsheet/JobSheetFAQ";
 import TicketCard from "@/components/jobsheet/TicketCard";
 import ComingSoonCard from "@/components/jobsheet/ComingSoonCard";
 import Stamp from "@/components/jobsheet/Stamp";
-import { siteContact } from "@/data/siteContent";
-import { smartHomeTiers as tiers, HOME_PRICE_PROMISE } from "@/data/homePricing";
+import { homeTextLine } from "@/data/siteContent";
+import { smartHomeTiers as tiers, HOME_PRICE_PROMISE, FIRST_DEVICE_OFFER, FIRST_DEVICE_SCOPE, HOME_TAX } from "@/data/homePricing";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/smart-home" },
@@ -153,28 +153,31 @@ export default function SmartHomePage() {
               </span>
             </div>
             <div className="px-6 py-7 text-center">
-              <p className="text-sm leading-7 text-[#3a352c]">
-                Text us a photo of the room, the thermostat, or the door.
+              <p className="text-lg font-semibold leading-7 tracking-tight text-[#181510]">
+                {FIRST_DEVICE_OFFER}
+              </p>
+              <p className="mt-2 text-sm leading-7 text-[#3a352c]">
+                {FIRST_DEVICE_SCOPE} Text a photo of the device and we will tell you what it needs.
               </p>
               <a
-                href={`sms:${siteContact.phoneHref}`}
-                className={`${jobsheet.mono} mt-4 block text-[clamp(1.6rem,4vw,2.1rem)] font-semibold text-[#181510] transition-colors hover:text-[var(--color-brand-strong)]`}
+                href={homeTextLine.smsHref}
+                className={`${jobsheet.mono} mt-4 block text-[clamp(1.8rem,5vw,2.4rem)] font-semibold text-[#181510] transition-colors hover:text-[var(--color-brand-strong)]`}
               >
-                {siteContact.phoneDisplay}
+                {homeTextLine.display}
               </a>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
-                <a href={`sms:${siteContact.phoneHref}`} className={jobsheet.punchButton}>
+                <a href={homeTextLine.smsHref} className={jobsheet.punchButton}>
                   Text Us
                 </a>
                 <a
-                  href={`tel:${siteContact.phoneHref}`}
+                  href={homeTextLine.telHref}
                   className={`${jobsheet.punchButton} ${jobsheet.punchButtonGhost}`}
                 >
                   Or Call
                 </a>
               </div>
               <p className="mt-4 text-xs leading-6 text-[#58524a]">
-                No appointment needed to ask a question. We only come out once we both know it is
+                It answers. Jarrett reads every thread. We only come out once we both know it is
                 worth a visit.
               </p>
             </div>
@@ -264,7 +267,7 @@ export default function SmartHomePage() {
         code="SH-04"
         label="Pricing"
         title="Published, so you can decide before you call."
-        description="These are setup and labour. Hardware, if you need any, is quoted separately at cost plus a small markup. No hourly rate, no surprise on the invoice."
+        description="Setup and labour, plus HST. Hardware, if you need any, is quoted separately at cost plus a small markup. No hourly rate, no surprise on the invoice."
         tone="paper"
       >
         <div className="grid gap-6 lg:grid-cols-3">
@@ -279,7 +282,7 @@ export default function SmartHomePage() {
               <p
                 className={`${jobsheet.mono} mt-4 text-[clamp(1.6rem,3vw,2rem)] font-semibold text-[#181510]`}
               >
-                {tier.price}
+                {tier.price}{tier.code === "T3" ? null : <span className="ml-2 text-base font-medium text-[#58524a]">{HOME_TAX}</span>}
               </p>
               <p className="mt-4 text-sm leading-7 text-[#58524a]">{tier.body}</p>
               <p className="mt-4 border-t-2 border-dashed border-[rgba(28,36,48,0.24)] pt-4 text-sm leading-7 text-[#3a352c]">
@@ -360,24 +363,24 @@ export default function SmartHomePage() {
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <a
-              href={`sms:${siteContact.phoneHref}`}
+              href={homeTextLine.smsHref}
               className={`${jobsheet.mono} text-[clamp(1.8rem,4vw,2.6rem)] font-semibold text-[#f3ede1] transition-colors hover:text-[var(--color-brand)]`}
             >
-              {siteContact.phoneDisplay}
+              {homeTextLine.display}
             </a>
             <p className="mt-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
-              Text or call. {siteContact.responseExpectation}.
+              Text or call. It answers, and Jarrett reads every thread.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a
-              href={`sms:${siteContact.phoneHref}`}
+              href={homeTextLine.smsHref}
               className={`${jobsheet.punchButton} ${jobsheet.punchButtonOnDark}`}
             >
               Text Us
             </a>
             <a
-              href={`tel:${siteContact.phoneHref}`}
+              href={homeTextLine.telHref}
               className={`${jobsheet.punchButton} ${jobsheet.punchButtonGhost} ${jobsheet.punchButtonGhostOnDark}`}
             >
               Or Call

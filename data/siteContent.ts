@@ -22,6 +22,14 @@ export const demoLine = {
   href: "tel:+13652993366",
 };
 
+// The home lane's one door. Texts to this number are answered by the SMS bot on
+// /api/sms-demo and forwarded to Jarrett; the business line (513) is relay only.
+export const homeTextLine = {
+  display: "365-299-3366",
+  smsHref: "sms:+13652993366",
+  telHref: "tel:+13652993366",
+};
+
 // Every CTA on the site points at `booking.path`, an internal route, not at
 // Google. `/book-a-demo` embeds the appointment schedule so nobody has to leave
 // the site to pick a slot. The Google URLs live here because that page needs

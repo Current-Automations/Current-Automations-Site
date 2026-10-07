@@ -13,8 +13,9 @@ export type HomeTier = {
   featured?: boolean;
 };
 
-// Setup and labour. Hardware, where any is needed, is quoted separately at cost
-// plus a small markup rather than folded into these bands.
+// Setup and labour, before HST. Hardware, where any is needed, is quoted separately
+// at cost plus a small markup rather than folded into these bands. The "+ HST" is
+// on the number itself so no surface can show the band without the tax.
 export const smartHomeTiers: HomeTier[] = [
   {
     code: "T1",
@@ -42,12 +43,19 @@ export const smartHomeTiers: HomeTier[] = [
 
 // The phone lane. No hardware, no visit, so it sits below the install bands.
 export const everydayAutomationsPricing = {
-  from: "$79, one-time",
-  range: "$79 to $199",
+  from: "$79 + HST, one-time",
+  range: "$79 to $199 + HST",
   note: "depending on how many routines and whether it is remote or in person",
 };
 
 // The home-side equivalent of the monthly first-month guarantee. Quoted work
 // cannot promise a refund window, so the promise is that the quote holds.
 export const HOME_PRICE_PROMISE =
-  "Whatever you are quoted before we start is what you pay. No change orders once the work begins.";
+  "Whatever you are quoted before we start is what you pay, plus HST. No change orders once the work begins.";
+
+// Rendered after every home band price in a smaller face so the mono number does not wrap.
+export const HOME_TAX = "+ HST";
+
+// The one line every home surface leads with. The number is the whole offer.
+export const FIRST_DEVICE_OFFER = "$99 + HST: your first smart device set up and working on your phone.";
+export const FIRST_DEVICE_SCOPE = "Nothing in the walls. Plug-in, battery and Wi-Fi devices only.";
