@@ -1,6 +1,6 @@
 import { BotEnv, Deps } from "./bot";
 import { postEvent } from "./events";
-import { listFollowups, phoneForCode, queueFollowup, recentThreads, Thread } from "./state";
+import { deleteHold, listFollowups, phoneForCode, queueFollowup, recentThreads, Thread } from "./state";
 import { fmtSlot, parseIsoLocal, torontoParts, torontoToUtc } from "./time";
 import { sendSms, syncDelete, TwilioEnv } from "./twilio";
 import { FOLLOWUPS } from "./state";
@@ -11,6 +11,7 @@ type OwnerDeps = Pick<Deps, "send" | "loadThread" | "saveThread" | "event" | "no
   phoneForCode: (code: string) => Promise<string | null>;
   recent: () => Promise<Thread[]>;
   queue: (phone: string, code: string, name: string | undefined, sendAt: number) => Promise<void>;
+  deleteHold: (start: string) => Promise<void>;
 };
 
 const MUTE_MS = 12 * 3600000;
@@ -22,11 +23,12 @@ export function liveOwnerDeps(env: OwnerEnv, base: Deps): OwnerDeps {
     phoneForCode: (code) => phoneForCode(env.twilio, code),
     recent: () => recentThreads(env.twilio),
     queue: (phone, code, name, sendAt) => queueFollowup(env.twilio, { phone, code, name, sendAt, kind: "review" }),
+    deleteHold: (start) => deleteHold(env.twilio, start),
   };
 }
 
 export const HELP =
-  "Commands: CODE your message (texts them, mutes the bot 12 h). RESUME CODE (bot takes it back). DONE CODE (payment link now, review text tomorrow 7 pm). LIST (recent threads).";
+  "Commands: CODE your message (texts them, mutes the bot 12 h). RESUME CODE (bot takes it back). DONE CODE (payment link now, review text tomorrow 7 pm). CANCEL CODE (frees their hold and tells them). LIST (recent threads).";
 
 function nextEveningAt(now: number, hour: number): number {
   const p = torontoParts(now + 86400000);
@@ -72,6 +74,23 @@ export async function handleOwner(env: OwnerEnv, body: string, deps: OwnerDeps):
     await deps.saveThread(t);
     await deps.event({ event: "done", code: t.code, phone: t.phone, lane: t.lane, name: t.name, summary: t.hold ? `${t.hold.job}, ${t.hold.price}` : "job done", urgency: "low", action: `Review text queued for ${fmtSlot(sendAt)}` });
     await deps.send(env.cell, `Payment link sent to ${t.code}${env.stripeLink ? "" : " (STRIPE_LINK_T1 is unset, it said we will send it)"}. Review text goes ${fmtSlot(sendAt)}.`);
+    return;
+  }
+
+  const cancel = /^cancel\s+([a-z0-9]{5})$/i.exec(text);
+  if (cancel) {
+    const t = await threadByCode(deps, cancel[1]);
+    if (!t) return deps.send(env.cell, `No thread ${cancel[1].toUpperCase()}.`).then(() => undefined);
+    if (!t.hold) return deps.send(env.cell, `${t.code} has no hold to cancel.`).then(() => undefined);
+    const when = fmtSlot(parseIsoLocal(t.hold.start) ?? now);
+    const job = t.hold.job;
+    await deps.deleteHold(t.hold.start);
+    t.hold = undefined;
+    t.stalledTurns = 0;
+    await deps.saveThread(t);
+    await deps.send(t.phone, `Your visit for ${when} is cancelled. Text this number any time to pick a new one.`);
+    await deps.event({ event: "cancel", code: t.code, phone: t.phone, lane: t.lane, name: t.name, summary: `Hold ${when} cancelled (${job})`, urgency: "low", action: "Delete the calendar event" });
+    await deps.send(env.cell, `Hold ${when} freed and ${t.code} told. Delete the calendar event by hand.`);
     return;
   }
 

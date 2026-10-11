@@ -1,4 +1,4 @@
-import { syncGet, syncList, syncSet, TwilioEnv } from "./twilio";
+import { syncDelete, syncGet, syncList, syncSet, TwilioEnv } from "./twilio";
 
 export const THREADS = "demo_threads";
 export const CODES = "demo_codes";
@@ -15,6 +15,7 @@ export type Thread = {
   summary?: string;
   mutedUntil?: number;
   stalledTurns: number;
+  recentIn?: number[];
   firstSeen: number;
   lastSeen: number;
   hold?: Hold;
@@ -82,6 +83,10 @@ export async function listHolds(env: TwilioEnv): Promise<Hold[]> {
 
 export async function saveHold(env: TwilioEnv, hold: Hold): Promise<void> {
   await syncSet(env, HOLDS, hold.start, hold);
+}
+
+export async function deleteHold(env: TwilioEnv, start: string): Promise<void> {
+  await syncDelete(env, HOLDS, start);
 }
 
 export async function queueFollowup(env: TwilioEnv, f: Followup): Promise<void> {

@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import type { Beta } from "@anthropic-ai/sdk/resources";
 import { computeAvailability, Slot } from "./availability";
 import { BotEvent, postEvent } from "./events";
-import { loadWeekFiles } from "./github";
+import { loadWeekFiles } from "./schedule";
 import { SYSTEM_PROMPT } from "./prompt";
 import { Hold, listHolds, loadThread, newThread, saveHold, saveThread, Thread } from "./state";
 import { fmtSlot, parseIsoLocal } from "./time";
@@ -11,7 +11,7 @@ import { fetchMedia, sendSms, threadHistory, TwilioEnv, TwilioMessage } from "./
 export type BotEnv = {
   twilio: TwilioEnv;
   anthropicKey: string;
-  githubToken: string;
+  scheduleIcs: string;
   makeUrl: string;
   demoLine: string;
   cell: string;
@@ -45,6 +45,9 @@ export const FALLBACK_LINE = "Got it. Jarrett will text you back shortly from th
 const MUTE_MS = 12 * 3600000;
 const HISTORY_DAYS = 7;
 const MAX_TURNS = 40;
+// A phone on auto-reply answers every bot text, so the two would loop.
+const RATE_WINDOW_MS = 10 * 60000;
+const RATE_MAX = 6;
 
 export function liveDeps(env: BotEnv): Deps {
   const client = new Anthropic({ apiKey: env.anthropicKey });
@@ -52,7 +55,7 @@ export function liveDeps(env: BotEnv): Deps {
     history: (phone) => threadHistory(env.twilio, env.demoLine, phone, HISTORY_DAYS),
     media: (url) => fetchMedia(env.twilio, url),
     send: (to, body) => sendSms(env.twilio, env.demoLine, to, body),
-    loadWeek: (week) => loadWeekFiles(env.githubToken, week),
+    loadWeek: (week) => loadWeekFiles(env.scheduleIcs, week),
     holds: () => listHolds(env.twilio),
     saveHold: (h) => saveHold(env.twilio, h),
     loadThread: (phone) => loadThread(env.twilio, phone),
@@ -177,6 +180,29 @@ export async function handleProspect(env: BotEnv, inbound: Inbound, deps: Deps =
   if (thread.mutedUntil && thread.mutedUntil > now) {
     await deps.saveThread(thread);
     await deps.send(env.cell, `[${thread.code}] ${inbound.from} (yours)\nthem: ${inbound.body || "(photo)"}`);
+    return;
+  }
+
+  thread.recentIn = [...(thread.recentIn ?? []).filter((t) => now - t < RATE_WINDOW_MS), now];
+  if (thread.recentIn.length > RATE_MAX) {
+    thread.mutedUntil = now + MUTE_MS;
+    await deps.saveThread(thread);
+    await deps.event({
+      event: "handoff",
+      code: thread.code,
+      phone: inbound.from,
+      lane: thread.lane,
+      name: thread.name,
+      summary: `${thread.recentIn.length} texts in 10 min, looks like an auto-reply`,
+      urgency: "normal",
+      action: "Check the thread, RESUME to hand back",
+      transcript: inbound.body,
+    });
+    await deps.send(
+      env.cell,
+      `[${thread.code}] ${inbound.from} PAUSED: ${thread.recentIn.length} texts in 10 min, looks like an auto-reply. Bot is quiet on this thread for 12 h, RESUME ${thread.code} hands it back.
+them: ${inbound.body || "(photo)"}`
+    );
     return;
   }
 

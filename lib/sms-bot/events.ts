@@ -1,7 +1,7 @@
 import { PROMPT_VERSION } from "./prompt";
 
 export type BotEvent = {
-  event: "lead" | "hold" | "handoff" | "done" | "error";
+  event: "lead" | "hold" | "handoff" | "done" | "cancel" | "error";
   code: string;
   phone: string;
   lane: string;

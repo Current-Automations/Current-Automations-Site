@@ -38,6 +38,7 @@ const load = (name) => req(path.join(out, "js/lib/sms-bot", name + ".js"));
 const time = load("time");
 const ics = load("ics");
 const availability = load("availability");
+const schedule = load("schedule");
 const bot = load("bot");
 const commands = load("commands");
 
@@ -65,6 +66,12 @@ await check("ics: real W41 week + patch parse", () => {
   const shift = events.find((e) => e.summary === "Shift");
   assert.equal(time.isoLocal(shift.start), "2026-10-05T11:00");
   assert.ok(events.every((e) => e.summary === "Shift" || e.summary === "Busy"), "only Shift/Busy leave the vault");
+});
+
+await check("schedule: env map returns the week and its patches, unset returns none", async () => {
+  const raw = JSON.stringify({ "2026-W41-patch1.ics": w41[1], "2026-W41.ics": w41[0], "2026-W42.ics": "x" });
+  assert.deepEqual(await schedule.loadWeekFiles(raw, "2026-W41"), [w41[1], w41[0]]);
+  assert.deepEqual(await schedule.loadWeekFiles("", "2026-W41"), []);
 });
 
 await check("time: iso week and DST-safe local conversion", () => {
@@ -134,7 +141,7 @@ function fakeDeps(script, { thread = null, now = T(2026, 10, 7, 14, 30) } = {}) 
   };
 }
 
-const env = { twilio: { accountSid: "AC", authToken: "x" }, anthropicKey: "k", githubToken: "", makeUrl: "", demoLine: "+13652993366", cell: "+19055550100" };
+const env = { twilio: { accountSid: "AC", authToken: "x" }, anthropicKey: "k", scheduleIcs: "", makeUrl: "", demoLine: "+13652993366", cell: "+19055550100" };
 const text = (t, stop = "end_turn") => ({ stop_reason: stop, content: [{ type: "text", text: t }] });
 const toolUse = (name, input, id = "tu_1") => ({ stop_reason: "tool_use", content: [{ type: "tool_use", id, name, input }] });
 
@@ -245,6 +252,32 @@ await check("bot: muted thread only forwards", async () => {
   assert.equal(f.params(), 0);
 });
 
+await check("bot: rapid texts from one phone pause the bot (auto-reply loop)", async () => {
+  const now = T(2026, 10, 7, 14, 30);
+  const recentIn = [1, 2, 3, 4, 5, 6].map((i) => now - i * 60000);
+  const f = fakeDeps([text("should not run")], {
+    thread: { code: "K7M2P", phone: "+14165550123", lane: "home", stalledTurns: 0, firstSeen: 1, lastSeen: 1, recentIn },
+  });
+  await bot.handleProspect(env, { from: "+14165550123", body: "I'm driving, I'll get back to you", sid: "SM9", media: [] }, f.deps);
+  assert.equal(f.params(), 0);
+  assert.equal(f.sent.length, 1);
+  assert.equal(f.sent[0].to, env.cell);
+  assert.match(f.sent[0].body, /PAUSED: 7 texts in 10 min/);
+  assert.ok(f.saved.at(-1).mutedUntil > now);
+  assert.equal(f.events[0].event, "handoff");
+});
+
+await check("bot: old texts fall out of the rate window", async () => {
+  const now = T(2026, 10, 7, 14, 30);
+  const recentIn = [11, 12, 13, 14, 15, 16, 17].map((i) => now - i * 60000);
+  const f = fakeDeps([text("Yes, we can.")], {
+    thread: { code: "K7M2P", phone: "+14165550123", lane: "home", stalledTurns: 0, firstSeen: 1, lastSeen: 1, recentIn },
+  });
+  await bot.handleProspect(env, { from: "+14165550123", body: "one more question", sid: "SM10", media: [] }, f.deps);
+  assert.equal(f.sent[0].to, "+14165550123");
+  assert.equal(f.saved.at(-1).recentIn.length, 1);
+});
+
 await check("bot: em dashes never reach a phone", () => {
   assert.equal(bot.cleanOutbound("Plug-in only — nothing in the walls"), "Plug-in only, nothing in the walls");
   assert.equal(bot.cleanOutbound("a  b\n\n\n\nc"), "a b\n\nc");
@@ -255,6 +288,7 @@ function ownerFixture(thread) {
   const saved = [];
   const events = [];
   const queued = [];
+  const deleted = [];
   const deps = {
     send: async (to, body) => { sent.push({ to, body }); },
     loadThread: async () => thread,
@@ -264,8 +298,9 @@ function ownerFixture(thread) {
     phoneForCode: async (code) => (code === "K7M2P" ? "+14165550123" : null),
     recent: async () => (thread ? [thread] : []),
     queue: async (phone, code, name, sendAt) => { queued.push({ phone, code, name, sendAt }); },
+    deleteHold: async (start) => { deleted.push(start); },
   };
-  return { sent, saved, events, queued, deps };
+  return { sent, saved, events, queued, deleted, deps };
 }
 const ownerEnv = { ...env, stripeLink: "https://buy.stripe.com/test_abc", reviewLink: "https://g.page/r/abc/review", billingEmail: "billing@currentautomations.ca" };
 const baseThread = () => ({ code: "K7M2P", phone: "+14165550123", lane: "home", name: "Dana Lee", stalledTurns: 0, firstSeen: 1, lastSeen: 1 });
@@ -301,6 +336,27 @@ await check("owner: unknown code and plain text get help", async () => {
   assert.match(o.sent[0].body, /No thread ZZZZZ/);
   await commands.handleOwner(ownerEnv, "what do I do", o.deps);
   assert.equal(o.sent[1].body, commands.HELP);
+});
+
+await check("owner: CANCEL frees the hold and tells them", async () => {
+  const t = baseThread();
+  t.hold = { start: "2026-10-10T13:00", end: "2026-10-10T14:30", address: "12 King St", job: "Ring doorbell", price: "$99 + HST", phone: t.phone, name: "Dana", code: "K7M2P" };
+  const o = ownerFixture(t);
+  await commands.handleOwner(ownerEnv, "cancel k7m2p", o.deps);
+  assert.deepEqual(o.deleted, ["2026-10-10T13:00"]);
+  assert.equal(o.saved[0].hold, undefined);
+  assert.equal(o.sent[0].to, "+14165550123");
+  assert.match(o.sent[0].body, /^Your visit for Sat, Oct 10, 1:00 p\.m\. is cancelled\./);
+  assert.equal(o.events[0].event, "cancel");
+  assert.match(o.sent[1].body, /freed and K7M2P told/);
+});
+
+await check("owner: CANCEL with no hold says so", async () => {
+  const o = ownerFixture(baseThread());
+  await commands.handleOwner(ownerEnv, "CANCEL K7M2P", o.deps);
+  assert.equal(o.deleted.length, 0);
+  assert.equal(o.sent[0].to, env.cell);
+  assert.match(o.sent[0].body, /no hold/);
 });
 
 await check("owner: LIST", async () => {
