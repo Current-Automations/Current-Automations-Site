@@ -123,7 +123,7 @@ export async function sweepFollowups(env: OwnerEnv): Promise<number> {
     const first = f.name ? f.name.split(" ")[0] : null;
     const hi = first ? `Hi ${first}, ` : "Hi, ";
     if (f.kind === "nudge") {
-      await sendSms(twilio, env.demoLine, f.phone, `${hi}Jarrett at Current Automations. Still happy to help whenever you want to pick this back up. Text back here any time.`);
+      await sendSms(twilio, env.demoLine, f.phone, `${hi}still happy to help whenever you want to pick this back up. Text back here any time and we take it from there.`);
       await syncDelete(twilio, FOLLOWUPS, r.key);
       await notifyDiscord(`Nudge sent [${f.code}] after 48 h quiet.`);
       continue;
