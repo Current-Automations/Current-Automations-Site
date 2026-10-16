@@ -1,0 +1,27 @@
+{
+  "week": "2026-W42",
+  "posts": [
+    {
+      "id": "w42-story-test",
+      "at": "2026-10-17T12:00:00-04:00",
+      "channels": ["ig"],
+      "kind": "story",
+      "media": ["/social/2026-W42/stat78-1.png"],
+      "caption": "",
+      "approved": false,
+      "note": "Public-visibility test for the Meta app. Approve Saturday once the token is in Vercel, then hit /api/social/publish by hand (the daily cron is 6am). If the Story shows while logged out, the Business Suite copy of teardown 2 gets cancelled and our side fires it Sunday."
+    },
+    {
+      "id": "w42-teardown2",
+      "at": "2026-10-18T06:00:00-04:00",
+      "channels": ["ig", "fb"],
+      "kind": "reel",
+      "media": ["/social/2026-W42/teardown2.mp4"],
+      "caption": "A $1,400 quote goes out. On day 0 a message checks it arrived, on day 2 another says the timing still works, and on day 5 a last one says the quote stays open. Then the customer writes back asking to book this week.\n\nIn most shops that follow-up waits for someone to have a free minute and to remember which quotes are still open. Here it goes out on a schedule in your name and stops as soon as the customer replies, yes or no.\n\nLink in bio if you want to see it on your own quotes.\n\n#automation #durhamregion #smallbusinessautomation #sales #followup",
+      "fbCaption": "A $1,400 quote goes out. On day 0 a message checks it arrived, on day 2 another says the timing still works, and on day 5 a last one says the quote stays open. Then the customer writes back asking to book this week.\n\nIn most shops that follow-up waits for someone to have a free minute and to remember which quotes are still open. Here it goes out on a schedule in your name and stops as soon as the customer replies, yes or no.\n\ncurrentautomations.ca/book-a-demo if you want to see it on your own quotes.",
+      "trueLine": "carried from the week-03 packet, already approved there",
+      "approved": false,
+      "note": "Already scheduled 6:00am in Business Suite. Approve here ONLY after cancelling that copy, or it posts twice."
+    }
+  ]
+}

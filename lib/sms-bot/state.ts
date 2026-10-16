@@ -32,7 +32,7 @@ export type Hold = {
   code: string;
 };
 
-export type Followup = { phone: string; code: string; sendAt: number; kind: "review"; name?: string };
+export type Followup = { phone: string; code: string; sendAt: number; kind: "review" | "nudge"; name?: string };
 
 const ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 
@@ -95,6 +95,10 @@ export async function queueFollowup(env: TwilioEnv, f: Followup): Promise<void> 
 
 export async function listFollowups(env: TwilioEnv): Promise<{ key: string; data: Followup }[]> {
   return syncList<Followup>(env, FOLLOWUPS);
+}
+
+export async function deleteFollowup(env: TwilioEnv, kind: Followup["kind"], phone: string): Promise<void> {
+  await syncDelete(env, FOLLOWUPS, `${kind}:${phone}`);
 }
 
 export async function recentThreads(env: TwilioEnv, limit = 8): Promise<Thread[]> {

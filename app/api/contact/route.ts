@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { siteContacts } from "@/data/siteContent";
+import { notifyDiscord } from "@/lib/discord";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -182,5 +183,6 @@ ${rows.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</
     );
   }
 
+  await notifyDiscord(`New lead (site form) ${name}${business ? `, ${business}` : ""}: ${message.slice(0, 200)}`);
   return NextResponse.json({ ok: true });
 }

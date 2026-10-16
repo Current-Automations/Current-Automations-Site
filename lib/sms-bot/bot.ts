@@ -4,7 +4,8 @@ import { computeAvailability, Slot } from "./availability";
 import { BotEvent, postEvent } from "./events";
 import { loadWeekFiles } from "./schedule";
 import { SYSTEM_PROMPT } from "./prompt";
-import { Hold, listHolds, loadThread, newThread, saveHold, saveThread, Thread } from "./state";
+import { deleteFollowup, Hold, listHolds, loadThread, newThread, queueFollowup, saveHold, saveThread, Thread } from "./state";
+import { notifyDiscord } from "../discord";
 import { fmtSlot, parseIsoLocal } from "./time";
 import { fetchMedia, sendSms, threadHistory, TwilioEnv, TwilioMessage } from "./twilio";
 
@@ -35,6 +36,7 @@ export type Deps = {
   newThread: (phone: string, now: number) => Promise<Thread>;
   saveThread: (t: Thread) => Promise<void>;
   event: (e: BotEvent) => Promise<void>;
+  cancelNudge?: (phone: string) => Promise<void>;
   claude: (params: Beta.MessageCreateParamsNonStreaming) => Promise<Beta.BetaMessage>;
   now: () => number;
 };
@@ -48,6 +50,20 @@ const MAX_TURNS = 40;
 // A phone on auto-reply answers every bot text, so the two would loop.
 const RATE_WINDOW_MS = 10 * 60000;
 const RATE_MAX = 6;
+const NUDGE_MS = 48 * 3600000;
+
+// A logged lead that goes quiet gets one nudge after 48 h. Any later event on the
+// thread (a hold, a handoff, done, cancel) or any inbound text cancels it.
+async function onEvent(env: BotEnv, e: BotEvent): Promise<void> {
+  await postEvent(env.makeUrl, e);
+  if (e.event === "lead") {
+    await queueFollowup(env.twilio, { phone: e.phone, code: e.code, sendAt: Date.now() + NUDGE_MS, kind: "nudge", name: e.name });
+    await notifyDiscord(`New lead [${e.code}] ${e.lane}: ${e.summary}`);
+  } else {
+    await deleteFollowup(env.twilio, "nudge", e.phone);
+    if (e.event === "hold" || e.event === "handoff") await notifyDiscord(`${e.event} [${e.code}] ${e.lane}: ${e.summary}`);
+  }
+}
 
 export function liveDeps(env: BotEnv): Deps {
   const client = new Anthropic({ apiKey: env.anthropicKey });
@@ -61,7 +77,8 @@ export function liveDeps(env: BotEnv): Deps {
     loadThread: (phone) => loadThread(env.twilio, phone),
     newThread: (phone, now) => newThread(env.twilio, phone, now),
     saveThread: (t) => saveThread(env.twilio, t),
-    event: (e) => postEvent(env.makeUrl, e),
+    event: (e) => onEvent(env, e),
+    cancelNudge: (phone) => deleteFollowup(env.twilio, "nudge", phone),
     claude: (params) => client.beta.messages.create(params),
     now: () => Date.now(),
   };
@@ -176,6 +193,7 @@ export async function handleProspect(env: BotEnv, inbound: Inbound, deps: Deps =
   const now = deps.now();
   const thread = (await deps.loadThread(inbound.from)) ?? (await deps.newThread(inbound.from, now));
   thread.lastSeen = now;
+  await deps.cancelNudge?.(inbound.from);
 
   if (thread.mutedUntil && thread.mutedUntil > now) {
     await deps.saveThread(thread);

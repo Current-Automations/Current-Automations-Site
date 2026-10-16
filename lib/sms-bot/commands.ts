@@ -4,6 +4,7 @@ import { deleteHold, listFollowups, phoneForCode, queueFollowup, recentThreads, 
 import { fmtSlot, parseIsoLocal, torontoParts, torontoToUtc } from "./time";
 import { sendSms, syncDelete, TwilioEnv } from "./twilio";
 import { FOLLOWUPS } from "./state";
+import { notifyDiscord } from "../discord";
 
 export type OwnerEnv = BotEnv & { stripeLink: string; reviewLink: string; billingEmail: string };
 
@@ -120,7 +121,14 @@ export async function sweepFollowups(env: OwnerEnv): Promise<number> {
   for (const r of due) {
     const f = r.data;
     const first = f.name ? f.name.split(" ")[0] : null;
-    const msg = `${first ? `Hi ${first}, ` : "Hi, "}Current Automations here. If the setup is doing what you wanted, a Google review helps us more than anything: ${env.reviewLink} And if someone you know wants a device set up, this number is the one to text.`;
+    const hi = first ? `Hi ${first}, ` : "Hi, ";
+    if (f.kind === "nudge") {
+      await sendSms(twilio, env.demoLine, f.phone, `${hi}Jarrett at Current Automations. Still happy to help whenever you want to pick this back up. Text back here any time.`);
+      await syncDelete(twilio, FOLLOWUPS, r.key);
+      await notifyDiscord(`Nudge sent [${f.code}] after 48 h quiet.`);
+      continue;
+    }
+    const msg = `${hi}Current Automations here. If the setup is doing what you wanted, a Google review helps us more than anything: ${env.reviewLink} And if someone you know wants a device set up, this number is the one to text.`;
     await sendSms(twilio, env.demoLine, f.phone, msg);
     await syncDelete(twilio, FOLLOWUPS, r.key);
     await sendSms(twilio, env.demoLine, env.cell, `[${f.code}] review text sent.`);
