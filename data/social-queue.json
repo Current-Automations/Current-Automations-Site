@@ -12,8 +12,8 @@
         "/social/2026-W43/stat78-1.png"
       ],
       "caption": "",
-      "approved": true,
-      "note": "Public-visibility test for the Meta app, fired by hand Sun 10/18 evening (first run was dated Monday, so the publisher found nothing due). If the Story shows while logged out, cancel teardown 3 and stat 21x in Business Suite and approve them here.",
+      "approved": false,
+      "note": "Public-visibility test for the Meta app. Fired by hand Sun 10/18 22:35 UTC: cron, queue, env and Discord all worked, Meta refused with 'pages_* permission must be granted before impersonating a user's page' (Page token generated without the pages scopes). Token redo blocked the same night: Meta put the developer account in 'Account confirmation needed' and the confirmation page errors. Unapproved so the daily cron stops hitting Meta while the account is under review. Re-approve once scripts/meta-token.mjs has run with the full permission list.",
       "trueLine": "not needed, no caption"
     },
     {
@@ -72,5 +72,5 @@
       "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice."
     }
   ],
-  "approvedAt": "2026-10-18 (his 'agree to the posts'; Story test approved, feed posts stay in Business Suite)"
+  "approvedAt": "2026-10-18 (his 'agree to the posts'; Story test pulled back the same night, Meta developer account under review)"
 }
