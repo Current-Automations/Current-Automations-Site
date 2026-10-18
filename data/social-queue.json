@@ -1,27 +1,76 @@
 {
-  "week": "2026-W42",
+  "week": "2026-W43",
   "posts": [
     {
-      "id": "w42-story-test",
-      "at": "2026-10-17T12:00:00-04:00",
-      "channels": ["ig"],
+      "id": "w43-story-test",
+      "at": "2026-10-19T06:00:00-04:00",
+      "channels": [
+        "ig"
+      ],
       "kind": "story",
-      "media": ["/social/2026-W42/stat78-1.png"],
+      "media": [
+        "/social/2026-W43/stat78-1.png"
+      ],
       "caption": "",
-      "approved": false,
-      "note": "Public-visibility test for the Meta app. Approve Saturday once the token is in Vercel, then hit /api/social/publish by hand (the daily cron is 6am). If the Story shows while logged out, the Business Suite copy of teardown 2 gets cancelled and our side fires it Sunday."
+      "approved": true,
+      "note": "Public-visibility test for the Meta app, moved from Sat 10/17 (never approved, never ran). Fires from the 6am cron. If the Story shows while logged out, cancel teardown 3 and stat 21x in Business Suite and approve them here.",
+      "trueLine": "not needed, no caption"
     },
     {
-      "id": "w42-teardown2",
-      "at": "2026-10-18T06:00:00-04:00",
-      "channels": ["ig", "fb"],
-      "kind": "reel",
-      "media": ["/social/2026-W42/teardown2.mp4"],
-      "caption": "A $1,400 quote goes out. On day 0 a message checks it arrived, on day 2 another says the timing still works, and on day 5 a last one says the quote stays open. Then the customer writes back asking to book this week.\n\nIn most shops that follow-up waits for someone to have a free minute and to remember which quotes are still open. Here it goes out on a schedule in your name and stops as soon as the customer replies, yes or no.\n\nLink in bio if you want to see it on your own quotes.\n\n#automation #durhamregion #smallbusinessautomation #sales #followup",
-      "fbCaption": "A $1,400 quote goes out. On day 0 a message checks it arrived, on day 2 another says the timing still works, and on day 5 a last one says the quote stays open. Then the customer writes back asking to book this week.\n\nIn most shops that follow-up waits for someone to have a free minute and to remember which quotes are still open. Here it goes out on a schedule in your name and stops as soon as the customer replies, yes or no.\n\ncurrentautomations.ca/book-a-demo if you want to see it on your own quotes.",
-      "trueLine": "carried from the week-03 packet, already approved there",
+      "id": "w43-faq",
+      "at": "2026-10-20T06:00:00-04:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "carousel",
+      "media": [
+        "/social/2026-W43/faq-1.png",
+        "/social/2026-W43/faq-2.png",
+        "/social/2026-W43/faq-3.png",
+        "/social/2026-W43/faq-4.png",
+        "/social/2026-W43/faq-5.png",
+        "/social/2026-W43/faq-6.png",
+        "/social/2026-W43/faq-7.png"
+      ],
+      "caption": "The five questions we get asked most, with the answers on the slides.\n\nWhat gets automated first, what happens if missed calls are not the problem, and how long setup takes (business systems are usually live within 48 hours of your OK). Also whether you need to be technical, which you don't, and whether it fits how you already work, which it does.\n\nIf yours is not here, ask it in the comments, or book the free walkthrough from the link in our bio.\n\n#automation #durhamregion #smallbusinessautomation #smallbusinesstips #faq",
+      "fbCaption": "The five questions we get asked most, with the answers on the slides.\n\nWhat gets automated first, what happens if missed calls are not the problem, and how long setup takes (business systems are usually live within 48 hours of your OK). Also whether you need to be technical, which you don't, and whether it fits how you already work, which it does.\n\nIf yours is not here, ask it in the comments, or book the free walkthrough at currentautomations.ca/book-a-demo",
       "approved": false,
-      "note": "Already scheduled 6:00am in Business Suite. Approve here ONLY after cancelling that copy, or it posts twice."
+      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice. Too close to the Story test to move; this one stays in Business Suite."
+    },
+    {
+      "id": "w43-teardown3",
+      "at": "2026-10-22T06:00:00-04:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "reel",
+      "media": [
+        "/social/2026-W43/teardown3.mp4"
+      ],
+      "caption": "Invoice #2041 for $1,850 is still open on day 7, so a reminder goes out on its own and the customer writes back that they just sent payment.\n\nAsking to be paid for work you already did is awkward, so most owners put it off. When the reminder arrives on a schedule it reads as routine to the customer, and nobody at the shop has to decide how firm to sound on a Thursday afternoon. You still get told when the money lands, and the thirty-minute walkthrough to set it up is booked from our bio.\n\n#automation #durhamregion #smallbusinessautomation #getpaid #smallbusinesstips",
+      "fbCaption": "Invoice #2041 for $1,850 is still open on day 7, so a reminder goes out on its own and the customer writes back that they just sent payment.\n\nAsking to be paid for work you already did is awkward, so most owners put it off. When the reminder arrives on a schedule it reads as routine to the customer, and nobody at the shop has to decide how firm to sound on a Thursday afternoon. You still get told when the money lands, and the thirty-minute walkthrough to set it up is booked at currentautomations.ca/book-a-demo",
+      "approved": false,
+      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice."
+    },
+    {
+      "id": "w43-stat21",
+      "at": "2026-10-24T06:00:00-04:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "carousel",
+      "media": [
+        "/social/2026-W43/stat21-1.png",
+        "/social/2026-W43/stat21-2.png"
+      ],
+      "caption": "Respond in five minutes instead of thirty and you are 21 times more likely to qualify the lead.\n\nFive minutes is nothing on paper. On a job site it is impossible. Nobody is climbing down a ladder to answer a web form.\n\nSo the first response should not need a person. A text back, the details taken, the lead still warm when you get to it.\n\nSource: MIT and InsideSales, Lead Response Management Study.\n\nFree walkthrough in bio.\n\n#automation #durhamregion #smallbusinessautomation #speedtolead #leadfollowup",
+      "fbCaption": "Respond in five minutes instead of thirty and you are 21 times more likely to qualify the lead.\n\nFive minutes is nothing on paper. On a job site it is impossible. Nobody is climbing down a ladder to answer a web form.\n\nSo the first response should not need a person. A text back, the details taken, the lead still warm when you get to it.\n\nSource: MIT and InsideSales, Lead Response Management Study.\n\nFree walkthrough at currentautomations.ca/book-a-demo",
+      "approved": false,
+      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice."
     }
-  ]
+  ],
+  "approvedAt": "2026-10-18 (his 'agree to the posts'; Story test approved, feed posts stay in Business Suite)"
 }
