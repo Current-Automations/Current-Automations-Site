@@ -3,7 +3,7 @@
   "posts": [
     {
       "id": "w43-story-test",
-      "at": "2026-10-19T06:00:00-04:00",
+      "at": "2026-10-18T18:00:00-04:00",
       "channels": [
         "ig"
       ],
@@ -13,7 +13,7 @@
       ],
       "caption": "",
       "approved": true,
-      "note": "Public-visibility test for the Meta app, moved from Sat 10/17 (never approved, never ran). Fires from the 6am cron. If the Story shows while logged out, cancel teardown 3 and stat 21x in Business Suite and approve them here.",
+      "note": "Public-visibility test for the Meta app, fired by hand Sun 10/18 evening (first run was dated Monday, so the publisher found nothing due). If the Story shows while logged out, cancel teardown 3 and stat 21x in Business Suite and approve them here.",
       "trueLine": "not needed, no caption"
     },
     {
