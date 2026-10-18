@@ -1,4 +1,9 @@
 // Run from site/ in a terminal that is not Claude's: node scripts/meta-token.mjs
+// In the Graph API Explorer pick the app "Current Automations Publisher", User Token, and
+// add every permission in NEEDED below before Generate Access Token (tick the Current
+// Automations Page and its Instagram account in the dialog). A token missing any of them
+// gets refused here instead of failing at publish time (2026-10-18: the first token had no
+// pages_* scope and Meta answered "must be granted before impersonating a user's page").
 // Asks for the app secret and a short-lived user token from the Graph API Explorer,
 // exchanges it for a long-lived one, reads the Page token and IG account, writes
 // META_PAGE_ID, META_IG_USER_ID and META_ACCESS_TOKEN to Vercel production.
@@ -8,6 +13,7 @@ import { spawnSync } from "node:child_process";
 const APP_ID = "1028862226839537";
 const PAGE_NAME = "Current Automations";
 const G = "https://graph.facebook.com/v25.0";
+const NEEDED = ["pages_show_list", "pages_read_engagement", "pages_manage_posts", "instagram_basic", "instagram_content_publish", "business_management"];
 
 function ask(q) {
   return new Promise((res) => {
@@ -46,6 +52,8 @@ const ig = page.instagram_business_account?.id;
 if (!ig) throw new Error(`Page "${page.name}" has no Instagram business account linked. Link @CurrentAutomations to the Page in Business Suite, then re-run.`);
 
 const dbg = await get("debug_token", { input_token: page.access_token, access_token: `${APP_ID}|${secret}` });
+const missing = NEEDED.filter((s) => !(dbg.data.scopes ?? []).includes(s));
+if (missing.length) throw new Error(`Token is missing: ${missing.join(", ")}. Re-generate it in the Explorer with every permission in NEEDED ticked.`);
 console.log(`Page: ${page.name} (${page.id}), IG: ${ig}, token expires: ${dbg.data.expires_at ? new Date(dbg.data.expires_at * 1000).toISOString() : "never"}`);
 
 vercelSet("META_PAGE_ID", page.id);
