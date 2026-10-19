@@ -37,6 +37,7 @@ export type Deps = {
   saveThread: (t: Thread) => Promise<void>;
   event: (e: BotEvent) => Promise<void>;
   cancelNudge?: (phone: string) => Promise<void>;
+  discord?: (text: string) => Promise<void>;
   claude: (params: Beta.MessageCreateParamsNonStreaming) => Promise<Beta.BetaMessage>;
   now: () => number;
 };
@@ -51,6 +52,10 @@ const MAX_TURNS = 40;
 const RATE_WINDOW_MS = 10 * 60000;
 const RATE_MAX = 6;
 const NUDGE_MS = 48 * 3600000;
+// Twilio's default opt-out keywords on Canadian long codes. Twilio sends its own
+// confirmation and blocks every later send, so the bot must not answer these.
+const OPT_OUT = new Set(["stop", "stopall", "unsubscribe", "cancel", "end", "quit", "arret", "arrêt"]);
+const OPT_IN = new Set(["start", "unstop", "yes"]);
 
 // A logged lead that goes quiet gets one nudge after 48 h. Any later event on the
 // thread (a hold, a handoff, done, cancel) or any inbound text cancels it.
@@ -58,11 +63,15 @@ async function onEvent(env: BotEnv, e: BotEvent): Promise<void> {
   await postEvent(env.makeUrl, e);
   if (e.event === "lead") {
     await queueFollowup(env.twilio, { phone: e.phone, code: e.code, sendAt: Date.now() + NUDGE_MS, kind: "nudge", name: e.name });
-    await notifyDiscord(`New lead [${e.code}] ${e.lane}: ${e.summary}`);
   } else {
     await deleteFollowup(env.twilio, "nudge", e.phone);
-    if (e.event === "hold" || e.event === "handoff") await notifyDiscord(`${e.event} [${e.code}] ${e.lane}: ${e.summary}`);
   }
+}
+
+// Every inbound text reaches Jarrett twice: his cell, and #ca on Discord.
+async function tellOwner(env: BotEnv, deps: Deps, text: string): Promise<void> {
+  await deps.send(env.cell, text);
+  await deps.discord?.(text);
 }
 
 export function liveDeps(env: BotEnv): Deps {
@@ -79,6 +88,7 @@ export function liveDeps(env: BotEnv): Deps {
     saveThread: (t) => saveThread(env.twilio, t),
     event: (e) => onEvent(env, e),
     cancelNudge: (phone) => deleteFollowup(env.twilio, "nudge", phone),
+    discord: notifyDiscord,
     claude: (params) => client.beta.messages.create(params),
     now: () => Date.now(),
   };
@@ -195,9 +205,24 @@ export async function handleProspect(env: BotEnv, inbound: Inbound, deps: Deps =
   thread.lastSeen = now;
   await deps.cancelNudge?.(inbound.from);
 
+  const word = inbound.body.trim().replace(/[.!]+$/, "").toLowerCase();
+  if (OPT_OUT.has(word)) {
+    thread.optedOut = true;
+    await deps.saveThread(thread);
+    await tellOwner(env, deps, `[${thread.code}] ${inbound.from} OPTED OUT (texted "${inbound.body.trim()}"). Twilio blocks every text to them until they send START.`);
+    return;
+  }
+  if (thread.optedOut) {
+    if (OPT_IN.has(word)) thread.optedOut = false;
+    await deps.saveThread(thread);
+    const state = thread.optedOut ? "opted out, bot quiet" : "opted back in, bot answers their next text";
+    await tellOwner(env, deps, `[${thread.code}] ${inbound.from} (${state})\nthem: ${inbound.body || "(photo)"}`);
+    return;
+  }
+
   if (thread.mutedUntil && thread.mutedUntil > now) {
     await deps.saveThread(thread);
-    await deps.send(env.cell, `[${thread.code}] ${inbound.from} (yours)\nthem: ${inbound.body || "(photo)"}`);
+    await tellOwner(env, deps, `[${thread.code}] ${inbound.from} (yours)\nthem: ${inbound.body || "(photo)"}`);
     return;
   }
 
@@ -216,8 +241,9 @@ export async function handleProspect(env: BotEnv, inbound: Inbound, deps: Deps =
       action: "Check the thread, RESUME to hand back",
       transcript: inbound.body,
     });
-    await deps.send(
-      env.cell,
+    await tellOwner(
+      env,
+      deps,
       `[${thread.code}] ${inbound.from} PAUSED: ${thread.recentIn.length} texts in 10 min, looks like an auto-reply. Bot is quiet on this thread for 12 h, RESUME ${thread.code} hands it back.
 them: ${inbound.body || "(photo)"}`
     );
@@ -409,5 +435,5 @@ them: ${inbound.body || "(photo)"}`
   if (handedOff) {
     lines.push(`HANDED OFF: ${handedOff}`, `Reply "${thread.code} your message" to text them. RESUME ${thread.code} hands it back.`);
   }
-  await deps.send(env.cell, lines.join("\n"));
+  await tellOwner(env, deps, lines.join("\n"));
 }

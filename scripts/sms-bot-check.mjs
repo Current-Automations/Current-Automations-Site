@@ -365,6 +365,41 @@ await check("owner: LIST", async () => {
   assert.match(o.sent[0].body, /^K7M2P \+14165550123 home Dana Lee$/);
 });
 
+await check("bot: every forward to the cell also goes to Discord", async () => {
+  const f = fakeDeps([text("Yes, we can do that. - Current Automations")]);
+  const pings = [];
+  f.deps.discord = async (t) => { pings.push(t); };
+  await bot.handleProspect(env, { from: "+14165550123", body: "do you do cameras", sid: "SM9", media: [] }, f.deps);
+  assert.equal(pings.length, 1);
+  assert.equal(pings[0], f.sent.find((s) => s.to === env.cell).body);
+});
+
+await check("bot: STOP never reaches Claude, owner told, thread opted out", async () => {
+  const f = fakeDeps([text("should not be called")]);
+  const pings = [];
+  f.deps.discord = async (t) => { pings.push(t); };
+  await bot.handleProspect(env, { from: "+14165550123", body: "Stop.", sid: "SM10", media: [] }, f.deps);
+  assert.equal(f.params(), 0);
+  assert.equal(f.sent.length, 1);
+  assert.equal(f.sent[0].to, env.cell);
+  assert.match(f.sent[0].body, /OPTED OUT/);
+  assert.equal(pings.length, 1);
+  assert.equal(f.saved.at(-1).optedOut, true);
+});
+
+await check("bot: opted-out thread stays quiet until START", async () => {
+  const quiet = fakeDeps([text("should not be called")], { thread: { code: "K7M2P", phone: "+14165550123", lane: "home", optedOut: true, stalledTurns: 0, firstSeen: 0, lastSeen: 0 } });
+  await bot.handleProspect(env, { from: "+14165550123", body: "actually how much is it", sid: "SM11", media: [] }, quiet.deps);
+  assert.equal(quiet.params(), 0);
+  assert.deepEqual(quiet.sent.map((s) => s.to), [env.cell]);
+  assert.match(quiet.sent[0].body, /opted out, bot quiet/);
+  const back = fakeDeps([text("should not be called")], { thread: { code: "K7M2P", phone: "+14165550123", lane: "home", optedOut: true, stalledTurns: 0, firstSeen: 0, lastSeen: 0 } });
+  await bot.handleProspect(env, { from: "+14165550123", body: "START", sid: "SM12", media: [] }, back.deps);
+  assert.equal(back.params(), 0);
+  assert.equal(back.saved.at(-1).optedOut, false);
+  assert.match(back.sent[0].body, /opted back in/);
+});
+
 const sig = req(path.join(out, "js/lib/twilio-signature.js"));
 await check("signature: matches Twilio's documented vector", () => {
   const url = "https://mycompany.com/myapp.php?foo=1&bar=2";

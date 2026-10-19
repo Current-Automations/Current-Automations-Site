@@ -14,6 +14,7 @@ export type Thread = {
   device?: string;
   summary?: string;
   mutedUntil?: number;
+  optedOut?: boolean;
   stalledTurns: number;
   recentIn?: number[];
   firstSeen: number;
