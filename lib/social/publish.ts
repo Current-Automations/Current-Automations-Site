@@ -48,12 +48,15 @@ export async function publishDue(now = Date.now()): Promise<PublishResult> {
       }
     }
   }
+  console.log("[social] publish run", JSON.stringify({ due: due.map((p) => p.id), ...out }));
   if (out.published.length || out.failed.length) {
     const lines = [
       ...out.published.map((k) => `posted ${k}`),
       ...out.failed.map((k) => `FAILED ${k}`),
     ];
     await notifyDiscord(`Publisher: ${lines.join("\n")}`);
+  } else if (out.skipped.length) {
+    await notifyDiscord(`Publisher: nothing new, already posted ${out.skipped.join(", ")}`);
   }
   return out;
 }
