@@ -3,7 +3,7 @@
   "posts": [
     {
       "id": "w43-story-test",
-      "at": "2026-10-18T18:00:00-04:00",
+      "at": "2026-10-24T12:00:00-04:00",
       "channels": [
         "ig"
       ],
@@ -12,8 +12,8 @@
         "/social/2026-W43/stat78-1.png"
       ],
       "caption": "",
-      "approved": false,
-      "note": "Public-visibility test for the Meta app. Fired by hand Sun 10/18 22:35 UTC: cron, queue, env and Discord all worked, Meta refused with 'pages_* permission must be granted before impersonating a user's page' (Page token generated without the pages scopes). Token redo blocked the same night: Meta put the developer account in 'Account confirmation needed' and the confirmation page errors. Unapproved so the daily cron stops hitting Meta while the account is under review. Re-approve once scripts/meta-token.mjs has run with the full permission list.",
+      "approved": true,
+      "note": "Public-visibility test for the Meta app. Fired by hand Sun 10/18 22:35 UTC: cron, queue, env and Discord all worked, Meta refused with 'pages_* permission must be granted before impersonating a user's page' (Page token generated without the pages scopes). Token redo blocked the same night: Meta put the developer account in 'Account confirmation needed' and the confirmation page errors. Unapproved so the daily cron stops hitting Meta while the account is under review. Re-approve once scripts/meta-token.mjs has run with the full permission list. Re-approved 2026-10-24 (his yes) after the 10-19 token redo passed all six scopes; fired by hand.",
       "trueLine": "not needed, no caption"
     },
     {
