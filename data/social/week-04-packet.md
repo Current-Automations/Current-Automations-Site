@@ -123,12 +123,12 @@ Check the Posts panel first. Post A (doorbell, $59 / $99) got a go on 10/11 and 
 
 Post B, if A is there:
 ```
-Ontario pays $125 back on a qualifying smart thermostat if you heat with Enbridge gas or electric. We set it up for $99 + HST and tell you before we start whether yours qualifies. Text 365-299-3366, it answers.
+Ontario pays $125 back on a qualifying smart thermostat if you heat with Enbridge gas or electric. We set it up for $99 + HST and tell you before we start whether yours qualifies. Text 365-299-3366.
 ```
 
 Post A, if it never went up:
 ```
-Doorbell in a box and no time to fight the app? $59 + HST onto your existing doorbell wire, $99 + HST with an automation built while you watch. Nothing rewired. Durham Region. Text a photo of it to 365-299-3366, it answers.
+Doorbell in a box and no time to fight the app? $59 + HST onto your existing doorbell wire, $99 + HST with an automation built while you watch. Nothing rewired. Durham Region. Text a photo of it to 365-299-3366.
 ```
 
 Add a photo to whichever goes up: the rebate slide 1 for B, a doorbell shot from the 10/12 batch for A if one exists, otherwise no photo.
@@ -153,10 +153,10 @@ $125 back on a smart thermostat in Ontario.
 
 The Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.
 
-We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366, it answers.
+We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366.
 ```
 
 ## Still needs you
 
 - A clip. The CA Clips folder has nothing, so nothing from the we-run-this series or the home shot list can post. One phone clip a week is the floor from the 10/16 grill.
-- The parent-phone test of the text door, still unlogged.
+- ~~The parent-phone test of the text door~~ done on his dad's phone (confirmed 2026-10-19).

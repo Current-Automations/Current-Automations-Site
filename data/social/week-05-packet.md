@@ -47,7 +47,7 @@ $125 back on a smart thermostat in Ontario.
 
 The Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.
 
-We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366, it answers.
+We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366.
 ```
 
 ## Teardown 4, the list you already own (Wed 10/28)
@@ -132,7 +132,7 @@ The tag costs about a dollar. The work is in what sits behind it.
 
 This is a built scene, not phone footage.
 
-Got a room in mind? Text a photo of it to 365-299-3366, it answers.
+Got a room in mind? Text a photo of it to 365-299-3366.
 ```
 
 ## LinkedIn
@@ -167,7 +167,7 @@ Book a free walkthrough: currentautomations.ca/book-a-demo
 
 Post C:
 ```
-Two apps for two lights is two too many. We put what you already own under one app and build one automation while you watch. $99 + HST for the first device, Oshawa to Pickering. Text 365-299-3366, it answers.
+Two apps for two lights is two too many. We put what you already own under one app and build one automation while you watch. $99 + HST for the first device, Oshawa to Pickering. Text 365-299-3366.
 ```
 
 ## Still needs you
