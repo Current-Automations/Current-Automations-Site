@@ -4,7 +4,7 @@ import { computeAvailability, Slot } from "./availability";
 import { BotEvent, postEvent } from "./events";
 import { loadWeekFiles } from "./schedule";
 import { SYSTEM_PROMPT } from "./prompt";
-import { deleteFollowup, Hold, listHolds, loadThread, newThread, queueFollowup, saveHold, saveThread, Thread } from "./state";
+import { deleteFollowup, Hold, listHolds, loadThread, newThread, PhotoRead, queueFollowup, saveHold, saveThread, Thread } from "./state";
 import { notifyDiscord } from "../discord";
 import { fmtSlot, parseIsoLocal } from "./time";
 import { fetchMedia, sendSms, threadHistory, TwilioEnv, TwilioMessage } from "./twilio";
@@ -139,6 +139,27 @@ export const TOOLS: Beta.BetaTool[] = [
     },
   },
   {
+    name: "photo_read",
+    description:
+      "Record what you saw in a device photo, every time one arrives, before you reply. Jarrett sees the read beside the thread. With confidence low, put the reply he could send in draft_reply and then call hand_off.",
+    strict: true,
+    input_schema: {
+      type: "object",
+      properties: {
+        device: { type: "string", description: "What it is, e.g. thermostat, doorbell, lock, camera, unknown" },
+        model: { type: ["string", "null"], description: "Brand and model if readable, e.g. Nest Learning 3rd gen" },
+        wires: { type: ["integer", "null"], description: "Thermostat wires counted, null if not visible" },
+        c_wire: { type: "string", enum: ["yes", "no", "unclear"], description: "Wire on the C terminal. unclear when the wires are not visible or it is not a thermostat" },
+        rebate: { type: "string", enum: ["yes", "no", "unclear"], description: "Whether the thermostat they are getting qualifies for the $125 rebate" },
+        confidence: { type: "string", enum: ["high", "low"] },
+        note: { type: "string", description: "One line for Jarrett: terminals seen, anything odd" },
+        draft_reply: { type: ["string", "null"], description: "Confidence low only: the text Jarrett could send, in the texting rules" },
+      },
+      required: ["device", "model", "wires", "c_wire", "rebate", "confidence", "note", "draft_reply"],
+      additionalProperties: false,
+    },
+  },
+  {
     name: "hand_off",
     description:
       "Stop answering and bring Jarrett in. Mutes you on this thread for 12 hours and texts him the reason. After calling it, reply with the hand-off line only.",
@@ -253,6 +274,7 @@ them: ${inbound.body || "(photo)"}`
   let reply = "";
   let handedOff: string | null = null;
   let heldNow: Hold | null = null;
+  let photoNow: PhotoRead | null = null;
   let progressed = false;
 
   try {
@@ -384,6 +406,24 @@ them: ${inbound.body || "(photo)"}`
               transcript: inbound.body,
             });
             out = JSON.stringify({ ok: true });
+          } else if (use.name === "photo_read") {
+            progressed = true;
+            const raw = use.input as Record<string, unknown>;
+            const read: PhotoRead = {
+              device: typeof raw.device === "string" ? raw.device : "unknown",
+              model: typeof raw.model === "string" ? raw.model : null,
+              wires: typeof raw.wires === "number" ? raw.wires : null,
+              cWire: raw.c_wire === "yes" || raw.c_wire === "no" ? raw.c_wire : "unclear",
+              rebate: raw.rebate === "yes" || raw.rebate === "no" ? raw.rebate : "unclear",
+              confidence: raw.confidence === "high" ? "high" : "low",
+              note: typeof raw.note === "string" ? raw.note : "",
+              draftReply: typeof raw.draft_reply === "string" ? raw.draft_reply : null,
+            };
+            thread.photo = read;
+            if (!thread.device || read.model) thread.device = read.model ?? read.device;
+            if (thread.lane === "unknown") thread.lane = "home";
+            photoNow = read;
+            out = JSON.stringify({ ok: true });
           } else if (use.name === "hand_off") {
             handedOff = input.reason ?? "no reason given";
             await deps.event({
@@ -428,6 +468,12 @@ them: ${inbound.body || "(photo)"}`
   const lane = thread.lane !== "unknown" ? ` (${thread.lane})` : "";
   const who = thread.name ? ` ${thread.name}` : "";
   const lines = [`[${thread.code}] ${inbound.from}${lane}${who}`, `them: ${inbound.body || "(photo)"}`, `bot: ${reply}`];
+  if (photoNow) {
+    const p: PhotoRead = photoNow;
+    const wires = p.wires === null ? "wires not visible" : `${p.wires} wires`;
+    lines.push(`PHOTO: ${p.model ?? p.device}, ${wires}, C wire ${p.cWire}, rebate ${p.rebate}, confidence ${p.confidence}${p.note ? `. ${p.note}` : ""}`);
+    if (p.draftReply) lines.push(`DRAFT (send with "${thread.code} ..."): ${cleanOutbound(p.draftReply)}`);
+  }
   if (heldNow) {
     const h: Hold = heldNow;
     lines.push(`HOLD: ${fmtSlot(parseIsoLocal(h.start) ?? now)}, ${h.address}, ${h.job}, ${h.price}`);

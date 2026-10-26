@@ -192,6 +192,36 @@ await check("bot: photo rides along as an image block", async () => {
   assert.match(f.sent[1].body, /them: \(photo\)/);
 });
 
+await check("bot: photo_read high confidence lands on the thread and the owner line", async () => {
+  const f = fakeDeps([
+    toolUse("photo_read", { device: "thermostat", model: "Honeywell RTH6580WF", wires: 5, c_wire: "yes", rebate: "unclear", confidence: "high", note: "R, C, W, Y, G on the base", draft_reply: null }),
+    text("That is a Honeywell RTH6580WF with five wires including a C wire, so a Mysa or ecobee goes straight on. Which one are you getting, and what town are you in? - Current Automations"),
+  ]);
+  await bot.handleProspect(env, { from: "+14165550123", body: "", sid: "SM20", media: [{ url: "https://api.twilio.com/m/2", contentType: "image/jpeg" }] }, f.deps);
+  assert.equal(f.sent[0].to, "+14165550123");
+  assert.match(f.sent[0].body, /^That is a Honeywell/);
+  const t = f.saved.at(-1);
+  assert.equal(t.photo.cWire, "yes");
+  assert.equal(t.device, "Honeywell RTH6580WF");
+  assert.equal(t.lane, "home");
+  assert.equal(t.stalledTurns, 0);
+  assert.match(f.sent[1].body, /PHOTO: Honeywell RTH6580WF, 5 wires, C wire yes, rebate unclear, confidence high\. R, C, W, Y, G on the base/);
+  assert.ok(!/DRAFT/.test(f.sent[1].body));
+});
+
+await check("bot: photo_read low confidence carries the draft and the hand off", async () => {
+  const f = fakeDeps([
+    toolUse("photo_read", { device: "thermostat", model: null, wires: null, c_wire: "unclear", rebate: "unclear", confidence: "low", note: "faceplate on, no label visible", draft_reply: "Thanks for the photo. Can you pull the faceplate straight off and send one of the wires — then I can tell you about the C wire." }),
+    toolUse("hand_off", { reason: "photo read needs Jarrett", urgency: "normal" }, "tu_2"),
+    text("ignored"),
+  ]);
+  await bot.handleProspect(env, { from: "+14165550123", body: "my thermostat", sid: "SM21", media: [{ url: "https://api.twilio.com/m/3", contentType: "image/jpeg" }] }, f.deps);
+  assert.equal(f.sent[0].body, bot.HANDOFF_LINE);
+  assert.match(f.sent[1].body, /PHOTO: thermostat, wires not visible, C wire unclear, rebate unclear, confidence low\. faceplate on, no label visible/);
+  assert.match(f.sent[1].body, /DRAFT \(send with "K7M2P \.\.\."\): Thanks for the photo\. Can you pull the faceplate straight off and send one of the wires, then I can tell you/);
+  assert.match(f.sent[1].body, /HANDED OFF: photo read needs Jarrett/);
+});
+
 await check("bot: book_hold saves the hold, fires the event, tells the cell", async () => {
   const f = fakeDeps([
     toolUse("book_hold", { start: "2026-10-09T16:30", name: "Dana", address: "12 King St, Whitby", job: "Nest doorbell battery, iPhone", price: "$99 + HST" }),

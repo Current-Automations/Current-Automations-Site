@@ -20,6 +20,18 @@ export type Thread = {
   firstSeen: number;
   lastSeen: number;
   hold?: Hold;
+  photo?: PhotoRead;
+};
+
+export type PhotoRead = {
+  device: string;
+  model: string | null;
+  wires: number | null;
+  cWire: "yes" | "no" | "unclear";
+  rebate: "yes" | "no" | "unclear";
+  confidence: "high" | "low";
+  note: string;
+  draftReply: string | null;
 };
 
 export type Hold = {
