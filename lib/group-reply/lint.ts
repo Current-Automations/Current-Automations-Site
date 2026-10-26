@@ -100,6 +100,9 @@ export function lintReply(text: string): LintResult {
     if (words(text) >= 25 && !specific(text)) strong.push("nothing specific: no number, name, day or place");
   }
   if (words(text) > 110) strong.push(`too long for a comment: ${words(text)} words`);
+  const n = sentences(text.replace(/\s*\n+\s*/g, " ")).length;
+  if (n > 5) strong.push(`${n} sentences, the cap is five`);
+  if (/\bhere in [A-Z]/.test(text)) strong.push('"here in" claims we are based there');
   if (weak.length >= 3) strong.push(`${weak.length} weak tells together`);
   return { strong, weak };
 }

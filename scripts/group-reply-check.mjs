@@ -117,4 +117,13 @@ await check("draft: em dashes and wrapping quotes are stripped from the model te
   assert.equal(r.draft, "Check the C terminal first, most Wi-Fi thermostats need it. The Mysa at Costco gets the $125 rebate.");
 });
 
+await check("lint: the first live draft (2026-10-26) trips the sentence cap and the home-town claim", () => {
+  const r = lintReply(
+    "If you heat with Enbridge gas, the ecobee Enhanced gets $125 back through Ontario's Home Renovation Savings program, so that usually settles it. Nest we'd check against the list before you buy. DIY is doable if there's a C wire behind your current thermostat. If not, an HVAC tech or electrician adds it first. We install and connect thermostats here in Oshawa. Text a photo of it to 365-299-3366."
+  );
+  assert.ok(r.strong.some((s) => /^[67] sentences/.test(s)), r.strong.join("; "));
+  assert.ok(r.strong.some((s) => s.startsWith('"here in"')), r.strong.join("; "));
+  assert.deepEqual(lintReply("We install and connect thermostats in Oshawa. Text a photo of it to 365-299-3366.").strong, []);
+});
+
 console.log(`\n${passed} passed${process.exitCode ? ", with failures" : ""}`);
