@@ -1,76 +1,78 @@
 {
-  "week": "2026-W43",
+  "week": "2026-W44",
+  "approvedAt": "2026-10-25 (his yes in chat for rebate, video8 and case card; teardown 4 waiting)",
   "posts": [
     {
-      "id": "w43-story-test",
-      "at": "2026-10-24T12:00:00-04:00",
-      "channels": [
-        "ig"
-      ],
-      "kind": "story",
-      "media": [
-        "/social/2026-W43/stat78-1.png"
-      ],
-      "caption": "",
-      "approved": true,
-      "note": "Public-visibility test for the Meta app. Fired by hand Sun 10/18 22:35 UTC: cron, queue, env and Discord all worked, Meta refused with 'pages_* permission must be granted before impersonating a user's page' (Page token generated without the pages scopes). Token redo blocked the same night: Meta put the developer account in 'Account confirmation needed' and the confirmation page errors. Unapproved so the daily cron stops hitting Meta while the account is under review. Re-approve once scripts/meta-token.mjs has run with the full permission list. Re-approved 2026-10-24 (his yes) after the 10-19 token redo passed all six scopes; fired by hand.",
-      "trueLine": "not needed, no caption"
-    },
-    {
-      "id": "w43-faq",
-      "at": "2026-10-20T06:00:00-04:00",
+      "id": "w44-rebate",
+      "at": "2026-10-26T06:00:00-04:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "carousel",
       "media": [
-        "/social/2026-W43/faq-1.png",
-        "/social/2026-W43/faq-2.png",
-        "/social/2026-W43/faq-3.png",
-        "/social/2026-W43/faq-4.png",
-        "/social/2026-W43/faq-5.png",
-        "/social/2026-W43/faq-6.png",
-        "/social/2026-W43/faq-7.png"
+        "/social/2026-W44/rebate-1.png",
+        "/social/2026-W44/rebate-2.png",
+        "/social/2026-W44/rebate-3.png",
+        "/social/2026-W44/rebate-4.png"
       ],
-      "caption": "The five questions we get asked most, with the answers on the slides.\n\nWhat gets automated first, what happens if missed calls are not the problem, and how long setup takes (business systems are usually live within 48 hours of your OK). Also whether you need to be technical, which you don't, and whether it fits how you already work, which it does.\n\nIf yours is not here, ask it in the comments, or book the free walkthrough from the link in our bio.\n\n#automation #durhamregion #smallbusinessautomation #smallbusinesstips #faq",
-      "fbCaption": "The five questions we get asked most, with the answers on the slides.\n\nWhat gets automated first, what happens if missed calls are not the problem, and how long setup takes (business systems are usually live within 48 hours of your OK). Also whether you need to be technical, which you don't, and whether it fits how you already work, which it does.\n\nIf yours is not here, ask it in the comments, or book the free walkthrough at currentautomations.ca/book-a-demo",
-      "approved": false,
-      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice. Too close to the Story test to move; this one stays in Business Suite."
+      "caption": "$125 back on a smart thermostat in Ontario.\n\nThe Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.\n\nWe picked ours up at Costco and ran the rebate ourselves first, so we know where the form trips people up.\n\nWe tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Send a photo of it. Link in bio.\n\n#automation #smarthome #durhamregion #smartthermostat #ontario",
+      "fbCaption": "$125 back on a smart thermostat in Ontario.\n\nThe Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.\n\nWe picked ours up at Costco and ran the rebate ourselves first, so we know where the form trips people up.\n\nWe tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366.",
+      "trueLine": "yes submitted (Costco, did the rebate himself)",
+      "approved": true,
+      "note": ""
     },
     {
-      "id": "w43-teardown3",
-      "at": "2026-10-22T06:00:00-04:00",
+      "id": "w44-teardown4",
+      "at": "2026-10-28T06:00:00-04:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "reel",
       "media": [
-        "/social/2026-W43/teardown3.mp4"
+        "/social/2026-W44/teardown4.mp4"
       ],
-      "caption": "Invoice #2041 for $1,850 is still open on day 7, so a reminder goes out on its own and the customer writes back that they just sent payment.\n\nAsking to be paid for work you already did is awkward, so most owners put it off. When the reminder arrives on a schedule it reads as routine to the customer, and nobody at the shop has to decide how firm to sound on a Thursday afternoon. You still get told when the money lands, and the thirty-minute walkthrough to set it up is booked from our bio.\n\n#automation #durhamregion #smallbusinessautomation #getpaid #smallbusinesstips",
-      "fbCaption": "Invoice #2041 for $1,850 is still open on day 7, so a reminder goes out on its own and the customer writes back that they just sent payment.\n\nAsking to be paid for work you already did is awkward, so most owners put it off. When the reminder arrives on a schedule it reads as routine to the customer, and nobody at the shop has to decide how firm to sound on a Thursday afternoon. You still get told when the money lands, and the thirty-minute walkthrough to set it up is booked at currentautomations.ca/book-a-demo",
+      "caption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough in bio if your old invoices are the list you have never worked.\n\n#automation #durhamregion #smallbusinessautomation #reactivation #localbusiness",
+      "fbCaption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough at currentautomations.ca/book-a-demo if your old invoices are the list you have never worked.",
+      "trueLine": "",
       "approved": false,
-      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice."
+      "note": "Waiting on his true-line call (leave it without, or give one). Approve before Tue night for Wed 6:00."
     },
     {
-      "id": "w43-stat21",
-      "at": "2026-10-24T06:00:00-04:00",
+      "id": "w44-video8",
+      "at": "2026-10-30T06:00:00-04:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "reel",
+      "media": [
+        "/social/2026-W44/video8.mp4"
+      ],
+      "caption": "It's 11pm. Lights on, doors unlocked, heat still up. You're already in bed.\n\nOne tag by the bed. Tap a phone on it and the downstairs lights go off, the doors lock, the thermostat sets back for the night and the phone goes to Sleep.\n\nThe tag costs about a dollar. The work is in what sits behind it.\n\nThe lights half of this has been running for over a month now and has not needed touching.\n\nThis is a built scene, not phone footage.\n\nGot a room in mind? Text 365-299-3366 with a photo of it.\n\n#automation #smarthome #durhamregion #nfc #hometech",
+      "fbCaption": "It's 11pm. Lights on, doors unlocked, heat still up. You're already in bed.\n\nOne tag by the bed. Tap a phone on it and the downstairs lights go off, the doors lock, the thermostat sets back for the night and the phone goes to Sleep.\n\nThe tag costs about a dollar. The work is in what sits behind it.\n\nThe lights half of this has been running for over a month now and has not needed touching.\n\nThis is a built scene, not phone footage.\n\nGot a room in mind? Text 365-299-3366 with a photo of it.",
+      "trueLine": "the lights is there for a month or longer and works good",
+      "approved": true,
+      "note": "Built scene, caption says so. Music baked 10/25 from the video6 pack track; swap if he wants another."
+    },
+    {
+      "id": "w44-statrg",
+      "at": "2026-11-01T06:00:00-05:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "carousel",
       "media": [
-        "/social/2026-W43/stat21-1.png",
-        "/social/2026-W43/stat21-2.png"
+        "/social/2026-W44/statrg-1.png",
+        "/social/2026-W44/statrg-2.png"
       ],
-      "caption": "Respond in five minutes instead of thirty and you are 21 times more likely to qualify the lead.\n\nFive minutes is nothing on paper. On a job site it is impossible. Nobody is climbing down a ladder to answer a web form.\n\nSo the first response should not need a person. A text back, the details taken, the lead still warm when you get to it.\n\nSource: MIT and InsideSales, Lead Response Management Study.\n\nFree walkthrough in bio.\n\n#automation #durhamregion #smallbusinessautomation #speedtolead #leadfollowup",
-      "fbCaption": "Respond in five minutes instead of thirty and you are 21 times more likely to qualify the lead.\n\nFive minutes is nothing on paper. On a job site it is impossible. Nobody is climbing down a ladder to answer a web form.\n\nSo the first response should not need a person. A text back, the details taken, the lead still warm when you get to it.\n\nSource: MIT and InsideSales, Lead Response Management Study.\n\nFree walkthrough at currentautomations.ca/book-a-demo",
-      "approved": false,
-      "note": "Already scheduled 6:00am in Business Suite on 2026-10-06. Approve here ONLY after cancelling that copy, or it posts twice."
+      "caption": "Up to three days to answer a new lead. That was normal at one service business, because the people answering leads were the same people out doing the work.\n\nThey added a bot that replies the moment a lead comes in, answers the basic questions and books a consult. In the first year it booked 30% of their consultations.\n\nThe shape fits any shop where the owner is also the one on the job. Our demo line runs the first part of it. Call 1 365 299 3366, say your AC quit, and after you hang up a text lands with what you asked for and how urgent it sounded. The free walkthrough link is in our bio.\n\nSource: Zapier customer story, Results Grow.\n\n#automation #durhamregion #smallbusinessautomation #speedtolead #tradesbusiness",
+      "fbCaption": "Up to three days to answer a new lead. That was normal at one service business, because the people answering leads were the same people out doing the work.\n\nThey added a bot that replies the moment a lead comes in, answers the basic questions and books a consult. In the first year it booked 30% of their consultations.\n\nThe shape fits any shop where the owner is also the one on the job. Our demo line runs the first part of it. Call 1 365 299 3366, say your AC quit, and after you hang up a text lands with what you asked for and how urgent it sounded. Free walkthrough at currentautomations.ca/book-a-demo\n\nSource: Zapier customer story, Results Grow.",
+      "trueLine": "2026-10-01: the AC call and the text that says what was asked and how urgent it sounded",
+      "approved": true,
+      "note": "Clocks fall back 2am Sun 11/1, so 06:00 is -05:00. True line from 2026-10-01 carried once he confirms it."
     }
-  ],
-  "approvedAt": "2026-10-18 (his 'agree to the posts'; Story test pulled back the same night, Meta developer account under review)"
+  ]
 }
