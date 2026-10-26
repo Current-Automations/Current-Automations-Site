@@ -22,7 +22,7 @@ Lanes alternate home, business, home, business. The publisher proved itself on t
 
 Given Sun 10/25 in chat, written into the captions (the publisher posts the caption as is).
 
-- Rebate carousel: Costco, rebate submitted himself. Done.
+- Rebate carousel: Costco, rebate submitted. Written as the business, never the household (his correction 10/25). Done.
 - LinkedIn Mon: none. No real leads yet (no advertising), so it stays stats only. His call.
 - Teardown 4: OPEN. He asked what the post was about; no line yet, so it stays unapproved until he says leave it or gives one.
 - LinkedIn Wed: reuses the 10-01 demo-call line. Done.
@@ -42,7 +42,7 @@ $125 back on a smart thermostat in Ontario.
 
 The Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.
 
-We picked ours up at Costco and ran the rebate ourselves first, so we know where the form trips people up.
+Costco carries a model that qualifies, and we have put this rebate through ourselves, so we know where the form trips people up.
 
 We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Send a photo of it. Link in bio.
 ```
@@ -54,7 +54,7 @@ $125 back on a smart thermostat in Ontario.
 
 The Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.
 
-We picked ours up at Costco and ran the rebate ourselves first, so we know where the form trips people up.
+Costco carries a model that qualifies, and we have put this rebate through ourselves, so we know where the form trips people up.
 
 We tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366.
 ```
@@ -98,7 +98,7 @@ One tag by the bed. Tap a phone on it and the downstairs lights go off, the door
 
 The tag costs about a dollar. The work is in what sits behind it.
 
-The lights half of this has been running for over a month now and has not needed touching.
+A lights-only version of this has been running on our own setup for over a month and has not needed touching.
 
 This is a built scene, not phone footage.
 
@@ -114,7 +114,7 @@ One tag by the bed. Tap a phone on it and the downstairs lights go off, the door
 
 The tag costs about a dollar. The work is in what sits behind it.
 
-The lights half of this has been running for over a month now and has not needed touching.
+A lights-only version of this has been running on our own setup for over a month and has not needed touching.
 
 This is a built scene, not phone footage.
 
