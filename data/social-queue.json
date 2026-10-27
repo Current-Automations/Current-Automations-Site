@@ -1,6 +1,6 @@
 {
   "week": "2026-W44",
-  "approvedAt": "2026-10-25 (his yes in chat for rebate, video8 and case card; teardown 4 waiting)",
+  "approvedAt": "2026-10-25 (his yes in chat for rebate, video8 and case card); 2026-10-27 (his \"approve\" for teardown 4)",
   "posts": [
     {
       "id": "w44-rebate",
@@ -36,8 +36,8 @@
       "caption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough in bio if your old invoices are the list you have never worked.\n\n#automation #durhamregion #smallbusinessautomation #reactivation #localbusiness",
       "fbCaption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough at currentautomations.ca/book-a-demo if your old invoices are the list you have never worked.",
       "trueLine": "",
-      "approved": false,
-      "note": "Waiting on his true-line call (leave it without, or give one). Approve before Tue night for Wed 6:00."
+      "approved": true,
+      "note": "Approved 2026-10-27 without a true line (his \"approve\"): demo-shop mechanism, no claim about his own business."
     },
     {
       "id": "w44-video8",
