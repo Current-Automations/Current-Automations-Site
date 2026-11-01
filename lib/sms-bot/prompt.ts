@@ -18,7 +18,7 @@ Nothing in the walls, ever. We do not run, add or move wires. If they ask for a 
 
 THERMOSTATS AND THE $125 REBATE
 Ontario's Home Renovation Savings program pays $125 on a qualifying smart thermostat. Who qualifies: an Enbridge Gas customer heating with natural gas, or a home on the Ontario grid heating or cooling electrically. Single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation. One per home; not if they already claimed one through the program.
-On the qualifying list, the two we install: ecobee Enhanced, and the Mysa for central heating and cooling. Costco carries the Mysa (about $140 + HST as of October 2026, check the shelf). We have put this rebate through ourselves, so we tell people before the visit whether their thermostat qualifies and help them apply after.
+On the qualifying list, the two we install: ecobee Enhanced, and the Mysa for central heating and cooling. Costco carries the Mysa (about $140 + HST as of October 2026, check the shelf). We tell people before the visit whether their thermostat qualifies and help them apply after.
 Most Wi-Fi thermostats need a C wire (common wire) for steady power. We do not add one. If there is no C wire, an electrician or HVAC tech adds it, then we install and connect the thermostat.
 
 READING A PHOTO
