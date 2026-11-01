@@ -1,0 +1,1299 @@
+/* /smart-home on scroll-craft, chaptered editorial in the Job Sheet system.
+   Every selector here is .sh-* or scoped under html.sc-page, so the file is
+   inert on every other route even though Next bundles it globally.
+
+   Motion contract: the engine publishes --sc-p (0 to 1) on each act. The three
+   pinned chapters copy it to --p and drive every beat from it with clamp(), so
+   the choreography is scrubbed by the hand, never played on a timer. */
+
+html.sc-page {
+  --sc-canvas: #f4f7fb;
+  --sc-surface: #ffffff;
+  --sc-ink: #132235;
+  --sc-ink-soft: #62748b;
+  --sc-accent: #0e7359;
+  --sc-accent-ink: #f3ede1;
+  --sc-font-text: var(--font-manrope), system-ui, sans-serif;
+  --sc-font-display: var(--font-manrope), system-ui, sans-serif;
+  --sc-font-mono: var(--font-sheet-mono), ui-monospace, monospace;
+}
+html.sc-page body {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.sh {
+  --paper: #f3ede1;
+  --paper-deep: #e9e0cd;
+  --card: #faf7ee;
+  --carbon: #ded5c2;
+  --ink-bg: #07111d;
+  --ink-text: #201c16;
+  --ink-soft: #58524a;
+  --rust: #a8452f;
+  --teal: #0e7359;
+  --mint: #4fd0ad;
+  --line: rgba(28, 36, 48, 0.24);
+  --line-soft: rgba(28, 36, 48, 0.14);
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --nav: 7.5rem;
+  position: relative;
+}
+
+.sh-display {
+  font-family: var(--font-sheet-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+.sh-mono {
+  font-family: var(--font-sheet-mono), monospace;
+}
+.sh-measure {
+  max-width: 62ch;
+}
+
+/* ------------------------------------------------------------ chapters -- */
+.sh-chapter {
+  position: relative;
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+.sh-chapter--tight {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+.sh-cols {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .sh-cols {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 4rem;
+  }
+}
+.sh-media figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.sh-rule {
+  border-top: 2px solid var(--line);
+  padding-top: 1.5rem;
+}
+.sh-rule--dark {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------------------------------------------- title page entrance -- */
+.sh-enter {
+  animation: sh-rise 980ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 120ms + 80ms);
+}
+@keyframes sh-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sh-title-ticket {
+  will-change: transform;
+}
+
+/* -------------------------------------------------------------- stages --- */
+/* A pinned stage is 100svh (engine). Content sits under the fixed nav pill. */
+.sh-stage {
+  display: grid;
+  align-content: center;
+  padding-top: var(--nav);
+  /* the bottom band stays clear for the fixed work order */
+  padding-bottom: 5rem;
+}
+.sh-stage-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .sh-stage-grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: 4rem;
+  }
+  .sh-stage-grid--media-first .sh-stage-media {
+    order: -1;
+  }
+  /* media in the right column leans left, away from the work order */
+  .sh-stage-grid:not(.sh-stage-grid--media-first) .sh-stage-media {
+    justify-items: start;
+  }
+}
+.sh-stage-media {
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+.sh-stage-copy > * + * {
+  margin-top: 1.1rem;
+}
+.sh-stage-copy .sh-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.sh-stage-copy h2 {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  color: #181510;
+}
+.sh-stage-copy p {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 48ch;
+}
+.sh-stage--dark .sh-stage-copy h2 {
+  color: #f3ede1;
+}
+.sh-stage--dark .sh-stage-copy p,
+.sh-stage--dark .sh-stage-copy .sh-eyebrow {
+  color: rgba(243, 237, 225, 0.72);
+}
+
+/* Intertitle: the authored silence before the peak. */
+.sh-intertitle {
+  min-height: 84svh;
+  display: grid;
+  align-content: center;
+  background: var(--paper);
+}
+
+/* --------------------------------------------------------------- folio -- */
+.sh-folio {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .sh-folio {
+    position: fixed;
+    left: 1.1rem;
+    top: 50%;
+    z-index: 30;
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    pointer-events: none;
+  }
+  .sh-folio [data-folio-code] {
+    color: var(--rust);
+    font-weight: 600;
+  }
+  .sh-folio::after {
+    content: "";
+    width: 1px;
+    height: 3rem;
+    background: var(--line);
+  }
+}
+
+/* ------------------------------------------------------- work order ----- */
+.sh-wo {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .sh-wo {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 40;
+    display: block;
+    width: 20rem;
+    padding: 1rem 1.1rem 1.1rem;
+    background: var(--card);
+    border: 1px solid var(--line-soft);
+    border-radius: 0.6rem;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 14px 28px rgba(28, 36, 48, 0.14);
+    color: var(--ink-text);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    transform: translateY(calc(100% - 2.9rem));
+    transition: transform 560ms var(--ease);
+  }
+  .sh-wo.is-open {
+    transform: none;
+  }
+}
+.sh-wo-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px dashed var(--line);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  color: var(--ink-soft);
+}
+.sh-wo-sub {
+  margin: 0.55rem 0 0.2rem;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  transition: opacity 320ms ease;
+}
+.sh-wo.is-live .sh-wo-sub {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.sh-wo-row {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0;
+  color: rgba(32, 28, 22, 0.42);
+  border-bottom: 1px dotted var(--line-soft);
+}
+.sh-wo-row .sh-wo-box {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  position: relative;
+  top: 0.08rem;
+}
+.sh-wo-row .sh-wo-fig {
+  opacity: 0;
+  transform: translateY(5px) scale(0.96);
+  transition: opacity 420ms var(--ease), transform 420ms var(--ease);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sh-wo-row.is-filled {
+  color: var(--ink-text);
+}
+.sh-wo-row.is-filled .sh-wo-box {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+.sh-wo-row.is-filled .sh-wo-fig {
+  opacity: 1;
+  transform: none;
+}
+.sh-wo-totals {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 520ms var(--ease), opacity 420ms ease;
+}
+.sh-wo.is-total .sh-wo-totals {
+  max-height: 12rem;
+  opacity: 1;
+}
+.sh-wo-tot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+.sh-wo-tot--grand {
+  border-top: 2px solid var(--ink-text);
+  margin-top: 0.3rem;
+  padding-top: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.sh-wo-door {
+  margin-top: 0.7rem;
+  display: block;
+  font-weight: 600;
+  color: var(--ink-text);
+  text-decoration: underline;
+  text-decoration-color: var(--rust);
+  text-underline-offset: 0.2em;
+}
+.sh-wo-note {
+  margin-top: 0.5rem;
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+}
+/* The stamp lands when the order totals. */
+.sh-wo-stamp {
+  position: absolute;
+  right: 1rem;
+  top: 2.6rem;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid var(--rust);
+  border-radius: 0.2rem;
+  color: var(--rust);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: rotate(-8deg) scale(1.6);
+  opacity: 0;
+  transition: transform 260ms cubic-bezier(0.2, 1.6, 0.4, 1), opacity 160ms ease;
+  pointer-events: none;
+}
+.sh-wo.is-total .sh-wo-stamp {
+  opacity: 0.9;
+  transform: rotate(-8deg) scale(1);
+}
+
+/* Phone strip: one line above the site's sticky bar below 1280px. */
+.sh-wo-strip {
+  position: fixed;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 4.9rem;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 24px rgba(28, 36, 48, 0.16);
+  font-size: 0.74rem;
+  color: var(--ink-text);
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform 420ms var(--ease), opacity 320ms ease;
+}
+.sh-wo-strip.is-live {
+  transform: none;
+  opacity: 1;
+}
+.sh-wo-strip [data-wo-strip-label] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sh-wo-strip [data-wo-strip-sum] {
+  white-space: nowrap;
+  font-weight: 600;
+}
+@media (min-width: 1280px) {
+  .sh-wo-strip {
+    display: none;
+  }
+}
+
+/* ============================================================ the device ==
+   Everything inside is in em so one font-size scales the whole phone. */
+.sh-device {
+  --fg: #f6f3ea;
+  position: relative;
+  font-size: 1rem;
+  width: 17.5em;
+  aspect-ratio: 9 / 19.4;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fg);
+  will-change: transform;
+}
+/* side keys */
+.sh-device::before,
+.sh-device::after {
+  content: "";
+  position: absolute;
+  width: 0.18em;
+  border-radius: 0.1em;
+  background: linear-gradient(90deg, #2a2e35, #0d1014);
+}
+.sh-device::before {
+  left: -0.16em;
+  top: 22%;
+  height: 11%;
+  box-shadow: 0 2.6em 0 0 #15181d;
+}
+.sh-device::after {
+  right: -0.16em;
+  top: 26%;
+  height: 15%;
+}
+.sh-device-body {
+  position: absolute;
+  inset: 0;
+  padding: 0.48em;
+  border-radius: 3.1em;
+  background:
+    linear-gradient(150deg, #5f646d 0%, #22262c 22%, #15181d 50%, #2a2e35 78%, #6a6f78 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 2px 6px rgba(4, 9, 26, 0.35),
+    0 36px 70px -20px rgba(4, 9, 26, 0.65),
+    0 90px 120px -60px rgba(4, 9, 26, 0.5);
+}
+.sh-device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 2.6em;
+  overflow: hidden;
+  background: #07111d;
+  isolation: isolate;
+}
+.sh-wall {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 60% at 20% 0%, rgba(79, 208, 173, 0.22), transparent 60%),
+    radial-gradient(80% 60% at 90% 100%, rgba(46, 143, 214, 0.22), transparent 60%),
+    linear-gradient(180deg, #16314a 0%, #0a1a2b 46%, #060d17 100%);
+}
+/* dusk: the peak warms the screen once the four become one */
+.sh-wall::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 70% at 50% 110%, rgba(232, 148, 72, 0.5), transparent 70%);
+  opacity: var(--dusk, 0);
+}
+.sh-island {
+  position: absolute;
+  top: 0.62em;
+  left: 50%;
+  width: 4.6em;
+  height: 1.3em;
+  margin-left: -2.3em;
+  border-radius: 999px;
+  background: #050709;
+  z-index: 4;
+}
+.sh-island::after {
+  content: "";
+  position: absolute;
+  right: 0.45em;
+  top: 0.38em;
+  width: 0.54em;
+  height: 0.54em;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, #233349, #0a0f16 70%);
+}
+.sh-sb {
+  position: absolute;
+  top: 0.78em;
+  left: 1.7em;
+  right: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  z-index: 3;
+}
+.sh-sb-icons {
+  display: flex;
+  gap: 0.35em;
+  align-items: center;
+}
+.sh-sb-icons svg {
+  width: 1.15em;
+  height: 1.15em;
+  display: block;
+}
+.sh-homebar {
+  position: absolute;
+  left: 50%;
+  bottom: 0.55em;
+  width: 5.6em;
+  height: 0.28em;
+  margin-left: -2.8em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 3;
+}
+.sh-device-glare {
+  position: absolute;
+  inset: 0.48em;
+  border-radius: 2.6em;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 42%);
+  z-index: 5;
+}
+
+/* app icons */
+.sh-grid {
+  position: absolute;
+  left: 1.3em;
+  right: 1.3em;
+  top: 3.4em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  row-gap: 1.2em;
+  z-index: 2;
+}
+.sh-app {
+  --tint: #2e8fd6;
+  --tint-deep: #1a5f93;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.42em;
+  width: 4.5em;
+}
+.sh-app-ic {
+  position: relative;
+  width: 3.9em;
+  height: 3.9em;
+  border-radius: 1.02em;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgba(255, 255, 255, 0.28), transparent 55%),
+    linear-gradient(160deg, var(--tint) 0%, var(--tint-deep) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 10px 18px -8px rgba(0, 0, 0, 0.55);
+}
+.sh-app-ic svg {
+  width: 2.2em;
+  height: 2.2em;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+}
+.sh-app-ic svg [data-fill] {
+  fill: #fff;
+  stroke: none;
+}
+.sh-app-label {
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  color: var(--fg);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+.sh-app-badge {
+  position: absolute;
+  top: -0.35em;
+  right: -0.1em;
+  min-width: 1.35em;
+  height: 1.35em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 0.66em;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.sh-app--door { --tint: #3a9ae6; --tint-deep: #1b5f9c; }
+.sh-app--light { --tint: #e6b04a; --tint-deep: #b4751c; }
+.sh-app--heat { --tint: #ec7a4e; --tint-deep: #b0401f; }
+.sh-app--lock { --tint: #1f9a79; --tint-deep: #0b5a45; }
+.sh-app--home { --tint: #2fb891; --tint-deep: #0e7359; }
+
+/* notifications on the lock screen */
+.sh-notif {
+  position: absolute;
+  left: 0.75em;
+  right: 0.75em;
+  display: grid;
+  grid-template-columns: 2.3em minmax(0, 1fr) auto;
+  gap: 0.6em;
+  align-items: center;
+  padding: 0.62em 0.75em;
+  border-radius: 1.15em;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+.sh-notif .sh-app,
+.sh-log-row .sh-app {
+  display: block;
+  width: auto;
+}
+.sh-notif .sh-app-ic {
+  width: 2.3em;
+  height: 2.3em;
+  border-radius: 0.62em;
+}
+.sh-notif .sh-app-ic svg {
+  width: 1.35em;
+  height: 1.35em;
+}
+.sh-notif-title {
+  font-size: 0.68em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.sh-notif-body {
+  font-size: 0.64em;
+  line-height: 1.3;
+  color: rgba(246, 243, 234, 0.85);
+}
+.sh-notif-time {
+  align-self: start;
+  font-size: 0.56em;
+  color: rgba(246, 243, 234, 0.6);
+}
+
+/* sign-in sheets, chapter one */
+.sh-sheet {
+  position: absolute;
+  left: 0.6em;
+  right: 0.6em;
+  bottom: 0;
+  height: 58%;
+  border-radius: 1.4em 1.4em 0 0;
+  background: #f7f7f9;
+  color: #1c1c1e;
+  box-shadow: 0 -14px 34px -16px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 3;
+  will-change: transform;
+}
+.sh-sheet-head {
+  height: 2.4em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0 0.9em;
+  background: var(--tint, #3a9ae6);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 700;
+}
+.sh-sheet-head i {
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 0.3em;
+  background: rgba(255, 255, 255, 0.35);
+}
+.sh-sheet-body {
+  padding: 0.9em 0.9em 0;
+  display: grid;
+  gap: 0.55em;
+}
+.sh-sheet-title {
+  font-size: 0.78em;
+  font-weight: 700;
+}
+.sh-field {
+  height: 1.9em;
+  border-radius: 0.5em;
+  background: #e9e9ee;
+  display: flex;
+  align-items: center;
+  padding: 0 0.7em;
+  font-size: 0.64em;
+  color: #8e8e93;
+}
+.sh-field--dots {
+  letter-spacing: 0.25em;
+  color: #1c1c1e;
+}
+.sh-sheet-btn {
+  height: 2em;
+  border-radius: 0.6em;
+  background: var(--tint, #3a9ae6);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.68em;
+  font-weight: 700;
+}
+.sh-sheet-foot {
+  font-size: 0.56em;
+  color: #8e8e93;
+  text-align: center;
+}
+.sh-sheet--door { --tint: #3a9ae6; }
+.sh-sheet--light { --tint: #d19a2e; }
+.sh-sheet--heat { --tint: #d9633a; }
+.sh-sheet--lock { --tint: #1f9a79; }
+
+/* ---------------------------------------------- chapter one: the pile ---- */
+.sh-ch1 {
+  --p: var(--sc-p, 0);
+}
+/* The phone is the ground: present at p = 0 so the entry slide is never empty. */
+.sh-ch1 .sh-app {
+  --k: clamp(0, calc((var(--p) - var(--a)) / 0.1), 1);
+  --e: calc(1 - (1 - var(--k)) * (1 - var(--k)));
+  opacity: var(--k);
+  transform: translate3d(0, calc(-1.2em * (1 - var(--e))), 0) scale(calc(1.28 - 0.28 * var(--e)));
+}
+.sh-ch1 .sh-app:nth-child(1) { --a: 0.04; }
+.sh-ch1 .sh-app:nth-child(2) { --a: 0.14; }
+.sh-ch1 .sh-app:nth-child(3) { --a: 0.24; }
+.sh-ch1 .sh-app:nth-child(4) { --a: 0.34; }
+.sh-ch1 .sh-app-badge {
+  --kb: clamp(0, calc((var(--p) - var(--a) - 0.07) / 0.05), 1);
+  opacity: var(--kb);
+  transform: scale(calc(0.4 + 0.6 * var(--kb)));
+}
+/* Four sign-in sheets pile up; each earlier one is pushed up and back by the
+   ones that follow, the way iOS stacks sheets. --s0..--s3 live on the screen. */
+.sh-ch1 .sh-device-screen {
+  --s0: clamp(0, calc((var(--p) - 0.5) / 0.08), 1);
+  --s1: clamp(0, calc((var(--p) - 0.58) / 0.08), 1);
+  --s2: clamp(0, calc((var(--p) - 0.66) / 0.08), 1);
+  --s3: clamp(0, calc((var(--p) - 0.74) / 0.08), 1);
+}
+.sh-ch1 .sh-sheet:nth-of-type(1) {
+  transform: translate3d(0, calc((1 - var(--s0)) * 110% - 1.15em * (var(--s1) + var(--s2) + var(--s3))), 0)
+    scale(calc(1 - 0.035 * (var(--s1) + var(--s2) + var(--s3))));
+}
+.sh-ch1 .sh-sheet:nth-of-type(2) {
+  transform: translate3d(0, calc((1 - var(--s1)) * 110% - 1.15em * (var(--s2) + var(--s3))), 0)
+    scale(calc(1 - 0.035 * (var(--s2) + var(--s3))));
+}
+.sh-ch1 .sh-sheet:nth-of-type(3) {
+  transform: translate3d(0, calc((1 - var(--s2)) * 110% - 1.15em * var(--s3)), 0)
+    scale(calc(1 - 0.035 * var(--s3)));
+}
+.sh-ch1 .sh-sheet:nth-of-type(4) {
+  transform: translate3d(0, calc((1 - var(--s3)) * 110%), 0);
+}
+/* the screen dims under the pile */
+.sh-ch1 .sh-grid {
+  opacity: calc(1 - 0.55 * var(--s0));
+  transform: scale(calc(1 - 0.04 * var(--s0)));
+  transform-origin: 50% 0;
+}
+/* the tally card beside the phone */
+.sh-tally {
+  --t: clamp(0, calc((var(--p) - 0.46) / 0.1), 1);
+  position: absolute;
+  left: 0;
+  bottom: 9%;
+  padding: 0.75rem 0.95rem;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 0.45rem;
+  box-shadow: 0 16px 30px -14px rgba(28, 36, 48, 0.4);
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: var(--ink-text);
+  opacity: var(--t);
+  transform: translate3d(calc(-1.2rem * (1 - var(--t))), 0, 0) rotate(-2deg);
+}
+.sh-tally b {
+  display: inline-block;
+  min-width: 1.2em;
+  font-weight: 700;
+  color: var(--rust);
+}
+.sh-tally .is-zero b {
+  color: var(--ink-text);
+}
+
+/* ------------------------------------------- chapter two: the swap -------- */
+.sh-ch2 {
+  --p: var(--sc-p, 0);
+}
+.sh-wallcard {
+  position: relative;
+  width: min(100%, 26rem);
+  height: 26rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--line-soft);
+  background:
+    radial-gradient(80% 60% at 50% 100%, rgba(28, 36, 48, 0.08), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(28, 36, 48, 0.035) 0 1px, transparent 1px 6px),
+    var(--paper-deep);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+.sh-wallcard > * {
+  position: absolute;
+}
+/* the old plastic button, there at p = 0 */
+.sh-dev-old {
+  left: 50%;
+  top: 50%;
+  width: 3.4rem;
+  height: 6rem;
+  margin: -3rem 0 0 -1.7rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(180deg, #eee4d1, #cfc2a6);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 12px -6px rgba(28, 36, 48, 0.5);
+}
+.sh-dev-old::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: -0.6rem 0 0 -0.6rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 35%, #fff4c2, #d7b55a 70%);
+  box-shadow: 0 0 10px rgba(215, 181, 90, 0.6);
+}
+.sh-dev-old::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.45rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-left: -0.15rem;
+  border-radius: 999px;
+  background: #9c8f73;
+  box-shadow: 0 4.8rem 0 0 #9c8f73;
+}
+/* the new doorbell, wiped in over it */
+.sh-dev-wrap {
+  left: 50%;
+  top: 50%;
+  width: 4.6rem;
+  height: 11.5rem;
+  margin: -5.75rem 0 0 -2.3rem;
+}
+.sh-dev-doorbell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.3rem;
+  background: linear-gradient(180deg, #2b3139, #12161b);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 16px 30px rgba(4, 9, 26, 0.35);
+}
+.sh-dev-doorbell::before {
+  content: "";
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-left: -0.85rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 35%, #3b4654, #0a0d11 70%);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08), 0 0 0 4px rgba(0, 0, 0, 0.3);
+}
+.sh-dev-doorbell::after {
+  --g: clamp(0, calc((var(--p) - 0.5) / 0.1), 1);
+  content: "";
+  position: absolute;
+  bottom: 1.3rem;
+  left: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: -1.1rem;
+  border-radius: 999px;
+  border: 3px solid rgb(79 208 173 / calc(0.35 + 0.65 * var(--g)));
+  box-shadow: 0 0 calc(22px * var(--g)) rgb(79 208 173 / calc(0.7 * var(--g)));
+}
+.sh-wire {
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  height: calc(50% - 5.75rem);
+  background: var(--rust);
+  opacity: 0.7;
+}
+/* the first ring, delivered to the top corner of the figure */
+.sh-wallcard .sh-notif {
+  --n: clamp(0, calc((var(--p) - 0.6) / 0.1), 1);
+  --e: calc(1 - (1 - var(--n)) * (1 - var(--n)));
+  left: auto;
+  right: -0.75rem;
+  top: 1.25rem;
+  width: 13.5rem;
+  font-size: 1rem;
+  background: rgba(10, 18, 28, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f6f3ea;
+  opacity: var(--n);
+  transform: translate3d(0, calc(-1rem * (1 - var(--e))), 0) scale(calc(0.96 + 0.04 * var(--e)));
+}
+.sh-wallcard .sh-notif .sh-notif-body {
+  color: rgba(246, 243, 234, 0.8);
+}
+.sh-ch2 .sh-stage-ticket {
+  margin-top: 1.4rem;
+}
+
+/* --------------------------------------------------------------- peak ---- */
+.sh-peak {
+  --p: var(--sc-p, 0);
+  background-color: var(--ink-bg);
+  color: #f3ede1;
+}
+/* one embodiment: a lamp that follows the pointer across the dark stage */
+.sh-peak .sh-lamp {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem 42rem at calc(var(--sc-mx, 0.5) * 100%) calc(var(--sc-my, 0.5) * 100%),
+      rgba(79, 208, 173, 0.09), transparent 60%),
+    radial-gradient(circle at 20% 0%, rgba(79, 208, 173, 0.06), transparent 55%);
+  transition: background-position 0s;
+}
+.sh-peak .sh-device {
+  --dusk: calc(0.55 * clamp(0, calc((var(--p) - 0.56) / 0.08), 1));
+}
+.sh-peak .sh-grid {
+  top: 5.2em;
+  row-gap: 1.6em;
+}
+/* four apps travel in on curved paths and shrink into the one */
+.sh-peak-tile {
+  --c: clamp(0, calc((var(--p) - 0.1) / 0.42), 1);
+  --e: calc(1 - (1 - var(--c)) * (1 - var(--c)));
+  transform: translate3d(calc(var(--tx) * var(--e)), calc(var(--ty) * var(--e)), 0)
+    rotate(calc(var(--r) * var(--e))) scale(calc(1 - 0.45 * var(--e)));
+  opacity: calc(1 - var(--c) * var(--c));
+  transform-origin: 50% 40%;
+}
+.sh-peak-tile:nth-child(1) { --tx: 2.9em; --ty: 3.1em; --r: -16deg; }
+.sh-peak-tile:nth-child(2) { --tx: -2.9em; --ty: 3.1em; --r: 16deg; }
+.sh-peak-tile:nth-child(3) { --tx: 2.9em; --ty: -3.1em; --r: 12deg; }
+.sh-peak-tile:nth-child(4) { --tx: -2.9em; --ty: -3.1em; --r: -12deg; }
+.sh-one {
+  --h: clamp(0, calc((var(--p) - 0.4) / 0.16), 1);
+  --e: calc(1 - (1 - var(--h)) * (1 - var(--h)));
+  position: absolute;
+  left: 50%;
+  top: 8.4em;
+  width: 5.6em;
+  margin-left: -2.8em;
+  z-index: 2;
+  opacity: var(--h);
+  transform: scale(calc(0.55 + 0.45 * var(--e)));
+  filter: blur(calc(8px * (1 - var(--e))));
+}
+.sh-one .sh-app-ic {
+  width: 5.6em;
+  height: 5.6em;
+  border-radius: 1.45em;
+}
+.sh-one .sh-app-ic svg {
+  width: 3.2em;
+  height: 3.2em;
+}
+.sh-one .sh-app-label {
+  font-size: 0.78em;
+  font-weight: 600;
+}
+.sh-halo {
+  --o: clamp(0, calc((var(--p) - 0.5) / 0.2), 1);
+  position: absolute;
+  left: 50%;
+  top: 11.2em;
+  width: 5.6em;
+  height: 5.6em;
+  margin: -2.8em 0 0 -2.8em;
+  border-radius: 1.45em;
+  border: 2px solid rgba(79, 208, 173, 0.9);
+  opacity: calc((1 - var(--o)) * 0.7 * clamp(0, calc(var(--o) * 10), 1));
+  transform: scale(calc(1 + 1.3 * var(--o)));
+  z-index: 1;
+  pointer-events: none;
+}
+/* the three answers, delivered to the lock screen in order */
+.sh-peak .sh-notif {
+  --n: clamp(0, calc((var(--p) - var(--at)) / 0.08), 1);
+  --e: calc(1 - (1 - var(--n)) * (1 - var(--n)));
+  opacity: var(--n);
+  transform: translate3d(0, calc(-1.2em * (1 - var(--e))), 0) scale(calc(0.94 + 0.06 * var(--e)));
+}
+.sh-peak .sh-notif:nth-of-type(1) { --at: 0.64; top: 17.2em; }
+.sh-peak .sh-notif:nth-of-type(2) { --at: 0.74; top: 21.4em; }
+.sh-peak .sh-notif:nth-of-type(3) { --at: 0.84; top: 25.6em; }
+/* the porch light tile warms when its answer lands */
+.sh-peak .sh-notif--light .sh-app-ic {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 calc(18px * var(--n)) rgba(230, 176, 74, calc(0.8 * var(--n)));
+}
+/* the log on the left mirrors the screen, readable at any size */
+.sh-log {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.6rem;
+}
+.sh-log-row {
+  --s: clamp(0, calc((var(--p) - var(--at)) / 0.08), 1);
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  opacity: calc(0.18 + 0.82 * var(--s));
+  transform: translateX(calc(-10px * (1 - var(--s))));
+  font-size: 0.95rem;
+}
+.sh-log-row .sh-app-ic {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 0.45rem;
+  box-shadow: none;
+}
+.sh-log-row .sh-app-ic svg {
+  width: 1rem;
+  height: 1rem;
+}
+.sh-log-row time {
+  font-size: 0.72rem;
+  color: rgba(243, 237, 225, 0.6);
+}
+.sh-log-row:nth-child(1) { --at: 0.64; }
+.sh-log-row:nth-child(2) { --at: 0.74; }
+.sh-log-row:nth-child(3) { --at: 0.84; }
+
+/* --------------------------------------------------- chapter four ----- */
+.sh-ledger {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 14px 28px rgba(28, 36, 48, 0.1);
+  overflow: hidden;
+}
+.sh-ledger-row {
+  display: grid;
+  gap: 0.4rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.sh-ledger-row:first-child {
+  border-top: 0;
+}
+@media (min-width: 1024px) {
+  .sh-ledger-row {
+    grid-template-columns: 4rem 15rem minmax(0, 1fr);
+    align-items: baseline;
+  }
+  .sh-ledger-row--price {
+    grid-template-columns: 4rem minmax(0, 1fr) 11rem;
+    align-items: start;
+  }
+}
+/* the thermostat dial sweeps to 20 as its row arrives */
+.sh-dial {
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 50%, #1b2027 0 58%, transparent 59%),
+    conic-gradient(from 210deg, var(--mint) 0deg, #e6b04a 150deg, #ec7a4e 300deg, transparent 300deg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 16px 30px rgba(4, 9, 26, 0.35);
+  display: grid;
+  place-items: center;
+  color: #f3ede1;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.sh-dial::before {
+  content: "";
+  position: absolute;
+  inset: 0.45rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 35%, #2b3139, #0f1317 75%);
+}
+.sh-dial::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.7rem;
+  width: 2px;
+  height: 0.9rem;
+  margin-left: -1px;
+  background: #f3ede1;
+  transform-origin: 50% calc(3.5rem - 0.7rem);
+  transform: rotate(-120deg);
+  transition: transform 1400ms var(--ease) 200ms;
+}
+.sc-in .sh-dial::after,
+.sh-dial.sc-in::after {
+  transform: rotate(38deg);
+}
+.sh-dial span {
+  position: relative;
+}
+.sh-dial small {
+  font-size: 0.55em;
+  vertical-align: top;
+  margin-left: 0.1em;
+}
+
+/* ---------------------------------------------------- chapter five ------ */
+.sh-steps {
+  position: relative;
+  display: grid;
+  gap: 0;
+}
+.sh-steps::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  top: 2.2rem;
+  bottom: 2.2rem;
+  width: 2px;
+  background: var(--rust);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition: transform 1600ms var(--ease) 300ms;
+}
+.sh-steps.sc-in::before {
+  transform: none;
+}
+.sh-step {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--line);
+}
+.sh-step:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.sh-step-num {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  font-size: 0.72rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------- colophon --- */
+.sh-colophon {
+  background-color: var(--ink-bg);
+  background-image: radial-gradient(circle at 80% 100%, rgba(79, 208, 173, 0.08), transparent 55%);
+  color: #f3ede1;
+}
+.sh-colophon .sh-running {
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+.sh-colophon .sh-running a {
+  color: #f3ede1;
+  text-decoration: underline;
+  text-decoration-color: var(--mint);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+.sh-colophon .sh-running a:hover {
+  color: var(--mint);
+}
+.sh-colophon .sh-mono-foot {
+  margin-top: 3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 237, 225, 0.55);
+}
+
+/* ------------------------------------------------------- small screens -- */
+@media (max-width: 1023px) {
+  .sh-stage {
+    align-content: start;
+    padding-top: 6.75rem;
+    padding-bottom: 5rem;
+  }
+  .sh-stage-tab {
+    display: none;
+  }
+  .sh-stage-grid {
+    gap: 1.2rem;
+  }
+  .sh-stage-copy > * + * {
+    margin-top: 0.7rem;
+  }
+  .sh-stage-copy h2 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  .sh-stage-copy p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .sh-stage-copy .sh-stage-ticket {
+    display: none;
+  }
+  .sh-device {
+    font-size: 0.58rem;
+  }
+  .sh-tally {
+    font-size: 0.68rem;
+    bottom: 4%;
+  }
+  .sh-wallcard {
+    height: 19rem;
+  }
+  .sh-wallcard .sh-notif {
+    right: 0.5rem;
+    width: 12rem;
+    font-size: 0.85rem;
+  }
+  .sh-log {
+    margin-top: 0.9rem;
+    gap: 0.35rem;
+  }
+  .sh-log-row {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.82rem;
+  }
+  .sh-peak .sh-stage-copy p {
+    display: none;
+  }
+}
+@media (max-width: 1023px) and (max-height: 760px) {
+  .sh-device {
+    font-size: 0.5rem;
+  }
+  .sh-wallcard {
+    height: 16rem;
+  }
+}
+
+/* ------------------------------------------------------ reduced motion -- */
+@media (prefers-reduced-motion: reduce) {
+  .sh-enter {
+    animation: none;
+  }
+  .sh-ch1,
+  .sh-ch2,
+  .sh-peak {
+    --p: 1;
+  }
+  .sh-steps::before,
+  .sh-dial::after,
+  .sh-wo-stamp,
+  .sh-wo,
+  .sh-wo-strip {
+    transition: none;
+  }
+}

@@ -1,61 +1,7 @@
 {
-  "week": "2026-W44",
-  "approvedAt": "2026-10-25 (his yes in chat for rebate, video8 and case card); 2026-10-27 (his \"approve\" for teardown 4)",
+  "week": "2026-W45",
+  "approvedAt": "2026-10-25 (w44-statrg only, carried from W44); nothing new approved",
   "posts": [
-    {
-      "id": "w44-rebate",
-      "at": "2026-10-26T06:00:00-04:00",
-      "channels": [
-        "ig",
-        "fb"
-      ],
-      "kind": "carousel",
-      "media": [
-        "/social/2026-W44/rebate-1.png",
-        "/social/2026-W44/rebate-2.png",
-        "/social/2026-W44/rebate-3.png",
-        "/social/2026-W44/rebate-4.png"
-      ],
-      "caption": "$125 back on a smart thermostat in Ontario.\n\nThe Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.\n\nCostco carries a model that qualifies, and we have put this rebate through ourselves, so we know where the form trips people up.\n\nWe tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Send a photo of it. Link in bio.\n\n#automation #smarthome #durhamregion #smartthermostat #ontario",
-      "fbCaption": "$125 back on a smart thermostat in Ontario.\n\nThe Home Renovation Savings program pays it on a qualifying smart thermostat if you are an Enbridge Gas customer heating with natural gas, or connected to the Ontario grid and heating or cooling electrically. It covers single and semi-detached homes, row and townhomes, and mobile homes on a permanent foundation, as long as you have not already claimed one through the program.\n\nCostco carries a model that qualifies, and we have put this rebate through ourselves, so we know where the form trips people up.\n\nWe tell you upfront whether the thermostat we are installing qualifies, and help you apply. Not sure what you have now? Text a photo of it to 365-299-3366.",
-      "trueLine": "yes submitted (Costco, did the rebate himself)",
-      "approved": true,
-      "note": ""
-    },
-    {
-      "id": "w44-teardown4",
-      "at": "2026-10-28T06:00:00-04:00",
-      "channels": [
-        "ig",
-        "fb"
-      ],
-      "kind": "reel",
-      "media": [
-        "/social/2026-W44/teardown4.mp4"
-      ],
-      "caption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough in bio if your old invoices are the list you have never worked.\n\n#automation #durhamregion #smallbusinessautomation #reactivation #localbusiness",
-      "fbCaption": "Three texts over twelve days to someone who had work done 18 months ago. In the clip the third one gets \"can you come by Friday\".\n\nEach text is a few cents. Sending them by hand is the expensive part: an afternoon picking names out of the invoices, and most shops never get to it.\n\nHere the list is built from the jobs you already invoiced, the messages go out in your name, and the run stops the moment someone replies, so nobody gets a fourth text after saying yes.\n\nFree walkthrough at currentautomations.ca/book-a-demo if your old invoices are the list you have never worked.",
-      "trueLine": "",
-      "approved": true,
-      "note": "Approved 2026-10-27 without a true line (his \"approve\"): demo-shop mechanism, no claim about his own business."
-    },
-    {
-      "id": "w44-video8",
-      "at": "2026-10-30T06:00:00-04:00",
-      "channels": [
-        "ig",
-        "fb"
-      ],
-      "kind": "reel",
-      "media": [
-        "/social/2026-W44/video8.mp4"
-      ],
-      "caption": "It's 11pm. Lights on, doors unlocked, heat still up. You're already in bed.\n\nOne tag by the bed. Tap a phone on it and the downstairs lights go off, the doors lock, the thermostat sets back for the night and the phone goes to Sleep.\n\nThe tag costs about a dollar. The work is in what sits behind it.\n\nA lights-only version of this has been running on our own setup for over a month and has not needed touching.\n\nThis is a built scene, not phone footage.\n\nGot a room in mind? Text 365-299-3366 with a photo of it.\n\n#automation #smarthome #durhamregion #nfc #hometech",
-      "fbCaption": "It's 11pm. Lights on, doors unlocked, heat still up. You're already in bed.\n\nOne tag by the bed. Tap a phone on it and the downstairs lights go off, the doors lock, the thermostat sets back for the night and the phone goes to Sleep.\n\nThe tag costs about a dollar. The work is in what sits behind it.\n\nA lights-only version of this has been running on our own setup for over a month and has not needed touching.\n\nThis is a built scene, not phone footage.\n\nGot a room in mind? Text 365-299-3366 with a photo of it.",
-      "trueLine": "the lights is there for a month or longer and works good",
-      "approved": true,
-      "note": "Built scene, caption says so. Music baked 10/25 from the video6 pack track; swap if he wants another."
-    },
     {
       "id": "w44-statrg",
       "at": "2026-11-01T06:00:00-05:00",
@@ -72,7 +18,58 @@
       "fbCaption": "Up to three days to answer a new lead. That was normal at one service business, because the people answering leads were the same people out doing the work.\n\nThey added a bot that replies the moment a lead comes in, answers the basic questions and books a consult. In the first year it booked 30% of their consultations.\n\nThe shape fits any shop where the owner is also the one on the job. Our demo line runs the first part of it. Call 1 365 299 3366, say your AC quit, and after you hang up a text lands with what you asked for and how urgent it sounded. Free walkthrough at currentautomations.ca/book-a-demo\n\nSource: Zapier customer story, Results Grow.",
       "trueLine": "2026-10-01: the AC call and the text that says what was asked and how urgent it sounded",
       "approved": true,
-      "note": "Clocks fall back 2am Sun 11/1, so 06:00 is -05:00. True line from 2026-10-01 carried once he confirms it."
+      "note": "Clocks fall back 2am Sun 11/1, so 06:00 is -05:00. True line from 2026-10-01 carried once he confirms it. Carried into W45 2026-11-01: missed the 11/1 run (06:00 EST is 11:00 UTC, cron is 10:00 UTC), goes out at the Mon 11/2 run unless the 11/1 #ca Publisher line shows it posted."
+    },
+    {
+      "id": "w45-video9",
+      "at": "2026-11-03T05:00:00-05:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "reel",
+      "media": [
+        "/social/2026-W45/video9.mp4"
+      ],
+      "caption": "You leave for work with the lights on, the heat running and maybe the garage still open.\n\nIn this routine the trigger is your phone crossing the end of the driveway. Every light goes off, the thermostat drops to eco, the garage door gets confirmed shut and the doors lock. The clip shows each one tick off while you are already down the road.\n\nNo checklist at the door, and no turning the car around to check.\n\nThis is a built scene, not phone footage.\n\nText a photo of your lock or thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #smartlock #geofence",
+      "fbCaption": "You leave for work with the lights on, the heat running and maybe the garage still open.\n\nIn this routine the trigger is your phone crossing the end of the driveway. Every light goes off, the thermostat drops to eco, the garage door gets confirmed shut and the doors lock. The clip shows each one tick off while you are already down the road.\n\nNo checklist at the door, and no turning the car around to check.\n\nThis is a built scene, not phone footage.\n\nText a photo of your lock or thermostat to 365-299-3366.",
+      "trueLine": "",
+      "approved": false,
+      "note": "Built scene, caption says so. Source cut is silent: bake music into out/story-music/ and copy to public/social/2026-W45/ before approval. 05:00 EST is the cron's hour after the clocks fell back."
+    },
+    {
+      "id": "w45-video10",
+      "at": "2026-11-05T05:00:00-05:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "reel",
+      "media": [
+        "/social/2026-W45/video10.mp4"
+      ],
+      "caption": "The alarm goes off at 6 and the room is still dark.\n\nPart of the morning has been running since 5:40 on a weekday. The AC has the room cool, the blinds open partway and the lights come up slow. The rest waits for a tap on an NFC tag, wherever you put it: the coffee starts, the weather and your day get read out with anything that broke overnight, and your podcast picks up in the kitchen.\n\nWhich steps run on their own and which wait for the tap gets set when we build it.\n\nThis is a built scene, not phone footage.\n\nSend a photo of the bedroom thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #morningroutine #nfc",
+      "fbCaption": "The alarm goes off at 6 and the room is still dark.\n\nPart of the morning has been running since 5:40 on a weekday. The AC has the room cool, the blinds open partway and the lights come up slow. The rest waits for a tap on an NFC tag, wherever you put it: the coffee starts, the weather and your day get read out with anything that broke overnight, and your podcast picks up in the kitchen.\n\nWhich steps run on their own and which wait for the tap gets set when we build it.\n\nThis is a built scene, not phone footage.\n\nSend a photo of the bedroom thermostat to 365-299-3366.",
+      "trueLine": "",
+      "approved": false,
+      "note": "Built scene, caption says so. Source cut is silent: bake music into out/story-music/ and copy to public/social/2026-W45/ before approval. 05:00 EST is the cron's hour after the clocks fell back."
+    },
+    {
+      "id": "w45-home1",
+      "at": "2026-11-07T05:00:00-05:00",
+      "channels": [
+        "ig",
+        "fb"
+      ],
+      "kind": "reel",
+      "media": [
+        "/social/2026-W45/home1.mp4"
+      ],
+      "caption": "Twelve minutes from home, one line to Siri: cool the house down.\n\nThe thermostat sets to 68°F, the AC comes on for the whole house, and the living room is already down from 74 to 70 on the way there. No app opened. A Shortcut does the work, built once.\n\nThis is a built scene, not phone footage.\n\nText a photo of your thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #siri #shortcuts",
+      "fbCaption": "Twelve minutes from home, one line to Siri: cool the house down.\n\nThe thermostat sets to 68°F, the AC comes on for the whole house, and the living room is already down from 74 to 70 on the way there. No app opened. A Shortcut does the work, built once.\n\nThis is a built scene, not phone footage.\n\nText a photo of your thermostat to 365-299-3366.",
+      "trueLine": "",
+      "approved": false,
+      "note": "Built scene, caption says so. Source cut is silent: bake music into out/story-music/ and copy to public/social/2026-W45/ before approval. 05:00 EST is the cron's hour after the clocks fell back."
     }
   ]
 }

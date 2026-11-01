@@ -40,7 +40,7 @@ function Scenario1() {
 
       {/* Lower third */}
       <Sprite start={13.8} end={24.4}>
-        <LowerThird scene="T05" label="Inbound AI Call Handling" tag="After-hours receptionist"/>
+        <LowerThird scene="T05" label="Inbound Call Answering" tag="After-hours receptionist"/>
       </Sprite>
 
       {/* Win chip */}
