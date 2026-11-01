@@ -13,8 +13,8 @@ export type HomeTier = {
   featured?: boolean;
 };
 
-// Setup and labour, before HST. Hardware, where any is needed, is quoted separately
-// at cost plus a small markup rather than folded into these bands. The "+ HST" is
+// Setup and labour, before HST. Hardware is the customer's own: we tell them the exact
+// model and where to buy it (A2, 2026-11-01), so nothing is marked up. The "+ HST" is
 // on the number itself so no surface can show the band without the tax.
 export const smartHomeTiers: HomeTier[] = [
   {
@@ -60,4 +60,5 @@ export const HOME_TAX = "+ HST";
 export const FIRST_DEVICE_OFFER = "$99 + HST: your first smart device set up and working on your phone.";
 export const FIRST_DEVICE_SCOPE = "Nothing in the walls. Plug-in, battery and Wi-Fi devices only.";
 // The second price, under the first and never written as "from" (his call 2026-10-07).
-export const FIRST_DEVICE_SWAP = "Simple swap, like a doorbell on existing wiring: $59 + HST.";
+// The $59 wired doorbell swap was pulled 2026-11-01 until ESA answers (A3).
+export const EXTRA_DEVICE = "Each extra device on the same visit: $49 + HST.";

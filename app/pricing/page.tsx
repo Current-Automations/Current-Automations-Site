@@ -99,7 +99,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "Is hardware included in the home prices?",
     answer:
-      "No, those bands are setup and labour. If you already own the gear there is no hardware line at all. If you do not, we source it and it goes on the quote at cost plus a small markup, listed separately so you can see what is the device and what is the work.",
+      "No, those bands are setup and labour. If you already own the gear there is no hardware line at all. If you do not, we tell you the exact model and where to get it, and you buy it at the shelf price. Each extra device on the same visit is $49 + HST.",
   },
   {
     question: "What does it cost to get a quote?",
@@ -571,7 +571,7 @@ export default function PricingPage() {
         code="CA-P9"
         label="For your home"
         title="Home work is paid once, not monthly."
-        description="Setup and labour, published the same way. Hardware, where any is needed, is quoted separately at cost plus a small markup rather than folded into these bands. There is no plan to cancel and no monthly fee."
+        description="Setup and labour, published the same way. Any hardware you buy yourself at the shelf price, and we tell you what. There is no plan to cancel and no monthly fee."
         tone="paper"
       >
         <div className="grid gap-6 lg:grid-cols-3">

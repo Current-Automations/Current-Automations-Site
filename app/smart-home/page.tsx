@@ -9,13 +9,13 @@ import TicketCard from "@/components/jobsheet/TicketCard";
 import ComingSoonCard from "@/components/jobsheet/ComingSoonCard";
 import Stamp from "@/components/jobsheet/Stamp";
 import { homeTextLine } from "@/data/siteContent";
-import { smartHomeTiers as tiers, HOME_PRICE_PROMISE, FIRST_DEVICE_OFFER, FIRST_DEVICE_SCOPE, FIRST_DEVICE_SWAP, HOME_TAX } from "@/data/homePricing";
+import { smartHomeTiers as tiers, HOME_PRICE_PROMISE, FIRST_DEVICE_OFFER, FIRST_DEVICE_SCOPE, EXTRA_DEVICE, HOME_TAX } from "@/data/homePricing";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/smart-home" },
   title: "Smart Home Setup",
   description:
-    "Smart home setup and installation in Durham Region and the GTA. Lights, locks, thermostats, doorbells and voice control, installed and working before we leave. You do not need to buy the gear first.",
+    "Smart home setup and installation in Durham Region. Lights, locks, thermostats, doorbells and voice control, installed and working before we leave. Text a photo first and we tell you what to buy.",
 };
 
 const setups = [
@@ -93,7 +93,7 @@ const faqItems = [
   {
     question: "Do I need to buy anything before you come?",
     answer:
-      "No. If you already own the gear we will set up what you have. If you do not, we source it and it goes on the quote at cost plus a small markup, so you are not paying retail on top of labour. A deposit covers the hardware before we buy it, and the rest is due when the job is done.",
+      "Not yet. If you already own the gear we set up what you have. If you do not, text a photo of what is there now and we tell you the exact model to get and where. You buy it at the shelf price, so there is no markup and no deposit.",
   },
   {
     question: "Do you replace the switches in the wall?",
@@ -118,7 +118,7 @@ const faqItems = [
   {
     question: "How far do you travel?",
     answer:
-      "In-home work is Durham Region and the GTA. If you are further out, ask anyway. Some of it, voice assistants, shortcuts and troubleshooting, we can do remotely, and we would rather help than turn you away over a postcode.",
+      "In-home work is Durham Region. If you are further out, ask anyway. Some of it, voice assistants, shortcuts and troubleshooting, we can do remotely, and we would rather help than turn you away over a postcode.",
   },
   {
     question: "What happens if something goes wrong after you leave?",
@@ -138,9 +138,9 @@ export default function SmartHomePage() {
       <JobSheetPageHero
         docLabel="HOME FILE"
         docCode="FORM SH-01"
-        kicker="Smart home setup, Durham and the GTA"
+        kicker="Smart home setup, Durham Region"
         title="Your house should do the boring parts on its own."
-        description="Lights, locks, the thermostat, the doorbell, all working together and all on one app instead of five. We install it, test it, and show you how to change it. You do not need to buy anything first."
+        description="Lights, locks, the thermostat, the doorbell, all working together and all on one app instead of five. We install it, test it, and show you how to change it. Text a photo before you buy anything."
         sideAlign="start"
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
@@ -157,7 +157,7 @@ export default function SmartHomePage() {
                 {FIRST_DEVICE_OFFER}
               </p>
               <p className="mt-1 text-base font-medium leading-7 text-[#181510]">
-                {FIRST_DEVICE_SWAP}
+                {EXTRA_DEVICE}
               </p>
               <p className="mt-2 text-sm leading-7 text-[#3a352c]">
                 {FIRST_DEVICE_SCOPE} Text a photo of the device and we will tell you what it needs.
@@ -239,8 +239,8 @@ export default function SmartHomePage() {
       <JobSheetSection
         code="SH-03"
         label="The gear question"
-        title="You do not need to buy anything first."
-        description="Most installers are labour only and expect you to have already bought the right hardware. Guessing wrong is expensive and it is the main reason people never start."
+        title="Do not buy anything until we have looked."
+        description="Most people buy first and find out later it does not work with what they have. Guessing wrong is expensive and it is the main reason people never start."
         tone="ink"
       >
         <div className="grid gap-6 lg:grid-cols-2">
@@ -258,9 +258,9 @@ export default function SmartHomePage() {
               If you do not own it
             </h3>
             <p className="mt-3 text-sm leading-7 text-[rgba(243,237,225,0.72)]">
-              We spec it and source it. Hardware goes on the quote at cost plus a small markup, so
-              you are not paying full retail on top of labour. A deposit covers the gear before we
-              buy it, the balance is due when it is working.
+              Text a photo of what is there now. We send you the exact model and where to get it,
+              you buy it at the shelf price, and we set it up when it arrives. There is no markup
+              and no deposit.
             </p>
           </TicketCard>
         </div>
@@ -270,7 +270,7 @@ export default function SmartHomePage() {
         code="SH-04"
         label="Pricing"
         title="Published, so you can decide before you call."
-        description="Setup and labour, plus HST. Hardware, if you need any, is quoted separately at cost plus a small markup. No hourly rate, no surprise on the invoice."
+        description="Setup and labour, plus HST. Any hardware you buy yourself at the shelf price, and we tell you what. No hourly rate, no surprise on the invoice."
         tone="paper"
       >
         <div className="grid gap-6 lg:grid-cols-3">

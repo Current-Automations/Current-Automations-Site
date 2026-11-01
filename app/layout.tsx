@@ -22,7 +22,7 @@ const fraunces = Fraunces({
 
 const TITLE = "Current Automations | Business and Home Automation, Done For You";
 const DESCRIPTION =
-  "Current Automations builds and installs the systems that run your business and your home for you, then keeps them working out of sight. Durham Region and the GTA.";
+  "Current Automations builds and installs the systems that run your business and your home for you, then keeps them working out of sight. Durham Region, Ontario.";
 
 export const metadata: Metadata = {
   // Required for the generated OG and Twitter images to resolve to absolute URLs.

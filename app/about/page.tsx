@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const fileFacts = [
   { label: "Founder", value: "Jarrett Goodwin" },
   { label: "Based in", value: "Ontario, Canada" },
-  { label: "Serves", value: "Durham Region + GTA, remote across Ontario" },
+  { label: "Serves", value: "Durham Region in person, remote across Ontario" },
   { label: "First step", value: "Free 30-minute walkthrough" },
   { label: "Go-live", value: "Within 48 hours of your approval" },
 ];
