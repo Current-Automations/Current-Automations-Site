@@ -14,7 +14,7 @@ Drafted Sun 2026-11-01 by hand. The Saturday routine (Sat 10/31 21:00) drafted t
 | Day | Platform | Post | Asset |
 |---|---|---|---|
 | Mon 11/2 5:00 | IG carousel + FB | Case card: three days to reply (Results Grow), carried from Sun 11/1 | `/social/2026-W44/statrg-1..2.png`, already in the repo |
-| Mon 11/2 8:00 | LinkedIn | One trigger, four jobs (video9, built scene) | `out/feed/video9.mp4` (29s, 1080x1080, silent) |
+| Wed 11/4 8:00 | LinkedIn (scheduled 11-03, read back from the page; Mon 11/2 missed) | One trigger, four jobs (video9, built scene) | `out/feed/video9.mp4` (29s, 1080x1080, silent) |
 | Wed 11/4 5:00 | IG Reel + FB | You leave, it locks up (video9, built scene) | `out/story/video9.mp4` (29s, silent, needs music) |
 | Thu 11/5 5:00 | IG Reel + FB | The house wakes up first (video10, built scene) | `out/story/video10.mp4` (32s, silent, needs music) |
 | Sat 11/7 5:00 | IG Reel + FB | Cool the house down from the car (home1, built scene) | `out/home1.mp4` (13s, silent, needs music) |
@@ -181,3 +181,11 @@ LinkedIn uploads `out/feed/video9.mp4` by hand; it is not copied.
 - Mon 11/2: the carried case card and video9 land two days running. Leave it, or video9 moves to Wed.
 - A clip in `OneDrive/CA Clips`. Anything real from the phone goes ahead of the bank.
 - Install the Claude GitHub App on the Current-Automations org so Saturday's routine can open its PR: https://github.com/apps/claude/installations/select_target
+
+## LinkedIn queue (scheduled on the page 2026-11-03, read back from the scheduled list)
+
+- Wed 11/4 8:00: video9, One trigger, four jobs
+- Mon 11/9 8:00: stat21 single image, 21x lead response (from week 05, missed 10/26)
+- Mon 11/16 8:00: linkedin-statrg.pdf document "Three days to reply" (from week 05, missed 10/28)
+
+Weeks 46 and 47 already have their LinkedIn post. The Sunday gate still checks the list; a new draft for those weeks waits for 11/23.

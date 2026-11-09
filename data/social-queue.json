@@ -1,75 +1,57 @@
 {
-  "week": "2026-W45",
-  "approvedAt": "2026-10-25 (w44-statrg, carried from W44); 2026-11-03 (his \"APPROVE\" for video9, video10, home1, no true lines)",
+  "week": "2026-W46",
+  "approvedAt": "2026-11-08 (captions locked by him in chat, Sunday session)",
   "posts": [
     {
-      "id": "w44-statrg",
-      "at": "2026-11-01T06:00:00-05:00",
-      "channels": [
-        "ig",
-        "fb"
-      ],
-      "kind": "carousel",
-      "media": [
-        "/social/2026-W44/statrg-1.png",
-        "/social/2026-W44/statrg-2.png"
-      ],
-      "caption": "Up to three days to answer a new lead. That was normal at one service business, because the people answering leads were the same people out doing the work.\n\nThey added a bot that replies the moment a lead comes in, answers the basic questions and books a consult. In the first year it booked 30% of their consultations.\n\nThe shape fits any shop where the owner is also the one on the job. Our demo line runs the first part of it. Call 1 365 299 3366, say your AC quit, and after you hang up a text lands with what you asked for and how urgent it sounded. The free walkthrough link is in our bio.\n\nSource: Zapier customer story, Results Grow.\n\n#automation #durhamregion #smallbusinessautomation #speedtolead #tradesbusiness",
-      "fbCaption": "Up to three days to answer a new lead. That was normal at one service business, because the people answering leads were the same people out doing the work.\n\nThey added a bot that replies the moment a lead comes in, answers the basic questions and books a consult. In the first year it booked 30% of their consultations.\n\nThe shape fits any shop where the owner is also the one on the job. Our demo line runs the first part of it. Call 1 365 299 3366, say your AC quit, and after you hang up a text lands with what you asked for and how urgent it sounded. Free walkthrough at currentautomations.ca/book-a-demo\n\nSource: Zapier customer story, Results Grow.",
-      "trueLine": "2026-10-01: the AC call and the text that says what was asked and how urgent it sounded",
-      "approved": true,
-      "note": "Clocks fall back 2am Sun 11/1, so 06:00 is -05:00. True line from 2026-10-01 carried once he confirms it. Carried into W45 2026-11-01: missed the 11/1 run (06:00 EST is 11:00 UTC, cron is 10:00 UTC), goes out at the Mon 11/2 run unless the 11/1 #ca Publisher line shows it posted."
-    },
-    {
-      "id": "w45-video9",
-      "at": "2026-11-04T05:00:00-05:00",
+      "id": "w46-video5",
+      "at": "2026-11-09T05:00:00-05:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "reel",
       "media": [
-        "/social/2026-W45/video9.mp4"
+        "/social/2026-W46/video5.mp4"
       ],
-      "caption": "Ever turned the car around halfway to work to check the garage?\n\nYou leave with the lights on, the heat running and maybe the garage still open.\n\nIn this routine the trigger is your phone crossing the end of the driveway. Every light goes off, the thermostat drops to eco, the garage door gets confirmed shut and the doors lock. The clip shows each one tick off while you are already down the road.\n\nNo checklist at the door, and no turning the car around to check.\n\nThis is a built scene, not phone footage.\n\nText a photo of your lock or thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #smartlock #geofence",
-      "fbCaption": "Ever turned the car around halfway to work to check the garage?\n\nYou leave with the lights on, the heat running and maybe the garage still open.\n\nIn this routine the trigger is your phone crossing the end of the driveway. Every light goes off, the thermostat drops to eco, the garage door gets confirmed shut and the doors lock. The clip shows each one tick off while you are already down the road.\n\nNo checklist at the door, and no turning the car around to check.\n\nThis is a built scene, not phone footage.\n\nText a photo of your lock or thermostat to 365-299-3366.",
-      "trueLine": "2026-11-03: his call to ask viewers the question he was asked",
+      "caption": "Tell us the trade, the region, the crew size, and whether they need to be licensed and bonded.\n\nWe find the subs that fit and send back a list with a named person to call at each company. That skips the crews that are too small and the contacts who left two years ago.\n\nYou make the calls. We do the digging, and we do it fast.\n\nFree walkthrough in bio.\n\n#automation #durhamregion #smallbusinessautomation #subcontractors #contractorlife",
+      "fbCaption": "Tell us the trade, the region, the crew size, and whether they need to be licensed and bonded.\n\nWe find the subs that fit and send back a list with a named person to call at each company. That skips the crews that are too small and the contacts who left two years ago.\n\nYou make the calls. We do the digging, and we do it fast.\n\nFree walkthrough at currentautomations.ca/book-a-demo",
+      "trueLine": "2026-11-08: captions locked by him in chat, straight and to the point, saying exactly what we do (his note on video5)",
       "approved": true,
-      "note": "Built scene, caption says so. Music baked 2026-11-03 into out/story-music/ (video9: November by Limujii, video10: Sweet Talks by Limujii, home1: Donut by Lukrembo, freetouse.com pack, about -22 LUFS). Approved 2026-11-03 on his \"APPROVE\" without a true line. 05:00 EST is the cron's hour after the clocks fell back. Moved from Tue 11/3 (approved after that run) to Wed 11/4."
+      "note": "Music baked in out/story-music/. 05:00 EST is the cron's hour (0 10 * * *)."
     },
     {
-      "id": "w45-video10",
-      "at": "2026-11-05T05:00:00-05:00",
+      "id": "w46-video2",
+      "at": "2026-11-11T05:00:00-05:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "reel",
       "media": [
-        "/social/2026-W45/video10.mp4"
+        "/social/2026-W46/video2.mp4"
       ],
-      "caption": "What's the first thing you want running when you wake up?\n\nThe alarm goes off at 6 and the room is still dark.\n\nPart of the morning has been running since 5:40 on a weekday. The AC has the room cool, the blinds open partway and the lights come up slow. The rest waits for a tap on an NFC tag, wherever you put it: the coffee starts, the weather and your day get read out with anything that broke overnight, and your podcast picks up in the kitchen.\n\nWhich steps run on their own and which wait for the tap gets set when we build it.\n\nThis is a built scene, not phone footage.\n\nSend a photo of the bedroom thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #morningroutine #nfc",
-      "fbCaption": "What's the first thing you want running when you wake up?\n\nThe alarm goes off at 6 and the room is still dark.\n\nPart of the morning has been running since 5:40 on a weekday. The AC has the room cool, the blinds open partway and the lights come up slow. The rest waits for a tap on an NFC tag, wherever you put it: the coffee starts, the weather and your day get read out with anything that broke overnight, and your podcast picks up in the kitchen.\n\nWhich steps run on their own and which wait for the tap gets set when we build it.\n\nThis is a built scene, not phone footage.\n\nSend a photo of the bedroom thermostat to 365-299-3366.",
-      "trueLine": "2026-11-03: his call to ask viewers the question he was asked",
+      "caption": "Calls, texts, the web form, a message on your Google profile. We tie all four together.\n\nEach lead gets its own reply. A missed call gets a text back in 9 seconds. Then you get one summary of every lead and where it came from, so you're not checking four inboxes after the last job.\n\nLink in bio.\n\n#automation #durhamregion #smallbusinessautomation #leadmanagement #tradesbusiness",
+      "fbCaption": "Calls, texts, the web form, a message on your Google profile. We tie all four together.\n\nEach lead gets its own reply. A missed call gets a text back in 9 seconds. Then you get one summary of every lead and where it came from, so you're not checking four inboxes after the last job.\n\nFree walkthrough at currentautomations.ca/book-a-demo",
+      "trueLine": "2026-11-08: captions locked by him in chat, straight and to the point, saying exactly what we do (his note on video5)",
       "approved": true,
-      "note": "Built scene, caption says so. Music baked 2026-11-03 into out/story-music/ (video9: November by Limujii, video10: Sweet Talks by Limujii, home1: Donut by Lukrembo, freetouse.com pack, about -22 LUFS). Approved 2026-11-03 on his \"APPROVE\" without a true line. 05:00 EST is the cron's hour after the clocks fell back."
+      "note": "Music baked in out/story-music/. 05:00 EST is the cron's hour (0 10 * * *). Re-rendered 2026-11-08: GBP message is the leaking water heater, old cuts in _backup-2026-11-08."
     },
     {
-      "id": "w45-home1",
-      "at": "2026-11-07T05:00:00-05:00",
+      "id": "w46-teardown2",
+      "at": "2026-11-13T05:00:00-05:00",
       "channels": [
         "ig",
         "fb"
       ],
       "kind": "reel",
       "media": [
-        "/social/2026-W45/home1.mp4"
+        "/social/2026-W46/teardown2.mp4"
       ],
-      "caption": "Twelve minutes from home, one line to Siri: cool the house down.\n\nThe thermostat sets to 68°F, the AC comes on for the whole house, and the living room is already down from 74 to 70 on the way there. No app opened. A Shortcut does the work, built once.\n\nWhen would you use it? Tell us in the comments.\n\nThis is a built scene, not phone footage.\n\nText a photo of your thermostat to 365-299-3366.\n\n#automation #smarthome #durhamregion #siri #shortcuts",
-      "fbCaption": "Twelve minutes from home, one line to Siri: cool the house down.\n\nThe thermostat sets to 68°F, the AC comes on for the whole house, and the living room is already down from 74 to 70 on the way there. No app opened. A Shortcut does the work, built once.\n\nWhen would you use it? Tell us in the comments.\n\nThis is a built scene, not phone footage.\n\nText a photo of your thermostat to 365-299-3366.",
-      "trueLine": "2026-11-03: his call to ask viewers the question he was asked",
+      "caption": "You send the quote. We send the follow-ups.\n\nA text on day 0 checks it arrived. Two days later one says the timing still works, and on day 5 a last one says the quote stays open. All in your name, and they stop the moment the customer replies.\n\nIn the clip it's a $1,400 quote, and the customer writes back asking to book this week.\n\nFree walkthrough in bio.\n\n#automation #durhamregion #smallbusinessautomation #followup #quotes",
+      "fbCaption": "You send the quote. We send the follow-ups.\n\nA text on day 0 checks it arrived. Two days later one says the timing still works, and on day 5 a last one says the quote stays open. All in your name, and they stop the moment the customer replies.\n\nIn the clip it's a $1,400 quote, and the customer writes back asking to book this week.\n\nFree walkthrough at currentautomations.ca/book-a-demo",
+      "trueLine": "2026-11-08: captions locked by him in chat, straight and to the point, saying exactly what we do (his note on video5)",
       "approved": true,
-      "note": "Built scene, caption says so. Music baked 2026-11-03 into out/story-music/ (video9: November by Limujii, video10: Sweet Talks by Limujii, home1: Donut by Lukrembo, freetouse.com pack, about -22 LUFS). Approved 2026-11-03 on his \"APPROVE\" without a true line. 05:00 EST is the cron's hour after the clocks fell back."
+      "note": "Music baked in out/story-music/. 05:00 EST is the cron's hour (0 10 * * *)."
     }
   ]
 }

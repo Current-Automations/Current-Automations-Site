@@ -23,6 +23,7 @@ Captions go through `humanize` before they land here, and nothing is approved un
 - Door line last: "Free walkthrough in bio" or "Link in bio" (business), "Text a photo of it to 365-299-3366" (home). The demo line is 1 365 299 3366 when it is the point.
 - Instagram hashtags on their own line: `#automation #durhamregion` plus `#smallbusinessautomation` or `#smarthome`, then two swapped per post. None on Facebook.
 - Facebook copy is the same caption with the bio line swapped for `currentautomations.ca/book-a-demo` (business) or the text line (home).
+- LinkedIn is posted by hand, so the Sunday session ends only once it shows as scheduled on the company page (checked, date and time read back). See `ops/social/DRAFT-ROUTINE.md`.
 - LinkedIn: 150 to 300 words, a fact in the first line, three hashtags max, ends on a fact or a plain invitation. Google Business: two or three sentences, price with "+ HST", ends "Text 365-299-3366."
 - No em dashes anywhere. Lint with `py -3 scripts/humanize-lint.py data/social/week-NN-packet.md` (copy of the humanize skill's checker). A source line may close a post; the same sign-off on three posts may not.
 - Reddit is never drafted.
