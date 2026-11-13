@@ -62,3 +62,4 @@ Current Automations*.html
 # sms bot check build
 /.sms-bot-build/
 .group-reply-build/
+/.demo-booking-build/
