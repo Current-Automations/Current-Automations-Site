@@ -138,7 +138,7 @@ export default function CallDispatchPage() {
           <a href={demoLine.href} className="font-medium text-[var(--color-brand-strong)] hover:underline">
             {demoLine.display}
           </a>
-          . Let it ring out and watch your phone.
+          . It answers as the front desk of a made-up plumbing shop. Book a visit and try to trip it up.
         </p>
       </JobSheetSection>
 
@@ -369,7 +369,7 @@ export default function CallDispatchPage() {
         code="CD-07"
         label="Hear it yourself"
         title="Call the demo line, then book your free walkthrough."
-        description={`The demo line is live at ${demoLine.display}. Let it ring out and the text you get back is the product. When you're ready, the walkthrough finds where your calls are leaking.`}
+        description={`The demo line is live at ${demoLine.display}. It answers as the front desk of a made-up plumbing shop with a real calendar. When you're ready, the walkthrough finds where your calls are leaking.`}
         primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
         secondaryHref="/demo"

@@ -29,8 +29,8 @@ export const metadata: Metadata = {
 
 const testSteps = [
   { time: "0:00", label: `Call ${DEMO_NUMBER_DISPLAY}` },
-  { time: "0:00", label: "Say something, or just let it ring" },
-  { time: "~0:30", label: "A text lands on the number you called from" },
+  { time: "0:05", label: "It answers as Rowan Plumbing, a made-up shop. Book a visit" },
+  { time: "after", label: "A text lands on the number you called from" },
 ];
 
 export default function DealPage() {

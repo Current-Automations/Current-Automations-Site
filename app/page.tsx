@@ -183,8 +183,8 @@ export default function Home() {
         id="demo"
         code="CA-03"
         label="Proof you can dial right now"
-        title="Call it yourself. The text you get back is the product."
-        description="The demo line is live. Call and let it go to voicemail. You will get a text within seconds: the same thing your customers experience when they reach your business after hours. Takes 30 seconds, works on any phone."
+        title="Call it yourself. Then try to trip it up."
+        description="The demo line is live. It answers as the front desk of Rowan Plumbing, a made-up shop with a real calendar. Book a visit, change your mind, try to trip it up. Works on any phone."
         tone="paper"
       >
         <div className="grid gap-6 lg:grid-cols-2">
@@ -203,14 +203,14 @@ export default function Home() {
                 </a>
                 <p className="mt-2 text-xs text-[#58524a]">Tap to call on mobile</p>
                 <p className="mt-4 text-base leading-8 text-[#58524a]">
-                  No signup. No form. The text you get back is the product.
+                  No signup. No form. No sales call.
                 </p>
               </div>
               <div className="mt-6 grid gap-3 text-left">
                 {[
-                  "Call the number and let it ring",
-                  "Watch for a text within 60 seconds",
-                  "That is what your customers will experience",
+                  "Call the number",
+                  "Book a visit with Rowan Plumbing, a shop we made up",
+                  "That is the front desk your customers would get",
                 ].map((step, i) => (
                   <div
                     key={step}
