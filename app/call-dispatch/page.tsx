@@ -65,7 +65,7 @@ const decayRows = [
   { time: "Under 1 min", bar: 100, label: "Baseline" },
   { time: "5 min", bar: 38, label: "-62%" },
   { time: "10 min", bar: 18, label: "-82%" },
-  { time: "30 min", bar: 8, label: "1/21 of baseline" },
+  { time: "30 min", bar: 8, label: "1/21 of 5 min" },
   { time: "60 min+", bar: 3, label: "Effectively lost" },
 ];
 
@@ -134,7 +134,7 @@ export default function CallDispatchPage() {
           ))}
         </div>
         <p className="mt-8 text-center text-sm leading-7 text-[#58524a]">
-          Want to feel it yourself? Call the live demo line:{" "}
+          That is the missed call. To hear a call get answered, dial the live demo line:{" "}
           <a href={demoLine.href} className="font-medium text-[var(--color-brand-strong)] hover:underline">
             {demoLine.display}
           </a>

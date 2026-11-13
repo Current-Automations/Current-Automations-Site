@@ -79,7 +79,7 @@ export default function DispatchLog() {
           Total elapsed
         </span>
         <span className={`${styles.mono} text-sm font-semibold text-[var(--color-brand-strong)]`}>
-          00:03:18
+          00:03:22
         </span>
       </div>
     </div>
