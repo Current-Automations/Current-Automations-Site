@@ -1,6 +1,6 @@
 import { fmtSlot, isoLocal, parseIsoLocal, torontoParts, torontoToUtc } from "../sms-bot/time";
 
-// Rowan Plumbing Co. is the made-up shop the voice demo answers for. Its calendar is
+// Demo Plumbing. is the made-up shop the voice demo answers for. Its calendar is
 // real in the sense that matters on a call: a slot someone books is gone for the next
 // caller, and a share of slots are already taken by standing work so "that one's
 // gone, I have 3 or 4" happens without anyone staging it.
@@ -173,7 +173,7 @@ export async function book(
   const start = isoLocal(parseIsoLocal(args.start)!);
   await store.put({ start, name: args.name, phone, address: args.address ?? "", issue: args.issue ?? "", callId, createdAt: now });
   const label = fmtSlot(parseIsoLocal(start)!);
-  return { ok: true, message: `Booked for ${label}. Read it back once.`, booking: { start, label } };
+  return { ok: true, message: `Booked for ${label}. It is booked: tell them so, and do not read the visit back again.`, booking: { start, label } };
 }
 
 export async function reschedule(

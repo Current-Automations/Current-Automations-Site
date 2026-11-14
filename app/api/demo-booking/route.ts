@@ -5,7 +5,7 @@ import { syncDelete, syncList, syncSet, TwilioEnv } from "@/lib/sms-bot/twilio";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// Retell calls this mid-call as a custom function for the Rowan Plumbing demo agent:
+// Retell calls this mid-call as a custom function for the Demo Plumbing demo agent:
 // body is { name, call, args }. It writes to shared state, so every request has to
 // carry the key the agent spec sends in x-demo-booking-key.
 

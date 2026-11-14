@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 
 const testSteps = [
   { time: "0:00", label: `Call +${demoLine.display}` },
-  { time: "0:05", label: "It answers as Rowan Plumbing and tells you it is an AI" },
+  { time: "0:05", label: "It answers as Demo Plumbing and tells you it is an AI" },
   { time: "~1:00", label: "Book a visit. The slot you take is gone for the next caller" },
   { time: "after", label: "A text lands on the number you called from" },
 ];
 
 const shopFacts = [
-  ["Shop", "Rowan Plumbing Co. We made it up."],
+  ["Shop", "Demo Plumbing. We made it up."],
   ["Hours", "Mon to Fri 8 to 5, Sat 9 to 1, closed Sunday"],
   ["Work", "Leaks, clogs, toilets, taps, water heaters, sump pumps, burst pipes"],
   ["Visits", "One hour, starting on the hour"],
@@ -60,7 +60,7 @@ export default function DemoPage() {
         docCode="FORM DM-01"
         kicker="Proof you can watch, or dial"
         title="Watch it run. Then dial the line and test it yourself."
-        description="Six short demos below, three for a business and three for a house. The line is also live. It answers as the front desk of Rowan Plumbing, a made-up shop with a real calendar. Book a visit, change your mind, try to trip it up. No signup, no form, no sales call."
+        description="Six short demos below, three for a business and three for a house. The line is also live. It answers as the front desk of Demo Plumbing, a made-up shop with a real calendar. Book a visit, change your mind, try to trip it up. No signup, no form, no sales call."
         side={
           <div className={`${jobsheet.ticket} overflow-hidden p-0`}>
             <div className="flex items-center justify-between border-b-2 border-dashed border-[rgba(28,36,48,0.24)] bg-[rgba(28,36,48,0.03)] px-5 py-3">
@@ -105,7 +105,7 @@ export default function DemoPage() {
         code="DM-01A"
         label="The brief"
         title="This is everything we gave the agent."
-        description="Rowan Plumbing is not a real shop. We wrote it one page of facts and a short list of rules, then connected it to a calendar. Yours would be your hours, your services and your calendar."
+        description="Demo Plumbing is not a real shop. We wrote it one page of facts and a short list of rules, then connected it to a calendar. Yours would be your hours, your services and your calendar."
         tone="carbon"
       >
         <div className="grid gap-5 lg:grid-cols-3">

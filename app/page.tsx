@@ -184,7 +184,7 @@ export default function Home() {
         code="CA-03"
         label="Proof you can dial right now"
         title="Call it yourself. Then try to trip it up."
-        description="The demo line is live. It answers as the front desk of Rowan Plumbing, a made-up shop with a real calendar. Book a visit, change your mind, try to trip it up. Works on any phone."
+        description="The demo line is live. It answers as the front desk of Demo Plumbing, a made-up shop with a real calendar. Book a visit, change your mind, try to trip it up. Works on any phone."
         tone="paper"
       >
         <div className="grid gap-6 lg:grid-cols-2">
@@ -209,7 +209,7 @@ export default function Home() {
               <div className="mt-6 grid gap-3 text-left">
                 {[
                   "Call the number",
-                  "Book a visit with Rowan Plumbing, a shop we made up",
+                  "Book a visit with Demo Plumbing, a shop we made up",
                   "That is the front desk your customers would get",
                 ].map((step, i) => (
                   <div
