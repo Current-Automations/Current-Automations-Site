@@ -25,7 +25,7 @@ const steps = [
   {
     number: "02",
     title: "Opportunity map",
-    body: "Based on what we hear, we point at the one or two things worth fixing first. In a business that is usually missed calls, follow-up, or admin. In a home it is the lights, the lock, the thermostat, or the routine you keep doing by hand. You get a clear recommendation, not a list of products.",
+    body: "Based on what we hear, we point at the one or two things worth fixing first. In a business that is usually missed calls, follow-up, or admin. At home it is the routine you keep doing by hand. You get a clear recommendation, not a list of products.",
   },
   {
     number: "03",
@@ -48,7 +48,7 @@ const guarantees = [
   "No technical knowledge required at any stage",
   "We maintain what we build, you are not left with it",
   "Most setups are running within days, not months",
-  "Business systems run on a monthly plan; home installs are one-time",
+  "Business systems run on a monthly plan; phone routines are one-time",
 ];
 
 const heroChecklist = [
@@ -63,7 +63,7 @@ const pillarPointers = [
   { href: "/follow-up", label: "Auto-replies & follow-up", note: "Watch a quiet quote get chased to a yes" },
   { href: "/back-office", label: "Back-office & admin", note: "Invoice follow-up, from due date to paid" },
   { href: "/lead-generation", label: "Lead generation", note: "B2B only: pipelines that find your next customers" },
-  { href: "/smart-home", label: "Smart home setup", note: "Lights, locks, thermostats and voice, installed and working" },
+  { href: "/everyday-automations", label: "Everyday automations", note: "Phone routines for the morning, the drive and bedtime" },
 ];
 
 function CheckBox() {

@@ -9,7 +9,6 @@ const companyLinks = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
-  { href: "/smart-home", label: "Smart Home" },
   { href: "/everyday-automations", label: "Everyday Automations" },
   { href: booking.path, label: booking.label },
 ];

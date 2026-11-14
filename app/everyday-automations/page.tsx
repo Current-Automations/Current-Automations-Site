@@ -96,11 +96,6 @@ const faqItems = [
       "Most of this is strongest on iPhone, where Shortcuts and Focus modes go deepest. Android has its own version through Google and Samsung routines, and we build on whatever you carry. If the house has both, we set up each phone.",
   },
   {
-    question: "Is this the same as the smart home installs?",
-    answer:
-      "No. Smart home is hardware we come out and fit: lights, locks, thermostats. This is the phone side, the shortcuts and routines that tie things together or run on their own. You can have one without the other, and they work well together.",
-  },
-  {
     question: "What can actually run without any smart devices?",
     answer:
       "Plenty. Focus and Screen Time, location reminders, morning and commute routines, NFC tags that open apps or send a text, backup and photo cleanup. The phone alone does a lot before a single bulb is involved.",
@@ -283,8 +278,8 @@ export default function EverydayAutomationsPage() {
         description={`A quick screen-share, no visit needed. Most setups run ${everydayAutomationsPricing.range} one-time, ${everydayAutomationsPricing.note}.`}
         primaryHref={booking.path}
         primaryLabel="Book a Free Walkthrough"
-        secondaryHref="/smart-home"
-        secondaryLabel="See Smart Home Setup"
+        secondaryHref="/pricing"
+        secondaryLabel="See Pricing"
       />
     </div>
   );

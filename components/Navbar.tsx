@@ -29,7 +29,6 @@ const automateGroups = [
   {
     heading: "For home",
     links: [
-      { href: "/smart-home", label: "Smart Home" },
       { href: "/everyday-automations", label: "Everyday Automations" },
     ],
   },

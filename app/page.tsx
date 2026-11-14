@@ -103,7 +103,7 @@ export default function Home() {
       <JobSheetSection
         code="CA-01"
         label="Two lanes"
-        title="For your business, or for your home."
+        title="For your business, or for your phone."
         description="Same promise either way: we scope it, install it, and keep it running, and you never touch the tech. Pick the side that fits."
         tone="paper"
       >
@@ -123,13 +123,13 @@ export default function Home() {
           <Reveal variant="up" delay={120}>
             <TicketCard refCode="LANE-HOME">
               <div className="mb-4">
-                <Stamp label="For home" tone="teal" />
+                <Stamp label="For your phone" tone="teal" />
               </div>
-              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">A house that runs itself</h3>
+              <h3 className="text-2xl font-semibold tracking-tight text-[#181510]">A day that runs itself</h3>
               <p className="mt-4 text-base leading-8 text-[#58524a]">
-                Lights, locks, thermostats, doorbells, cameras and voice control, installed and working before we leave, or just your phone set up to run the routines. You do not need to buy the gear first.
+                Your phone set up to run the routines you do by hand: the morning, the drive home, bedtime. Built with you over a screen share. Nothing to buy and nothing to install.
               </p>
-              <LaneLink href="/smart-home" label="See smart home setup" />
+              <LaneLink href="/everyday-automations" label="See everyday automations" />
             </TicketCard>
           </Reveal>
         </div>

@@ -35,6 +35,8 @@ const nextConfig: NextConfig = {
       { source: "/privacy-policy", destination: "/privacy", permanent: true },
       { source: "/terms-and-conditions", destination: "/terms", permanent: true },
       { source: "/terms-of-service", destination: "/terms", permanent: true },
+      // Installs are paused (2026-11-13). The page lives on at app/_smart-home, unrouted.
+      { source: "/smart-home", destination: "/everyday-automations", permanent: false },
     ];
   },
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TicketCard from "@/components/jobsheet/TicketCard";
-import { smartHomeTiers, everydayAutomationsPricing, HOME_PRICE_PROMISE, HOME_TAX } from "@/data/homePricing";
+import { everydayAutomationsPricing, HOME_PRICE_PROMISE } from "@/data/homePricing";
 import BuyNowButton from "@/components/BuyNowButton";
 import CartSelector from "@/components/CartSelector";
 import type { CartScenario } from "@/components/CartSelector";
@@ -94,7 +94,7 @@ const pricingFaqItems: FAQItem[] = [
   {
     question: "Is there a monthly fee for home work?",
     answer:
-      "No. Home installs and phone routines are paid once and that is the end of it. The monthly plans higher up this page are the business side, and they run monthly because we are running and watching a system for you. Nothing we set up at home bills you again.",
+      "No. Phone routines are paid once and that is the end of it. The monthly plans higher up this page are the business side, and they run monthly because we are running and watching a system for you. Nothing we set up at home bills you again.",
   },
   {
     question: "Is hardware included in the home prices?",
@@ -239,7 +239,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
   title: "Pricing",
   description:
-    "Published pricing for both lanes. Business systems run monthly from $197 a bundle or $49 a single workflow; home installs and phone routines are one-time from $79 + HST.",
+    "Published pricing for both lanes. Business systems run monthly from $197 a bundle or $49 a single workflow; phone routines are one-time from $79 + HST.",
 };
 
 export default function PricingPage() {
@@ -272,8 +272,7 @@ export default function PricingPage() {
               <Reveal variant="fade" delay={200}>
                 <p className="mt-7 max-w-2xl text-base leading-8 text-[#3a352c] sm:text-lg">
                   Business systems run monthly, from $197 for a bundle or $49
-                  for a single workflow. Home work is one-time, from $79 + HST for
-                  phone routines and $99 + HST for a first device. Either way the number
+                  for a single workflow. Phone routines are one-time, from $79 + HST. Either way the number
                   is on this page rather than behind a call.
                 </p>
               </Reveal>
@@ -321,7 +320,7 @@ export default function PricingPage() {
                 From $79 + HST, once
               </p>
               <p className="mt-4 text-base leading-8 text-[#58524a]">
-                Smart home installs and phone routines. Paid once, no monthly fee, quoted before anything starts. Nothing to cancel later.
+                Phone routines. Paid once, no monthly fee, quoted before anything starts. Nothing to cancel later.
               </p>
               <Link
                 href="#home-pricing"
@@ -571,28 +570,11 @@ export default function PricingPage() {
         code="CA-P9"
         label="For your home"
         title="Home work is paid once, not monthly."
-        description="Setup and labour, published the same way. Any hardware you buy yourself at the shelf price, and we tell you what. There is no plan to cancel and no monthly fee."
+        description="Published the same way. There is no plan to cancel and no monthly fee."
         tone="paper"
       >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {smartHomeTiers.map((tier, i) => (
-            <Reveal key={tier.code} delay={i * 70}>
-              <TicketCard refCode={tier.code} className="h-full">
-                <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-semibold tracking-tight text-[#181510]">{tier.name}</h3>
-                  {tier.featured ? <Stamp tone="teal" label="Most homes" /> : null}
-                </div>
-                <p className={`${jobsheet.mono} mt-4 text-[clamp(1.6rem,3vw,2rem)] font-semibold text-[#181510]`}>
-                  {tier.price}{tier.code === "T3" ? null : <span className="ml-2 text-base font-medium text-[#58524a]">{HOME_TAX}</span>}
-                </p>
-                <p className="mt-4 text-sm leading-7 text-[#58524a]">{tier.fit}</p>
-              </TicketCard>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={220}>
-          <div className={`${jobsheet.ticket} mt-6 p-7 sm:p-8`}>
+        <Reveal>
+          <div className={`${jobsheet.ticket} p-7 sm:p-8`}>
             <div className="mb-4">
               <Stamp label="No hardware, no visit" tone="teal" />
             </div>
@@ -606,11 +588,7 @@ export default function PricingPage() {
         </Reveal>
 
         <p className="mt-8 max-w-3xl text-sm leading-7 text-[#58524a]">
-          {HOME_PRICE_PROMISE} What each band includes is on{" "}
-          <Link href="/smart-home" className="font-medium text-[var(--color-brand-strong)] hover:underline">
-            Smart Home Setup
-          </Link>{" "}
-          and{" "}
+          {HOME_PRICE_PROMISE} What it includes is on{" "}
           <Link href="/everyday-automations" className="font-medium text-[var(--color-brand-strong)] hover:underline">
             Everyday Automations
           </Link>

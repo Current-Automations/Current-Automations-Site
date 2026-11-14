@@ -59,7 +59,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How do you decide what to automate first?",
     answer:
-      "We start every job with a free walkthrough, a 30-minute call where we map exactly what could be running without you. From there, we recommend the one or two systems with the highest impact. In a business that is usually Speed to Lead; in a home it is usually lighting or the thermostat. Neither is always the first fix.",
+      "We start every job with a free walkthrough, a 30-minute call where we map exactly what could be running without you. From there, we recommend the one or two systems with the highest impact. In a business that is usually Speed to Lead; at home it is usually the morning or the bedtime routine. Neither is always the first fix.",
   },
   {
     question: "What if my main problem is not missed calls?",
@@ -74,7 +74,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Is this only for businesses?",
     answer:
-      "No. There are two sides to it. The business side is call handling, follow-up, and the admin that eats your evenings. The home side is smart home installs and the phone routines that run a day without you touching anything. The approach is the same either way: we scope it, we build it, and we keep it running. Lead generation is a separate program for companies that sell to other businesses; see the Lead Generation page for that.",
+      "No. There are two sides to it. The business side is call handling, follow-up, and the admin that eats your evenings. The home side is phone routines that run a day without you touching anything. The approach is the same either way: we scope it, we build it, and we keep it running. Lead generation is a separate program for companies that sell to other businesses; see the Lead Generation page for that.",
   },
   {
     question: "Do I need technical knowledge?",
