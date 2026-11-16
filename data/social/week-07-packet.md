@@ -12,7 +12,7 @@ Rebuilt Sun 2026-11-08 by hand from the Saturday routine's log (its push 403'd a
 ## Still to do on restart
 1. **LinkedIn clash:** week-06 packet says Mon 11/9 8:00 is already scheduled on the page (stat21 single image) and Mon 11/16 (statrg). Teardown 2 LinkedIn would double Monday; bank it for 11/23 unless he says otherwise. Read the page's scheduled list back.
 2. Write the W46 queue in `data/social-queue.json` (three reels, 05:00 EST Mon/Wed/Fri), copy `video5.mp4`, `video2.mp4`, `teardown2.mp4` from `brand/social-cuts/out/story-music/` to `public/social/2026-W46/`, lint this packet, commit, deploy.
-3. GBP Post E by hand: $99 + HST first device, $49 + HST each extra, ends "Text 365-299-3366."
+3. ~~GBP Post E~~ dropped 11-15: home installs paused 11-13, no install price posts until he reopens it.
 4. Rebate: the program page says $125 for everyone who qualifies, no end date; the PDF terms (which an earlier week said give $100 except EAP kit recipients) were unreadable by fetch. Extract the PDF text before any caption or bot line states the figure. Earlier today Claude told him "$125 confirmed": that is page-only.
 
 | Day | Platform | Post | Asset |
@@ -20,8 +20,10 @@ Rebuilt Sun 2026-11-08 by hand from the Saturday routine's log (its push 403'd a
 | Mon 11/9 5:00 | IG Reel + FB | video5, subcontractor list | `out/story-music/video5.mp4` |
 | Wed 11/11 5:00 | IG Reel + FB | video2, every channel in one place (re-rendered) | `out/story-music/video2.mp4` |
 | Fri 11/13 5:00 | IG Reel + FB | teardown 2, quote follow-ups | `out/story-music/teardown2.mp4` |
-| Mon 11/9 8:00 | LinkedIn | stat21 (already scheduled); teardown 2 banked to 11/23 pending his call | |
-| Sun 11/15 | GBP | Post E | text, by hand |
+| Mon 11/9 8:00 | LinkedIn | stat21, posted | |
+| Mon 11/23 8:00 | LinkedIn | teardown 2 video, scheduled Sun 11/15 and read back from the scheduled list | `out/story-music/teardown2.mp4` |
+| Mon 11/16 8:00 | LinkedIn | statrg "Three days to reply" (2-page document), read back from the page's scheduled list Sun 11/15; stat21 confirmed posted 11/9 | |
+| Sun 11/15 | GBP | Post E dropped (home installs paused 11-13, his call 11-15) | |
 
 FB copy: same caption, bio line swapped for `currentautomations.ca/book-a-demo`, no hashtags.
 
@@ -61,13 +63,15 @@ Free walkthrough in bio.
 ```
 `#automation #durhamregion #smallbusinessautomation #followup #quotes`
 
-## teardown 2, LinkedIn (banked, see item 1)
+## teardown 2, LinkedIn (Mon 11/23 8:00, rewritten 11/15 from his answers; upload `out/story-music/teardown2.mp4`)
 ```
-A $1,400 quote goes out on day 0. By day 5 the customer has written back asking to book this week, and nobody at the shop had to remember to chase it.
+A $1,400 quote goes out on day 0. By day 5 the customer has written back asking to book this week, and nobody at the shop had to remember to follow up.
 
-The follow-up runs on a schedule. A message on day 0 checks the quote arrived. Two days later another says the timing still works, and on day 5 a last one says the quote stays open. Each goes out in the owner's name, and the whole thing stops as soon as the customer replies, yes or no.
+The normal plan for a quote that goes quiet is to wait a few days and then follow up. That works as long as somebody remembers, in between jobs.
 
-The owner sends the quote and has the conversation when it comes back. The remembering in between is the part we take off their plate.
+Here the follow-up runs on a schedule. A message on day 0 checks the quote arrived. Two days later another says the timing still works, and on day 5 a last one says the quote stays open. Each goes out in the owner's name, and the whole thing stops as soon as the customer replies, yes or no.
+
+The owner sends the quote and has the conversation when it comes back. We take away the hassle of remembering the quote and following up to land the job.
 
 If you want to see it run on your own quotes, the walkthrough link is on our page.
 
